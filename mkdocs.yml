@@ -1,0 +1,123 @@
+site_name: 3D City Database v5 documentation
+# site_url: https://list-eco.pages.list-connect.de/process-docs
+site_description: Notizen und Dokumentation zu Meetings
+site_author: Bruno Willenborg
+copyright: 3DCityDB Steering Group, 2024
+repo_name: 3dcitydb/3dcitydb-mkdocs
+repo_url: https://github.com/3dcitydb/3dcitydb-mkdocs
+edit_uri: edit/main/docs
+
+# Page tree ###################################################################
+# nav:
+
+# Theme #######################################################################
+theme:
+  name: material
+  language: de
+  # logo: assets/img/...
+  # favicon: assets/img/...
+  # palette:
+  #   scheme: default
+  #   primary: green
+  #   accent: blue
+  # font:
+  #   # text: IBM Plex Sans
+  #   text: Inter
+  #   # code: DM Mono
+  features:
+    # Navigation
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    # - navigation.instant.preview
+    - navigation.footer
+    - navigation.indexes
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.path
+    - navigation.prune
+    - navigation.expand
+    - navigation.top
+    # Code
+    - content.code.select
+    - content.code.copy
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    # Header
+    # - header.autohide
+
+# Plugins #####################################################################
+plugins:
+  - search:
+      lang: de
+  - glightbox
+  - tags:
+      enabled: true
+      tags_file: tags.md
+
+# Extra #######################################################################
+extra:
+  # homepage: https://....
+  status:
+    wip: "Work in progress"
+
+# Markdown extensions #########################################################
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+      title: Table of content
+      toc_depth: 4
+      permalink_title: Link to this headline for referencing
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format:
+            !!python/name:pymdownx.superfences.fence_code_format
+  - tables
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.blocks.caption
+
+# Extra js ####################################################################
+extra_javascript:
+  - assets/javascripts/tablesort.js
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - assets/javascripts/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+
+# Extra CSS ###################################################################
+extra_css:
+  - https://unpkg.com/katex@0/dist/katex.min.css
+  - assets/stylesheets/extra.css
