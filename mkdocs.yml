@@ -14,8 +14,8 @@ edit_uri: edit/main/docs
 theme:
   name: material
   language: en
-  logo: assets/3dcitydb-logo.png
-  favicon: assets/3dcitydb-logo.png
+  logo: assets/img/logos/3dcitydb-logo.png
+  favicon: assets/img/logos/3dcitydb-logo.png
   # palette:
   #   scheme: default
   #   primary: green
