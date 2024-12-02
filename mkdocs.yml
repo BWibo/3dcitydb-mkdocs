@@ -1,5 +1,5 @@
 site_name: 3D City Database v5 documentation
-site_url: https://github.com/3dcitydb/3dcitydb-mkdocs
+site_url: https://3dcitydb.github.io/3dcitydb-mkdocs/
 site_description: Notizen und Dokumentation zu Meetings
 site_author: 3DCityDB Steering Group
 copyright: 3DCityDB Steering Group, 2024
@@ -14,8 +14,8 @@ edit_uri: edit/main/docs
 theme:
   name: material
   language: en
-  logo: assets/img/logos/3dcitydb-logo.png
-  favicon: assets/img/logos/3dcitydb-logo.png
+  logo: docs/assets/img/logos/3dcitydb-logo.png
+  favicon: docs/assets/img/logos/3dcitydb-logo.png
   # palette:
   #   scheme: default
   #   primary: green
