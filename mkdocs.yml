@@ -1,7 +1,7 @@
 site_name: 3D City Database v5 documentation
 # site_url: https://list-eco.pages.list-connect.de/process-docs
 site_description: Notizen und Dokumentation zu Meetings
-site_author: Bruno Willenborg
+site_author: 3DCityDB Steering Group
 copyright: 3DCityDB Steering Group, 2024
 repo_name: 3dcitydb/3dcitydb-mkdocs
 repo_url: https://github.com/3dcitydb/3dcitydb-mkdocs
