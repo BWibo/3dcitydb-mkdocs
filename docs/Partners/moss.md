@@ -1,7 +1,10 @@
 ---
-title: Intro
-subtitle: Gettings started with the 3DCityDB
+title: M.O.S.S.
+subtitle:
 description:
 # icon: material/emoticon-happy
 status: wip
+# tags:
+#   - tag1
+#   - tag2
 ---

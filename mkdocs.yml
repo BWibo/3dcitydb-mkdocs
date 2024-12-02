@@ -14,8 +14,8 @@ edit_uri: edit/main/docs
 theme:
   name: material
   language: en
-  logo: docs/assets/img/logos/3dcitydb-logo.png
-  favicon: docs/assets/img/logos/3dcitydb-logo.png
+  logo: assets/img/logos/3dcitydb-logo.png
+  favicon: assets/img/logos/3dcitydb-logo.png
   # palette:
   #   scheme: default
   #   primary: green
@@ -54,9 +54,9 @@ plugins:
   - search:
       lang: en
   - glightbox
-  - tags:
-      enabled: true
-      tags_file: tags.md
+  # - tags:
+  #     enabled: true
+  #     tags_file: tags.md
 
 # Extra #######################################################################
 extra:

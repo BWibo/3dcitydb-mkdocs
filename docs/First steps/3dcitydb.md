@@ -1,5 +1,5 @@
 ---
-title: Docker
+title: 3DCityDB
 subtitle: Getting started with the 3DCityDB and Docker
 description:
 # icon: material/emoticon-happy
