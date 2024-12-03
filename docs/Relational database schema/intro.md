@@ -8,3 +8,5 @@ status: wip
 #   - tag1
 #   - tag2
 ---
+# Intro
+This chapter briefly describes how to set up a 3D City Database instance, and gives an overview of the structure of the 3D City Database schema and the available database functions.
