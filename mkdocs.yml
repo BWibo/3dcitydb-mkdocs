@@ -57,6 +57,7 @@ plugins:
   # - tags:
   #     enabled: true
   #     tags_file: tags.md
+  - awesome-pages
 
 # Extra #######################################################################
 extra:
