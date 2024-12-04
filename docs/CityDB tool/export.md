@@ -44,11 +44,13 @@ citydb export citygml [OPTIONS]
 #### Examples
 
 Basic example:
+
 ```bash
 citydb export citygml -o output.gml
 ```
 
 Example with options stored in a file:
+
 ```bash
 citydb export citygml -o output.gml @args.txt
 ```
@@ -67,6 +69,7 @@ citydb export citygml -o output.gml @args.txt
 #### Example
 
 Connect to a database and export:
+
 ```bash
 citydb export citygml -H localhost -P 5432 -d my_citydb -u admin -p secret -o db_output.gml
 ```
@@ -90,11 +93,13 @@ citydb export citygml -H localhost -P 5432 -d my_citydb -u admin -p secret -o db
 #### Examples
 
 Export specific features:
+
 ```bash
 citydb export citygml -t "CityFurniture" -o filtered_output.gml
 ```
 
 Export with limited output:
+
 ```bash
 citydb export citygml --limit=5 -o filtered_output.gml
 ```
@@ -111,6 +116,7 @@ citydb export citygml --limit=5 -o filtered_output.gml
 #### Examples
 
 Export using a tile matrix:
+
 ```bash
 citydb export citygml --tile-matrix=2,2 -o tiled_output.gml
 ```
