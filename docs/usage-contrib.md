@@ -1,31 +1,39 @@
-## Usage instructions
+---
+title: Usage and contribution
+subtitle: How to use this documentation efficiently and how to contribute.
+description:
+# icon: material/emoticon-happy
+# status:
+#   new: Recently added
+---
 
-In dieser Sektion findest du Hinweise, wie du effektiv mit der Prozessdokumentation arbeiten kannst.
+This documentation is made with [`mkdocs`](https://www.mkdocs.org/) and [`mkdocs-material`](https://squidfunk.github.io/mkdocs-material). Here you will find instructions on how to work effectively with the documentation and how to contribute.
 
-### How to search
+### Search and page navigation
 
-Die effizienteste Möglichkeit Dinge in der Dokumentation zu finden, ist die Suchfunktion. Nur ein Schlagwort wird in vielen Fällen schon ausreichen, um die richtige Seite zu finden.
+The most efficient way to find things in the documentation is to use the search function. In many cases, just one keyword will be enough to find the right page. You can access the search function using the search bar at the top or keyboard shortcuts.
 
 #### Keyboard shortcuts
 
-Die großartige [Suchfunktion](https://squidfunk.github.io/mkdocs-material/plugins/search/){target="_blank"} lässt sich komfortabel über die Tastatur steuern.
-Das gleich gilt für die Navigation zwischen Seiten. Für die Suchfunktion gibt zwei Modi:
+The [search function](https://squidfunk.github.io/mkdocs-material/plugins/search/){target=“_blank”} can be conveniently controlled via the keyboard. The same applies to navigation between pages. There are two modes for the search function:
 
-:   Dieser Modus ist aktiv, wenn die _Suche fokussiert_ ist. Er bietet mehrere Tasten, um die Suche über die Tastatur zugänglich und navigierbar zu machen:
+: This mode is active when the _search bar is focused_. It offers several keys to make the search accessible and navigable via the keyboard:
 
-    * ++arrow-down++ , ++arrow-up++ : Nächstes/Vorheriges Suchergebnis auswählen
-    * ++esc++ , ++tab++ : Suchdialog schließen
-    * ++enter++ : Suchergebnis öffnen
+    * ++arrow-down++ , ++arrow-up++ : Select next/previous search result
+    * ++esc++ , ++tab++ : Close search dialog
+    * ++enter++ : Open search result
 
-:   Dieser Modus ist aktiv, wenn _Suche nicht fokussiert ist_ und wenn es kein anderes fokussiertes Element gibt, das für Tastatureingaben empfänglich ist. Die folgenden Tasten sind gebunden:
+: This mode is active when _search bar is not focused_ and when there is no other focused element that is receptive to keyboard input. The following keys are bound:
 
-    * ++f++ , ++s++ , ++slash++ : Suchdialog öffnen
-    * ++p++ , ++comma++ : Nächste Seite
-    * ++n++ , ++period++ : Vorherige Seite
+    * ++f++ , ++s++ , ++slash++ : Open search dialog
+    * ++p++ , ++comma++ : Next page
+    * ++n++ , ++period++ : Previous page
 
-[Hier](https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/?h=keyboard#keyboard-shortcuts){target="_blank"} gibt es weitere Infos zur Erstellung von eigenen Tastenkombinationen.
+See [here](https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/?h=keyboard#keyboard-shortcuts){target=“_blank”} for more information on creating your own key combinations.
 
 ## How to contribute
+
+### Setup development environment
 
 - VS Code und Extensions auflisten!
 
