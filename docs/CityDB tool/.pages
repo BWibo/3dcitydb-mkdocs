@@ -1,5 +1,4 @@
 nav:
-    - intro.md
     - db-connection.md
     - general.md
     - import.md
