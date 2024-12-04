@@ -14,8 +14,8 @@ edit_uri: edit/main/docs
 theme:
   name: material
   language: en
-  logo: assets/img/logos/3dcitydb-logo.png
-  favicon: assets/img/logos/3dcitydb-logo.png
+  logo: assets/img/logos/3dcitydb-logo-transparent.png
+  favicon: assets/img/logos/3dcitydb-logo-transparent.png
   # palette:
   #   scheme: default
   #   primary: green
@@ -75,7 +75,6 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences
   - toc:
       permalink: true
       title: Table of content
