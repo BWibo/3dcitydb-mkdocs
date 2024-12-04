@@ -8,6 +8,7 @@ status: wip
 The citydb command-line interface for the 3D City Database provides several general options that can be used with any command. These options allow you to configure logging, load configuration files, manage plugins, and more.
 
 ## Usage
+
 ```bash
 citydb [OPTIONS] COMMAND
 ```
@@ -27,6 +28,7 @@ citydb [OPTIONS] COMMAND
 | `-V`, `--version`             | Print version information and exit.                                         |
 
 ### Example
+
 To display the help message for the citydb tool, use the following command:
 
 ```bash
@@ -36,4 +38,3 @@ citydb --help
 ## Validate
 
 ## Env vars
-

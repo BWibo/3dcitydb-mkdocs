@@ -5,6 +5,7 @@ description:
 # icon: material/emoticon-happy
 status: wip
 ---
+
 ## Connecting to a PostgreSQL Database
 
 The CityDB tool requires a connection to a PostgreSQL database hosting the 3DCityDB schema. You can specify the database connection details using the database [options](#specifying-database-options-in-the-command) (refer to the [Export](export.md) or [Import](import.md) sections for more details) section or store them in an external [options file](#specifying-database-options-in-a-file) for reuse.
@@ -13,7 +14,6 @@ It is also possible to use a [config file](#specifying-database-options-in-a-con
 ### Specifying Database Options in the Command
 
 You can provide the database connection options directly in the command:
-
 
 | Option                  | Description                                              |
 |-------------------------|----------------------------------------------------------|
@@ -24,7 +24,7 @@ You can provide the database connection options directly in the command:
 | `-u`, `--db-username=<user>` | Username for the database connection.                |
 | `-p`, `--db-password[=<password>]` | Password for the database connection. Leave empty to be prompted. |
 
-#### Example 
+#### Example
 
 ```bash
 citydb export citygml -H localhost -P 5432 -d 3dcitydb -S citydb -u admin -p password -o output.gml
@@ -36,20 +36,20 @@ You can store the database connection options in a file and reference it in the 
 
 #### Example
 
-```bash 
+```bash
 citydb export citygml @args.txt
 ```
 
 Example of a Database Connection File:
 
-```bash 
+```bash
 --db-host=localhost
 --db-port=5432
 --db-name=3dcitydb
 --db-schema=citydb
 --db-username=admin
 --db-password=password
-``` 
+```
 
 ### Specifying Database Options in a config File
 
@@ -57,7 +57,7 @@ You can store the database connection options in a JSON file and reference it in
 
 #### Example
 
-```json 
+```json
 {
   "databaseOptions": {
     "connections": {
