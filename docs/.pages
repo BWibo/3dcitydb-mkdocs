@@ -2,6 +2,7 @@ nav:
     - Welcome:
         - index.md
         - usage-contrib.md
+        - tags.md
     - First steps
     - Relational database schema
     - ...
