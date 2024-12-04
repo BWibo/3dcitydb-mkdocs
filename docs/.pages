@@ -3,5 +3,5 @@ nav:
         - index.md
         - usage-contrib.md
     - First steps
-    - Relational database
+    - Relational database schema
     - ...
