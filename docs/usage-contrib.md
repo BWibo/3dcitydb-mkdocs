@@ -3,8 +3,7 @@ title: Usage and contribution
 subtitle: How to use this documentation efficiently and how to contribute.
 description:
 # icon: material/emoticon-happy
-# status:
-#   new: Recently added
+status: wip
 ---
 
 This documentation is made with [`mkdocs`](https://www.mkdocs.org/) and [`mkdocs-material`](https://squidfunk.github.io/mkdocs-material). Here you will find instructions on how to work effectively with the documentation and how to contribute.
