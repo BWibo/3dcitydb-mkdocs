@@ -1,7 +1,7 @@
 nav:
     - Welcome:
         - index.md
-        - how-to.md
+        - usage-contrib.md
     - First steps
-    - Relational database schema
+    - Relational database
     - ...
