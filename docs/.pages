@@ -3,6 +3,8 @@ nav:
         - index.md
         - usage-contrib.md
         - tags.md
-    - First steps
-    - Relational database schema
+    - First steps: first-steps
+    - 3D City Database: 3dcitydb
+    - CityDB tool: citydb-tool
+    - Partners: partners
     - ...
