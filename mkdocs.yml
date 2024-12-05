@@ -42,6 +42,7 @@ theme:
     # Code
     - content.code.select
     - content.code.copy
+    - content.code.annotate
     - toc.follow
     - search.suggest
     - search.highlight
