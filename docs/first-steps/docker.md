@@ -37,7 +37,7 @@ The quickest way to get up and running with 3DCityDB is using Docker! On this pa
 
     !!! tip
 
-        The CityDB tool commands are documented [here](../CityDB%20tool/) and can be listed using the `help` command.
+        The CityDB tool commands are documented [here](../citydb-tool/general.md) and can be listed using the `help` command.
 
 ## Intro
 
@@ -53,7 +53,7 @@ Setup a 3DCityDB instance using Docker and establish a connection to the ready-t
 Docker images are available for the following tools of the 3DCityDB software suite:
 
 - [3D City Database](3dcitydb.md)
-- [CityDB tool](../CityDB tool/)
+- [CityDB tool](../citydb-tool/general.md)
 - [3D Web Map Client](https://3dcitydb-docs.readthedocs.io/en/latest/webmap/docker.html)
 - [3DCityDB Web Feature Service (WFS)](https://3dcitydb-docs.readthedocs.io/en/latest/wfs/docker.html)
 
