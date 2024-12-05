@@ -3,4 +3,5 @@ nav:
     - general.md
     - import.md
     - export.md
+    - delete.md
     - ...
