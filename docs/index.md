@@ -22,15 +22,15 @@ Welcome to the 3D City Database documentation!
 
     Setup 3DCityDB and tools, get up and running in minutes with Docker support
 
-    [:octicons-arrow-right-24: First steps](<First steps/intro.md>)
+    [:octicons-arrow-right-24: First steps](<first-steps/intro.md>)
 
-- :material-database:{ .lg .middle } __Database schema__
+- :material-database:{ .lg .middle } __3D City Database__
 
     ---
 
-    Detailed explanation of 3DCityDB's relational model
+    Detailed explanation of 3DCityDB's relational model and Docker usage
 
-    [:octicons-arrow-right-24: Relational database schema](<Relational database schema/Relational database schema.md>)
+    [:octicons-arrow-right-24: 3D City DB](<3dcitydb/Relational database schema.md>)
 
 - :material-database-edit:{ .lg .middle } __Database interaction__
 
@@ -38,7 +38,7 @@ Welcome to the 3D City Database documentation!
 
     Connect a 3DCityDB, import, export and validate data
 
-    [:octicons-arrow-right-24: CityDB tool](<CityDB tool/db-connection.md>)
+    [:octicons-arrow-right-24: CityDB tool](<citydb-tool/db-connection.md>)
 
 - :material-file-search:{ .lg .middle } __About this documentation__
 
@@ -54,6 +54,6 @@ Welcome to the 3D City Database documentation!
 
     Get to know the people and organizations behind 3DCityDB
 
-    [:octicons-arrow-right-24: Partners](Partners/index.md)
+    [:octicons-arrow-right-24: Partners](partners/index.md)
 
 </div>

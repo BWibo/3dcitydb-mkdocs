@@ -183,7 +183,7 @@ The definition of the CRS of a 3D City Database instance consists of two compone
 1. A valid Spatial Reference Identifier (SRID, typically the EPSG code) and
 2. A definition identifier for the CRS. For example an OGC GML conformant CRS definition identifier
 
-Both components are defined during the [database setup](./../First%20steps/setup.md) and are further stored in the table ``DATABASE_SRS``.
+Both components are defined during the [database setup](./../first-steps/setup.md) and are further stored in the table ``DATABASE_SRS``.
 
 ## Feature Module
 
