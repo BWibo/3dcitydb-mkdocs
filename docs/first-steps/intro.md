@@ -8,3 +8,5 @@ status: wip
 #   - tag1
 #   - tag2
 ---
+
+- Clarification of compatibility of 3DCityDB <--> Tools
