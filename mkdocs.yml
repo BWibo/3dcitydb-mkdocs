@@ -16,14 +16,27 @@ theme:
   language: en
   logo: assets/img/logos/3dcitydb-logo-transparent.png
   favicon: assets/img/logos/3dcitydb-logo-transparent.png
-  # palette:
-  #   scheme: default
-  #   primary: green
-  #   accent: blue
+  palette:
   # font:
   #   # text: IBM Plex Sans
   #   text: Inter
   #   # code: DM Mono
+  - scheme: default
+    primary: green
+    accent: cyan
+    media: "(prefers-color-scheme: light)"
+    toggle:
+      icon: material/weather-night
+      name: Switch to dark mode
+
+  # Palette toggle for dark mode
+  - scheme: slate
+    primary: green
+    accent: cyan
+    media: "(prefers-color-scheme: dark)"
+    toggle:
+      icon: material/weather-sunny
+      name: Switch to light mode
   features:
     # Navigation
     - navigation.instant
