@@ -8,7 +8,7 @@ status: wip
 
 Welcome to the 3D City Database documentation!
 
-![alt text](assets/img/logos/3dcitydb-logo-long.jpg){ width=300 }
+![3DCityDB logo](./assets/img/logos/3dcitydb-logo-long.jpg){ width=300 }
 /// caption
 ///
 
