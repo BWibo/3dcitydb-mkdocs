@@ -14,8 +14,8 @@ edit_uri: edit/main/docs
 theme:
   name: material
   language: en
-  logo: assets/img/logos/3dcitydb-logo-transparent.png
-  favicon: assets/img/logos/3dcitydb-logo-transparent.png
+  logo: ./assets/img/logos/3dcitydb-logo-transparent.png
+  favicon: ./assets/img/logos/3dcitydb-logo-transparent.png
   palette:
   # font:
   #   # text: IBM Plex Sans
