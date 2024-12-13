@@ -8,19 +8,23 @@ tags:
   - docker
 ---
 
+The 3DCityDB Docker images are available for _PostgreSQL/PostGIS_ and _Oracle_. The PostgreSQL/PostGIS version is based on the official [PostgreSQL](https://github.com/docker-library/postgres/){target="_blank"} and [PostGIS](https://github.com/postgis/docker-postgis/){target="_blank} Docker images.
+
+The Oracle version is based on the _Oracle Database Enterprise Edition_ images available from the [Oracle Container registry](https://container-registry.oracle.com){target="_blank"}.
+
 ![3D City Database on Docker](./assets/citydb_docker_logo.png){ width="100" }
 /// caption
 ///
 
-The 3DCityDB Docker images are available for _PostgreSQL/PostGIS_ and _Oracle_. The PostgreSQL/PostGIS version is based on the official [PostgreSQL](https://github.com/docker-library/postgres/){target="_blank"} and [PostGIS](https://github.com/postgis/docker-postgis/){target="_blank"} Docker images. The Oracle version is based on the _Oracle Database Enterprise Edition_ images available from the [Oracle Container registry](https://container-registry.oracle.com){target="_blank"}. The images described here are available for 3DCityDB version `v4.0.0` and newer. Images for older 3DCityDB versions are available from [TUM-GIS 3DCityDB Docker images](https://github.com/tum-gis/3dcitydb-docker-postgis/){target="_blank"}.
+The images described here are available for 3DCityDB version `v4.0.0` and newer. Images for older 3DCityDB versions are available from [TUM-GIS 3DCityDB Docker images](https://github.com/tum-gis/3dcitydb-docker-postgis/){target="_blank"}.
 
-!!! info "Versions and compatibility"
+!!! info "Docker image versions and compatibility"
     The 3DCityDB Docker images for `>= v5.x.x` are __only__ available for PostgreSQL/PostGIS and are only compatible with
     the [`citydb-tool`](../citydb-tool/docker.md) images, as of writing this (2024-12).
 
 When designing the images we tried to stay as close as possible to the behavior of the base images and the [3DCityDB Shell scripts](../first-steps/setup.md). Thus, all configuration options you may be used to from the base images, are available for the 3DCityDB Docker images as well.
 
-## Synopsis
+## TL;DR
 
 ``` bash title="3DCityDB PostgreSQL/PostGIS Docker"
 docker run --name 3dciytdb -p 5432:5432 -d \
@@ -51,7 +55,16 @@ docker run --name 3dciytdb -p 1521:1521 -d \
 
 The images are available in various _variants_ and _versions_. The PostgreSQL/PostGIS images are available based on _Debian_ and _Alpine Linux_, the Oracles image are based on _Oracle Linux_. The table below gives an overview on the available image versions.
 
-PLACEHOLDER TABLE
+|   Tag  | PostGIS (Debian) | PostGIS (Alpine) | Oracle |
+| :------ | :---------------- | :---------------- | :------ |
+|  __edge__  | [![psql-deb-build-edge](https://img.shields.io/github/actions/workflow/status/%0A3dcitydb/3dcitydb/psql-docker-build-push-edge.yml?label=Debian&%0Astyle=flat-square&logo=Docker&logoColor=white)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated)[![psql-deb-size-edge](https://img.shields.io/docker/image-size/%0A3dcitydb/3dcitydb-pg/edge?label=image%20size&logo=Docker&logoColor=white&style=flat-square)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated)              | [![psql-alp-build-edge](https://img.shields.io/github/actions/workflow/status/%0A3dcitydb/3dcitydb/psql-docker-build-push-edge.yml?label=Alpine&%0Astyle=flat-square&logo=Docker&logoColor=white)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated) [![psql-alp-size-edge](https://img.shields.io/docker/image-size/%0A3dcitydb/3dcitydb-pg/edge-alpine?label=image%20size&logo=Docker&logoColor=white&%0Astyle=flat-square)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated)              | ![ora-build-edge](https://img.shields.io/github/actions/workflow/status/%0A3dcitydb/3dcitydb/oracle-docker-build-edge.yml?label=Oracle%20Linux&%0Astyle=flat-square&logo=Docker&logoColor=white) ![ora-size-edge](https://img.shields.io/static/v1?label=image%20size&message=%0A%3E3%20GB&color=blue&style=flat-square&logo=Docker&logoColor=white)    |
+| __latest__ | [![psql-deb-size-latest](https://img.shields.io/docker/image-size/%0A3dcitydb/3dcitydb-pg/latest?label=image%20size&logo=Docker&logoColor=white&style=flat-square)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated)              | [![psql-alp-size-latest](https://img.shields.io/docker/image-size/%0A3dcitydb/3dcitydb-pg/latest-alpine?label=image%20size&logo=Docker&logoColor=white&%0Astyle=flat-square)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated)                | ![ora-size-edge](https://img.shields.io/static/v1?label=image%20size&message=%0A%3E3%20GB&color=blue&style=flat-square&logo=Docker&logoColor=white)     |
+|  __5.0.0__ |                 |                  |        |
+|  __4.0.0__ | [![psql-deb-size-v4.0.0](https://img.shields.io/docker/image-size/%0A3dcitydb/3dcitydb-pg/14-3.2-4.0.0?label=image%20size&logo=Docker&logoColor=white&style=flat-square)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg)                 |   [![psql-alp-size-v4.0.0](https://img.shields.io/docker/image-size/%0A3dcitydb/3dcitydb-pg/14-3.2-4.0.0-alpine?label=image%20size&logo=Docker&logoColor=white&%0Astyle=flat-square)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg)             | ![ora-size-edge](https://img.shields.io/static/v1?label=image%20size&message=%0A%3E3%20GB&color=blue&style=flat-square&logo=Docker&logoColor=white)      |
+
+/// table-caption
+Overview 3DCityDB Docker image variants and versions.
+///
 
 !!! note
     Minor releases are not listed in this table.The latest 3DCityDB version is:
@@ -62,7 +75,11 @@ PLACEHOLDER TABLE
 
     [![version-badge-dockerhub](https://img.shields.io/docker/v/3dcitydb/3dcitydb-pg?label=Docker%20Hub&logo=docker&logoColor=white&sort=semver)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags){ target="_blank" }
 
-The `edge` images are automatically built and published on every push to the _master_ branch of the [3DCityDB Github repository](https://github.com/3dcitydb/3dcitydb){target="_blank"} using the latest stable version of the base images. The `latest` and __release__ image versions are only built when a new release is published on Github. The `latest`tag will point to the most recent release version using the latest base image version.
+    The latest `v5` image versions are:
+
+    [![version badge v5](https://ghcr-badge.egpl.dev/3dcitydb/3dcitydb-pg-v5/tags?color=%2344cc11&ignore=latest&n=4&label=image+tags&trim=)](https://github.com/3dcitydb/3dcitydb/pkgs/container/3dcitydb-pg-v5)
+
+The `edge` images are automatically built and published on every push to the _master_ branch of the [3DCityDB Github repository](https://github.com/3dcitydb/3dcitydb){target="_blank"} using the latest stable version of the base images. The `latest` and __release__ image versions are only built when a new release is published on Github. The `latest` tag will point to the most recent release version using the latest base image version.
 
 ### PostgreSQL/PostGIS images
 
@@ -83,18 +100,18 @@ images](https://hub.docker.com/r/postgis/postgis/tags), e.g. `16-3.4`. Debian is
 !!! warning
     Depending on the base image variant and version, different versions of PostGIS dependencies (e.g. geos, gdal, proj, sfcgal) are shipped in the base images. Make sure to check the [official PostGIS Docker](https://hub.docker.com/r/postgis/postgis){target="_blank"} page for details, if you have specific version requirements.
 
-    As of 2024-09 the __recommended version__ with latest dependencies (geos=3.12.2, gdal=3.9.1, proj=9.4, and sfcgal=1.5.1) is: `latest-alpine` or `16-3.4-4.4.0-alpine`.
+    As of 2024-12 the __recommended version__ with latest dependencies (geos=3.12.2, gdal=3.9.2, proj=9.4, and sfcgal=1.5.1) is: `latest-alpine` :material-arrow-right: `17-3.5-5.0.0-alpine` or `17-3.5-4.4.0-alpine` for 3DCityDB `v4`.
 
-| PSQL version :material-arrow-down: <br> PostGIS version :material-arrow-right: | 2.5      | 3.0      | 3.1      | 3.2      | 3.3      | 3.4     |
-| ---------------------------- | -------- | -------- | -------- | -------- | -------- | ------- |
-| 12                           | 12-2.5   | 12-3.0   | 12-3.1   | 12-3.2   | 12-3.3   | 12-3.4  |
-| 13                           |          | 13-3.0   | 13-3.1   | 13-3.2   | 13-3.3   | 13-3.4  |
-| 14                           |          |          | 14-3.1   | 14-3.2   | 14-3.3   | 14-3.4  |
-| 15                           |          |          |          |          | 15-3.3   | 15-3.4  |
-| 16                           |          |          |          |          | 16-3.3   | 16-3.4  |
+| PSQL version :material-arrow-down: <br> PostGIS version :material-arrow-right:  |   3.0  |   3.1  |   3.2  |   3.3  |   3.4  | 3.5    |
+|:--:|:------:|:------:|:------:|:------:|:------:|--------|
+| 13 | 13-3.0 | 13-3.1 | 13-3.2 | 13-3.3 | 13-3.4 | 13-3.5 |
+| 14 |        | 14-3.1 | 14-3.2 | 14-3.3 | 14-3.4 | 14-3.5 |
+| 15 |        |        |        | 15-3.3 | 15-3.4 | 15.3.5 |
+| 16 |        |        |        | 16-3.3 | 16-3.4 | 16-3.5 |
+| 17 |        |        |        |        | 17-3.4 | 17-3.5 |
 
 /// table-caption
-Overview on supported PostgreSQL/PostGIS versions
+Overview on supported PostgreSQL/PostGIS versions.
 ///
 
 The full list of available images can be found on [DockerHub](https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated){target="_blank"} or [Github](https://github.com/3dcitydb/3dcitydb/pkgs/container/3dcitydb-pg){target="_blank"}.
@@ -203,14 +220,13 @@ The PostgreSQL/PostGIS images are build by cloning the 3DCityDB Github repositor
 
 2. Build the Postgresql/PostGIS image using  [`docker build`](https://docs.docker.com/reference/cli/docker/buildx/build/):
 
-> ``` bash
-> docker build -t 3dcitydb/3dcitydb-pg .
->
-> # or with a specific base image tag
-> docker build -t 3dcitydb/3dcitydb-pg \
->     --build-arg BASEIMAGE_TAG=16-3.4 \
->   .
-> ```
+    ``` bash
+    docker build -t 3dcitydb/3dcitydb-pg .
+    # or with a specific base image tag
+    docker build -t 3dcitydb/3dcitydb-pg \
+        --build-arg BASEIMAGE_TAG=16-3.4 \
+      .
+    ```
 
 ### Oracle
 
@@ -222,17 +238,18 @@ To build 3DCityDB Docker images for Oracle, you first need a Docker image for th
 
 The following steps illustrate how to build a 3DCityDB image based on a re-built Oracle database image from the Oracle Container registry. You need to create an Oracle account and accept the licensing conditions first.
 
-1. Visit <https://login.oracle.com/mysso/signon.jsp>{target="_blank"} and create an
+1. Visit <https://signon.oracle.com/signin>{target="blank"} and create an
     account.
 
-2. Visit <https://container-registry.oracle.com>{target="_blank"} and navigate to _Database_. Click the _Continue_ button in the right column of the _enterprise_ repository. Scroll to the bottom of the license agreement, which should be displayed now and click _accept_.
+2. Visit <https://container-registry.oracle.com>{target="blank"} and navigate to _Database_. Click the _Continue_ button in the right column of the _enterprise_ repository.
+Scroll to the bottom of the license agreement, which should be displayed now and click _accept_.
 
 3. The repository listing should now show a green hook for the enterprise repository, as shown in the example below.
    ![oracle-license](assets/citydb_oracle_license.jpg)
 
     If this is the case, you are ready to pull the required base images from Oracle container registry.
 
-4. Signin Docker to the Oracle container registry using the account credentials from above using [`docker login`](https://docs.docker.com/engine/reference/commandline/login):
+4. Signin Docker to the Oracle container registry using the account credentials from above using [`docker login`](https://docs.docker.com/engine/reference/commandline/login){target="blank"}:
 
     ``` bash
     docker login container-registry.oracle.com
@@ -246,7 +263,7 @@ The following steps illustrate how to build a 3DCityDB image based on a re-built
     cd 3dcitydb/oracle/
     ```
 
-6. Build the 3DCityDB Oracle image using  [`docker build`](https://docs.docker.com/reference/cli/docker/buildx/build/):
+6. Build the 3DCityDB Oracle image using  [`docker build`](https://docs.docker.com/reference/cli/docker/buildx/build/){target="blank"}:
 
     ``` bash
     docker build -t 3dcitydb/3dcitydb-oracle .
@@ -319,13 +336,13 @@ PostgreSQL databases offer a wide range of configuration parameters that affect 
 
 ## Include data in a 3DCityDB Docker images
 
-In general, it is __not recommended__ to store data directly inside a Docker image and use [docker volumes](https://docs.docker.com/storage/volumes/) instead. Volumes are the preferred mechanism for persisting data generated by and used by Docker containers. However, for some use-cases it can be very handy to create a Docker image including data. For instance, if you have
+In general, it is __not recommended__ to store data directly inside a Docker image and use [docker volumes](https://docs.docker.com/storage/volumes/){target="blank"} instead. Volumes are the preferred mechanism for persisting data generated by and used by Docker containers. However, for some use-cases it can be very handy to create a Docker image including data. For instance, if you have
 automated tests operating on the exact same data every time or you want to prepare a 3DCityDB image including data for a lecture or workshop, that will run out of the box, without having to import data first.
 
 !!! warning
-    The practise described here has many drawbacks and is a potential security threat. It should not be performed with sensitive data!
+    The practice described here has many drawbacks and is a potential security threat. It should not be performed with sensitive data!
 
-Here is how to create an image with data:
+### Image creation process
 
 1. Choose a 3DCityDB image that is suitable for you purpose. You will not be able to change the image version later, as you could easily do when using volumes (the default). Available versions are listed in [Image variants and versions](#image-variants-and-versions). To update an image with data, it has to be recreated from scrap using the desired/updated base image.
 
