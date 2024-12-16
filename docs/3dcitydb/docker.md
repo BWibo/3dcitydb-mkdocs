@@ -8,6 +8,10 @@ tags:
   - docker
 ---
 
+- Add note on performance tuning for large datasets!!
+- Add new tags
+- Update examples to show usage of simple, new tags
+
 The 3DCityDB Docker images are available for _PostgreSQL/PostGIS_ and _Oracle_. The PostgreSQL/PostGIS version is based on the official [PostgreSQL](https://github.com/docker-library/postgres/){target="_blank"} and [PostGIS](https://github.com/postgis/docker-postgis/){target="_blank} Docker images.
 
 The Oracle version is based on the _Oracle Database Enterprise Edition_ images available from the [Oracle Container registry](https://container-registry.oracle.com){target="_blank"}.
