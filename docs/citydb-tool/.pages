@@ -1,7 +1,8 @@
 nav:
-    - db-connection.md
-    - general.md
-    - import.md
-    - export.md
-    - delete.md
-    - ...
+  - index.md
+  - db-connection.md
+  - import.md
+  - export.md
+  - delete.md
+  - indexing.md
+  - ...
