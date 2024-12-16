@@ -5,6 +5,19 @@ description:
 # icon: material/emoticon-happy
 status: wip
 ---
+
+## Todos
+
+- What versions can be used with `citydb-tool`
+
+## Intro
+
+- What is `citydb-tool`?
+- General capabilities
+    - Filtering options
+    - Indexing
+    - ...
+
 The citydb command-line interface for the 3D City Database provides several general options that can be used with any command. These options allow you to configure logging, load configuration files, manage plugins, and more.
 
 ## Usage
