@@ -6,6 +6,11 @@ description:
 status: wip
 ---
 
+## Todos
+
+- Separate `citygml` and `cityjson` export and general export options
+- 3rd party tools
+
 The Exporter is a command-line utility for exporting data from 3DCityDB in the CityGML format. It provides extensive options for controlling the export process, including filters, tiling, and data transformation.
 
 ## Usage
