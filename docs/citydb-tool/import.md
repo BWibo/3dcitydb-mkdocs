@@ -17,7 +17,9 @@ Use `citydb import citygml [OPTIONS] <file>` to import one or more citygml files
 The command provides a range of [OPTIONS] to adapt the import process.
 
 
-### Options Table
+# Options Table
+
+## Import Data
 
 OPTION / command | discription
 ------------ | -------------
@@ -36,11 +38,17 @@ OPTION / command | discription
 `--plugins=<dir>` | Load plugins from this directory.
 `--use-plugins=<plugin[=true|false][,<plugin[=true|false]...]` | Enable or disable plugins with a matching fully qualified class name (default: true).
 
+## Upgrade options for CityGML 2.0 and 1.0
+OPTION / command | discription | default
+------------ | ------------- | ------------- 
+`--use-lod4-as-lod3` |  Use LoD4 as LoD3, replacing an existing LoD3.
+`--map-lod0-roof-edge` |  Map LoD0 roof edges onto roof surfaces.
+`--map-lod1-surface` | Map LoD1 multi-surfaces onto generic thematic surfaces.
 
-### Better Practice
-
+# Better Practice
 You can use an textfile to combine and outsource commands and the link to the config.json to keep a better overwiew of issued commands. Save the textfile in the same folder as the config.json.
 
 ```bash
 citydb import citygml <file> @options.txt
 ```
+dhdghgdhgdhgd
