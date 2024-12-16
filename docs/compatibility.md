@@ -1,7 +1,7 @@
 ---
-# title:
+title: Compatibility and data migration
 subtitle:
-description:
+description: Which CitGML versions and tools are compatible
 # icon: material/emoticon-happy
 status: wip
 tags:
@@ -10,8 +10,6 @@ tags:
   - data-migration
   - legacy-support
 ---
-
-# Compatibility CityGML versions and tools
 
 ## Compatibility CityGML versions and tools
 
