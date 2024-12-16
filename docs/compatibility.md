@@ -1,6 +1,6 @@
 ---
 # title:
-subtitle: Data migration to 3DCityDB v4
+subtitle:
 description:
 # icon: material/emoticon-happy
 status: wip
@@ -11,11 +11,24 @@ tags:
   - legacy-support
 ---
 
-# Migrate data to `v4`
+# Compatibility CityGML versions and tools
 
-## hl2
+## Compatibility CityGML versions and tools
 
-### hl3
+- Which version of our tools are compatible with CityGML `v2` and `v3`
+- Which versions of our tools are compatible to each other
+    - `v5`: 3DCityDB `v5` only compatible with `citydb-tool`
+    - `v4`: 3DCityDB `v4` with `importer-exporter`, `web-map-client`, `wfs`
+
+## CityGML data migration
+
+## CityGML `v3` to `v2`
+
+## CityGML `v2` to `v3`
+
+## 3DCityDB `v4` to `v5`
+
+## 3DCityDB `v5` to `v4`
 
 <!--
 
