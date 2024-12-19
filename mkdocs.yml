@@ -48,12 +48,12 @@ theme:
     - navigation.instant.progress
     - navigation.path
     - navigation.prune
+    - navigation.sections
     - navigation.tabs
     - navigation.top
     - navigation.tracking
     - toc.follow
     # - navigation.instant.preview
-    # - navigation.sections
     # Code
     - content.code.select
     - content.code.copy
