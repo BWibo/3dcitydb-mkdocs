@@ -19,17 +19,20 @@ original CQL language, providing better expressiveness and flexibility for data 
 
 ## Why Use CQL2?
 
-CQL2 can be used with commands like **`export`** and **`delete`** to:
+CQL2 can be used with commands like `export` and `delete` to:
+
 - Query specific features based on **attribute values** (e.g., height, name, or year).
-- Apply **logical filters** using AND, OR, and NOT.
+- Apply **logical filters** using `AND`, `OR`, and `NOT`.
 - Use **spatial queries** (e.g., features within bounding boxes or intersecting geometries).
 - Combine multiple conditions for highly targeted queries.
+
 
 ---
 
 ## CQL2 Syntax Overview
 
 CQL2 syntax is easy to read and write, consisting of:
+
 - **Attribute comparisons**: Use operators like `=`, `<`, `>`, `>=`, `<=`, `!=`.
 - **Logical operators**: Combine filters with `AND`, `OR`, and `NOT`.
 - **Spatial filters**: Use spatial operators like `INTERSECTS`, `WITHIN`, or `BBOX`.
