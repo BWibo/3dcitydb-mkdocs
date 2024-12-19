@@ -1,7 +1,9 @@
 nav:
   - index.md
   - db-connection.md
-  - import.md
+  - import:
+    - imoprt.md
+    - import_cityjson.md
   - Export:
     - export_shared_options.md
     - export_citygml.md
