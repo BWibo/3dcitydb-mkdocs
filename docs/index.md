@@ -20,17 +20,25 @@ Welcome to the 3D City Database documentation!
 
     ---
 
-    Setup 3DCityDB and tools, get up and running in minutes with Docker support
+    3DCityDB and tools setup, get up and running with Docker in minutes
 
-    [:octicons-arrow-right-24: First steps](<first-steps/intro.md>)
+    [:octicons-arrow-right-24: First steps](first-steps/index.md)
+
+- :fontawesome-solid-gears:{ .lg .middle } __Compatibility__
+
+    ---
+
+    Compatibility of CityGML versions and 3DCityDB tools, data migration
+
+    [:octicons-arrow-right-24: Compatibility and data migration](compatibility.md)
 
 - :material-database:{ .lg .middle } __3D City Database__
 
     ---
 
-    Detailed explanation of 3DCityDB's relational model and Docker usage
+    3DCityDB's relational model explained, Docker usage
 
-    [:octicons-arrow-right-24: 3D City DB](<3dcitydb/Relational database schema.md>)
+    [:octicons-arrow-right-24: 3D City DB](3dcitydb/index.md)
 
 - :material-database-edit:{ .lg .middle } __Database interaction__
 
@@ -38,7 +46,7 @@ Welcome to the 3D City Database documentation!
 
     Connect a 3DCityDB, import, export and validate data
 
-    [:octicons-arrow-right-24: CityDB tool](<citydb-tool/db-connection.md>)
+    [:octicons-arrow-right-24: CityDB tool](citydb-tool/index.md)
 
 - :material-file-search:{ .lg .middle } __About this documentation__
 
@@ -46,7 +54,7 @@ Welcome to the 3D City Database documentation!
 
     How to quickly navigate, search and, contribute to this docs
 
-    [:octicons-arrow-right-24: Usage and contribution](./usage-contrib.md)
+    [:octicons-arrow-right-24: Usage and contribution](usage-contrib.md)
 
 - :material-heart:{ .lg .middle } __Partners__
 
