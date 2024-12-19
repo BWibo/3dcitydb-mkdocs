@@ -63,5 +63,10 @@ Use spatial functions to filter based on the spatial relationship of geometries.
 - `contains`: Returns true if one geometry contains another.
 - `within`: Returns true if one geometry is within another.
 
+#### Example
+
+```bash
+citydb export citygml --filter="S_INTERSECTS(Envelope, BBOX(-560.8678155819734, 604.1012795512906, -553.8099297783192, 627.1318523068805))" @options.txt -o=output.gml
+```
 
 
