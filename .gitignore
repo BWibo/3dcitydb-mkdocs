@@ -1,0 +1,6 @@
+# Python venvs
+/.venv/
+/.venv-win/
+
+# Build dirs
+site/
