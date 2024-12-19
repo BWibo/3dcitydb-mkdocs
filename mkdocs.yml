@@ -64,6 +64,8 @@ theme:
     - search.share
     # Header
     - header.autohide
+    # Content tabs
+    - content.tabs.link
 
 # Plugins #####################################################################
 plugins:
