@@ -10,3 +10,6 @@ status: wip
 ---
 
 ## General things
+
+- List all partners with logo
+- TUM first
