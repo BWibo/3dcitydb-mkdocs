@@ -15,64 +15,53 @@ based on attribute values, spatial properties, or logical conditions.
 CQL2 is a standard maintained by the **OGC (Open Geospatial Consortium)** and serves as an evolution of the 
 original CQL language, providing better expressiveness and flexibility for data filtering.
 
----
+Key Features of CQL2
 
-## Why Use CQL2?
-
-CQL2 can be used with commands like `export` and `delete` to:
-
-- Query specific features based on **attribute values** (e.g., height, name, or year).
-- Apply **logical filters** using `AND`, `OR`, and `NOT`.
-- Use **spatial queries** (e.g., features within bounding boxes or intersecting geometries).
-- Combine multiple conditions for highly targeted queries.
-
+- Expressive Syntax: Combines logical operators with a rich set of functions for building complex queries.
+- Spatial Filtering: Supports geospatial functions to filter data based on spatial relationships.
+- Ease of Use: Simple, human-readable expressions that are easy to construct and interpret.
 
 ---
 
-## CQL2 Syntax Overview
+## Using CQL2 with CityDBTool
 
-CQL2 syntax is easy to read and write, consisting of:
+CityDBTool allows the use of the -f or --filter option followed by a CQL2 expression to filter data when exporting or 
+deleting records. This enables users to select only the relevant subset of data based on attribute values, 
+spatial conditions, or both.
 
-- **Attribute comparisons**: Use operators like `=`, `<`, `>`, `>=`, `<=`, `!=`.
-- **Logical operators**: Combine filters with `AND`, `OR`, and `NOT`.
-- **Spatial filters**: Use spatial operators like `INTERSECTS`, `WITHIN`, or `BBOX`.
----
+## Syntax
 
-## Supported Operators in CQL2
+The general syntax for using CQL2 with CityDBTool is:
 
-| Type               | Operator             | Description                                 | Example                          |
-|---------------------|----------------------|---------------------------------------------|----------------------------------|
-| **Comparison**      | `=`                  | Equals                                      | `height = 20`                    |
-|                     | `!=`                 | Not equal                                   | `name != 'Park'`                 |
-|                     | `<`, `>`, `<=`, `>=` | Less than, greater than, or equal conditions| `year_of_construction >= 2000`   |
-| **Logical**         | `AND`, `OR`, `NOT`   | Combine or negate conditions                | `height > 20 AND name = 'Tower'` |
-| **Spatial**         | `BBOX`               | Filter features within a bounding box       | `BBOX(geometry, 10, 20, 30, 40)` |
-|                     | `INTERSECTS`         | Filter features that intersect a geometry   | `INTERSECTS(geometry, Polygon)`  |
-|                     | `WITHIN`             | Filter features fully within a geometry     | `WITHIN(geometry, Region)`       |
+```bash
+citydb [command] -f "<CQL2 Expression>"
+```
 
----
+Where `<CQL2 Expression>` is a valid CQL2 query that defines the filtering conditions for the data export.
 
-## How to Use CQL2 in CityDB Tool
+## Writing CQL2 Expressions
 
-CQL2 can be passed as a query filter with the `--filter` option in commands like **`export`** and **`delete`**.
+A CQL2 expression consists of attribute names, operators, and values. It can also include spatial 
+functions to handle geospatial conditions. 
 
-## Examples of CQL2 Queries
+### Attribute Filtering
 
-### Filtering by Attribute Values
+Filter based on attribute values using comparison operators such as =, !=, <, <=, >, and >=. Logical operators 
+AND, OR, and NOT can be used to combine conditions.
 
-To export only features where the name is 'Forest tree 3':
+#### Example
 
 ```bash
 citydb export citygml --filter="name = 'Forest tree 3'" -o filtered_tree.gml
 ```
 
-### Filter by Date
+### Spatial Filtering
 
-To delete features that are entirely above terrain:
+Use spatial functions to filter based on the spatial relationship of geometries. Commonly used functions include:
 
-```bash
-citydb delete -f "relativeToTerrain = 'entirelyAboveTerrain'" @options.txt
-```
+- `intersects`: Returns true if two geometries intersect.
+- `contains`: Returns true if one geometry contains another.
+- `within`: Returns true if one geometry is within another.
 
 
 
