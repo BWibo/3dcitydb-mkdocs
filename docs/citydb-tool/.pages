@@ -1,7 +1,11 @@
 nav:
-    - db-connection.md
-    - general.md
-    - import.md
-    - export.md
-    - delete.md
-    - ...
+  - index.md
+  - db-connection.md
+  - import.md
+  - Export:
+    - export_shared_options.md
+    - export_citygml.md
+    - export_cityjson.md
+  - delete.md
+  - indexing.md
+  - ...
