@@ -11,7 +11,7 @@ tags:
   - quickstart
 ---
 
-The quickest way to get up and running with 3DCityDB is using Docker! On this page you will find quick start examples for the 3DCityDB and tools using Docker :fontawesome-brands-docker:.
+The quickest way to get up and running with 3DCityDB is using Docker!  On this page you will find quick start examples for the 3DCityDB and tools using Docker :fontawesome-brands-docker:. Follow the examples to [create](#3dcitydb-docker) a database, [import CityGML](#import-citygml-data) data, and create an [export](#export-citygml-data) in minutes.
 
 ## TL;DR
 
@@ -71,7 +71,7 @@ The quickest way to get up and running with 3DCityDB is using Docker! On this pa
 
 ## What is Docker?
 
-[Docker :fontawesome-brands-docker:](https://docker.com){target="_blank"} is a widely used virtualization technology that makes it possible to pack an application with all its required resources into a standardized unit - the *Docker Container*. Software encapsulated in this way can run on Linux, Windows, macOS and most cloud services without any further changes or setup process. Docker containers are lightweight compared to traditional virtualization environments that emulate an entire operating system, because they contain only the application and all the tools, program libraries, and files it requires.
+[Docker :fontawesome-brands-docker:](https://docker.com){target="blank"} is a widely used virtualization technology that makes it possible to pack an application with all its required resources into a standardized unit - the _Docker Container_. Software encapsulated in this way can run on Linux, Windows, macOS and most cloud services without any further changes or setup process. Docker containers are lightweight compared to traditional virtualization environments that emulate an entire operating system, because they contain only the application and all the tools, program libraries, and files it requires.
 
 Docker enables you to get a 3DCityDB instance up and running in a fews seconds, without having to setup a database server or the 3DCityDB database schema, as shown below.
 
@@ -79,6 +79,10 @@ Docker enables you to get a 3DCityDB instance up and running in a fews seconds, 
 /// figure-caption
 Setup a 3DCityDB instance using Docker and establish a connection to the ready-to-use 3DCityDB in seconds.
 ///
+
+### Get Docker
+
+To run the 3DCityDB images you need to install _Docker Engine_. Installation instructions for Linux are available [here](https://docs.docker.com/desktop/setup/install/linux/){target="blank"}. For Windows it is recommended to download and install [Docker Desktop](https://www.docker.com/products/docker-desktop/){target="blank"}.
 
 ## Docker images overview
 
@@ -92,27 +96,67 @@ Docker images are available for the following tools of the 3DCityDB software sui
 
 !!! warning "Docker image compatibility"
 
-     3DCityDB `v5` introduces a substantially changed database schema and a new set of tools. Currently, __only [CityDB tool](../citydb-tool/index.md)__ is compatible with `v5`.
+    3DCityDB `v5` introduces a substantially changed database schema and a new set of tools.
 
-    Usage of the 3DCityDB `v4` tools ([3DCityDB Importer/Exporter](https://3dcitydb-docs.readthedocs.io/en/latest/impexp/docker.html){target="_blank"}, [3D Web Map Client](https://3dcitydb-docs.readthedocs.io/en/latest/webmap/docker.html){target="_blank"}, [3DCityDB Web Feature Service (WFS)](https://3dcitydb-docs.readthedocs.io/en/latest/wfs/docker.html){target="_blank"}) is still possible by migration data to a `v4` 3DCityDB, as described [here](../compatibility.md).
+    :warning: Currently, __only [CityDB tool](../citydb-tool/index.md)__ is compatible with `v5`. :warning:
 
-All images are available from [DockerHub]{target="_blank"} or Github container registry ([ghcr.io]{target="_blank"}).
+    Usage of the 3DCityDB `v4` tools ([3DCityDB Importer/Exporter](https://3dcitydb-docs.readthedocs.io/en/latest/impexp/docker.html){target="blank"}, [3D Web Map Client](https://3dcitydb-docs.readthedocs.io/en/latest/webmap/docker.html){target="blank"}, [3DCityDB Web Feature Service (WFS)](https://3dcitydb-docs.readthedocs.io/en/latest/wfs/docker.html){target="blank"}) is still possible by migrating data to a 3DCityDB `v4`. See [here](../compatibility.md) for more details on compatibility of CityGML versions and 3DCityDB tools.
 
-``` bash title="Pull docker images examples"
-# 3DCityDB
-docker pull 3dcitydb/3dcitydb-pg
-# or
-docker pull ghcr.io/3dcitydb/3dcitydb-pg
+### Get 3DCityDB Docker images
 
-# CityDB tool
-docker pull 3dcitydb/citydb-tool
-# or
-docker pull ghcr.io/3dcitydb/citydb-tool
-```
+All images are available from [DockerHub]{target="blank"} or Github container registry ([ghcr.io]{target="blank"}). An overview on available versions and image variants is available [here](../3dcitydb/docker.md#image-variants-and-versions).
+
+- [3D City Database](../3dcitydb/docker.md)
+
+    === "DockerHub"
+
+        ``` bash
+        docker pull 3dcitydb/3dcitydb-pg
+        ```
+
+    === "Github container registry"
+
+        ``` bash
+        docker pull ghcr.io/3dcitydb/3dcitydb-pg
+        ```
+
+        !!! tip
+
+            To benefit of the latest bugfixes and features of PostgreSQL/PostGIS spatial functions we recommend to use the `alpine` image versions. See [here](../3dcitydb/docker.md#image-variants-and-versions) for more details on the differences between the `debian` and `alpine` image variants.
+
+            === "DockerHub"
+
+                ``` bash
+                docker pull 3dcitydb/3dcitydb-pg:latest-alpine
+                ```
+
+            === "Github container registry"
+
+                ``` bash
+                docker pull ghcr.io/3dcitydb/3dcitydb-pg:latest-alpine
+                ```
+
+
+- [CityDB tool](../citydb-tool/docker.md)
+
+    === "DockerHub"
+
+        ``` bash
+        docker pull 3dcitydb/citydb-tool
+        ```
+
+    === "Github container registry"
+
+        ``` bash
+        docker pull ghcr.io/3dcitydb/citydb-tool
+        ```
 
 ## Quick start examples
 
-The following sections provide *quick start* code snippets for all 3DCityDB Docker images to get you running in a few seconds. For a more comprehensive documentation please visit the individual chapters of each image.
+The following sections provide _quick start_ code snippets for all 3DCityDB Docker images to get you running in a few seconds. For a more comprehensive documentation please visit the individual chapters of each image.
+
+- [3DCityDB Docker](../3dcitydb/docker.md)
+- [CityDB tool Docker](../citydb-tool/docker.md)
 
 ### 3DCityDB Docker
 
@@ -124,7 +168,7 @@ To run a PostgreSQL/PostGIS 3DCityDB container the only required settings are a 
     docker run -d -p 5432:5432 --name cdb \
       -e POSTGRES_PASSWORD=changeMe \
       -e SRID=25832 \
-    3dcitydb/3dcitydb-pg #(1)!
+    3dcitydb/3dcitydb-pg
     ```
 
 === "Windows"
@@ -194,6 +238,9 @@ Run `help COMMAND` to see the CLI documentation for a specific command:
 
 ``` bash
 docker run -i -t --rm 3dcitydb/citydb-tool help import
+docker run -i -t --rm 3dcitydb/citydb-tool help export
+docker run -i -t --rm 3dcitydb/citydb-tool help delete
+# ...
 ```
 
 To see the usage description of a subcommand, use the `help` function of the top level command:
@@ -204,7 +251,7 @@ docker run -i -t --rm 3dcitydb/citydb-tool import help citygml
 
 #### Import CityGML data
 
-Run the `import` command :material-database-import: to import a CityGML dataset located at `/local/data/dir/data.gml`.
+Run the `import` command to import :material-database-import: a CityGML dataset located at `/local/data/dir/data.gml`.
 
 === "Linux"
 
@@ -234,7 +281,7 @@ Run the `import` command :material-database-import: to import a CityGML dataset 
 
 #### Export CityGML data
 
-Run the `export` command :material-database-export: to export a CityGML dataset to `/local/data/dir/export.gml`.
+Run the `export` command to export :material-database-export: a CityGML dataset to `/local/data/dir/export.gml`.
 
 === "Linux"
 
