@@ -21,8 +21,8 @@ The command provides a range of [OPTIONS] to adapt the import process.
 
 ## Import Data
 
-OPTION / command | discription
------------- | -------------
+OPTION / command | discription | default
+------------ | ------------- | -------------
 `@<filename>...` | One or more argument files containing options.
 `<file>...` | One or more files and directories to process (globpatterns allowed).
 `--input-encoding= <encoding>` |  Encoding of input file(s).
@@ -30,14 +30,14 @@ OPTION / command | discription
 `--temp-dir= <dir>` | Store temporary files in this directory.
 `--threads=<threads>`| Number of threads to use for parallel processing.
 `--preview`| Run in preview mode. Features will not be imported.
-`--index-mode=<mode>` | Index mode: keep, drop, drop_create (default: keep). Consider dropping indexes when processing large quantities of data.
+`--index-mode=<mode>` | Index mode: keep, drop, drop_create Consider dropping indexes when processing large quantities of data. | keep
 `--compute-extent` | Compute and overwrite extents of features.
 `--import-xal-source` | Import XML snippets of xAL address elements.
 `-x`, `--xsl-transform=<stylesheet>[,<stylesheet>...]` | Apply XSLT stylesheets to transform input.
 `--log-file=<file>`| Write log messages to this file.
 `--pid-file=<file>` | Create a file containing the process ID.
 `--plugins=<dir>` | Load plugins from this directory.
-`--use-plugins=<plugin[=true|false][,<plugin[=true|false]...]` | Enable or disable plugins with a matching fully qualified class name (default: true).
+`--use-plugins=<plugin[=true|false][,<plugin[=true|false]...]` | Enable or disable plugins with a matching fully qualified class name | true
 
 ### Example
 ```bash
@@ -45,12 +45,20 @@ citydb --help
 ```
 
 ## Handling with duplicate features
-OPTION / command | discription
------------- | -------------
-skip | Duplicates in the input file are not imported into the database.
-terminate | Duplicates in the database are terminated before importing the input file.
-delete | Duplicates in the database are deleted before importing the input file.
-import_all | All features from the input file are imported without checking for duplicates (default behaviour).
+
+There are different options for the import to handle duplicate features based on the feature ID (i.e., gml:id).
+
+OPTION / command | discription | default
+------------ | ------------- | -------------
+`-m, --import-mode=<mode>` | Import mode: skip, terminate, delete, import_all | import_all
+
+skip -->        Duplicates in the input file are not imported into the database.
+
+terminate -->   Duplicates in the database are terminated before importing the input file.
+
+delete -->      Duplicates in the database are deleted before importing the input file.
+
+import_all -->  All features from the input file are imported without checking for duplicates.
 
 ### Example
 ```bash
@@ -58,8 +66,8 @@ citydb --help
 ```
 
 ## Filter Options
-OPTION / command | discription
------------- | -------------
+OPTION / command | discription | default
+------------ | ------------- | -------------
  `-t`, `--type-name=<[prefix:]name>[,<[prefix:]name>...]`| Names of the features to process.
 `-i`, `--id=<id>[,<id>...]` |  Identifiers of the features to process.
 `-b`, `--bbox=<x_min,y_min,x_max,y_max[,srid]>` | Bounding box to use as spatial filter.
@@ -91,4 +99,3 @@ You can use an textfile to combine and outsource commands and the link to the co
 ```bash
 citydb import citygml <file> @options.txt
 ```
-dhdghgdhgdhgd

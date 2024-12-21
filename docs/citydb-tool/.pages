@@ -1,11 +1,13 @@
 nav:
   - index.md
   - db-connection.md
-  - import.md
+  - Import:
+    - CityGML options: import.md
+    - CityJSON options: import_cityjson.md
   - Export:
-    - export_shared_options.md
-    - export_citygml.md
-    - export_cityjson.md
+    - Shared export options: export_shared_options.md
+    - CityGML options: export_citygml.md
+    - CityJSON options: export_cityjson.md
   - delete.md
   - indexing.md
   - ...
