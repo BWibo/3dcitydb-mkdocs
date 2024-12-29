@@ -1,5 +1,5 @@
 ---
-title: Docker
+# title: Docker
 subtitle: CityDB tool Docker documentation
 description: CityDB tool Docker documentation and usage examples
 icon: fontawesome/brands/docker
@@ -8,10 +8,6 @@ tags:
   - docker
   - citydb-tool
 ---
-
-## hl2
-
-### hl2
 
 <!--
 
@@ -41,37 +37,85 @@ Image caption
 
 -->
 
+# Using CityDB tool with Docker
 
-# Using the Importer/Exporter with Docker
+The `citydb-tool` Docker images expose the capabilities of the [`citydb-tool`](../citydb-tool/index.md) CLI for dockerized applications and workflows.
 
-The 3D City Database (3DCityDB) Importer/Exporter Docker images expose
-the capabilities of the `Importer/Exporter CLI <impexp_cli_chapter>` for
-dockerized applications and workflows. All CLI commands despite the
-`GUI command<impexp_cli_gui_command>` are supported.
+## TL;DR
 
-**Synopsis**
+``` bash
 
-    docker run --rm --name impexp [-i -t] \
-        [-e CITYDB_TYPE=postgresql|oracle] \
-        [-e CITYDB_HOST=the.host.de] \
-        [-e CITYDB_PORT=5432] \
-        [-e CITYDB_NAME=theDBName] \
-        [-e CITYDB_SCHEMA=theCityDBSchemaName] \
-        [-e CITYDB_USERNAME=theUsername] \
-        [-e CITYDB_PASSWORD=theSecretPass] \
-        [-v /my/data/:/data] \
-      3dcitydb/impexp[:TAG] COMMAND
+docker run --rm --name citydb-tool [-i -t] \
+    [-e CITYDB_HOST=the.host.de] \
+    [-e CITYDB_PORT=5432] \
+    [-e CITYDB_NAME=theDBName] \
+    [-e CITYDB_SCHEMA=theCityDBSchemaName] \
+    [-e CITYDB_USERNAME=theUsername] \
+    [-e CITYDB_PASSWORD=theSecretPass] \
+    [-v /my/data/:/data] \
+  3dcitydb/citydb-tool[:TAG] COMMAND
+```
+
+!!! tip
+
+    Use the `help` command to list all CLI parameters and arguments. For subcommands (e.g. `import citygml`) us this syntax `import help citygml` to show CLI options.
 
 ## Image variants and versions
 
-The Importer/Exporter Docker images are available based on Debian and
-Alpine Linux. The Debian version is based on the
-[OpenJDK](https://hub.docker.com/_/openjdk) images, the Alpine Linux
-variant is based on the non-official images from [Liberica OpenJDK
-Alpine](https://hub.docker.com/r/bellsoft/liberica-openjdk-alpine). The
-images are going to use the latest LTS version available at the time a
-new Importer/Exporter version is released. `impexp_docker_tbl_images`
-gives an overview on the images available.
+The `citydb-tool` Docker images are based on [Eclpise Temurin JRE 21](https://hub.docker.com/_/eclipse-temurin){target="blank"}.
+They are available from [3DCityDB DockerHub](https://hub.docker.com/r/3dcitydb/citydb-tool){target="blank"} or [Github Container registry (ghcr.io)](https://github.com/3dcitydb/citydb-tool/pkgs/container/citydb-tool){target="blank"}.
+
+=== "Dockerhub"
+
+    ``` bash
+    docker pull 3dcitydb/citydb-tool
+    ```
+
+=== "ghcr.io"
+
+    ``` bash
+    docker pull ghcr.io/3dcitydb/citydb-tool
+    ```
+
+### Tags
+
+We publish images for two types of events. For each __release__ on Github (e.g. `v1.2.3`) we provide a set images using the _`citydb-tool` version_ as tag.
+The tags composed of `<major>.<minor>` and `<major>` are volatile and point to the latest `citydb-tool` release. For instance, `1` and `1.2` will point to `1.2.3`, if this is the latest version. This is handy, when you want automatic updates for minor or micro releases. The `latest` tag points alway to the latest release version.
+
+=== "Dockerhub"
+
+    ``` bash
+    docker pull 3dcitydb/citydb-tool:1.0.0
+    docker pull 3dcitydb/citydb-tool:1.0
+    docker pull 3dcitydb/citydb-tool:1
+    docker pull 3dcitydb/citydb-tool:latest
+    ```
+
+=== "ghcr.io"
+
+    ``` bash
+    docker pull ghcr.io/3dcitydb/citydb-tool:1.0.0
+    docker pull ghcr.io/3dcitydb/citydb-tool:1.0
+    docker pull ghcr.io/3dcitydb/citydb-tool:1
+    docker pull ghcr.io/3dcitydb/citydb-tool:latest
+    ```
+
+For each push to the _main_ branch of the [`citydb-tool` repository](https://github.com/3dcitydb/citydb-tool){target="blank"} we publish a fresh version of the __edge__ image.
+
+=== "Dockerhub"
+
+    ``` bash
+    docker pull 3dcitydb/citydb-tool:edge
+    ```
+
+=== "ghcr.io"
+
+    ``` bash
+    docker pull ghcr.io/3dcitydb/citydb-tool:edge
+    ```
+
+!!! warning
+    The `edge` images contain the latest state of development. It may contain bugs and should not be used for production purposes.
 
 <table>
 <caption>3DCityDB Importer/Exporter Docker image variants and major
@@ -134,30 +178,6 @@ Importer/Exporter version is:
 | The latest image version on DockerHub is:
 [![version-badge-dockerhub](https://img.shields.io/docker/v/3dcitydb/impexp?label=Docker%20Hub&logo=docker&logoColor=white&sort=semver)](https://hub.docker.com/r/3dcitydb/impexp/tags)
 
-The **edge** images are automatically built and published on every push
-to the *master* branch of the [3DCityDB Importer/Exporter Github
-repository](https://github.com/3dcitydb/importer-exporter) using the
-latest stable version of the base images. The **latest** and **release**
-image versions are only built when a new release is published on Github.
-The **latest** tag will point to the most recent release version.
-
-The images are available on [3DCityDB
-DockerHub](https://hub.docker.com/r/3dcitydb/) and can be pulled like
-this:
-
-    docker pull 3dcitydb/impexp:TAG
-
-The image *tag* is composed of the Importer/Exporter version and the
-image variant. Debian is the default image variant, where no image
-variant is appended to the tag. For the Alpine Linux images `-alpine` is
-appended. The full list of available tags can be found on
-[DockerHub](https://hub.docker.com/r/3dcitydb/impexp/tags?page=1&ordering=last_updated).
-Here are some examples for full image tags:
-
-    docker pull 3dcitydb/impexp:edge
-    docker pull 3dcitydb/impexp:latest-alpine
-    docker pull 3dcitydb/impexp:5.0.0
-    docker pull 3dcitydb/impexp:5.0.0-alpine
 
 ## Usage and configuration
 
@@ -195,7 +215,7 @@ The default working directory inside the container is `/data`.
 
 Tip
 
-Watch out for **correct paths** when working with mounts! All paths
+Watch out for __correct paths__ when working with mounts! All paths
 passed to the Importer/Exporter CLI have to be specified from the
 container's perspective. If you are not familiar with how Docker manages
 volumes and bind mounts go through the [Docker volume
@@ -231,11 +251,11 @@ Warning
 
 When running the Importer/Exporter on the command line, the values of
 these variables will be used as input if a corresponding CLI option is
-**not** available. Thus, the CLI options always take precedence.
+__not__ available. Thus, the CLI options always take precedence.
 
 CITYDB<span id="type">TYPE</span>=&lt;postgresql|oracle&gt;
 
-The type of the 3DCityDB to connect to. *postgresql* is the default.
+The type of the 3DCityDB to connect to. _postgresql_ is the default.
 
 CITYDB<span id="host">HOST</span>=&lt;hostname or ip&gt;
 
@@ -243,8 +263,8 @@ Name of the host or IP address on which the 3DCityDB is running.
 
 CITYDB<span id="port">PORT</span>=&lt;port&gt;
 
-Port of the 3DCityDB to connect to. Default is *5432* for PostgreSQL and
-*1521* for Oracle.
+Port of the 3DCityDB to connect to. Default is _5432_ for PostgreSQL and
+_1521_ for Oracle.
 
 CITYDB<span id="name">NAME</span>=&lt;dbName&gt;
 
@@ -313,7 +333,7 @@ Set the tag of the runtime image, which is `openjdk` for the Debian and
 `adoptopenjdk/openjdk11` for the Alpine image variant. This is the base
 image the container runs with.
 
-**Build process**
+__Build process__
 
 1.  Clone the [Importer/Exporter Github
     repository](https://github.com/3dcitydb/importer-exporter) and
