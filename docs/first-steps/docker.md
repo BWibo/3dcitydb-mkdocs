@@ -90,9 +90,9 @@ Docker images are available for the following tools of the 3DCityDB software sui
 
 - [3D City Database](3dcitydb.md)
 - [CityDB tool](../citydb-tool/index.md)
-- [3DCityDB Importer/Exporter](https://3dcitydb-docs.readthedocs.io/en/latest/impexp/docker.html){target="_blank"}
-- [3D Web Map Client](https://3dcitydb-docs.readthedocs.io/en/latest/webmap/docker.html){target="_blank"}
-- [3DCityDB Web Feature Service (WFS)](https://3dcitydb-docs.readthedocs.io/en/latest/wfs/docker.html){target="_blank"}
+- [3DCityDB Importer/Exporter](https://3dcitydb-docs.readthedocs.io/en/latest/impexp/docker.html){target="blank"}
+- [3D Web Map Client](https://3dcitydb-docs.readthedocs.io/en/latest/webmap/docker.html){target="blank"}
+- [3DCityDB Web Feature Service (WFS)](https://3dcitydb-docs.readthedocs.io/en/latest/wfs/docker.html){target="blank"}
 
 !!! warning "Docker image compatibility"
 
@@ -135,7 +135,6 @@ All images are available from [DockerHub]{target="blank"} or Github container re
                 ``` bash
                 docker pull ghcr.io/3dcitydb/3dcitydb-pg:latest-alpine
                 ```
-
 
 - [CityDB tool](../citydb-tool/docker.md)
 
@@ -180,8 +179,7 @@ To run a PostgreSQL/PostGIS 3DCityDB container the only required settings are a 
     3dcitydb/3dcitydb-pg
     ```
 
-A container started with the command above will host a 3DCityDB instance
-configured like this:
+A container started with the command above will host a 3DCityDB instance configured like this:
 
 ``` text
 CONTAINER NAME    cdb
@@ -210,7 +208,7 @@ The Docker image exposes the commands of the [`citydb-tool`](../citydb-tool/inde
     3dcitydb/citydb-tool COMMAND # (1)!
     ```
 
-    1. The commands off `citydb-tool` are documented [here](../citydb-tool/index.md).
+    1. The commands of `citydb-tool` are documented [here](../citydb-tool/index.md).
 
 === "Windows"
 
@@ -224,7 +222,7 @@ The Docker image exposes the commands of the [`citydb-tool`](../citydb-tool/inde
     3dcitydb/citydb-tool COMMAND # (1)!
     ```
 
-    1. The commands off `citydb-tool` are documented [here](../citydb-tool/index.md).
+    1. The commands of `citydb-tool` are documented [here](../citydb-tool/index.md).
 
 #### Show CLI documentation
 
