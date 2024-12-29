@@ -132,7 +132,7 @@ registry](https://github.com/3dcitydb/3dcitydb/pkgs/container/3dcitydb-pg){targe
 
 ##### Short tags
 
-For each major release of 3DCityDB (e.g. `5.x.x`) a set images using the _3DCityDB version_ and the _image variant_ as tag are released. These versions use the latest base image available. The tags compose of `<major>.<minor>[-<image variant>]` and `<major>[-<image variant>]` are volatile and point to the latest 3DCityDB release. For instance, `5` and `5.1` will point to `5.1.x`, if it is the latest version. This is handy, when you want automatic updates for minor or micro releases.
+For each _release_ of 3DCityDB on Github (e.g. `5.x.x`) a set of images using the _3DCityDB version_ and the _image variant_ as tag are released. These versions use the latest base image available. The tags compose of `<major>.<minor>[-<image variant>]` and `<major>[-<image variant>]` are volatile and point to the latest 3DCityDB release. For instance, `5` and `5.1` will point to `5.1.x`, if it is the latest version. This is handy, when you want automatic updates for minor or micro releases.
 
 === "Dockerhub"
 
