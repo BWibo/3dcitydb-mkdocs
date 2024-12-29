@@ -309,7 +309,6 @@ Run the `export` command to export :material-database-export: a CityGML dataset 
     3dcitydb/citydb-tool export citygml -o "/data/export.gml"
     ```
 
-
 The exported file will be available on the host system at:
 `/local/data/dir/export.gml`.
 
