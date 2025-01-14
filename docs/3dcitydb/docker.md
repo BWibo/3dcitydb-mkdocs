@@ -485,3 +485,15 @@ The configuration of the PostgreSQL database has significant impact on performan
       -c max_parallel_workers=8 \
       -c max_parallel_maintenance_workers=4
     ```
+
+!!! warning
+    For highly parallel queries PostgreSQL might exceed shared memory space. Thus, it is recommended to increase
+    Docker shared memory size using the `--shm-size=4g` option of [`docker run`](https://docs.docker.com/reference/cli/docker/container/run/#options){target="blank"}.
+
+    ``` bash hl_lines="2"
+    docker run -d -i -t --name citydb -p 5432:5342 \
+      --shm-size=4g \
+      -e SRID=25832 \
+      -e POSTGRES_PASSWORD=changeMe \
+    3dcitydb/3dcitydb-pg
+    ```
