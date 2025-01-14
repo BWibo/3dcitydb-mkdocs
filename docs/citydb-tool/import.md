@@ -16,12 +16,18 @@ Use `citydb import citygml [OPTIONS] <file>` to import one or more citygml files
 
 The command provides a range of [OPTIONS] to adapt the import process.
 
+# Better Practice
+You can use an textfile to combine and outsource commands and the link to the config.json to keep a better overwiew of issued commands. Save the textfile in the same folder as the config.json.
+
+```bash
+citydb import citygml <file> @options.txt
+```
 
 # Options Table
 
 ## Import Data
 
-OPTION / command | discription | default
+OPTION / command | discription | default value
 ------------ | ------------- | -------------
 `@<filename>...` | One or more argument files containing options.
 `<file>...` | One or more files and directories to process (globpatterns allowed).
@@ -39,16 +45,26 @@ OPTION / command | discription | default
 `--plugins=<dir>` | Load plugins from this directory.
 `--use-plugins=<plugin[=true|false][,<plugin[=true|false]...]` | Enable or disable plugins with a matching fully qualified class name | true
 
-### Example
+### Examples
+
+Running the import in a preview mode to check the metadata in the commandline
+
 ```bash
-citydb --help
+citydb import citygml generic_citygml.gml --preview @options.txt
 ```
+
+Import a CityGML file and create file in a seperate folder with log message
+
+```bash
+citydb import citygml generic_citygml.gml --log-file=.\log @options.txt
+```
+
 
 ## Handling with duplicate features
 
 There are different options for the import to handle duplicate features based on the feature ID (i.e., gml:id).
 
-OPTION / command | discription | default
+OPTION / command | discription | default value
 ------------ | ------------- | -------------
 `-m, --import-mode=<mode>` | Import mode: skip, terminate, delete, import_all | import_all
 
@@ -61,41 +77,41 @@ delete -->      Duplicates in the database are deleted before importing the inpu
 import_all -->  All features from the input file are imported without checking for duplicates.
 
 ### Example
+
+If you want to check if the files are already imported to the database you can use the import-mode skip to check on it.
+
 ```bash
-citydb --help
+citydb import citygml generic_citygml.gml --import-mode=skip @options.txt
 ```
 
 ## Filter Options
-OPTION / command | discription | default
+OPTION / command | discription | default value
 ------------ | ------------- | -------------
- `-t`, `--type-name=<[prefix:]name>[,<[prefix:]name>...]`| Names of the features to process.
+`-t`, `--type-name=<[prefix:]name>[,<[prefix:]name>...]`| Names of the features to process.
 `-i`, `--id=<id>[,<id>...]` |  Identifiers of the features to process.
-`-b`, `--bbox=<x_min,y_min,x_max,y_max[,srid]>` | Bounding box to use as spatial filter.
+`-b`, `--bbox=<x_min,y_min,x_max,y_max,srid>` | Bounding box to use as spatial filter.
 `--bbox-mode=<mode>` |  Bounding box mode: intersects, contains, on_tile  (default: intersects).
 `--limit=<count>` | Maximum number of features to process.
 `-a`, `--appearance-theme=<theme>[,<theme>...]` | Process appearances with a matching theme. Use 'none' for the null theme.
 
-### Example
+### Examples
+
+Limit the amount of features that will be imported from a file.
+
 ```bash
-citydb --help
+citydb import citygml generic_citygml.gml --limit=2 @options.txt
 ```
 
+Create a bounding box and import the features from the file that intersects (default).
+
+```bash
+citydb import citygml generic_citygml.gml --bbox=367123,5807268,367817,5807913,25833 @options.txt
+```
 
 ## Upgrade options for CityGML 2.0 and 1.0
-OPTION / command | discription | default
+OPTION / command | discription | default value
 ------------ | ------------- | ------------- 
 `--use-lod4-as-lod3` |  Use LoD4 as LoD3, replacing an existing LoD3.
 `--map-lod0-roof-edge` |  Map LoD0 roof edges onto roof surfaces.
 `--map-lod1-surface` | Map LoD1 multi-surfaces onto generic thematic surfaces.
 
-### Example
-```bash
-citydb --help
-```
-
-# Better Practice
-You can use an textfile to combine and outsource commands and the link to the config.json to keep a better overwiew of issued commands. Save the textfile in the same folder as the config.json.
-
-```bash
-citydb import citygml <file> @options.txt
-```

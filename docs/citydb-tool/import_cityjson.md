@@ -21,6 +21,6 @@ The different commands are identical to the import of CityGML up to one command.
 # Options Table
 
 
-OPTION / command | discription | default
+OPTION / command | discription | default value
 ------------ | ------------- | -------------
 ` --[no-]map-unknown-objects` |  Map city objects from unsupported extensions onto generic city objects. | true
