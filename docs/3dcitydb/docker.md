@@ -26,7 +26,7 @@ The images described here are available for 3DCityDB version `v4.0.0` and newer.
 
 !!! info "Docker image versions and compatibility"
     The 3DCityDB Docker images for `>= v5.x.x` are __only__ available for PostgreSQL/PostGIS and are only compatible with
-    the [`citydb-tool`](../citydb-tool/docker.md) images, as of writing this (2025-01). See [here](../compatibility.md) for more on CityGML version and 3DCityDB compatibility.
+    the [`citydb-tool`](../citydb-tool/docker.md) images, as of writing this (2025-01). See [here](../compatibility.md) for more on CityGML version and 3DCityDB tools compatibility.
 
 When designing the images we tried to stay as close as possible to the behavior of the base images and the [3DCityDB Shell scripts](../first-steps/setup.md). Thus, all configuration options you may be used to from the base images, are available for the 3DCityDB Docker images as well.
 
