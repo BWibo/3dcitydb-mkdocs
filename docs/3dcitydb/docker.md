@@ -485,3 +485,63 @@ The configuration of the PostgreSQL database has significant impact on performan
       -c max_parallel_workers=8 \
       -c max_parallel_maintenance_workers=4
     ```
+
+### Hints for highly parallel systems
+
+If you are running 3DCityDB Docker on a server with many CPUs, a lot of queries can run in parallel, if you apply suitable tuning options as described above. For highly parallel queries PostgreSQL might exceed shared memory space. Thus, it is recommended to increase Docker shared memory size using the [`--shm-size`](https://docs.docker.com/reference/cli/docker/container/run/#options){target="blank"} option of [`docker run`](https://docs.docker.com/reference/cli/docker/container/run/){target="blank"}. Make sure PostgreSQL's [`shared_buffers`](https://www.postgresql.org/docs/current/runtime-config-resource.html) option is increased accordingly, as shown in the example below. Testing indicates that increasing the PostgreSQL [`max_locks_per_transaction`](https://www.postgresql.org/docs/current/runtime-config-locks.html) option is necessary too for large performance gains.
+
+Let's assume a server with following configuration:
+
+``` text hl_lines="4 5"
+# DB Version: 17
+# OS Type: linux
+# DB Type: dw
+# Total Memory (RAM): 32 GB
+# CPUs num: 16
+# Connections num: 100
+# Data Storage: ssd
+
+max_connections = 100
+shared_buffers = 8GB
+effective_cache_size = 24GB
+maintenance_work_mem = 2GB
+checkpoint_completion_target = 0.9
+wal_buffers = 16MB
+default_statistics_target = 500
+random_page_cost = 1.1
+effective_io_concurrency = 200
+work_mem = 5242kB
+huge_pages = try
+min_wal_size = 4GB
+max_wal_size = 16GB
+max_worker_processes = 16
+max_parallel_workers_per_gather = 8
+max_parallel_workers = 16
+max_parallel_maintenance_workers = 4
+```
+
+``` bash hl_lines="2 7 23"
+docker run -d -i -t --name citydb -p 5432:5342 \
+    --shm-size=8g \
+    -e SRID=25832 \
+    -e POSTGRES_PASSWORD=changeMe \
+3dcitydb/3dcitydb-pg postgres \
+    -c max_connections=100 \
+    -c shared_buffers=8GB \
+    -c effective_cache_size=24GB \
+    -c maintenance_work_mem=2GB \
+    -c checkpoint_completion_target=0.9 \
+    -c wal_buffers=16MB \
+    -c default_statistics_target=500 \
+    -c random_page_cost=1.1 \
+    -c effective_io_concurrency=200 \
+    -c work_mem=5242kB \
+    -c huge_pages=try \
+    -c min_wal_size=4GB \
+    -c max_wal_size=16GB \
+    -c max_worker_processes=16 \
+    -c max_parallel_workers_per_gather=8 \
+    -c max_parallel_workers=16 \
+    -c max_parallel_maintenance_workers=4 \
+    -c max_locks_per_transaction=1024
+```
