@@ -296,24 +296,13 @@ docker run --rm --name citydb-tool \
 
 ## Examples
 
-### Docker preparation
+For the following examples we assume that a 3DCityDB instance with the following settings is running:
 
-At first, we will create a network for the 3DCityDB and tools to use. All containers we use will be attached to that network using the `--network` option of [`docker run`](https://docs.docker.com/reference/cli/docker/container/run){target="blank"}. This will allow us to use container names as hostnames.
-
-``` bash
-docker network create citydb-net
-```
-
-### 3DCityDB creation
-
-``` bash
-docker run -d -p 5432:5432 --name citydb \
-  --network citydb-net \
-  -e POSTGRES_PASSWORD=changeMe \
-  -e SRID=3068 \
-3dcitydb/3dcitydb-pg:5-alpine
-```
-
+    DB HOSTNAME   my.host.de
+    DB PORT       5432
+    DB NAME       citydb
+    DB USERNAME   postgres
+    DB PASSWORD   changeMe
 
 ### Importing CityGML
 
@@ -321,11 +310,13 @@ This section provides some examples for importing CityGML datasets. Refer to [`i
 
 Import the CityGML dataset `/home/me/mydata/bigcity.gml` on you host system into the DB given above:
 
-    docker run --rm --name citydb-tool \
-        -v /home/me/mydata/:/data \
-      3dcitydb/citydb-tool import \
-        -H my.host.de -d citydb -u postgres -p changeMe \
-        bigcity.gml
+``` bash
+docker run --rm --name citydb-tool \
+    -v /home/me/mydata/:/data \
+  3dcitydb/citydb-tool import citygml \
+    -H my.host.de -d citydb -u postgres -p changeMe \
+    bigcity.gml
+```
 
 !!! note
 
@@ -359,26 +350,47 @@ docker run --rm --name citydb-tool \
 
 ### CityDB tool Docker combined with 3DCityDB Docker
 
-This example shows how to use the 3DCityDB and CityDB tool Docker images in conjunction. We will download a CityGML 2.0 test dataset, import it to 3DCityDB and create a CityGML 3.0 export.
+This example shows how to use the 3DCityDB and CityDB tool Docker images in conjunction. We will download a CityGML 2.0 test dataset, create a 3DCityDB, import the test data and create a CityGML 3.0 export.
 
 #### Data preparation
 
-Let's begin by downloading a test dataset.
+Let's begin by downloading a test dataset: [:material-download: Railway Scene LoD3 dataset](https://github.com/3dcitydb/importer-exporter/raw/master/resources/samples/Railway%20Scene/Railway_Scene_LoD3.zip)
 
-[:material-download: Railway Scene LoD3 dataset](https://github.com/3dcitydb/importer-exporter/raw/master/resources/samples/Railway%20Scene/Railway_Scene_LoD3.zip)
+For this example we assume the downloaded data is at your current working directory. We use the well known `$PWD` environment variable to specify all paths in the following, e.g. `$PWD/Railway_Scene_LoD3.zip`. Below are some examples for common Linux tools to download the file, but you can use the URL above too.
 
-When the data is downloaded, unpack the data to a folder of your choice on your host system. For this example we assume the extracted data is at `/citydb/`.
-The test dataset uses `SRID=3068` and `GMLSRSNAME=urn:ogc:def:crs,crs:EPSG::3068,crs:EPSG::5783`.
+=== "`wget`"
+
+    ``` bash
+    wget "https://github.com/3dcitydb/importer-exporter/raw/master/resources/samples/Railway%20Scene/Railway_Scene_LoD3.zip"
+    ```
+
+=== "`curl`"
+
+    ``` bash
+    curl -LO "https://github.com/3dcitydb/importer-exporter/raw/master/resources/samples/Railway%20Scene/Railway_Scene_LoD3.zip"
+    ```
+
+The test dataset uses following coordinate reference system:
+
+    SRID        3068
+    GMLSRSNAME  urn:ogc:def:crs,crs:EPSG::3068,crs:EPSG::5783
+
+#### Networking preparation
+
+First, let's bring up a Docker network called `citydb-net`. We will attach all containers in this example to this network using the `--network` option of `docker run`.
+This will allow us to use container names as hostnames.
+
+``` bash
+# docker network remove citydb-net
+docker network create citydb-net
+```
 
 #### 3DCityDB creation
 
-First, let's bring up a Docker network named `citydb-net` and a 3DCityDB instance. As the emphasized line shows, we name the container `citydb`.
+Now let's create a a 3DCityDB instance using the [3DCityDB Docker images](../3dcitydb/docker.md). As the emphasized lines show, we name the container `citydb`, attach to the network created above, and use the SRID of our test dataset.
 
-``` bash hl_lines="5"
-docker network create citydb-net
-
-docker rm -f -v citydb
-
+``` bash hl_lines="2 3 6" linenums="1"
+# docker rm -f -v citydb
 docker run -t -d --name citydb \
     --network citydb-net \
     -p 5432:5432 \
