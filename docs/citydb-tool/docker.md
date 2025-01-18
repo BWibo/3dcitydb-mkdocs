@@ -43,11 +43,11 @@ The CityDB tool Docker images expose the capabilities of the [`citydb-tool`](../
 
 !!! warning "Docker image compatibility"
 
-    3DCityDB `v5` introduces a substantially changed database schema and a new set of tools.
+    3DCityDB `v5` introduces a substantially changed database schema, that requires a new set of tools.
 
-    :warning: Currently, __only [CityDB tool](../citydb-tool/index.md)__ is compatible with `v5`. :warning:
+    :warning:    Currently, __only__ [CityDB tool](../citydb-tool/index.md) is compatible with 3DCityDB `v5`.    :warning:
 
-    Usage of the 3DCityDB `v4` tools ([3DCityDB CityDB tool](https://3dcitydb-docs.readthedocs.io/en/latest/impexp/docker.html){target="blank"}, [3D Web Map Client](https://3dcitydb-docs.readthedocs.io/en/latest/webmap/docker.html){target="blank"}, [3DCityDB Web Feature Service (WFS)](https://3dcitydb-docs.readthedocs.io/en/latest/wfs/docker.html){target="blank"}) is still possible by migrating data to a 3DCityDB `v4`. See [here](../compatibility.md) for more details on compatibility of CityGML versions and 3DCityDB tools.
+    Usage of 3DCityDB `v4` tools ([3DCityDB Importer/Exporter](https://3dcitydb-docs.readthedocs.io/en/latest/impexp/docker.html), [3D Web Map Client](https://3dcitydb-docs.readthedocs.io/en/latest/webmap/docker.html){target="blank"}, [3DCityDB Web Feature Service (WFS)](https://3dcitydb-docs.readthedocs.io/en/latest/wfs/docker.html){target="blank"}) is still possible by migrating data to a 3DCityDB `v4`. See [here](../compatibility.md) for more details on compatibility of CityGML versions and 3DCityDB tools, and how to migrate data between versions.
 
 ## TL;DR
 
@@ -247,7 +247,7 @@ Password to use when connecting to the 3DCityDB.
 
 ### User management and file permissions
 
-When exchanging files between the host system and the CityDB tool container it is import to make sure that files and directories have permissions set correctly. For security reasons (see [here](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user)) the CityDB tool runs as non-root user by default inside the container. The default user is named `ubuntu` with user and group identifier (uid, gid) = `1000`.
+When exchanging files between the host system and the CityDB tool container, it is import to make sure that files and directories have permissions set correctly. For security reasons (see [here](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user){target="blank"}) the CityDB tool runs as non-root user by default inside the container. The default user is named `impexp` with user and group identifier (uid, gid) = `1000`.
 
 ``` bash
 docker run --rm --entrypoint bash 3dcitydb/citydb-tool \
@@ -296,11 +296,27 @@ docker run --rm --name citydb-tool \
 
 ## Examples
 
-For the following examples we assume that a 3DCityDB instance with the following settings is running:
+### Docker preparation
 
-    DB HOSTNAME   my.host.de
+At first, we will create a network for the 3DCityDB and tools to use.
+
+``` bash
+docker network create citydb-net
+```
+
+### 3DCityDB creation
+
+``` bash
+docker run -d -p 5432:5432 --name citydb \
+  --network citydb-net \
+  -e POSTGRES_PASSWORD=changeMe \
+  -e SRID=3068 \
+3dcitydb/3dcitydb-pg:5-alpine
+```
+
+    DB HOSTNAME   localhost
     DB PORT       5432
-    DB NAME       citydb
+    DB DBNAME     citydb
     DB USERNAME   postgres
     DB PASSWORD   changeMe
 
@@ -310,13 +326,11 @@ This section provides some examples for importing CityGML datasets. Refer to [`i
 
 Import the CityGML dataset `/home/me/mydata/bigcity.gml` on you host system into the DB given above:
 
-``` bash
-docker run --rm --name citydb-tool \
-    -v /home/me/mydata/:/data \
-  3dcitydb/citydb-tool import citygml \
-    -H my.host.de -d citydb -u postgres -p changeMe \
-    bigcity.gml
-```
+    docker run --rm --name citydb-tool \
+        -v /home/me/mydata/:/data \
+      3dcitydb/citydb-tool import \
+        -H my.host.de -d citydb -u postgres -p changeMe \
+        bigcity.gml
 
 !!! note
 
@@ -350,41 +364,66 @@ docker run --rm --name citydb-tool \
 
 ### CityDB tool Docker combined with 3DCityDB Docker
 
-This example shows how to use the 3DCityDB and CityDB tool Docker images in conjunction. Let's assume we have a CityGML file containing a few buildings file on our Docker host in our current working directory. We use the well known `$PWD` environment variable to specify all paths in the following, e.g. `"$PWD/buildings.gml"`.
+This example shows how to use the 3DCityDB and CityDB tool Docker images in conjunction. We will download a CityGML 2.0 test dataset, import it to 3DCityDB and create a CityGML 3.0 export.
 
-First, let's bring up a Docker network and a 3DCityDB instance using the [3DCityDB Docker images](../3dcitydb/docker.md). As the emphasized line shows, we name the container `citydb`. You can use the [LoD3 Railway dataset](https://github.com/3dcitydb/importer-exporter/raw/master/resources/samples/Railway%20Scene/Railway_Scene_LoD3.zip) for testing.
+#### Data preparation
 
-``` bash hl_lines="3"
+Let's begin by downloading a test dataset.
+
+[:material-download: Railway Scene LoD3 dataset](https://github.com/3dcitydb/importer-exporter/raw/master/resources/samples/Railway%20Scene/Railway_Scene_LoD3.zip)
+
+When the data is downloaded, unpack the data to a folder of your choice on your host system. For this example we assume the extracted data is at `/citydb/`.
+The test dataset uses `SRID=3068` and `GMLSRSNAME=urn:ogc:def:crs,crs:EPSG::3068,crs:EPSG::5783`.
+
+#### 3DCityDB creation
+
+First, let's bring up a Docker network named `citydb-net` and a 3DCityDB instance. As the emphasized line shows, we name the container `citydb`.
+
+``` bash hl_lines="5"
 docker network create citydb-net
 
-docker run -d --name citydb \
+docker rm -f -v citydb
+
+docker run -t -d --name citydb \
     --network citydb-net \
+    -p 5432:5432 \
     -e POSTGRES_PASSWORD=changeMe \
     -e SRID=3068 \
-    3dcitydb/3dcitydb-pg:latest-alpine
+  3dcitydb/3dcitydb-pg-v5:edge-alpine
 ```
 
-The next step is to `import <impexp_cli_import_command>` our data to the
-3DCityDB container. Therefore, we need to mount our data directory to
-the container, as shown in line 3. The emphasized lines show how to use
-the container name from the first step as hostname when both containers
-are attached to the same Docker network.
+We now have a 3DCityDB instance running with these properties:
 
-Note
+    3DCityDB Version    5.0.0
+    SRID                3068
+    GMLSRSNAME          urn:ogc:def:crs,crs:EPSG::3068,crs:EPSG::5783
+    DBNAME              postgres
+    SCHEMA NAME         citydb
+    DBUSER              postgres
+    DBPASSWORD          changeMe
 
-There are many other networking options to connect Docker containers.
-Take a look at the Docker [networking
-overview](https://docs.docker.com/network/) to learn more.
+#### Import data
 
-    docker run -i -t --rm --name citydb-tool \
-        --network citydb-net \
-        -v /d/temp:/data \
-      3dcitydb/citydb-tool:latest-alpine import \
-        -H citydb \
-        -d postgres \
-        -u postgres \
-        -p changeMe \
-        /data/building.gml
+The next step is to import our data to the 3DCityDB. Therefore, we need to mount our data directory to the container, as shown in line 3. The emphasized lines show how to use
+the container name from the first step as hostname when both containers are attached to the same Docker network.
+
+``` bash hl_lines="5"
+docker run -i -t --rm --name citydb-tool \
+    --network citydb-net \
+    -v /citydb/:/data \
+  3dcitydb/citydb-tool:edge import citygml \
+    -H citydb \
+    -d postgres \
+    -u postgres \
+    -p changeMe \
+    "Railway_Scene_LoD3/Railway_Scene_LoD3.gml"
+```
+
+!!! tip
+
+    There are many other networking options to connect Docker containers.
+    Take a look at the Docker [networking
+    overview](https://docs.docker.com/network/){target="blank"} to learn more.
 
 Now, with our data inside the 3DCityDB, let's use the CityDB tool
 to create a `visualization export <impexp_cli_export_vis_command>`. We
