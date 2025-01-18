@@ -96,11 +96,11 @@ Docker images are available for the following tools of the 3DCityDB software sui
 
 !!! warning "Docker image compatibility"
 
-    3DCityDB `v5` introduces a substantially changed database schema and a new set of tools.
+    3DCityDB `v5` introduces a substantially changed database schema, that requires a new set of tools.
 
-    :warning: Currently, __only [CityDB tool](../citydb-tool/index.md)__ is compatible with `v5`. :warning:
+    :warning:    Currently, __only__ [CityDB tool](../citydb-tool/index.md) is compatible with 3DCityDB `v5`.    :warning:
 
-    Usage of the 3DCityDB `v4` tools ([3DCityDB Importer/Exporter](https://3dcitydb-docs.readthedocs.io/en/latest/impexp/docker.html){target="blank"}, [3D Web Map Client](https://3dcitydb-docs.readthedocs.io/en/latest/webmap/docker.html){target="blank"}, [3DCityDB Web Feature Service (WFS)](https://3dcitydb-docs.readthedocs.io/en/latest/wfs/docker.html){target="blank"}) is still possible by migrating data to a 3DCityDB `v4`. See [here](../compatibility.md) for more details on compatibility of CityGML versions and 3DCityDB tools.
+    Usage of 3DCityDB `v4` tools ([3DCityDB Importer/Exporter](https://3dcitydb-docs.readthedocs.io/en/latest/impexp/docker.html), [3D Web Map Client](https://3dcitydb-docs.readthedocs.io/en/latest/webmap/docker.html){target="blank"}, [3DCityDB Web Feature Service (WFS)](https://3dcitydb-docs.readthedocs.io/en/latest/wfs/docker.html){target="blank"}) is still possible by migrating data to a 3DCityDB `v4`. See [here](../compatibility.md) for more details on compatibility of CityGML versions and 3DCityDB tools, and how to migrate data between versions.
 
 ### Get 3DCityDB Docker images
 
