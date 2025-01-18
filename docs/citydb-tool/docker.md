@@ -298,7 +298,7 @@ docker run --rm --name citydb-tool \
 
 ### Docker preparation
 
-At first, we will create a network for the 3DCityDB and tools to use.
+At first, we will create a network for the 3DCityDB and tools to use. All containers we use will be attached to that network using the `--network` option of [`docker run`](https://docs.docker.com/reference/cli/docker/container/run){target="blank"}. This will allow us to use container names as hostnames.
 
 ``` bash
 docker network create citydb-net
@@ -314,11 +314,6 @@ docker run -d -p 5432:5432 --name citydb \
 3dcitydb/3dcitydb-pg:5-alpine
 ```
 
-    DB HOSTNAME   localhost
-    DB PORT       5432
-    DB DBNAME     citydb
-    DB USERNAME   postgres
-    DB PASSWORD   changeMe
 
 ### Importing CityGML
 
