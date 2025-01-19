@@ -40,7 +40,7 @@ docker run --name 3dciytdb -p 5432:5432 -d \
     -e POSTGRES_PASSWORD=<theSecretPassword> \
     -e SRID=<EPSG code> \
     [-e HEIGHT_EPSG=<EPSG code>] \
-    [-e GMLSRSNAME=<mySrsName>] \
+    [-e SRS_NAME=<mySrsName>] \
     [-e POSTGRES_DB=<database name>] \
     [-e POSTGRES_USER=<username>] \
     [-e POSTGIS_SFCGAL=<true|false|yes|no>] \
@@ -53,7 +53,7 @@ docker run --name 3dciytdb -p 1521:1521 -d \
     -e ORACLE_PASSWORD=<theSecretPassword> \
     -e SRID=<EPSG code> \
     [-e HEIGHT_EPSG=<EPSG code>] \
-    [-e GMLSRSNAME=<mySrsName>] \
+    [-e SRS_NAME=<mySrsName>] \
     [-e ORACLE_PDB=<pluggable database name>] \
     [-e DBVERSION=<oracle license option>] \
     [-e VERSIONING=<version-enabled>] \
@@ -209,7 +209,7 @@ Due to Oracle licensing conditions we cannot offer 3DCityDB images based on Orac
 
 ## Usage and configuration
 
-A 3DCityDB container is configured by settings environment variables inside the container. For instance, this can be done using the `-e VARIABLE=VALUE` flag of [`docker run`](https://docs.docker.com/engine/reference/run/#env-environment-variables). The 3DCityDB Docker images introduce the variables `SRID`, `HEIGHT_EPSG` and `GMLSRSNAME`. Their behavior is described here. Furthermore, some variables inherited from the base images offer important configuration options, they are described separately for the [PostgreSQL/PostGIS](#postgresqlpostgis-environment-variables) and [Oracle](#oracle-environment-variables) image variants.
+A 3DCityDB container is configured by settings environment variables inside the container. For instance, this can be done using the `-e VARIABLE=VALUE` flag of [`docker run`](https://docs.docker.com/engine/reference/run/#env-environment-variables). The 3DCityDB Docker images introduce the variables `SRID`, `HEIGHT_EPSG` and `SRS_NAME`. Their behavior is described here. Furthermore, some variables inherited from the base images offer important configuration options, they are described separately for the [PostgreSQL/PostGIS](#postgresqlpostgis-environment-variables) and [Oracle](#oracle-environment-variables) image variants.
 
 !!! tip
     All variables besides `POSTGRES_PASSWORD` and `ORACLE_PWD` are optional.
@@ -220,17 +220,17 @@ A 3DCityDB container is configured by settings environment variables inside the 
 
 `HEIGHT_EPSG=EPSG code`
 
-:   EPSG code of the height system, omit or use 0 if unknown or `SRID` is already 3D. This variable is used only for the automatic generation of `GMLSRSNAME`.
+:   EPSG code of the height system, omit or use 0 if unknown or `SRID` is already 3D. This variable is used only for the automatic generation of `SRS_NAME`.
 
-`GMLSRSNAME=mySrsName`
+`SRS_NAME=mySrsName`
 
-:   If set, the automatically generated `GMLSRSNAME` from `SRID` and `HEIGHT_EPSG` is overwritten. If not set, the variable will be created automatically like this:
+:   If set, the automatically generated `SRS_NAME` from `SRID` and `HEIGHT_EPSG` is overwritten. If not set, the variable will be created automatically like this:
 
     If only `SRID` is set:
-    `GMLSRSNAME` = `urn:ogc:def:crs:EPSG::SRID`
+    `SRS_NAME` = `urn:ogc:def:crs:EPSG::SRID`
 
     If `SRID` and `HEIGHT_EPSG` are set:
-    `GMLSRSNAME` = `urn:ogc:def:crs,crs:EPSG::SRID,crs:EPSG::HEIGHT_EPSG`
+    `SRS_NAME` = `urn:ogc:def:crs,crs:EPSG::SRID,crs:EPSG::HEIGHT_EPSG`
 
 ### PostgreSQL/PostGIS environment variables
 
