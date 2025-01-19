@@ -373,29 +373,40 @@ For this example we assume the downloaded data is at your current working direct
 The test dataset uses following coordinate reference system:
 
     SRID        3068
-    GMLSRSNAME  urn:ogc:def:crs,crs:EPSG::3068,crs:EPSG::5783
+    SRS_NAME    urn:ogc:def:crs,crs:EPSG::3068,crs:EPSG::5783
+
+You can read this information from the unpacked CityGML `.gml` files `srsName` property or extract it with a text search utility like `grep`.
+
+``` bash
+grep -i -m 1 srsName Railway_Scene_LoD3_exp.gml
+```
 
 #### Networking preparation
 
-First, let's bring up a Docker network called `citydb-net`. We will attach all containers in this example to this network using the `--network` option of `docker run`.
-This will allow us to use container names as hostnames.
+The next step is to bring up a Docker network called `citydb-net`. We will attach all containers in this example to this network using the `--network` option of `docker run`. This will allow us to use container names as hostnames for connecting `citydb-tool` to the database.
 
 ``` bash
 # docker network remove citydb-net
+
 docker network create citydb-net
 ```
 
+!!! tip
+
+    There are many other networking options to connect Docker containers. Take a look at the Docker [networking overview](https://docs.docker.com/network/){target="blank"} to learn more.
+
 #### 3DCityDB creation
 
-Now let's create a a 3DCityDB instance using the [3DCityDB Docker images](../3dcitydb/docker.md). As the emphasized lines show, we name the container `citydb`, attach to the network created above, and use the SRID of our test dataset.
+Now let's create a a 3DCityDB instance using the [3DCityDB Docker images](../3dcitydb/docker.md). We name the container `citydb` ([line 3](#__codelineno-24-3)), attach it to the network created above ([line 4](#__codelineno-24-4)), and use the `SRID` and `SRS_NAME` of our test dataset ([line 6-7](#__codelineno-24-6)).
 
-``` bash hl_lines="2 3 6" linenums="1"
+``` bash linenums="1"
 # docker rm -f -v citydb
+
 docker run -t -d --name citydb \
     --network citydb-net \
-    -p 5432:5432 \
     -e POSTGRES_PASSWORD=changeMe \
     -e SRID=3068 \
+    -e SRS_NAME="urn:ogc:def:crs,crs:EPSG::3068,crs:EPSG::5783" \
   3dcitydb/3dcitydb-pg-v5:edge-alpine
 ```
 
@@ -403,69 +414,71 @@ We now have a 3DCityDB instance running with these properties:
 
     3DCityDB Version    5.0.0
     SRID                3068
-    GMLSRSNAME          urn:ogc:def:crs,crs:EPSG::3068,crs:EPSG::5783
+    SRS_NAME            urn:ogc:def:crs,crs:EPSG::3068,crs:EPSG::5783
     DBNAME              postgres
     SCHEMA NAME         citydb
     DBUSER              postgres
     DBPASSWORD          changeMe
 
+To verify this, you can check the console log of the database container:
+
+``` bash
+docker logs citydb
+```
+
 #### Import data
 
-The next step is to import our data to the 3DCityDB. Therefore, we need to mount our data directory to the container, as shown in line 3. The emphasized lines show how to use
-the container name from the first step as hostname when both containers are attached to the same Docker network.
+The next step is to import our data to the 3DCityDB. Therefore, we need to mount our working directory (`$PWD`) containing the downloaded `.zip` file to the container, as shown in line 3. The emphasized line shows how to use the container name from the first step as hostname when both containers are attached to the same Docker network.
 
-``` bash hl_lines="5"
+``` bash hl_lines="5" linenums="1"
 docker run -i -t --rm --name citydb-tool \
     --network citydb-net \
-    -v /citydb/:/data \
+    -v "$PWD:/data" \
   3dcitydb/citydb-tool:edge import citygml \
     -H citydb \
     -d postgres \
     -u postgres \
     -p changeMe \
-    "Railway_Scene_LoD3/Railway_Scene_LoD3.gml"
+    "Railway_Scene_LoD3.zip"
 ```
 
-!!! tip
+#### Export CityGML v3.0 data
 
-    There are many other networking options to connect Docker containers.
-    Take a look at the Docker [networking
-    overview](https://docs.docker.com/network/){target="blank"} to learn more.
+Now, with our data inside the 3DCityDB, let's use the CityDB tool to create a CityGML 3.0 export of the entire dataset. As CityGML 3.0 is the default export option, there are no additional options required for the export command. Same as for the [import](#import-data) step above, we mount our current working directory for data exchange with the container. Additionally, we add the `-o` option to specify an output file name `Railway_Scene_LoD3_CityGML_v3.gml` ([line 10](#__codelineno-26-10)) and set the container to run as the current user and group to make sure we have sufficient permissions for writing the output file ([line 2](#__codelineno-26-2), see [here](#user-management-and-file-permissions) for more).
 
-Now, with our data inside the 3DCityDB, let's use the CityDB tool
-to create a `visualization export <impexp_cli_export_vis_command>`. We
-are going to export all Buildings in LoD 2 as binary glTF with embedded
-textures and draco compression enabled. All Buildings will be translated
-to elevation 0 to fit in a visualization without terrain model.
+``` bash linenums="1"
+docker run -i -t --rm --name citydb-tool \
+    -u "$(id -u):$(id -g)" \
+    --network citydb-net \
+    -v "$PWD:/data" \
+  3dcitydb/citydb-tool:edge export citygml \
+    -H citydb \
+    -d postgres \
+    -u postgres \
+    -p changeMe \
+    -o "Railway_Scene_LoD3_CityGML_v3.gml"
+```
 
-    docker run -i -t --rm --name citydb-tool \
-        --network citydb-net \
-        -v /d/temp:/data \
-      3dcitydb/citydb-tool:latest-alpine export-vis \
-        -H citydb \
-        -d postgres \
-        -u postgres \
-        -p changeMe \
-        -l 2 \
-        -D collada \
-        -G \
-        --gltf-binary \
-        --gltf-embed-textures \
-        --gltf-draco-compression \
-        -O globe \
-        -o /data/building_glTf.kml
+#### Export CityJSON data
 
-The export file are now available in `/d/temp`.
+``` bash linenums="1"
+ docker run -i -t --rm --name citydb-tool \
+    -u "$(id -u):$(id -g)" \
+    --network citydb-net \
+    -v "$PWD:/data" \
+  3dcitydb/citydb-tool:edge export cityjson \
+    -H citydb \
+    -d postgres \
+    -u postgres \
+    -p changeMe \
+    -o "Railway_Scene_LoD3_CityJSON.json"
+```
 
-    $ ls -lhA /d/temp
+#### Cleanup
 
-    drwxrwxrwx 1 theUser theUser 4.0K May  6 17:51 Tiles/
-    -rwxrwxrwx 1 theUser theUser 1.4K May  6 17:55 building_glTf.kml*
-    -rwxrwxrwx 1 theUser theUser  310 May  6 17:55 building_glTf_collada_MasterJSON.json*
-    -rwxrwxrwx 1 theUser theUser 3.2M May  5 16:25 buildings.gml*
+If you no longer need the 3DCityDB, its container, data volume, and the network can be disposed.
 
-As we are done now, the 3DCityDB container and the network are no longer
-needed and can be removed:
-
-    docker rm -f -v citydb
-    docker network rm citydb-net
+``` bash
+docker rm -f -v citydb
+docker network rm citydb-net
+```
