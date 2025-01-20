@@ -30,7 +30,7 @@ tags:
       <!-- Replace with your text -->
       <p><b>Contact person</b></p>
       <p>
-        Bruno Willenborg</br>
+        <a href="https://www.list-gruppe.de/vcard/?vcard=wgmVbxGSPWSSkE8t5PmQ4xGYZ" target="_blank">Bruno Willenborg</a></br>
         <a href="mailto:bruno.willenborg(at)list-eco.de">bruno.willenborg(at)list-eco.de</a>
       </p>
     </div>
