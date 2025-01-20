@@ -397,7 +397,7 @@ docker network create citydb-net
 
 #### 3DCityDB creation
 
-Now let's create a a 3DCityDB instance using the [3DCityDB Docker images](../3dcitydb/docker.md). We name the container `citydb` ([line 3](#__codelineno-24-3)), attach it to the network created above ([line 4](#__codelineno-24-4)), and use the `SRID` and `SRS_NAME` of our test dataset ([line 6-7](#__codelineno-24-6)).
+Now let's create a a 3DCityDB instance using the [3DCityDB Docker images](../3dcitydb/docker.md). We name the container `citydb` (line 3), attach it to the network created above (line 4), and use the `SRID` and `SRS_NAME` of our test dataset (line 6-7).
 
 ``` bash linenums="1"
 # docker rm -f -v citydb
@@ -444,7 +444,7 @@ docker run -i -t --rm --name citydb-tool \
 
 #### Export CityGML v3.0 data
 
-Now, with our data inside the 3DCityDB, let's use the CityDB tool to create a CityGML 3.0 export of the entire dataset. As CityGML 3.0 is the default export option, there are no additional options required for the export command. Same as for the [import](#import-data) step above, we mount our current working directory for data exchange with the container. Additionally, we add the `-o` option to specify an output file name `Railway_Scene_LoD3_CityGML_v3.gml` ([line 10](#__codelineno-26-10)) and set the container to run as the current user and group to make sure we have sufficient permissions for writing the output file ([line 2](#__codelineno-26-2), see [here](#user-management-and-file-permissions) for more).
+Now, with our data inside the 3DCityDB, let's use the CityDB tool to create a CityGML 3.0 export of the entire dataset. As CityGML 3.0 is the default export option, there are no additional options required for the export command. Same as for the [import](#import-data) step above, we mount our current working directory for data exchange with the container. Additionally, we add the `-o` option to specify an output file name `Railway_Scene_LoD3_CityGML_v3.gml` (line 10) and set the container to run as the current user and group to make sure we have sufficient permissions for writing the output file (line 2, see [here](#user-management-and-file-permissions) for more on permissions).
 
 ``` bash linenums="1"
 docker run -i -t --rm --name citydb-tool \
@@ -461,7 +461,9 @@ docker run -i -t --rm --name citydb-tool \
 
 #### Export CityJSON data
 
-``` bash linenums="1"
+Creating a CityJSON export works the same way as described above for CityGML. The only differences are the changed `citydb-tool` command and export file name, as shown in the highlighted lines.
+
+``` bash linenums="1" hl_lines="5 10"
  docker run -i -t --rm --name citydb-tool \
     -u "$(id -u):$(id -g)" \
     --network citydb-net \
