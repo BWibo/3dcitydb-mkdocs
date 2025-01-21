@@ -241,7 +241,7 @@ The 3DCityDB PostgreSQL/PostGIS Docker images make use of the following environm
 
 :   Set the password for the database connection. This variable is __mandatory__.
 
-`POSTGIS_SFCGAL=trueyes|no`
+`POSTGIS_SFCGAL=true|yes|no`
 
 :   If set, [PostGIS SFCGAL](http://www.sfcgal.org/){target="blank"} support is enabled. __Note:__ SFCGAL may not be available in some older Alpine based images (PostgresSQL `< v12`). Refer to the [official PostGIS Docker docs](https://registry.hub.docker.com/r/postgis/postgis/){target="blank"} for more details. Setting the variable on those images will have no effect.
 
@@ -335,7 +335,7 @@ automated tests operating on the exact same data every time or you want to prepa
 
     Note down the database connection credentials (db name, username,  password) or you won't be able to access the content later.
 
-3. Import data to the container. For this example we are using the [LoD3 Railway dataset](https://github.com/3dcitydb/importer-exporter/raw/master/resources/samples/Railway%20Scene/Railway_Scene_LoD3.zip){target="blank"} and the [CityDB tool](../citydb-tool/import.md).
+3. Import data to the container. For this example we are using the [:material-download: LoD3 Railway dataset](https://github.com/3dcitydb/importer-exporter/raw/master/resources/samples/Railway%20Scene/Railway_Scene_LoD3.zip){target="blank"} and the [CityDB tool](../citydb-tool/import.md).
 
     === "Linux"
 
