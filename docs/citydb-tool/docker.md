@@ -288,7 +288,13 @@ docker run --rm --name citydb-tool \
     cd citydb-tool
     ```
 
-2. Build the image using [`docker build`](https://docs.docker.com/engine/reference/commandline/build/){target="blank"}:
+2. Checkout the release version, branch, or commit you want to build form. Available [release tags](https://github.com/3dcitydb/citydb-tool/tags){target="blank"}, [branches](https://github.com/3dcitydb/citydb-tool/branches){target="blank"}, and [commits](https://github.com/3dcitydb/citydb-tool/commits/){target="blank"} can be found on Github.
+
+    ``` bash
+    git checkout [TAG|BRANCH|COMMIT]
+    ```
+
+3. Build the image using [`docker build`](https://docs.docker.com/engine/reference/commandline/build/){target="blank"}:
 
     ``` bash
     docker build -t 3dcitydb/citydb-tool .
