@@ -9,8 +9,4 @@ status: wip
 #   - tag2
 ---
 
-Intro content
-
-## hl2
-
-### hl3
+Ein einfaches Beispiel für Import und Export von Daten mithilfe des Tools.
