@@ -9,34 +9,6 @@ tags:
   - citydb-tool
 ---
 
-<!--
-
-<eMailaddr>
-<link>
-<link in new tab>{target="_blank"}
-[Open Link](https://www.werder.de)
-[Open in new tab](https://www.werder.de){target="_blank"}
-
-# Admonitions
-[!!!|???] note|abstract|info|tip|success|question|warning|failure|danger|bug|example|quote [inline|inline end] "Der Title statt Note|..."
-    Content content
-
-# Images
-![Image title](https://dummyimage.com/600x400/eee/aaa){ align=left }
-
-![Image title](https://dummyimage.com/600x400/){ width="300" }
-/// caption
-Image caption
-///
-
-# Figures
-![Image title](https://dummyimage.com/600x400/){ width="300" }
-/// figure-caption
-Image caption
-///
-
--->
-
 # Using CityDB tool with Docker
 
 The CityDB tool Docker images expose the capabilities of the [`citydb-tool`](../citydb-tool/index.md) CLI for dockerized applications and workflows. Using Docker is the quickest way to get started with CityDB tool, as no setup and installed Java runtime are required. See [here](../first-steps/docker.md#get-docker) for more on how to get Docker.
