@@ -350,7 +350,7 @@ docker run --rm --name citydb-tool \
 
 ### CityDB tool Docker combined with 3DCityDB Docker
 
-This example shows how to use the 3DCityDB and CityDB tool Docker images in conjunction. We will download a CityGML 2.0 test dataset, create a 3DCityDB, import the test data and create a CityGML 3.0 export.
+This example shows how to use the 3DCityDB and CityDB tool Docker images in conjunction. We will download a CityGML 2.0 test dataset, create a 3DCityDB, import the test data, and create a CityGML 3.0 and CityJSON export.
 
 #### Data preparation
 
@@ -442,7 +442,7 @@ docker run -i -t --rm --name citydb-tool \
     "Railway_Scene_LoD3.zip"
 ```
 
-#### Export CityGML v3.0 data
+#### Export CityGML v3.0
 
 Now, with our data inside the 3DCityDB, let's use the CityDB tool to create a CityGML 3.0 export of the entire dataset. As CityGML 3.0 is the default export option, there are no additional options required for the export command. Same as for the [import](#import-data) step above, we mount our current working directory for data exchange with the container. Additionally, we add the `-o` option to specify an output file name `Railway_Scene_LoD3_CityGML_v3.gml` (line 10) and set the container to run as the current user and group to make sure we have sufficient permissions for writing the output file (line 2, see [here](#user-management-and-file-permissions) for more on permissions).
 
@@ -459,7 +459,7 @@ docker run -i -t --rm --name citydb-tool \
     -o "Railway_Scene_LoD3_CityGML_v3.gml"
 ```
 
-#### Export CityJSON data
+#### Export CityJSON
 
 Creating a CityJSON export works the same way as described above for CityGML. The only differences are the changed `citydb-tool` command and export file name, as shown in the highlighted lines.
 
