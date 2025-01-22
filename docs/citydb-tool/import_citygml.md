@@ -6,9 +6,9 @@ description:
 status: wip
 ---
 
-The **import** command imports one or more CityGML or CityJSON files into the 3D City Database.
+The **import** command imports one or more CityGML files into the 3D City Database.
 
-## Usage
+# Usage
 
 To import your files to the 3D City Database it is necessary to give along the information for the connection. Look up [Database connection](db-connection.md) for further information.
 
@@ -17,7 +17,7 @@ Use `citydb import citygml [OPTIONS] <file>` to import one or more citygml files
 The command provides a range of [OPTIONS] to adapt the import process.
 
 # Better Practice
-You can use an textfile to combine and outsource commands and the link to the config.json to keep a better overwiew of issued commands. Save the textfile in the same folder as the config.json.
+You can use a textfile to combine and outsource commands and the link to the config.json to keep a better overwiew of issued commands. Save the textfile in the same folder as the config.json.
 
 ```bash
 citydb import citygml <file> @options.txt
@@ -26,6 +26,7 @@ citydb import citygml <file> @options.txt
 # Options Table
 
 ## Import Data
+
 
 OPTION / command | discription | default value
 ------------ | ------------- | -------------
@@ -90,7 +91,7 @@ OPTION / command | discription | default value
 `-t`, `--type-name=<[prefix:]name>[,<[prefix:]name>...]`| Names of the features to process.
 `-i`, `--id=<id>[,<id>...]` |  Identifiers of the features to process.
 `-b`, `--bbox=<x_min,y_min,x_max,y_max,srid>` | Bounding box to use as spatial filter.
-`--bbox-mode=<mode>` |  Bounding box mode: intersects, contains, on_tile  (default: intersects).
+`--bbox-mode=<mode>` |  Bounding box mode: intersects, contains, on_tile | intersects
 `--limit=<count>` | Maximum number of features to process.
 `-a`, `--appearance-theme=<theme>[,<theme>...]` | Process appearances with a matching theme. Use 'none' for the null theme.
 
