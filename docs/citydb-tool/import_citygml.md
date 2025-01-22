@@ -6,6 +6,8 @@ description:
 status: wip
 ---
 
+# CityGML-Specific Import Options
+
 The **import** command imports one or more CityGML files into the 3D City Database.
 
 # Usage
