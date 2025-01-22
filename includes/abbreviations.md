@@ -2,3 +2,6 @@
 *[OGC]: Open Geospatial Consortium
 *[WFS]: Web Feature Service
 *[CityGML]: OGC City Geography Markup Language
+*[CityJSON]: OGC CityJSON
+*[CLI]: Command Line Interface
+*[JRE]: Java Runtime Environment
