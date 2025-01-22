@@ -1,10 +1,10 @@
 nav:
-    - Welcome:
-        - index.md
-        - usage-contrib.md
-        - compatibility.md
-        - tags.md
-    - First steps: first-steps
-    - 3D City Database: 3dcitydb
-    - CityDB tool: citydb-tool
-    - ...
+  - Welcome:
+    - index.md
+    - usage-contrib.md
+    - compatibility.md
+    - tags.md
+  - First steps: first-steps
+  - 3D City Database: 3dcitydb
+  - CityDB tool: citydb-tool
+  - ...
