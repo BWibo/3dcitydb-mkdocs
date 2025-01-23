@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - fix/disable-lfs
 
 permissions:
   contents: write
