@@ -9,7 +9,7 @@ tags:
   - citydb-tool
 ---
 
-# Using CityDB tool with Docker
+# CityDB tool Docker
 
 The CityDB tool Docker images expose the capabilities of the [`citydb-tool`](../citydb-tool/index.md) CLI for dockerized applications and workflows. Using Docker is the quickest way to get started with CityDB tool, as no setup and installed Java runtime are required. See [here](../first-steps/docker.md#get-docker) for more on how to get Docker.
 
@@ -59,8 +59,8 @@ They are available from [3DCityDB DockerHub](https://hub.docker.com/r/3dcitydb/c
 
 ### Tags
 
-We publish images for two types of events. For each __release__ on Github (e.g. `v1.2.3`) we provide a set images using the _CityDB tool version_ as tag.
-The tags composed of `<major>.<minor>` and `<major>` are volatile and point to the latest CityDB tool release. For instance, `1` and `1.2` will point to `1.2.3`, if this is the latest version. This is useful if you want automatic updates for minor or micro releases. The `latest` tag points alway to the latest release version.
+We publish images for two types of events. For each __release__ on Github (e.g. `v1.2.3`) we provide a set of images using the _CityDB tool version_ as tag.
+The tags composed of `<major>.<minor>` and `<major>` are volatile and point to the latest CityDB tool release. For instance, the images tagged `1` or `1.2` will point to `1.2.3`, if this is the latest version. This is useful if you want automatic updates for minor or micro releases. The `latest` tag points alway to the latest release version.
 
 === "Dockerhub"
 
@@ -83,7 +83,7 @@ The tags composed of `<major>.<minor>` and `<major>` are volatile and point to t
 For each push to the _main_ branch of the [CityDB tool repository](https://github.com/3dcitydb/citydb-tool){target="blank"} we publish a fresh version of the __edge__ image tag.
 
 !!! warning
-    The `edge` images contain the latest state of development. It may contain bugs and should not be used for production purposes. Only use these images if you have a specific reason, e.g. test an unreleased feature.
+    The `edge` image contains the latest state of development. It may contain bugs and should not be used for production purposes. Only use this image if you have a specific reason, e.g. testing an unreleased feature.
 
 === "Dockerhub"
 
@@ -99,7 +99,7 @@ For each push to the _main_ branch of the [CityDB tool repository](https://githu
 
 ### Version overview
 
-Following table gives an overview on the available image versions.
+Following table gives an overview on the available image versions and sizes.
 
 |   Tag  | Build status | Size |
 | :------ | :---------------- | :---------------- |
