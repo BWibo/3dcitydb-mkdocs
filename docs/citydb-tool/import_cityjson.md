@@ -10,7 +10,6 @@ status: wip
 
 The **import** command imports one or more CityJSON files into the 3D City Database.
 
-# Usage
 
 To import your files to the 3D City Database it is necessary to give along the information for the connection. Look up [Database connection](db-connection.md) for further information.
 
@@ -20,13 +19,18 @@ Use `citydb import cityjson [OPTIONS] <file>` to import one or more cityjson fil
 
 The command provides a range of [OPTIONS] to adapt the import process.
 
-The different commands are identical to the import of CityGML up to one command.
+## Better Practice
+You can use a textfile to combine and outsource commands and the link to the config.json to keep a better overview of issued commands. Save the textfile in the same folder as the config.json.
 
-# Options Table
+```bash
+citydb import cityjson <file> @options.txt
+```
 
-## Import Data
+## Options Table
 
-OPTION / command | discription | default value
+### Import Data
+
+Command | Description | Default Value
 ------------ | ------------- | -------------
 `@<filename>...` | One or more argument files containing options.
 `<file>...` | One or more files and directories to process (globpatterns allowed).
@@ -43,15 +47,15 @@ OPTION / command | discription | default value
 `--plugins=<dir>` | Load plugins from this directory.
 `--use-plugins=<plugin[=true|false][,<plugin[=true|false]...]` | Enable or disable plugins with a matching fully qualified class name | true
 
-### Examples
+### Example
 
-Running the import in a preview mode to check the metadata in the commandline
+Running the import in a preview mode to check the metadata in the commandline.
 
 ```bash
 citydb import citygml generic_cityjson.json --preview @options.txt
 ```
 
-Import a Cityjson file and create file in a seperate folder with log message
+Import a Cityjson file and create file in a separate folder with log message
 
 ```bash
 citydb import citygml generic_cityjson.json --log-file=.\log @options.txt
@@ -62,7 +66,7 @@ citydb import citygml generic_cityjson.json --log-file=.\log @options.txt
 
 There are different options for the import to handle duplicates.
 
-OPTION / command | discription | default value
+Command | Description | Default Value
 ------------ | ------------- | -------------
 `-m, --import-mode=<mode>` | Import mode: skip, terminate, delete, import_all | import_all
 
@@ -83,7 +87,7 @@ citydb import citygml generic_cityjson.json --import-mode=skip @options.txt
 ```
 
 ## Filter Options
-OPTION / command | discription | default value
+Command | Description | Default Value
 ------------ | ------------- | -------------
 `-t`, `--type-name=<[prefix:]name>[,<[prefix:]name>...]`| Names of the features to process.
 `-i`, `--id=<id>[,<id>...]` |  Identifiers of the features to process.
@@ -92,7 +96,7 @@ OPTION / command | discription | default value
 `--limit=<count>` | Maximum number of features to process.
 `-a`, `--appearance-theme=<theme>[,<theme>...]` | Process appearances with a matching theme. Use 'none' for the null theme.
 
-### Examples
+### Example
 
 Import a feature with a specific ID from your JSON-File.
 

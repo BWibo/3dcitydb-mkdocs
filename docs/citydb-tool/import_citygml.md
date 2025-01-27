@@ -10,7 +10,6 @@ status: wip
 
 The **import** command imports one or more CityGML files into the 3D City Database.
 
-# Usage
 
 To import your files to the 3D City Database it is necessary to give along the information for the connection. Look up [Database connection](db-connection.md) for further information.
 
@@ -18,19 +17,19 @@ Use `citydb import citygml [OPTIONS] <file>` to import one or more citygml files
 
 The command provides a range of [OPTIONS] to adapt the import process.
 
-# Better Practice
-You can use a textfile to combine and outsource commands and the link to the config.json to keep a better overwiew of issued commands. Save the textfile in the same folder as the config.json.
+## Better Practice
+You can use a textfile to combine and outsource commands and the link to the config.json to keep a better overview of issued commands. Save the textfile in the same folder as the config.json.
 
 ```bash
 citydb import citygml <file> @options.txt
 ```
 
-# Options Table
+## Options Table
 
-## Import Data
+### Import Data
 
 
-OPTION / command | discription | default value
+Command | Description | Default Value
 ------------ | ------------- | -------------
 `@<filename>...` | One or more argument files containing options.
 `<file>...` | One or more files and directories to process (globpatterns allowed).
@@ -48,7 +47,7 @@ OPTION / command | discription | default value
 `--plugins=<dir>` | Load plugins from this directory.
 `--use-plugins=<plugin[=true|false][,<plugin[=true|false]...]` | Enable or disable plugins with a matching fully qualified class name | true
 
-### Examples
+### Example
 
 Running the import in a preview mode to check the metadata in the commandline
 
@@ -56,7 +55,7 @@ Running the import in a preview mode to check the metadata in the commandline
 citydb import citygml generic_citygml.gml --preview @options.txt
 ```
 
-Import a CityGML file and create file in a seperate folder with log message
+Import a CityGML file and create file in a separate folder with log message
 
 ```bash
 citydb import citygml generic_citygml.gml --log-file=.\log @options.txt
@@ -67,7 +66,7 @@ citydb import citygml generic_citygml.gml --log-file=.\log @options.txt
 
 There are different options for the import to handle duplicate features based on the feature ID (i.e., gml:id).
 
-OPTION / command | discription | default value
+Command | Description | Default Value
 ------------ | ------------- | -------------
 `-m, --import-mode=<mode>` | Import mode: skip, terminate, delete, import_all | import_all
 
@@ -88,7 +87,7 @@ citydb import citygml generic_citygml.gml --import-mode=skip @options.txt
 ```
 
 ## Filter Options
-OPTION / command | discription | default value
+Command | Description | Default Value
 ------------ | ------------- | -------------
 `-t`, `--type-name=<[prefix:]name>[,<[prefix:]name>...]`| Names of the features to process.
 `-i`, `--id=<id>[,<id>...]` |  Identifiers of the features to process.
@@ -97,7 +96,7 @@ OPTION / command | discription | default value
 `--limit=<count>` | Maximum number of features to process.
 `-a`, `--appearance-theme=<theme>[,<theme>...]` | Process appearances with a matching theme. Use 'none' for the null theme.
 
-### Examples
+### Example
 
 Limit the amount of features that will be imported from a file.
 
@@ -112,7 +111,7 @@ citydb import citygml generic_citygml.gml --bbox=367123,5807268,367817,5807913,2
 ```
 
 ## Upgrade options for CityGML 2.0 and 1.0
-OPTION / command | discription | default value
+Option / Command | Description | Default Value
 ------------ | ------------- | ------------- 
 `--use-lod4-as-lod3` |  Use LoD4 as LoD3, replacing an existing LoD3.
 `--map-lod0-roof-edge` |  Map LoD0 roof edges onto roof surfaces.
