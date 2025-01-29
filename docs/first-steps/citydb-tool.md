@@ -1,72 +1,76 @@
 ---
-title: CQL2 Query Language
-subtitle: Filtering and Querying Data with CQL2
-description:
-# icon: material/filter
+title: CityDB tools
+subtitle: Importing and Exporting CityGML
+description: How to import and export CityGML data using the CityDB tool
 status: wip
 ---
 
-# CQL2 Query Language
+This guide provides a step-by-step example of how to import and export CityGML data using the CityDB tool.
 
-**CQL2** (Common Query Language 2) is an advanced query language used to filter and query spatial and attribute
-data within the **3DCityDB Tool**. It allows users to define precise queries for exporting or deleting features
-based on attribute values, spatial properties, or logical conditions.
+## Prerequisites
 
-CQL2 is a standard maintained by the **OGC (Open Geospatial Consortium)** and serves as an evolution of the
-original CQL language, providing better expressiveness and flexibility for data filtering.
+Before you begin, ensure you have the following:
 
-Key Features of CQL2
+- A running PostgreSQL database with the 3DCityDB schema installed.
+- The CityDB tool installed and configured.
+- CityGML files to import.
 
-- Expressive Syntax: Combines logical operators with a rich set of functions for building complex queries.
-- Spatial Filtering: Supports geospatial functions to filter data based on spatial relationships.
-- Ease of Use: Simple, human-readable expressions that are easy to construct and interpret.
+## Step 1: Connecting to the Database
 
----
+First, configure the database connection. You can specify the connection details directly in the command or use an options file.
 
-## Using CQL2 with CityDBTool
-
-CityDBTool allows the use of the -f or --filter option followed by a CQL2 expression to filter data when exporting or
-deleting records. This enables users to select only the relevant subset of data based on attribute values,
-spatial conditions, or both.
-
-## Syntax
-
-The general syntax for using CQL2 with CityDBTool is:
+### Example: Command Line
 
 ```bash
-citydb [command] -f "<CQL2 Expression>"
+citydb import citygml -H localhost -P 5432 -d 3dcitydb -S citydb -u admin -p password -o input.gml
 ```
 
-Where `<CQL2 Expression>` is a valid CQL2 query that defines the filtering conditions for the data export.
-
-## Writing CQL2 Expressions
-
-A CQL2 expression consists of attribute names, operators, and values. It can also include spatial
-functions to handle geospatial conditions.
-
-### Attribute Filtering
-
-Filter based on attribute values using comparison operators such as =, !=, <, <=, >, and >=. Logical operators
-AND, OR, and NOT can be used to combine conditions.
-
-#### Example
+### Example: Options File
+Create a file named db_options.txt with the following content:
 
 ```bash
-citydb export citygml --filter="name = 'Forest tree 3'" -o filtered_tree.gml
+--db-host=localhost
+--db-port=5432
+--db-name=3dcitydb
+--db-schema=citydb
+--db-username=admin
+--db-password=password
 ```
 
-### Spatial Filtering
-
-Use spatial functions to filter based on the spatial relationship of geometries. Commonly used functions include:
-
-- `intersects`: Returns true if two geometries intersect.
-- `contains`: Returns true if one geometry contains another.
-- `within`: Returns true if one geometry is within another.
-
-#### Example
+Then reference the file in the command:
 
 ```bash
-citydb export citygml --filter="S_INTERSECTS(Envelope, BBOX(-560.8678155819734, 604.1012795512906, -553.8099297783192, 627.1318523068805))" @options.txt -o=output.gml
+citydb import citygml @db_options.txt -o input.gml
 ```
 
+## Step 2: Importing CityGML Data
 
+Use the import command to import CityGML files into the 3D City Database.
+
+### Example: Import Command
+
+```bash
+citydb import citygml -H localhost -P 5432 -d 3dcitydb -S citydb -u admin -p password input.gml
+```
+
+Or using the options file:
+
+```bash
+citydb import citygml @db_options.txt input.gml
+```
+
+## Step 3: Exporting CityGML Data
+
+After importing the data, you can export it back to CityGML format.
+
+### Example: Export Command
+
+```bash
+citydb export citygml -H localhost -P 5432 -d 3dcitydb -S citydb -u admin -p password -o output.gml
+```
+
+Or using the options file:
+
+```bash
+citydb export citygml @db_options.txt -o output.gml
+```
