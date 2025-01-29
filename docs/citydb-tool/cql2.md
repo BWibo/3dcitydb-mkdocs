@@ -49,7 +49,7 @@ Where `<CQL2 Expression>` is a valid CQL2 query that defines the filtering condi
 
 A CQL2 expression consists of attribute names, operators, and values. It can also include spatial functions to handle geospatial conditions.
 
-Understanding Literals
+### Understanding Literals
 In CQL2, literals are direct values that appear in your filter expressions. Common types of literals include:
 
 - Strings: Enclosed in single quotes in text-based queries (e.g., \`'Forest tree 3'\`), or as JSON strings in JSON-based queries (e.g., \`"Forest tree 3"\`).
