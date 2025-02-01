@@ -1,6 +1,7 @@
 ---
 title: Partners
-description: Partners and contributors
+subtitle: Partners and contributors
+description:
 # icon: material/emoticon-happy
 status: wip
 # tags:
