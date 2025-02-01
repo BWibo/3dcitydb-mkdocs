@@ -1,7 +1,6 @@
 ---
 title: Overview
-subtitle: Overview
-description:
+description: Overview
 # icon: material/emoticon-happy
 status: wip
 ---
@@ -9,9 +8,9 @@ status: wip
 
 ## Intro
 
-The **CityDB Tool** is a command-line utility designed for managing and interacting with the **3DCityDB**, 
-a database schema for the storage, management, and querying of 3D city models. The tool provides a set of 
-powerful commands to facilitate the import, export, and manipulation of spatial data, particularly within a 
+The **CityDB Tool** is a command-line utility designed for managing and interacting with the **3DCityDB**,
+a database schema for the storage, management, and querying of 3D city models. The tool provides a set of
+powerful commands to facilitate the import, export, and manipulation of spatial data, particularly within a
 PostgreSQL/PostGIS database environment.
 
 ## Version Compatibility
@@ -32,19 +31,19 @@ The following table outlines the compatibility between **3DCityDB** versions, **
 
 The CityDB Tool supports a variety of operations to streamline database workflows. The following commands are available:
 
-- **`help`**  
+- **`help`**
   Displays help information about a specified command, providing guidance on its usage and options.
 
-- **`import`**  
+- **`import`**
   Allows users to import data into the 3DCityDB in a supported format, such as CityGML or CityJSON.
 
-- **`export`**  
+- **`export`**
   Enables the export of data from the database to various supported formats, including CityGML and CityJSON.
 
-- **`delete`**  
+- **`delete`**
   Deletes specific features or records from the database, offering flexible control over stored data.
 
-- **`index`**  
+- **`index`**
   Performs index operations to optimize database performance, ensuring efficient querying and data retrieval.
 
 ## Supported Database Platforms
@@ -91,10 +90,10 @@ citydb [OPTIONS] COMMAND
 
 ## Using an Options File for Commands
 
-For every CityDB Tool command, you can store command-line options in an external options file to simplify complex 
+For every CityDB Tool command, you can store command-line options in an external options file to simplify complex
 or repetitive workflows. This is especially useful when working with commands that require multiple parameters.
 
-To reference an options file, use the @<filename> syntax. The options file contains one option per line in the 
+To reference an options file, use the @<filename> syntax. The options file contains one option per line in the
 following format:
 
 ### Example Options File (options.txt):
@@ -148,7 +147,7 @@ citydb import citygml --config-file=config.json
 
 ### Using Plugins
 
-To enable or disable specific plugins, use the `--use-plugins` option followed by the fully 
+To enable or disable specific plugins, use the `--use-plugins` option followed by the fully
 qualified class name of the plugin:
 
 ```bash

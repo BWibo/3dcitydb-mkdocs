@@ -1,6 +1,5 @@
 ---
 title: Virtual City Systems
-subtitle:
 description:
 # icon: material/emoticon-happy
 status: wip

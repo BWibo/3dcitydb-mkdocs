@@ -1,14 +1,16 @@
 ---
-title: Delete
-subtitle: Deleting Features from 3DCityDB
-description:
+# title: Delete
+description: Deleting Features from 3DCityDB
 # icon: material/delete
 status: wip
+tags:
+  - citydb-tool
+  - delete
 ---
 
-# Delete Command
+# Delete command
 
-The **CityDB Tool** provides a `delete` command to remove features from the **3DCityDB** database. 
+The **CityDB Tool** provides a `delete` command to remove features from the **3DCityDB** database.
 The `delete` command offers flexible options for filtering, committing changes, managing indexes, and metadata logging.
 
 ---
@@ -58,15 +60,15 @@ citydb delete [OPTIONS]
 
 ## Database Connection Options
 
-The CityDB Tool requires a connection to a 3DCityDB database for all operations, including the delete command. 
-Database connection details, such as host, port, schema, and credentials, must be provided to ensure the 
+The CityDB Tool requires a connection to a 3DCityDB database for all operations, including the delete command.
+Database connection details, such as host, port, schema, and credentials, must be provided to ensure the
 tool can interact with the database successfully.
 
-These options are shared across all commands in the CityDB Tool, as a connection is essential every time data 
+These options are shared across all commands in the CityDB Tool, as a connection is essential every time data
 is queried, deleted, imported, or exported.
 
-For details on how to configure database connections, including host, port, schema, and credentials, 
-refer to the [Database Connection Options documentation](db-connection.md) This section provides a comprehensive explanation of 
+For details on how to configure database connections, including host, port, schema, and credentials,
+refer to the [Database Connection Options documentation](db-connection.md) This section provides a comprehensive explanation of
 all available connection parameters.
 
 ## Examples
@@ -81,7 +83,7 @@ citydb delete
 
 ### Preview Delete Operation
 
-Run the delete command in **preview mode** to check which features would be deleted without 
+Run the delete command in **preview mode** to check which features would be deleted without
 performing the actual operation:
 
 ```bash
@@ -92,7 +94,7 @@ citydb delete -t Building --preview
 
 Delete specific features using a **CQL2 filter**:
 
-```bash 
+```bash
 citydb delete -t Building -f "height > 100"
 ```
 

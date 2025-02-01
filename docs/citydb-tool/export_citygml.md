@@ -1,9 +1,13 @@
 ---
-title: CityGML Options
-subtitle: CityGML-Specific Export Options
-description:
+# title: CityGML Options
+subtitle:
+description: CityGML-Specific export options
 # icon: material/file-xml
 status: wip
+tags:
+  - citydb-tool
+  - CityGML
+  - export
 ---
 
 # CityGML-Specific Export Options
@@ -73,4 +77,3 @@ citydb export citygml -o lod1_mapped_output.gml --map-lod1-surface
 ```
 
 This simplifies LoD1 geometries for tools that require a clearer surface structure.
-

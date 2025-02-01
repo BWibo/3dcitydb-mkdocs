@@ -1,18 +1,17 @@
 ---
-title: Requirements
-subtitle: What do I need for the installation
-description:
+# title: Requirements
+description: What do I need for the installation
 # icon: material/emoticon-happy
 status: wip
-# tags:
-#   - tag1
-#   - tag2
+tags:
+  - requirements
 ---
+
 # System Requirements
 
 Setting up an instance of the 3D City Database requires an existing installation of a [PostgreSQL](https://www.postgresql.org/).
 
-# PostgreSQL with PostGIS extension
+## PostgreSQL with PostGIS extension
 
 Supported versions are PostgreSQL 13 and higher with PostGIS 3.0 and higher. Make sure to check the [PostgreSQL versioning policy](https://www.postgresql.org/support/versioning/) to find out which PostgreSQL versions are actively maintained or have reached end-of-life. The [PostGIS support matrix](https://trac.osgeo.org/postgis/wiki/UsersWikiPostgreSQLPostGIS) shows which versions of PostgreSQL are supported by which versions of PostGIS and whether a specific PostGIS version has reached end-of-life.
 

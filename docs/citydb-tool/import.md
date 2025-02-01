@@ -1,7 +1,6 @@
 ---
 title: Import
-subtitle: Import
-description:
+description: Import
 # icon: material/emoticon-happy
 status: wip
 ---
@@ -83,7 +82,7 @@ citydb --help
 
 ## Upgrade options for CityGML 2.0 and 1.0
 OPTION / command | discription | default
------------- | ------------- | ------------- 
+------------ | ------------- | -------------
 `--use-lod4-as-lod3` |  Use LoD4 as LoD3, replacing an existing LoD3.
 `--map-lod0-roof-edge` |  Map LoD0 roof edges onto roof surfaces.
 `--map-lod1-surface` | Map LoD1 multi-surfaces onto generic thematic surfaces.

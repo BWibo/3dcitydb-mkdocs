@@ -1,6 +1,5 @@
 ---
 title: Compatibility and data migration
-subtitle:
 description: Which CitGML versions and tools are compatible
 # icon: material/emoticon-happy
 status: wip

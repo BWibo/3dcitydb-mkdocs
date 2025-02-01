@@ -1,6 +1,5 @@
 ---
 title: CityDB tools
-subtitle: Importing and Exporting CityGML
 description: How to import and export CityGML data using the CityDB tool
 status: wip
 ---

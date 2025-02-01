@@ -1,6 +1,5 @@
 ---
 title: HFT Stuttgart
-subtitle:
 description:
 # icon: material/emoticon-happy
 status: wip

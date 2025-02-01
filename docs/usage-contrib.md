@@ -1,7 +1,6 @@
 ---
 title: Usage and contribution
-subtitle: How to use this documentation efficiently and how to contribute.
-description:
+description: How to use this documentation efficiently and how to contribute.
 # icon: material/emoticon-happy
 status: wip
 ---
