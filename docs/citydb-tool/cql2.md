@@ -100,6 +100,23 @@ If you were to use the JSON-based representation, the correct way to write the s
   ]
 }
 ```
+Similarly, for other attributes, always check the schema or model being used and ensure that you are specifying the 
+correct namespace or object path.
+
+Additional Note:
+
+For top-level attributes, referencing them with a simple name (e.g., height > 15) is acceptable and will work as expected.
+
+However, lower-level or nested attributes can be more complex and typically require explicit references.
+
+Furthermore, CityDBTool allows you to specify feature names using the -t option. For example, you can target a specific 
+feature type by writing:
+
+```bash
+citydb export citygml -t Building -f "con:height < 15"
+```
+
+
 
 ### Attribute Filtering
 
