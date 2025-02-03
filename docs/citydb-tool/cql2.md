@@ -57,6 +57,50 @@ In CQL2, literals are direct values that appear in your filter expressions. Comm
 - Booleans: Typically represented as \`true\` or \`false\`.
 - Dates/Times: Represented in ISO-8601 format (e.g., \`'2023-01-31'\` or \`"2023-01-31"\` in JSON), if your data or schema supports date/time attributes.
 
+### Attribute references
+
+#### Implicit vs. Explicit Attribute References
+
+When writing CQL2 queries, it's important to correctly reference attributes by their full property names rather than 
+relying on implicit assumptions. While some query tools allow shorthand notations for convenience, 
+the proper CQL2 syntax requires explicit attribute references.
+
+For example, in some cases, a query like:
+
+```bash
+citydb export citygml --filter="height > 1"
+```
+
+might work as expected, but it is actually a simplified form. The correct way to reference attributes in CQL2 is to 
+specify the full property path. In this case, the attribute height belongs to the bldg (building) namespace. 
+The correct query should be:
+
+```bash
+citydb export citygml --filter="bldg.height > 1"
+```
+
+Similarly, for other attributes, always check the schema or model being used and ensure that you are specifying the 
+correct namespace or object path.
+
+Why Use Explicit Attribute Names?
+Avoids Ambiguity: Some attributes may have the same name in different parts of the schema. Using full names ensures clarity.
+Ensures Compatibility: Different versions of CityDB and its tools may change how shorthand references are handled. 
+Explicit references ensure queries remain valid.
+Better Integration with JSON Encoding: When using JSON-based CQL2 filters, explicit property references are always required.
+
+JSON-based Equivalent
+If you were to use the JSON-based representation, the correct way to write the same filter would be:
+
+```json
+{
+  "op": ">",
+  "args": [
+    { "property": "bldg.height" },
+    "1"
+  ]
+}
+```
+
 ### Attribute Filtering
 
 Filter based on attribute values using comparison operators such as =, !=, <, <=, >, and >=. Logical operators
