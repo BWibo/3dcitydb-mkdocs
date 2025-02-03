@@ -1,15 +1,12 @@
 ---
-# title: CQL2 query language
-description: Filtering and Querying Data with CQL2
+title: CQL2 Query Language
+subtitle: Filtering and Querying Data with CQL2
+description:
 # icon: material/filter
 status: wip
-tags:
-  - citydb-tool
-  - cql2
-  - query
 ---
 
-# CQL2 query language
+# CQL2 Query Language
 
 **CQL2** (Common Query Language 2) is an advanced query language used to filter and query spatial and attribute
 data within the **3DCityDB Tool**. It allows users to define precise queries for exporting or deleting features
@@ -26,11 +23,17 @@ Key Features of CQL2
 
 ---
 
-## Using CQL2 with CityDB tool
+## Using CQL2 with CityDBTool
 
-CityDBTool allows the use of the -f or --filter option followed by a CQL2 expression to filter data when exporting or
+CityDBTool allows the use of the `-f` or `--filter` option followed by a CQL2 expression to filter data when exporting or
 deleting records. This enables users to select only the relevant subset of data based on attribute values,
 spatial conditions, or both.
+
+**Two Encodings for CQL2**
+1. **Text-based (string) encoding**
+2. **JSON-based encoding**
+
+Both encodings are supported by CityDBTool, giving you flexibility in how you structure your filters.
 
 ## Syntax
 
@@ -42,23 +45,89 @@ citydb [command] -f "<CQL2 Expression>"
 
 Where `<CQL2 Expression>` is a valid CQL2 query that defines the filtering conditions for the data export.
 
-## Writing CQL2 expressions
+## Writing CQL2 Expressions
 
-A CQL2 expression consists of attribute names, operators, and values. It can also include spatial
-functions to handle geospatial conditions.
+A CQL2 expression consists of attribute names, operators, and values. It can also include spatial functions to handle geospatial conditions.
 
-### Attribute filtering
+### Understanding Literals
+In CQL2, literals are direct values that appear in your filter expressions. Common types of literals include:
+
+- Strings: Enclosed in single quotes in text-based queries (e.g., \`'Forest tree 3'\`), or as JSON strings in JSON-based queries (e.g., \`"Forest tree 3"\`).
+- Numbers: Used without quotes in both text-based and JSON-based queries (e.g., \`> 10\` or \`10\` in JSON).
+- Booleans: Typically represented as \`true\` or \`false\`.
+- Dates/Times: Represented in ISO-8601 format (e.g., \`'2023-01-31'\` or \`"2023-01-31"\` in JSON), if your data or schema supports date/time attributes.
+
+### Attribute Filtering
 
 Filter based on attribute values using comparison operators such as =, !=, <, <=, >, and >=. Logical operators
 AND, OR, and NOT can be used to combine conditions.
 
-#### Example
-
+#### Basic Example
+Text-based Filter
 ```bash
 citydb export citygml --filter="name = 'Forest tree 3'" -o filtered_tree.gml
 ```
 
-### Spatial filtering
+Json-based Filter
+```json
+{
+  "op": "=",
+  "args": [
+    { "property": "name" },
+    "Forest tree 3"
+  ]
+}
+```
+
+#### Combining with Logical Operators
+
+Text-based Filter
+```bash 
+citydb export citygml --filter="name = 'Forest tree 3' AND height > '1'" -o filtered_tree.gml
+```
+
+Json-based Filter
+```json
+{
+  "op": "AND",
+  "args": [
+    {
+      "op": "=",
+      "args": [
+        { "property": "name" },
+        "Forest tree 3"
+      ]
+    },
+    {
+      "op": ">",
+      "args": [
+        { "property": "height" },
+        "1"
+      ]
+    }
+  ]
+}
+```
+
+#### Filtering with lists
+
+Text-based Filter
+```bash
+citydb export citygml --filter="name IN ('Forest tree 1', 'Forest tree 2', 'Forest tree 3')" -o filtered_trees.gml
+```
+
+Json-based Filter
+```json
+{
+  "op": "IN",
+  "args": [
+    { "property": "name" },
+    ["Forest tree 1", "Forest tree 2", "Forest tree 3"]
+  ]
+}
+```
+
+### Spatial Filtering
 
 Use spatial functions to filter based on the spatial relationship of geometries. Commonly used functions include:
 
@@ -68,6 +137,29 @@ Use spatial functions to filter based on the spatial relationship of geometries.
 
 #### Example
 
+Text-based Filter
 ```bash
 citydb export citygml --filter="S_INTERSECTS(Envelope, BBOX(-560.8678155819734, 604.1012795512906, -553.8099297783192, 627.1318523068805))" @options.txt -o=output.gml
 ```
+
+Json-based Filter
+```json
+{
+  "op": "func",
+  "function": "S_INTERSECTS",
+  "args": [
+    { "property": "Envelope" },
+    {
+      "op": "func",
+      "function": "BBOX",
+      "args": [
+        -560.8678155819734,
+        604.1012795512906,
+        -553.8099297783192,
+        627.1318523068805
+      ]
+    }
+  ]
+}
+```
+
