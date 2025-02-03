@@ -71,52 +71,44 @@ For example, in some cases, a query like:
 citydb export citygml --filter="height > 1"
 ```
 
-might work as expected, but it is actually a simplified form. The correct way to reference attributes in CQL2 is to 
-specify the full property path. In this case, the attribute height belongs to the bldg (building) namespace. 
-The correct query should be:
+might work as expected, but it is a simplified form. The correct way is to specify the full property path. For instance, 
+if the attribute height belongs to the bldg (building) namespace, the correct query should be:
 
 ```bash
 citydb export citygml --filter="bldg.height > 1"
 ```
 
-Similarly, for other attributes, always check the schema or model being used and ensure that you are specifying the 
-correct namespace or object path.
+#### Advanced Handling of Namespaces and Complex Attributes
+In 3D CityDB, attributes may be defined with namespaces or at nested (child) levels.
+This advanced scenario requires careful handling:
 
-Why Use Explicit Attribute Names?
-Avoids Ambiguity: Some attributes may have the same name in different parts of the schema. Using full names ensures clarity.
-Ensures Compatibility: Different versions of CityDB and its tools may change how shorthand references are handled. 
-Explicit references ensure queries remain valid.
-Better Integration with JSON Encoding: When using JSON-based CQL2 filters, explicit property references are always required.
+*Namespaces & Object Classes:*
+Use a colon (:) to separate namespace prefixes from attribute names. For example, the object class Building might be 
+referenced as bldg:Building. CityDBTool recognizes alias names for object classes, but incorrect casing or namespace 
+mismatches can lead to errors since the system is extremely case sensitive.
 
-JSON-based Equivalent
-If you were to use the JSON-based representation, the correct way to write the same filter would be:
+*Property Paths:*
+Use dot (.) notation to define paths to nested attributes (e.g., bldg.details.height). While top-level attributes 
+can be referenced with a simple name, lower-level or child attributes require explicit, fully qualified paths.
 
-```json
-{
-  "op": ">",
-  "args": [
-    { "property": "bldg.height" },
-    "1"
-  ]
-}
-```
-Similarly, for other attributes, always check the schema or model being used and ensure that you are specifying the 
-correct namespace or object path.
+*Multi-occurring Values:*
+For attributes that occur multiple times (arrays), reference specific occurrences using list notation (e.g., property[1] 
+for the first occurrence). Note: Indexing starts at 1 rather than 0.
 
-Additional Note:
+*Generic Attributes and Datatype Specification:*
+When dealing with generic attributes (such as those in a property table) where the database does not infer the data type 
+automatically, you may need to explicitly specify the expected datatype using a cast-like syntax (e.g., ::datatype similar 
+to PostgreSQL conventions).
 
-For top-level attributes, referencing them with a simple name (e.g., height > 15) is acceptable and will work as expected.
-
-However, lower-level or nested attributes can be more complex and typically require explicit references.
-
-Furthermore, CityDBTool allows you to specify feature names using the -t option. For example, you can target a specific 
-feature type by writing:
+For example, using the -t option to specify the feature type along with -f for the filter:
 
 ```bash
-citydb export citygml -t Building -f "con:height < 15"
+citydb export citygml -t Building -f "bldg:height < 15"
 ```
 
-
+Here, Building is the target object class (with its associated namespace alias), and bldg:height is the explicitly 
+referenced attribute. This explicit approach minimizes ambiguity—especially important when attributes are defined on 
+child levels or in complex structures.
 
 ### Attribute Filtering
 
