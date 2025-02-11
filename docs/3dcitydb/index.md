@@ -1,6 +1,5 @@
 ---
 title: General
-subtitle: General
 description:
 # icon: material/emoticon-happy
 status: wip

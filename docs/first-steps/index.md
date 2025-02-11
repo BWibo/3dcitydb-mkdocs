@@ -1,12 +1,10 @@
 ---
 title: First Steps
-subtitle: Getting started with the 3DCityDB
-description:
+description: Getting started with the 3DCityDB
 # icon: material/emoticon-happy
 status: wip
-# tags:
-#   - tag1
-#   - tag2
+tags:
+  - first-steps
 ---
 
 This quickstart guide gives step-by-step instructions for setting up a 3D City Database instance and CityDB tools. Installers for the 3D City Database components can be downloaded from the [official release website](https://github.com/3dcitydb/3dcitydb-suite/releases) or from the [project website](https://www.3dcitydb.org/3dcitydb/downloads/).  The source code of the 3D City Database is hosted and maintained on [GitHub](https://github.com/3dcitydb).

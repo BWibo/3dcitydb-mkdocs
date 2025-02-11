@@ -1,6 +1,5 @@
 ---
 title: Welcome
-subtitle: 3D City Database v5 documentation
 description: 3D City Database v5 documentation welcome page
 # icon: material/emoticon-happy
 status: wip

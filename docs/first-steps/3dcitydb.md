@@ -1,6 +1,5 @@
 ---
 title: Migration from previous releases
-subtitle: 
 description:
 # icon: material/emoticon-happy
 status: wip

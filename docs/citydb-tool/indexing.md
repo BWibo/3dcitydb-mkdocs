@@ -1,15 +1,14 @@
 ---
 title: Index
-subtitle: Managing Database Indexes in 3DCityDB
-description:
+description: Managing Database Indexes in 3DCityDB
 # icon: material/database-cog-outline
 status: wip
 ---
 
 # Index Command
 
-The **`index`** command in the **CityDB Tool** allows users to manage database indexes in **3DCityDB**. 
-Indexes are critical for optimizing query performance, especially for large datasets. 
+The **`index`** command in the **CityDB Tool** allows users to manage database indexes in **3DCityDB**.
+Indexes are critical for optimizing query performance, especially for large datasets.
 The `index` command provides subcommands to check index statuses, create indexes, and drop indexes.
 
 ---
@@ -68,9 +67,9 @@ ensures proper database optimization.
 citydb index status --log-level=debug
 ```
 
-## Create Indexes 
+## Create Indexes
 
-The create subcommand of the index command allows users to create indexes on the relevant database tables in 3DCityDB. 
+The create subcommand of the index command allows users to create indexes on the relevant database tables in 3DCityDB.
 Indexes are essential for improving query performance, especially when dealing with large datasets.
 
 This command supports different indexing modes to accommodate various database configurations and use cases.
@@ -94,8 +93,8 @@ citydb index create --index-mode=full
 
 ## Drop Indexes
 
-The drop subcommand of the index command allows users to remove existing indexes from the relevant database tables 
-in 3DCityDB. This operation can be useful for database maintenance, freeing up storage, or temporarily disabling 
+The drop subcommand of the index command allows users to remove existing indexes from the relevant database tables
+in 3DCityDB. This operation can be useful for database maintenance, freeing up storage, or temporarily disabling
 indexes during bulk data operations.
 
 

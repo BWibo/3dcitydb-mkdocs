@@ -1,9 +1,12 @@
 ---
-title: Import Cityjson
-subtitle: Import Cityjson
-description:
+title: Import CityJSON
+description: Importing CityJSON data
 # icon: material/emoticon-happy
 status: wip
+tags:
+  - citydb-tool
+  - CityJSON
+  - import
 ---
 
 # Cityjson-Specific Import Options
@@ -13,8 +16,8 @@ The **import** command imports one or more CityJSON files into the 3D City Datab
 
 To import your files to the 3D City Database it is necessary to give along the information for the connection. Look up [Database connection](db-connection.md) for further information.
 
-Use `citydb import cityjson [OPTIONS] <file>` to import one or more cityjson files from a directory into the database. 
-!!! warning "Important" 
+Use `citydb import cityjson [OPTIONS] <file>` to import one or more cityjson files from a directory into the database.
+!!! warning "Important"
     It is important that the filename + extension is mentioned in the path to the file itself.
 
 The command provides a range of [OPTIONS] to adapt the import process.

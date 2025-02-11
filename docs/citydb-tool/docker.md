@@ -1,6 +1,5 @@
 ---
 # title: Docker
-subtitle: CityDB tool Docker documentation
 description: CityDB tool Docker documentation and usage examples
 icon: fontawesome/brands/docker
 status: wip

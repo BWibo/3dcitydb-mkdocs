@@ -1,13 +1,15 @@
 ---
 title: Shared Export Options
-subtitle: General Options for CityGML and CityJSON
-description:
+description: General Options for CityGML and CityJSON
 # icon: material/tools
 status: wip
+tags:
+  - citydb-tool
+  - export
 ---
 
-Both **CityGML** and **CityJSON** exporters in the **3DCityDB Tool** share a common set of options. 
-These options allow users to customize the export process, including output configuration, query and 
+Both **CityGML** and **CityJSON** exporters in the **3DCityDB Tool** share a common set of options.
+These options allow users to customize the export process, including output configuration, query and
 filter parameters, and tiling for large datasets.
 
 ---
@@ -138,7 +140,7 @@ citydb export cityjson --tile-matrix=2,2 -o tiled_output.json
 
 Store export options in a file and reference it in the command:
 
-```bash 
+```bash
 citydb export citygml --config-file=export_config.json
 citydb export cityjson --config-file=export_config.json
 ```
