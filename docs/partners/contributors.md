@@ -14,7 +14,7 @@ tags:
   <div style="display: table-row;">
     <div style="display: table-cell; text-align: center; vertical-align: middle; width: 20%;">
       <!-- Replace with your icon -->
-      <img src="../assets/List_Eco_Farbe_sRGB.png" alt="Icon" style="max-width: 100px;">
+      <img src="../assets/List_Eco_Farbe_sRGB.svg" alt="Icon" style="max-width: 100px;">
     </div>
     <div style="display: table-cell; text-align: left; vertical-align: top; width: 40%;">
       <!-- Replace with your text -->
@@ -30,8 +30,9 @@ tags:
       <!-- Replace with your text -->
       <p><b>Contact person</b></p>
       <p>
-        <a href="https://www.list-gruppe.de/vcard/?vcard=wgmVbxGSPWSSkE8t5PmQ4xGYZ" target="_blank">Bruno Willenborg</a></br>
-        <a href="mailto:bruno.willenborg(at)list-eco.de">bruno.willenborg(at)list-eco.de</a>
+        Bruno Willenborg</br>
+        <a href="mailto:bruno.willenborg(at)list-eco.de">bruno.willenborg(at)list-eco.de</a></br>
+        <a href="https://www.list-gruppe.de/vcard/?vcard=wgmVbxGSPWSSkE8t5PmQ4xGYZ" target="_blank">vCard</a></br>
       </p>
     </div>
   </div>
@@ -39,7 +40,7 @@ tags:
   <div style="display: table-row;">
     <div style="display: table-cell; text-align: center; vertical-align: middle; width: 20%;">
       <!-- Replace with your icon -->
-      <img src="../assets/List_Eco_Farbe_sRGB.png" alt="Icon" style="max-width: 100px;">
+      <img src="../assets/List_Eco_Farbe_sRGB.svg" alt="Icon" style="max-width: 100px;">
     </div>
     <div style="display: table-cell; text-align: left; vertical-align: top; width: 40%;">
       <!-- Replace with your text -->
