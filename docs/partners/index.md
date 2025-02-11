@@ -1,12 +1,11 @@
 ---
 title: Partners
-subtitle: Partners and contributors
-description:
+description: Partners and contributors
 # icon: material/emoticon-happy
 status: wip
-# tags:
-#   - tag1
-#   - tag2
+tags:
+  - partners
+  - contributors
 ---
 
 ## General things
