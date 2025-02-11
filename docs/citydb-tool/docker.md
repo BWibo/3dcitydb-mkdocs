@@ -1,6 +1,6 @@
 ---
 # title: Docker
-description: CityDB tool Docker documentation and usage examples
+description: citydb-tool Docker documentation and usage examples
 icon: fontawesome/brands/docker
 status: wip
 tags:
@@ -8,32 +8,47 @@ tags:
   - citydb-tool
 ---
 
-# CityDB tool Docker
+# citydb-tool Docker
 
-The CityDB tool Docker images expose the capabilities of the [`citydb-tool`](../citydb-tool/index.md) CLI for dockerized applications and workflows. Using Docker is the quickest way to get started with CityDB tool, as no setup and installed Java runtime are required. See [here](../first-steps/docker.md#get-docker) for more on how to get Docker.
+The citydb-tool Docker images expose the capabilities of the [citydb-tool](../citydb-tool/index.md) CLI for dockerized applications and workflows. Using Docker is the quickest way to get started with citydb-tool, as no setup and installed Java runtime are required. See [here](../first-steps/docker.md#get-docker) for more on how to get Docker.
 
 !!! warning "Docker image compatibility"
 
     3DCityDB `v5` introduces a substantially changed database schema, that requires a new set of tools.
 
-    :warning:    Currently, __only__ [CityDB tool](../citydb-tool/index.md) is compatible with 3DCityDB `v5`.    :warning:
+    :warning:    Currently, __only__ [citydb-tool](../citydb-tool/index.md) is compatible with 3DCityDB `v5`.    :warning:
 
     Usage of 3DCityDB `v4` tools ([3DCityDB Importer/Exporter](https://3dcitydb-docs.readthedocs.io/en/latest/impexp/docker.html), [3D Web Map Client](https://3dcitydb-docs.readthedocs.io/en/latest/webmap/docker.html){target="blank"}, [3DCityDB Web Feature Service (WFS)](https://3dcitydb-docs.readthedocs.io/en/latest/wfs/docker.html){target="blank"}) is still possible by migrating data to a 3DCityDB `v4`. See [here](../compatibility.md) for more details on compatibility of CityGML versions and 3DCityDB tools, and how to migrate data between versions.
 
 ## TL;DR
 
-``` bash
+=== "Linux"
 
-docker run --rm --name citydb-tool [-i -t] \
-    [-e CITYDB_HOST=the.host.de] \
-    [-e CITYDB_PORT=5432] \
-    [-e CITYDB_NAME=theDBName] \
-    [-e CITYDB_SCHEMA=theCityDBSchemaName] \
-    [-e CITYDB_USERNAME=theUsername] \
-    [-e CITYDB_PASSWORD=theSecretPass] \
-    [-v /my/data/:/data] \
-  3dcitydb/citydb-tool[:TAG] COMMAND
-```
+    ``` bash
+    docker run --rm --name citydb-tool [-i -t] \
+      [-e CITYDB_HOST=the.host.de] \
+      [-e CITYDB_PORT=5432] \
+      [-e CITYDB_NAME=theDBName] \
+      [-e CITYDB_SCHEMA=theCityDBSchemaName] \
+      [-e CITYDB_USERNAME=theUsername] \
+      [-e CITYDB_PASSWORD=theSecretPass] \
+      [-v /my/data/:/data] \
+    3dcitydb/citydb-tool[:TAG] COMMAND
+    ```
+
+=== "Windows"
+
+    ``` bat
+    docker run --rm --name citydb-tool [-i -t] ^
+      [-e CITYDB_HOST=the.host.de] ^
+      [-e CITYDB_PORT=5432] ^
+      [-e CITYDB_NAME=theDBName] ^
+      [-e CITYDB_SCHEMA=theCityDBSchemaName] ^
+      [-e CITYDB_USERNAME=theUsername] ^
+      [-e CITYDB_PASSWORD=theSecretPass] ^
+      [-v /my/data/:/data] ^
+    3dcitydb/citydb-tool[:TAG] COMMAND
+    ```
 
 !!! tip
 
@@ -41,7 +56,7 @@ docker run --rm --name citydb-tool [-i -t] \
 
 ## Image versions
 
-The CityDB tool Docker images are based on [Eclpise Temurin JRE 21](https://hub.docker.com/_/eclipse-temurin){target="blank"}.
+The citydb-tool Docker images are based on [Eclpise Temurin JRE 21](https://hub.docker.com/_/eclipse-temurin){target="blank"}.
 They are available from [3DCityDB DockerHub](https://hub.docker.com/r/3dcitydb/citydb-tool){target="blank"} or [Github Container registry (ghcr.io)](https://github.com/3dcitydb/citydb-tool/pkgs/container/citydb-tool){target="blank"}.
 
 === "Dockerhub"
@@ -58,8 +73,8 @@ They are available from [3DCityDB DockerHub](https://hub.docker.com/r/3dcitydb/c
 
 ### Tags
 
-We publish images for two types of events. For each __release__ on Github (e.g. `v1.2.3`) we provide a set of images using the _CityDB tool version_ as tag.
-The tags composed of `<major>.<minor>` and `<major>` are volatile and point to the latest CityDB tool release. For instance, the images tagged `1` or `1.2` will point to `1.2.3`, if this is the latest version. This is useful if you want automatic updates for minor or micro releases. The `latest` tag points alway to the latest release version.
+We publish images for two types of events. For each __release__ on Github (e.g. `v1.2.3`) we provide a set of images using the _citydb-tool version_ as tag.
+The tags composed of `<major>.<minor>` and `<major>` are volatile and point to the latest citydb-tool release. For instance, the images tagged `1` or `1.2` will point to `1.2.3`, if this is the latest version. This is useful if you want automatic updates for minor or micro releases. The `latest` tag points alway to the latest release version.
 
 === "Dockerhub"
 
@@ -79,7 +94,7 @@ The tags composed of `<major>.<minor>` and `<major>` are volatile and point to t
     docker pull ghcr.io/3dcitydb/citydb-tool:latest
     ```
 
-For each push to the _main_ branch of the [CityDB tool repository](https://github.com/3dcitydb/citydb-tool){target="blank"} we publish a fresh version of the __edge__ image tag.
+For each push to the _main_ branch of the [citydb-tool repository](https://github.com/3dcitydb/citydb-tool){target="blank"} we publish a fresh version of the __edge__ image tag.
 
 !!! warning
     The `edge` image contains the latest state of development. It may contain bugs and should not be used for production purposes. Only use this image if you have a specific reason, e.g. testing an unreleased feature.
@@ -110,7 +125,7 @@ Following table gives an overview on the available image versions and sizes.
 
     Minor releases are not listed in this table.
 
-    The latest 3DCityDB tool version is: [![version-badge-github](https://img.shields.io/github/v/release/3dcitydb/citydb-tool?include_prereleases&logo=github
+    The latest citydb-tool version is: [![version-badge-github](https://img.shields.io/github/v/release/3dcitydb/citydb-tool?include_prereleases&logo=github
     )](https://github.com/3dcitydb/citydb-tool/releases){target="blank"}
 
     The latest image version on DockerHub is:
@@ -118,7 +133,7 @@ Following table gives an overview on the available image versions and sizes.
 
 ## Usage and configuration
 
-The CityDB tool Docker images do not require configuration for most use cases and allow the usage of the  [`citydb-tool`](../citydb-tool/index.md) CLI out of the box. Simply append the CityDB tool command you want to execute to the `docker run` command line. The commands of `citydb-tool` are documented [here](../citydb-tool/index.md).
+The citydb-tool Docker images do not require configuration for most use cases and allow the usage of the  [`citydb-tool`](../citydb-tool/index.md) CLI out of the box. Simply append the citydb-tool command you want to execute to the `docker run` command line. The commands of `citydb-tool` are documented [here](../citydb-tool/index.md).
 
 ``` bash
 docker run -i -t --rm --name citydb-tool 3dcitydb/citydb-tool COMMAND
@@ -153,44 +168,79 @@ All import and export operations require a mounted directory for exchanging data
 
 === "Mount a folder"
 
-    ``` bash
+    === "Linux"
 
-    # mount /my/data/ on the host system to /data
-    docker run -i -t --rm --name citydb-tool \
-        -v /my/data/:/data \
-      3dcitydb/citydb-tool COMMAND
-    ```
+        ``` bash
+        # mount /my/data/ on the host system to /data
+        docker run -i -t --rm --name citydb-tool \
+          -v /my/data/:/data \
+        3dcitydb/citydb-tool COMMAND
+        ```
+
+    === "Windows"
+
+        ``` bat
+        # mount /my/data/ on the host system to /data
+        docker run -i -t --rm --name citydb-tool ^
+          -v /my/data/:/data ^
+        3dcitydb/citydb-tool COMMAND
+        ```
 
 === "Mount current working directory"
 
-    ``` bash
-    # Mount the current working directory on the host system to /data
-    docker run -i -t --rm --name citydb-tool \
-        -v $(pwd):/data \
-      3dcitydb/citydb-tool COMMAND
-    ```
+    === "Linux"
+
+        ``` bash
+        # Mount the current working directory on the host system to /data
+        docker run -i -t --rm --name citydb-tool \
+          -v $(pwd):/data \
+        3dcitydb/citydb-tool COMMAND
+        ```
+
+    === "Windows"
+
+        ``` bat
+        # Mount the current working directory on the host system to /data
+        docker run -i -t --rm --name citydb-tool ^
+          -v $(pwd):/data ^
+        3dcitydb/citydb-tool COMMAND
+        ```
 
 !!! tip
 
-    Watch out for __correct paths__ when working with mounts! All paths passed to the CityDB tool CLI have to be specified from the container's perspective. If you are not familiar with Docker volumes and bind mounts go through the [Docker volume guide](https://docs.docker.com/storage/volumes/){target="blank"}.
+    Watch out for __correct paths__ when working with mounts! All paths passed to the citydb-tool CLI have to be specified from the container's perspective. If you are not familiar with Docker volumes and bind mounts go through the [Docker volume guide](https://docs.docker.com/storage/volumes/){target="blank"}.
 
-In order to allocate an interactive console session for the container process, you must use the `docker run` options `-i` and `-t` together. This comes in handy, for instance, if you don't want to pass the password for the 3DCityDB connection on the command line but rather want to be prompted to enter it interactively on the console. You must use the `-p` option of the CityDB tool CLI without a value for this purpose as shown in the example below.
+In order to allocate an interactive console session for the container process, you must use the `docker run` options `-i` and `-t` together. This comes in handy, for instance, if you don't want to pass the password for the 3DCityDB connection on the command line but rather want to be prompted to enter it interactively on the console. You must use the `-p` option of the citydb-tool CLI without a value for this purpose as shown in the example below.
 
+=== "Linux"
+
+    ``` bash
     docker run -i -t --rm --name citydb-tool \
-        -v /my/data/:/data \
-      3dcitydb/citydb-tool import \
-        -H my.host.de -d citydb -u postgres -p \
-        bigcity.gml
+      -v /my/data/:/data \
+    3dcitydb/citydb-tool import \
+      -H my.host.de -d citydb -u postgres -p \
+      bigcity.gml
+    ```
+
+=== "Windows"
+
+    ``` bat
+    docker run -i -t --rm --name citydb-tool ^
+      -v /my/data/:/data ^
+    3dcitydb/citydb-tool import ^
+      -H my.host.de -d citydb -u postgres -p ^
+      bigcity.gml
+    ```
 
 The `docker run` command offers further options to configure the container process. Please check the [official reference](https://docs.docker.com/engine/reference/run/){target="blank"} for more information.
 
 ### Environment variables
 
-The CityDB tool Docker images support the following environment variables to set the credentials for the connection to a 3DCityDB instance. A detailed documentation of the environment variables is available [here](../citydb-tool/db-connection.md#using-environment-variables-for-database-connection).
+The citydb-tool Docker images support the following environment variables to set the credentials for the connection to a 3DCityDB instance. A detailed documentation of the environment variables is available [here](../citydb-tool/db-connection.md#using-environment-variables-for-database-connection).
 
 !!! warning
 
-    When running the CityDB tool on the command line, the values of these variables will be used as input if a corresponding CLI option is __not__ available. The CLI options always take precedence over the environmental variables.
+    When running the citydb-tool on the command line, the values of these variables will be used as input if a corresponding CLI option is __not__ available. The CLI options always take precedence over the environmental variables.
 
 `CITYDB_HOST=hostname or ip`
 
@@ -218,29 +268,50 @@ Password to use when connecting to the 3DCityDB.
 
 ### User management and file permissions
 
-When exchanging files between the host system and the CityDB tool container, it is import to make sure that files and directories have permissions set correctly. For security reasons (see [here](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user){target="blank"}) the CityDB tool runs as non-root user by default inside the container. The default user is named `impexp` with user and group identifier (uid, gid) = `1000`.
+When exchanging files between the host system and the citydb-tool container, it is import to make sure that files and directories have permissions set correctly. For security reasons (see [here](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user){target="blank"}) the citydb-tool runs as non-root user by default inside the container. The default user is named `impexp` with user and group identifier (uid, gid) = `1000`.
 
-``` bash
-docker run --rm --entrypoint bash 3dcitydb/citydb-tool \
-    -c "cat /etc/passwd | grep ubuntu"
-# ubuntu:x:1000:1000:Ubuntu:/home/ubuntu:/bin/bash
-```
+=== "Linux"
 
-As 1000 is the default uid/gid for the first user on many Linux distributions in most cases you won't notice this, as the user on the host system is going to have the same uid/gid as inside the container. However, if you are facing file permission issues, you can run the CityDB tool container as another user with the `-u` option of the
+    ``` bash
+    docker run --rm --entrypoint bash 3dcitydb/citydb-tool \
+      -c "cat /etc/passwd | grep ubuntu"
+    # ubuntu:x:1000:1000:Ubuntu:/home/ubuntu:/bin/bash
+    ```
+
+=== "Windows"
+
+    ``` bat
+    docker run --rm --entrypoint bash 3dcitydb/citydb-tool ^
+      -c "cat /etc/passwd | grep ubuntu"
+    # ubuntu:x:1000:1000:Ubuntu:/home/ubuntu:/bin/bash
+    ```
+
+As 1000 is the default uid/gid for the first user on many Linux distributions in most cases you won't notice this, as the user on the host system is going to have the same uid/gid as inside the container. However, if you are facing file permission issues, you can run the citydb-tool container as another user with the `-u` option of the
 `docker run` command. This way you can make sure, that the right permissions are set on generated files in the mounted directory.
 
 The following example illustrates how to use the `-u` option to pass the user ID of your current host's user.
 
-``` bash hl_lines="2"
-docker run --rm --name citydb-tool \
-    -u $(id -u):$(id -g) \
-    -v /my/data/:/data \
-  3dcitydb/citydb-tool COMMAND
-```
+=== "Linux"
+
+    ``` bash hl_lines="2"
+    docker run --rm --name citydb-tool \
+      -u $(id -u):$(id -g) \
+      -v /my/data/:/data \
+    3dcitydb/citydb-tool COMMAND
+    ```
+
+=== "Windows"
+
+    ``` bat hl_lines="2"
+    docker run --rm --name citydb-tool ^
+      -u $(id -u):$(id -g) ^
+      -v /my/data/:/data ^
+    3dcitydb/citydb-tool COMMAND
+    ```
 
 ## Build your own images
 
-3DCityDB CityDB tool images are easy to build on your own. The image supports two build arguments:
+3DCityDB citydb-tool images are easy to build on your own. The image supports two build arguments:
 
 `BUILDER_IMAGE_TAG='21-jdk-noble'`
 
@@ -252,7 +323,7 @@ docker run --rm --name citydb-tool \
 
 ### Build process
 
-1. Clone the [CityDB tool Github repository](https://github.com/3dcitydb/citydb-tools) and navigate to the cloned repo:
+1. Clone the [citydb-tool Github repository](https://github.com/3dcitydb/citydb-tools) and navigate to the cloned repo:
 
     ``` bash
     git clone https://github.com/3dcitydb/citydb-tool.git
@@ -283,17 +354,29 @@ For the following examples we assume that a 3DCityDB instance with the following
 
 ### Importing CityGML
 
-This section provides some examples for importing CityGML datasets. Refer to [`import`](./import.md) for a detailed description of the CityDB tool CLI import command.
+This section provides some examples for importing CityGML datasets. Refer to [`import`](./import.md) for a detailed description of the citydb-tool CLI import command.
 
 Import the CityGML dataset `/home/me/mydata/bigcity.gml` on you host system into the DB given above:
 
-``` bash
-docker run --rm --name citydb-tool \
-    -v /home/me/mydata/:/data \
-  3dcitydb/citydb-tool import citygml \
-    -H my.host.de -d citydb -u postgres -p changeMe \
-    bigcity.gml
-```
+=== "Linux"
+
+    ``` bash
+    docker run --rm --name citydb-tool \
+      -v /home/me/mydata/:/data \
+    3dcitydb/citydb-tool import citygml \
+      -H my.host.de -d citydb -u postgres -p changeMe \
+      bigcity.gml
+    ```
+
+=== "Windows"
+
+    ``` bat
+    docker run --rm --name citydb-tool ^
+      -v /home/me/mydata/:/data ^
+    3dcitydb/citydb-tool import citygml ^
+      -H my.host.de -d citydb -u postgres -p changeMe ^
+      bigcity.gml
+    ```
 
 !!! note
 
@@ -303,31 +386,55 @@ docker run --rm --name citydb-tool \
 
 Import all CityGML datasets from `/home/me/mydata/` on your host system into the DB given above:
 
-``` bash
-docker run --rm --name citydb-tool \
-    -v /home/me/mydata/:/data \
-  3dcitydb/citydb-tool import citygml \
-    -H my.host.de -d citydb -u postgres -p changeMe \
-    /data/
-```
+=== "Linux"
+
+    ``` bash
+    docker run --rm --name citydb-tool \
+      -v /home/me/mydata/:/data \
+    3dcitydb/citydb-tool import citygml \
+      -H my.host.de -d citydb -u postgres -p changeMe \
+      /data/
+    ```
+
+=== "Windows"
+
+    ``` bat
+    docker run --rm --name citydb-tool ^
+      -v /home/me/mydata/:/data ^
+    3dcitydb/citydb-tool import citygml ^
+      -H my.host.de -d citydb -u postgres -p changeMe ^
+      /data/
+    ```
 
 ### Exporting CityGML
 
-This section provides some examples for exporting CityGML datasets. Refer to [`export`](./export_citygml.md) for a detailed description of the CityDB tool CLI export command.
+This section provides some examples for exporting CityGML datasets. Refer to [`export`](./export_citygml.md) for a detailed description of the citydb-tool CLI export command.
 
 Export all data from the DB given above to `/home/me/mydata/output.gml`:
 
-``` bash
-docker run --rm --name citydb-tool \
-    -v /home/me/mydata/:/data \
-  3dcitydb/citydb-tool export \
-    -H my.host.de -d citydb -u postgres -p changeMe \
-    -o output.gml
-```
+=== "Linux"
 
-### CityDB tool Docker combined with 3DCityDB Docker
+    ``` bash
+    docker run --rm --name citydb-tool \
+      -v /home/me/mydata/:/data \
+    3dcitydb/citydb-tool export \
+      -H my.host.de -d citydb -u postgres -p changeMe \
+      -o output.gml
+    ```
 
-This example shows how to use the 3DCityDB and CityDB tool Docker images in conjunction. We will download a CityGML 2.0 test dataset, create a 3DCityDB, import the test data, and create a CityGML 3.0 and CityJSON export.
+=== "Windows"
+
+    ``` bat
+    docker run --rm --name citydb-tool ^
+      -v /home/me/mydata/:/data ^
+    3dcitydb/citydb-tool export ^
+      -H my.host.de -d citydb -u postgres -p changeMe ^
+      -o output.gml
+    ```
+
+### citydb-tool Docker combined with 3DCityDB Docker
+
+This example shows how to use the 3DCityDB and citydb-tool Docker images in conjunction. We will download a CityGML 2.0 test dataset, create a 3DCityDB, import the test data, and create a CityGML 3.0 and CityJSON export.
 
 #### Data preparation
 
@@ -376,16 +483,31 @@ docker network create citydb-net
 
 Now let's create a a 3DCityDB instance using the [3DCityDB Docker images](../3dcitydb/docker.md). We name the container `citydb` (line 3), attach it to the network created above (line 4), and use the `SRID` and `SRS_NAME` of our test dataset (line 6-7).
 
-``` bash linenums="1"
-# docker rm -f -v citydb
+=== "Linux"
 
-docker run -t -d --name citydb \
-    --network citydb-net \
-    -e POSTGRES_PASSWORD=changeMe \
-    -e SRID=3068 \
-    -e SRS_NAME="urn:ogc:def:crs,crs:EPSG::3068,crs:EPSG::5783" \
-  3dcitydb/3dcitydb-pg-v5:edge-alpine
-```
+    ``` bash linenums="1"
+    # docker rm -f -v citydb
+
+    docker run -t -d --name citydb \
+      --network citydb-net \
+      -e POSTGRES_PASSWORD=changeMe \
+      -e SRID=3068 \
+      -e SRS_NAME="urn:ogc:def:crs,crs:EPSG::3068,crs:EPSG::5783" \
+    3dcitydb/3dcitydb-pg-v5:edge-alpine
+    ```
+
+=== "Windows"
+
+    ``` bat linenums="1"
+    # docker rm -f -v citydb
+
+    docker run -t -d --name citydb ^
+      --network citydb-net ^
+      -e POSTGRES_PASSWORD=changeMe ^
+      -e SRID=3068 ^
+      -e SRS_NAME="urn:ogc:def:crs,crs:EPSG::3068,crs:EPSG::5783" ^
+    3dcitydb/3dcitydb-pg-v5:edge-alpine
+    ```
 
 We now have a 3DCityDB instance running with these properties:
 
@@ -407,51 +529,101 @@ docker logs citydb
 
 The next step is to import our data to the 3DCityDB. Therefore, we need to mount our working directory (`$PWD`) containing the downloaded `.zip` file to the container, as shown in line 3. The emphasized line shows how to use the container name from the first step as hostname when both containers are attached to the same Docker network.
 
-``` bash hl_lines="5" linenums="1"
-docker run -i -t --rm --name citydb-tool \
-    --network citydb-net \
-    -v "$PWD:/data" \
-  3dcitydb/citydb-tool:edge import citygml \
-    -H citydb \
-    -d postgres \
-    -u postgres \
-    -p changeMe \
-    "Railway_Scene_LoD3.zip"
-```
+=== "Linux"
+
+    ``` bash hl_lines="5" linenums="1"
+    docker run -i -t --rm --name citydb-tool \
+      --network citydb-net \
+      -v "$PWD:/data" \
+    3dcitydb/citydb-tool:edge import citygml \
+      -H citydb \
+      -d postgres \
+      -u postgres \
+      -p changeMe \
+      "Railway_Scene_LoD3.zip"
+    ```
+
+=== "Windows"
+
+    ``` bat hl_lines="5" linenums="1"
+    docker run -i -t --rm --name citydb-tool ^
+      --network citydb-net ^
+      -v "$PWD:/data" ^
+    3dcitydb/citydb-tool:edge import citygml ^
+      -H citydb ^
+      -d postgres ^
+      -u postgres ^
+      -p changeMe ^
+      "Railway_Scene_LoD3.zip"
+    ```
 
 #### Export CityGML v3.0
 
-Now, with our data inside the 3DCityDB, let's use the CityDB tool to create a CityGML 3.0 export of the entire dataset. As CityGML 3.0 is the default export option, there are no additional options required for the export command. Same as for the [import](#import-data) step above, we mount our current working directory for data exchange with the container. Additionally, we add the `-o` option to specify an output file name `Railway_Scene_LoD3_CityGML_v3.gml` (line 10) and set the container to run as the current user and group to make sure we have sufficient permissions for writing the output file (line 2, see [here](#user-management-and-file-permissions) for more on permissions).
+Now, with our data inside the 3DCityDB, let's use the citydb-tool to create a CityGML 3.0 export of the entire dataset. As CityGML 3.0 is the default export option, there are no additional options required for the export command. Same as for the [import](#import-data) step above, we mount our current working directory for data exchange with the container. Additionally, we add the `-o` option to specify an output file name `Railway_Scene_LoD3_CityGML_v3.gml` (line 10) and set the container to run as the current user and group to make sure we have sufficient permissions for writing the output file (line 2, see [here](#user-management-and-file-permissions) for more on permissions).
 
-``` bash linenums="1"
-docker run -i -t --rm --name citydb-tool \
-    -u "$(id -u):$(id -g)" \
-    --network citydb-net \
-    -v "$PWD:/data" \
-  3dcitydb/citydb-tool:edge export citygml \
-    -H citydb \
-    -d postgres \
-    -u postgres \
-    -p changeMe \
-    -o "Railway_Scene_LoD3_CityGML_v3.gml"
-```
+=== "Linux"
+
+    ``` bash linenums="1"
+    docker run -i -t --rm --name citydb-tool \
+      -u "$(id -u):$(id -g)" \
+      --network citydb-net \
+      -v "$PWD:/data" \
+    3dcitydb/citydb-tool:edge export citygml \
+      -H citydb \
+      -d postgres \
+      -u postgres \
+      -p changeMe \
+      -o "Railway_Scene_LoD3_CityGML_v3.gml"
+    ```
+
+=== "Windows"
+
+    ``` bat linenums="1"
+    docker run -i -t --rm --name citydb-tool ^
+      -u "$(id -u):$(id -g)" ^
+      --network citydb-net ^
+      -v "$PWD:/data" ^
+    3dcitydb/citydb-tool:edge export citygml ^
+      -H citydb ^
+      -d postgres ^
+      -u postgres ^
+      -p changeMe ^
+      -o "Railway_Scene_LoD3_CityGML_v3.gml"
+    ```
 
 #### Export CityJSON
 
 Creating a CityJSON export works the same way as described above for CityGML. The only differences are the changed `citydb-tool` command and export file name, as shown in the highlighted lines.
 
-``` bash linenums="1" hl_lines="5 10"
- docker run -i -t --rm --name citydb-tool \
-    -u "$(id -u):$(id -g)" \
-    --network citydb-net \
-    -v "$PWD:/data" \
-  3dcitydb/citydb-tool:edge export cityjson \
-    -H citydb \
-    -d postgres \
-    -u postgres \
-    -p changeMe \
-    -o "Railway_Scene_LoD3_CityJSON.json"
-```
+=== "Linux"
+
+    ``` bash linenums="1" hl_lines="5 10"
+    docker run -i -t --rm --name citydb-tool \
+      -u "$(id -u):$(id -g)" \
+      --network citydb-net \
+      -v "$PWD:/data" \
+    3dcitydb/citydb-tool:edge export cityjson \
+      -H citydb \
+      -d postgres \
+      -u postgres \
+      -p changeMe \
+      -o "Railway_Scene_LoD3_CityJSON.json"
+    ```
+
+=== "Windows"
+
+    ``` bat linenums="1" hl_lines="5 10"
+    docker run -i -t --rm --name citydb-tool ^
+      -u "$(id -u):$(id -g)" ^
+      --network citydb-net ^
+      -v "$PWD:/data" ^
+    3dcitydb/citydb-tool:edge export cityjson ^
+      -H citydb ^
+      -d postgres ^
+      -u postgres ^
+      -p changeMe ^
+      -o "Railway_Scene_LoD3_CityJSON.json"
+    ```
 
 #### Cleanup
 
