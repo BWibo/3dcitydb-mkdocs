@@ -135,9 +135,19 @@ Json-based Filter
 #### Combining with Logical Operators
 
 Text-based Filter
-```bash 
-citydb export citygml --filter="name = 'Forest tree 3' AND height > '1'" -o filtered_tree.gml
-```
+=== "Linux"
+    ```bash 
+    citydb export citygml \
+           --filter="name = 'Forest tree 3' AND height > '1'" \
+           -o filtered_tree.gml
+    ```
+    
+=== "Windows"
+    ```bash
+    citydb export citygml ^
+           --filter="name = 'Forest tree 3' AND height > '1'" ^
+           -o filtered_tree.gml
+    ```
 
 Json-based Filter
 ```json
@@ -165,9 +175,20 @@ Json-based Filter
 #### Filtering with lists
 
 Text-based Filter
-```bash
-citydb export citygml --filter="name IN ('Forest tree 1', 'Forest tree 2', 'Forest tree 3')" -o filtered_trees.gml
-```
+
+=== "Linux"
+    ```bash
+    citydb export citygml \
+           --filter="name IN ('Forest tree 1', 'Forest tree 2', 'Forest tree 3')" \
+           -o filtered_trees.gml
+    ```
+    
+=== "Windows"
+    ```bash
+    citydb export citygml ^
+           --filter="name IN ('Forest tree 1', 'Forest tree 2', 'Forest tree 3')" ^
+           -o filtered_trees.gml
+    ```
 
 Json-based Filter
 ```json
@@ -191,9 +212,24 @@ Use spatial functions to filter based on the spatial relationship of geometries.
 #### Example
 
 Text-based Filter
-```bash
-citydb export citygml --filter="S_INTERSECTS(Envelope, BBOX(-560.8678155819734, 604.1012795512906, -553.8099297783192, 627.1318523068805))" @options.txt -o=output.gml
-```
+
+=== "Linux"
+    ```bash
+    citydb export citygml \
+           --filter="S_INTERSECTS(Envelope, \
+           BBOX(-560.8678155819734, 604.1012795512906, \
+           -553.8099297783192, 627.1318523068805))" \
+           @options.txt -o=output.gml
+    ```
+=== "Windows"
+    ```bash
+    citydb export citygml ^
+           --filter="S_INTERSECTS(Envelope, ^
+           BBOX(-560.8678155819734, 604.1012795512906, ^
+           -553.8099297783192, 627.1318523068805))" ^
+           @options.txt -o=output.gml
+    ```
+
 
 Json-based Filter
 ```json

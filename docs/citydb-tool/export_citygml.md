@@ -46,9 +46,18 @@ citydb export citygml -o output_v2.gml --citygml-version=2.0
 
 To apply one or more XSLT stylesheets during the export process:
 
-```bash
-citydb export citygml -o transformed_output.gml --xsl-transform=transform1.xsl,transform2.xsl
-```
+=== "Linux"
+    ```bash
+    citydb export citygml \
+           -o transformed_output.gml \
+           --xsl-transform=transform1.xsl,transform2.xsl
+    ```
+=== "Windows"
+    ```bash
+    citydb export citygml ^
+           -o transformed_output.gml ^
+           --xsl-transform=transform1.xsl,transform2.xsl
+    ```
 
 This applies transform1.xsl and transform2.xsl sequentially to the export.
 
