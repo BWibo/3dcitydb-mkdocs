@@ -8,18 +8,18 @@ status: wip
 
 ## Intro
 
-The **CityDB Tool** is a command-line utility designed for managing and interacting with the **3DCityDB**,
+The **citydb-tool** is a command-line utility designed for managing and interacting with the **3DCityDB**,
 a database schema for the storage, management, and querying of 3D city models. The tool provides a set of
 powerful commands to facilitate the import, export, and manipulation of spatial data, particularly within a
 PostgreSQL/PostGIS database environment.
 
 ## Version Compatibility
 
-The following table outlines the compatibility between **3DCityDB** versions, **CityDB Tool** versions (including the legacy Importer-Exporter Tool), and the supported data formats and their versions.
+The following table outlines the compatibility between **3DCityDB** versions, **citydb-tool** versions (including the legacy Importer-Exporter Tool), and the supported data formats and their versions.
 
 | **3DCityDB Version** | **Tool Version**               | **Supported Data Formats**         | **Supported Format Versions**               |
 |-----------------------|--------------------------------|------------------------------------|---------------------------------------------|
-| **5.x**              | **CityDB Tool (current)**      | CityGML, CityJSON                  | CityGML: 3.0, 2.0, 1.0<br>CityJSON: 2.0, 1.1, 1.0 |
+| **5.x**              | **citydb-tool (current)**      | CityGML, CityJSON                  | CityGML: 3.0, 2.0, 1.0<br>CityJSON: 2.0, 1.1, 1.0 |
 | 4.x                  | Importer-Exporter Tool 3.x     | CityGML, CityJSON                  | CityGML: 2.0, 1.0<br>CityJSON: 2.0, 1.1, 1.0 |
 | 3.x                  | Importer-Exporter Tool 3.x     | CityGML, CityJSON                  | CityGML: 2.0, 1.0<br>CityJSON: 1.0          |
 | 2.x                  | Importer-Exporter Tool 2.x     | CityGML                            | CityGML: 2.0, 1.0                           |
@@ -29,7 +29,7 @@ The following table outlines the compatibility between **3DCityDB** versions, **
 
 ## Key Features and Commands
 
-The CityDB Tool supports a variety of operations to streamline database workflows. The following commands are available:
+The citydb-tool supports a variety of operations to streamline database workflows. The following commands are available:
 
 - **`help`**
   Displays help information about a specified command, providing guidance on its usage and options.
@@ -48,7 +48,7 @@ The CityDB Tool supports a variety of operations to streamline database workflow
 
 ## Supported Database Platforms
 
-The CityDB Tool works seamlessly with **PostgreSQL** databases enhanced with **PostGIS**, a spatial extension that enables advanced geospatial operations.
+The citydb-tool works seamlessly with **PostgreSQL** databases enhanced with **PostGIS**, a spatial extension that enables advanced geospatial operations.
 
 ## Supported Data Formats
 
@@ -63,7 +63,7 @@ The CityDB Tool works seamlessly with **PostgreSQL** databases enhanced with **P
 
 ---
 
-The **CityDB Tool** is ideal for urban planners, GIS professionals, and developers working with 3D city models who require a robust and efficient way to manage large-scale spatial data within a relational database.
+The **citydb-tool** is ideal for urban planners, GIS professionals, and developers working with 3D city models who require a robust and efficient way to manage large-scale spatial data within a relational database.
 
 
 The citydb command-line interface for the 3D City Database provides several general options that can be used with any command. These options allow you to configure logging, load configuration files, manage plugins, and more.
@@ -90,7 +90,7 @@ citydb [OPTIONS] COMMAND
 
 ## Using an Options File for Commands
 
-For every CityDB Tool command, you can store command-line options in an external options file to simplify complex
+For every citydb-tool command, you can store command-line options in an external options file to simplify complex
 or repetitive workflows. This is especially useful when working with commands that require multiple parameters.
 
 To reference an options file, use the @<filename> syntax. The options file contains one option per line in the

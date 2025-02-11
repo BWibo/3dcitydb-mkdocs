@@ -9,7 +9,7 @@ status: wip
 # CQL2 Query Language
 
 **CQL2** (Common Query Language 2) is an advanced query language used to filter and query spatial and attribute
-data within the **3DCityDB Tool**. It allows users to define precise queries for exporting or deleting features
+data within the **3Dcitydb-tool**. It allows users to define precise queries for exporting or deleting features
 based on attribute values, spatial properties, or logical conditions.
 
 CQL2 is a standard maintained by the **OGC (Open Geospatial Consortium)** and serves as an evolution of the
@@ -23,9 +23,9 @@ Key Features of CQL2
 
 ---
 
-## Using CQL2 with CityDBTool
+## Using CQL2 with citydb-tool
 
-CityDBTool allows the use of the `-f` or `--filter` option followed by a CQL2 expression to filter data when exporting or
+citydb-tool allows the use of the `-f` or `--filter` option followed by a CQL2 expression to filter data when exporting or
 deleting records. This enables users to select only the relevant subset of data based on attribute values,
 spatial conditions, or both.
 
@@ -33,11 +33,11 @@ spatial conditions, or both.
 1. **Text-based (string) encoding**
 2. **JSON-based encoding**
 
-Both encodings are supported by CityDBTool, giving you flexibility in how you structure your filters.
+Both encodings are supported by citydb-tool, giving you flexibility in how you structure your filters.
 
 ## Syntax
 
-The general syntax for using CQL2 with CityDBTool is:
+The general syntax for using CQL2 with citydb-tool is:
 
 ```bash
 citydb [command] -f "<CQL2 Expression>"
@@ -84,7 +84,7 @@ This advanced scenario requires careful handling:
 
 *Namespaces & Object Classes:*
 Use a colon (:) to separate namespace prefixes from attribute names. For example, the object class Building might be 
-referenced as bldg:Building. CityDBTool recognizes alias names for object classes, but incorrect casing or namespace 
+referenced as bldg:Building. citydb-tool recognizes alias names for object classes, but incorrect casing or namespace 
 mismatches can lead to errors since the system is extremely case sensitive.
 
 *Property Paths:*

@@ -12,7 +12,7 @@ tags:
 
 # CityGML-Specific Export Options
 
-The **CityGML** exporter in the **3DCityDB Tool** provides options specific to exporting data in the **CityGML format**. These options allow users to customize version compatibility, apply transformations, and manage feature mappings.
+The **CityGML** exporter in the **3Dcitydb-tool** provides options specific to exporting data in the **CityGML format**. These options allow users to customize version compatibility, apply transformations, and manage feature mappings.
 
 ---
 
@@ -30,7 +30,7 @@ The **CityGML** exporter in the **3DCityDB Tool** provides options specific to e
 
 ## Examples for CityGML Export Options
 
-Below are practical examples demonstrating how to use **CityGML-specific options** in the **3DCityDB Tool**.
+Below are practical examples demonstrating how to use **CityGML-specific options** in the **3Dcitydb-tool**.
 
 ---
 

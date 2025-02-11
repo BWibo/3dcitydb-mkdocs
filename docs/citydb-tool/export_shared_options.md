@@ -8,7 +8,7 @@ tags:
   - export
 ---
 
-Both **CityGML** and **CityJSON** exporters in the **3DCityDB Tool** share a common set of options.
+Both **CityGML** and **CityJSON** exporters in the **3Dcitydb-tool** share a common set of options.
 These options allow users to customize the export process, including output configuration, query and
 filter parameters, and tiling for large datasets.
 
@@ -69,11 +69,11 @@ Tiling options allow users to divide the output data into smaller tiles for impr
 
 ## Database Connection Options
 
-The CityDB Tool requires a connection to a 3DCityDB database for all operations, including the delete command.
+The citydb-tool requires a connection to a 3DCityDB database for all operations, including the delete command.
 Database connection details, such as host, port, schema, and credentials, must be provided to ensure the
 tool can interact with the database successfully.
 
-These options are shared across all commands in the CityDB Tool, as a connection is essential every time data
+These options are shared across all commands in the citydb-tool, as a connection is essential every time data
 is queried, deleted, imported, or exported.
 
 For details on how to configure database connections, including host, port, schema, and credentials,

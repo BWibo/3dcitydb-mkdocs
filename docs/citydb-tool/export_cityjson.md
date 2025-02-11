@@ -11,7 +11,7 @@ tags:
 
 # CityJSON-Specific Export Options
 
-The **CityJSON** exporter in the **3DCityDB Tool** provides additional options unique to the CityJSON format. These options allow precise control over JSON formatting, geometry precision, and transformations.
+The **CityJSON** exporter in the **3Dcitydb-tool** provides additional options unique to the CityJSON format. These options allow precise control over JSON formatting, geometry precision, and transformations.
 
 ---
 
@@ -33,7 +33,7 @@ The **CityJSON** exporter in the **3DCityDB Tool** provides additional options u
 
 ## Examples for CityJSON Export Options
 
-Below are practical examples demonstrating how to use **CityJSON-specific options** in the **3DCityDB Tool**.
+Below are practical examples demonstrating how to use **CityJSON-specific options** in the **3Dcitydb-tool**.
 
 ---
 

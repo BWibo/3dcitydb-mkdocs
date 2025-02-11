@@ -10,7 +10,7 @@ tags:
 
 # Delete command
 
-The **CityDB Tool** provides a `delete` command to remove features from the **3DCityDB** database.
+The **citydb-tool** provides a `delete` command to remove features from the **3DCityDB** database.
 The `delete` command offers flexible options for filtering, committing changes, managing indexes, and metadata logging.
 
 ---
@@ -60,11 +60,11 @@ citydb delete [OPTIONS]
 
 ## Database Connection Options
 
-The CityDB Tool requires a connection to a 3DCityDB database for all operations, including the delete command.
+The citydb-tool requires a connection to a 3DCityDB database for all operations, including the delete command.
 Database connection details, such as host, port, schema, and credentials, must be provided to ensure the
 tool can interact with the database successfully.
 
-These options are shared across all commands in the CityDB Tool, as a connection is essential every time data
+These options are shared across all commands in the citydb-tool, as a connection is essential every time data
 is queried, deleted, imported, or exported.
 
 For details on how to configure database connections, including host, port, schema, and credentials,
