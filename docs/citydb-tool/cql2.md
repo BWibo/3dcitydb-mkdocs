@@ -6,7 +6,7 @@ description:
 status: wip
 ---
 
-# CQL2 Query Language
+# CQL2 query language
 
 **CQL2** (Common Query Language 2) is an advanced query language used to filter and query spatial and attribute
 data within the **citydb-tool**. It allows users to define precise queries for exporting or deleting features
@@ -45,11 +45,11 @@ citydb [command] -f "<CQL2 Expression>"
 
 Where `<CQL2 Expression>` is a valid CQL2 query that defines the filtering conditions for the data export.
 
-## Writing CQL2 Expressions
+## Writing CQL2 expressions
 
 A CQL2 expression consists of attribute names, operators, and values. It can also include spatial functions to handle geospatial conditions.
 
-### Understanding Literals
+### Understanding literals
 In CQL2, literals are direct values that appear in your filter expressions. Common types of literals include:
 
 - Strings: Enclosed in single quotes in text-based queries (e.g., \`'Forest tree 3'\`), or as JSON strings in JSON-based queries (e.g., \`"Forest tree 3"\`).
@@ -59,7 +59,7 @@ In CQL2, literals are direct values that appear in your filter expressions. Comm
 
 ### Attribute references
 
-#### Implicit vs. Explicit Attribute References
+#### Implicit vs. explicit attribute references
 
 When writing CQL2 queries, it's important to correctly reference attributes by their full property names rather than 
 relying on implicit assumptions. While some query tools allow shorthand notations for convenience, 
@@ -78,7 +78,7 @@ if the attribute height belongs to the bldg (building) namespace, the correct qu
 citydb export citygml --filter="bldg.height > 1"
 ```
 
-#### Advanced Handling of Namespaces and Complex Attributes
+#### Advanced handling of namespaces and complex attributes
 In 3D CityDB, attributes may be defined with namespaces or at nested (child) levels.
 This advanced scenario requires careful handling:
 
@@ -110,18 +110,18 @@ Here, Building is the target object class (with its associated namespace alias),
 referenced attribute. This explicit approach minimizes ambiguity—especially important when attributes are defined on 
 child levels or in complex structures.
 
-### Attribute Filtering
+### Attribute filtering
 
 Filter based on attribute values using comparison operators such as =, !=, <, <=, >, and >=. Logical operators
 AND, OR, and NOT can be used to combine conditions.
 
-#### Basic Example
+#### Basic example
 Text-based Filter
 ```bash
 citydb export citygml --filter="name = 'Forest tree 3'" -o filtered_tree.gml
 ```
 
-Json-based Filter
+Json-based filter
 ```json
 {
   "op": "=",
@@ -132,9 +132,9 @@ Json-based Filter
 }
 ```
 
-#### Combining with Logical Operators
+#### Combining with logical operators
 
-Text-based Filter
+Text-based filter
 === "Linux"
     ```bash 
     citydb export citygml \
@@ -149,7 +149,7 @@ Text-based Filter
            -o filtered_tree.gml
     ```
 
-Json-based Filter
+Json-based filter
 ```json
 {
   "op": "AND",
@@ -174,7 +174,7 @@ Json-based Filter
 
 #### Filtering with lists
 
-Text-based Filter
+Text-based filter
 
 === "Linux"
     ```bash
@@ -190,7 +190,7 @@ Text-based Filter
            -o filtered_trees.gml
     ```
 
-Json-based Filter
+Json-based filter
 ```json
 {
   "op": "IN",
@@ -201,7 +201,7 @@ Json-based Filter
 }
 ```
 
-### Spatial Filtering
+### Spatial filtering
 
 Use spatial functions to filter based on the spatial relationship of geometries. Commonly used functions include:
 
@@ -211,7 +211,7 @@ Use spatial functions to filter based on the spatial relationship of geometries.
 
 #### Example
 
-Text-based Filter
+Text-based filter
 
 === "Linux"
     ```bash
@@ -231,7 +231,7 @@ Text-based Filter
     ```
 
 
-Json-based Filter
+Json-based filter
 ```json
 {
   "op": "func",

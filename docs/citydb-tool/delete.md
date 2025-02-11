@@ -21,7 +21,7 @@ The `delete` command offers flexible options for filtering, committing changes, 
 citydb delete [OPTIONS]
 ```
 
-## General Options
+## General options
 
 | Option                               | Description                                                                 | Default Value |
 |--------------------------------------|-----------------------------------------------------------------------------|---------------|
@@ -38,7 +38,7 @@ citydb delete [OPTIONS]
 | `--plugins=<dir>`                    | Load plugins from the specified directory.                                  |               |
 | `--use-plugins=<plugin>`             | Enable/disable specific plugins using their fully qualified class names.    | `true`        |
 
-## Metadata Options
+## Metadata options
 
 | Option                               | Description                                                                 | Default Value       |
 |--------------------------------------|-----------------------------------------------------------------------------|---------------------|
@@ -47,7 +47,7 @@ citydb delete [OPTIONS]
 | `--reason-for-update=<reason>`       | Provide a reason for deleting the data.                                     | None                |
 
 
-## Query and Filter Options
+## Query and filter options
 
 | Option                               | Description                                                                 | Default Value       |
 |--------------------------------------|-----------------------------------------------------------------------------|---------------------|
@@ -58,7 +58,7 @@ citydb delete [OPTIONS]
 | `--limit=<count>`                    | Limit the number of features to process. Example: `1000`.                   | None                |
 | `--start-index=<index>`              | Start processing features from a specific index. Example: `10`.             | `0`                 |
 
-## Database Connection Options
+## Database connection options
 
 The citydb-tool requires a connection to a 3DCityDB database for all operations, including the delete command.
 Database connection details, such as host, port, schema, and credentials, must be provided to ensure the
@@ -73,7 +73,7 @@ all available connection parameters.
 
 ## Examples
 
-### Basic Delete
+### Basic delete
 
 Delete features using default settings:
 
@@ -81,7 +81,7 @@ Delete features using default settings:
 citydb delete
 ```
 
-### Preview Delete Operation
+### Preview delete operation
 
 Run the delete command in **preview mode** to check which features would be deleted without
 performing the actual operation:
@@ -90,7 +90,7 @@ performing the actual operation:
 citydb delete -t Building --preview
 ```
 
-### Delete Specific Features
+### Delete specific features
 
 Delete specific features using a **CQL2 filter**:
 
@@ -98,7 +98,7 @@ Delete specific features using a **CQL2 filter**:
 citydb delete -t Building -f "height > 100"
 ```
 
-### Delete with Metadata
+### Delete with metadata
 
 Delete features and provide lineage information and a reason for the operation:
 
@@ -106,7 +106,7 @@ Delete features and provide lineage information and a reason for the operation:
 citydb delete -t Building --lineage="CityGML 2.0" --reason-for-update="Data cleanup"
 ```
 
-### Delete with Commit
+### Delete with commit
 
 Delete features and commit changes after deleting 1000 features:
 
@@ -114,7 +114,7 @@ Delete features and commit changes after deleting 1000 features:
 citydb delete -t Building --commit=1000
 ```
 
-### Delete with Custom Temporary Directory
+### Delete with custom temporary directory
 
 Specify a custom directory for storing temporary files during the delete operation:
 
@@ -122,7 +122,7 @@ Specify a custom directory for storing temporary files during the delete operati
 citydb delete -t Building --temp-dir=/path/to/temp
 ```
 
-### Delete with SQL Filter
+### Delete with SQL filter
 
 Delete features using an SQL query to filter specific records:
 
@@ -130,7 +130,7 @@ Delete features using an SQL query to filter specific records:
 citydb delete -t Building --sql-filter="SELECT * FROM building WHERE height > 100"
 ```
 
-### Limit the Number of Features to Process
+### Limit the number of features to process
 
 Delete a limited number of features, starting from index 10:
 
