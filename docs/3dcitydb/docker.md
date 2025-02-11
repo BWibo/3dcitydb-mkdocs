@@ -22,7 +22,7 @@ The images described here are available for 3DCityDB version `v5.0.0` and newer.
 
 !!! info "Docker image versions and compatibility"
     The 3DCityDB Docker images for `>= v5.x.x` are __only__ available for PostgreSQL/PostGIS and are only compatible with
-    the [`citydb-tool`](../citydb-tool/docker.md) images, as of writing this (2025-01). See [here](../compatibility.md) for more on CityGML version and 3DCityDB tools compatibility.
+    the [citydb-tool](../citydb-tool/docker.md) images, as of writing this (2025-01). See [here](../compatibility.md) for more on CityGML version and 3DCityDB tools compatibility.
 
 When designing the images we tried to stay as close as possible to the behavior of the base images and the [3DCityDB Shell scripts](../first-steps/setup.md). Thus, all configuration options you may be used to from the base images, are available for the 3DCityDB Docker images as well.
 
@@ -47,7 +47,7 @@ When designing the images we tried to stay as close as possible to the behavior 
 
 === "Windows"
 
-    ``` bash
+    ``` bat
     docker run --name 3dciytdb -p 5432:5432 -d ^
         -e POSTGRES_PASSWORD=<theSecretPassword> ^
         -e SRID=<EPSG code> ^
@@ -283,7 +283,7 @@ The images are build by cloning the 3DCityDB Github repository and running [`doc
 
     === "Windows"
 
-        ``` bash
+        ``` bat
         docker build -t 3dcitydb/3dcitydb-pg .
 
         # or with a specific base image tag
@@ -319,7 +319,7 @@ automated tests operating on the exact same data every time or you want to prepa
 
     === "Windows"
 
-        ``` bash
+        ``` bat
         docker network create citydb-net
         docker run -d --name citydbTemp ^
         --network citydb-net ^
@@ -334,7 +334,7 @@ automated tests operating on the exact same data every time or you want to prepa
 
     Note down the database connection credentials (db name, username,  password) or you won't be able to access the content later.
 
-3. Import data to the container. For this example we are using the [:material-download: LoD3 Railway dataset](https://github.com/3dcitydb/importer-exporter/raw/master/resources/samples/Railway%20Scene/Railway_Scene_LoD3.zip){target="blank"} and the [CityDB tool](../citydb-tool/import.md).
+3. Import data to the container. For this example we are using the [:material-download: LoD3 Railway dataset](https://github.com/3dcitydb/importer-exporter/raw/master/resources/samples/Railway%20Scene/Railway_Scene_LoD3.zip){target="blank"} and the [citydb-tool](../citydb-tool/import.md).
 
     === "Linux"
 
@@ -352,7 +352,7 @@ automated tests operating on the exact same data every time or you want to prepa
 
     === "Windows"
 
-        ``` bash
+        ``` bat
         docker run -i -t --rm ^
             --network citydb-net ^
             -v /d/temp:/data ^
@@ -389,7 +389,7 @@ automated tests operating on the exact same data every time or you want to prepa
 
     === "Windows"
 
-        ``` bash
+        ``` bat
         docker run --name cdbWithData --rm -p 5432:5432 ^
         3dcitydb/3dcitydb-pg:17-3.5-5.0.0-railwayScene_LoD3
         ```
@@ -471,7 +471,7 @@ The configuration of the PostgreSQL database has significant impact on performan
 
     === "Windows"
 
-        ``` bash hl_lines="4-20"
+        ``` bat hl_lines="4-20"
         docker run -d -i -t --name citydb -p 5432:5342 ^
         -e SRID=25832 ^
         -e POSTGRES_PASSWORD=changeMe ^
