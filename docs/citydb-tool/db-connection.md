@@ -1,9 +1,11 @@
 ---
 title: Database connection
-subtitle: How to connect a 3DCityDB
-description:
+description: How to connect a 3DCityDB
 # icon: material/emoticon-happy
 status: wip
+tags:
+  - citydb-tool
+  - database-connection
 ---
 
 ## Connecting to a PostgreSQL Database
@@ -14,7 +16,6 @@ connection details using the database [options](#specifying-database-options-in-
 in an external [options file](#specifying-database-options-in-an-options-file) for reuse.
 It is also possible to use a [config file](#specifying-database-options-in-a-config-file) in JSON format to
 specify the database connection options. Alternatively, you can use **environment variables** for dynamic configuration.
-
 
 ### Specifying Database Options in the Command
 
@@ -28,6 +29,7 @@ You can provide the database connection options directly in the command:
 | `-S`, `--db-schema=<schema>` | Database schema to use (default: `citydb` or `username`). | citydb or username |
 | `-u`, `--db-username=<user>` | Username for the database connection.                |               |
 | `-p`, `--db-password[=<password>]` | Password for the database connection. Leave empty to be prompted. |               |
+
 #### Example
 
 ```bash

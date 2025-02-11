@@ -1,12 +1,11 @@
 ---
 title: Relational database schema
-subtitle: How is the database relational Schema structured?
-description:
+description: : How is the database relational Schema structured?
 # icon: material/emoticon-happy
 status: wip
-# tags:
-#   - tag1s
-#   - tag2
+tags:
+  - relational schema
+  - 3DCityDB
 ---
 
 Since version 5, the database schema has been completely redesigned and reworked. There are no individual feature tables with columns for attributes anymore. Instead, the database schema is minimized with fewer tables. For example, a Feature table for all features and objects, and a PROPERTY table for almost all attributes and associations. The following figure presents an overview of the relational database structure, where all tables can be logically grouped into three modules:

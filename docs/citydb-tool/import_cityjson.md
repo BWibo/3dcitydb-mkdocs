@@ -1,9 +1,12 @@
 ---
-title: Import Cityjson
-subtitle: Import Cityjson
-description:
+title: Import CityJSON
+description: Importing CityJSON data
 # icon: material/emoticon-happy
 status: wip
+tags:
+  - citydb-tool
+  - CityJSON
+  - import
 ---
 
 The **import** command imports one or more CityGML or CityJSON files into the 3D City Database.
@@ -18,9 +21,8 @@ The command provides a range of [OPTIONS] to adapt the import process.
 
 The different commands are identical to the import of CityGML up to one command.
 
-# Options Table
-
+## options table
 
 OPTION / command | discription | default
 ------------ | ------------- | -------------
-` --[no-]map-unknown-objects` |  Map city objects from unsupported extensions onto generic city objects. | true
+`--[no-]map-unknown-objects` |  Map city objects from unsupported extensions onto generic city objects. | true
