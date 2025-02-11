@@ -9,7 +9,7 @@ status: wip
 # CQL2 Query Language
 
 **CQL2** (Common Query Language 2) is an advanced query language used to filter and query spatial and attribute
-data within the **3Dcitydb-tool**. It allows users to define precise queries for exporting or deleting features
+data within the **citydb-tool**. It allows users to define precise queries for exporting or deleting features
 based on attribute values, spatial properties, or logical conditions.
 
 CQL2 is a standard maintained by the **OGC (Open Geospatial Consortium)** and serves as an evolution of the

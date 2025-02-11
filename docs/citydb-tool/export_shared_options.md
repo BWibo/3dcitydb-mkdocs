@@ -8,7 +8,7 @@ tags:
   - export
 ---
 
-Both **CityGML** and **CityJSON** exporters in the **3Dcitydb-tool** share a common set of options.
+Both **CityGML** and **CityJSON** exporters in the **citydb-tool** share a common set of options.
 These options allow users to customize the export process, including output configuration, query and
 filter parameters, and tiling for large datasets.
 
