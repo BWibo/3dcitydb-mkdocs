@@ -76,6 +76,7 @@ The `edge` images are automatically built and published on every push to the _ma
 | __latest__ | [![psql-deb-size-latest](https://img.shields.io/docker/image-size/%0A3dcitydb/3dcitydb-pg/latest?label=image%20size&logo=Docker&logoColor=white&style=flat-square)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated)              | [![psql-alp-size-latest](https://img.shields.io/docker/image-size/%0A3dcitydb/3dcitydb-pg/latest-alpine?label=image%20size&logo=Docker&logoColor=white&%0Astyle=flat-square)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated)                |
 |  __5.0.0__ |                 |                  |
 |  __4.0.0__ | [![psql-deb-size-v4.0.0](https://img.shields.io/docker/image-size/%0A3dcitydb/3dcitydb-pg/14-3.2-4.0.0?label=image%20size&logo=Docker&logoColor=white&style=flat-square)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg)                 |   [![psql-alp-size-v4.0.0](https://img.shields.io/docker/image-size/%0A3dcitydb/3dcitydb-pg/14-3.2-4.0.0-alpine?label=image%20size&logo=Docker&logoColor=white&%0Astyle=flat-square)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg)             |
+
 /// table-caption
 Overview 3DCityDB Docker image variants and versions.
 ///
