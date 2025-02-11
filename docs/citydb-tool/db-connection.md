@@ -19,14 +19,14 @@ specify the database connection options. Alternatively, you can use **environmen
 
 You can provide the database connection options directly in the command:
 
-| Option                  | Description                                              | Default Value |
-|-------------------------|----------------------------------------------------------|---------------|
-| `-H`, `--db-host=<host>` | Hostname of the 3DCityDB server.                         |               |
-| `-P`, `--db-port=<port>` | Port of the 3DCityDB server (default: 5432).             | 5432          |
-| `-d`, `--db-name=<database>` | Name of the 3DCityDB database to connect to.         |               |
-| `-S`, `--db-schema=<schema>` | Database schema to use (default: `citydb` or `username`). | citydb or username |
-| `-u`, `--db-username=<user>` | Username for the database connection.                |               |
-| `-p`, `--db-password[=<password>]` | Password for the database connection. Leave empty to be prompted. |               |
+| Option                  | Description                                        | Default Value |
+|-------------------------|----------------------------------------------------|-----------|
+| `-H`, `--db-host=<host>` | Hostname of the 3DCityDB server.                   |           |
+| `-P`, `--db-port=<port>` | Port of the 3DCityDB server (default: 5432).       | 5432      |
+| `-d`, `--db-name=<database>` | Name of the 3DCityDB database to connect to.   |           |
+| `-S`, `--db-schema=<schema>` | Database schema to use | citydb |
+| `-u`, `--db-username=<user>` | Username for the database connection.          |           |
+| `-p`, `--db-password[=<password>]` | Password for the database connection. Leave empty to be prompted. |           |
 
 #### Example
 
