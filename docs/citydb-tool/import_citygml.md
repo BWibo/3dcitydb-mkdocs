@@ -9,7 +9,6 @@ status: wip
 
 The **import** command imports one or more CityGML files into the 3D City Database.
 
-
 To import your files to the 3D City Database it is necessary to give along the information for the connection. Look up [Database connection](db-connection.md) for further information.
 
 Use `citydb import citygml [OPTIONS] <file>` to import one or more citygml files from a directory into the database.
@@ -17,6 +16,7 @@ Use `citydb import citygml [OPTIONS] <file>` to import one or more citygml files
 The command provides a range of [OPTIONS] to adapt the import process.
 
 ## Better practice
+
 You can use a textfile to combine and outsource commands and the link to the config.json to keep a better overview of issued commands. Save the textfile in the same folder as the config.json.
 
 ```bash
@@ -26,7 +26,6 @@ citydb import citygml <file> @options.txt
 ## Options table
 
 ### Import data
-
 
 Command | Description | Default Value
 ------------ | ------------- | -------------
@@ -60,7 +59,6 @@ Import a CityGML file and create file in a separate folder with log message
 citydb import citygml generic_citygml.gml --log-file=.\log @options.txt
 ```
 
-
 ## Handling with duplicate features
 
 There are different options for the import to handle duplicate features based on the feature ID (i.e., gml:id).
@@ -86,6 +84,7 @@ citydb import citygml generic_citygml.gml --import-mode=skip @options.txt
 ```
 
 ## Filter options
+
 Command | Description | Default Value
 ------------ | ------------- | -------------
 `-t`, `--type-name=<[prefix:]name>[,<[prefix:]name>...]`| Names of the features to process.
@@ -110,6 +109,7 @@ citydb import citygml generic_citygml.gml --bbox=367123,5807268,367817,5807913,2
 ```
 
 ## Upgrade options for CityGML 2.0 and 1.0
+
 Option / Command | Description | Default Value
 ------------ | ------------- | -------------
 `--use-lod4-as-lod3` |  Use LoD4 as LoD3, replacing an existing LoD3.

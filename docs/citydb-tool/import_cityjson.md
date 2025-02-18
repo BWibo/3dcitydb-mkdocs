@@ -13,7 +13,6 @@ tags:
 
 The **import** command imports one or more CityJSON files into the 3D City Database.
 
-
 To import your files to the 3D City Database it is necessary to give along the information for the connection. Look up [Database connection](db-connection.md) for further information.
 
 Use `citydb import cityjson [OPTIONS] <file>` to import one or more cityjson files from a directory into the database.
@@ -23,6 +22,7 @@ Use `citydb import cityjson [OPTIONS] <file>` to import one or more cityjson fil
 The command provides a range of [OPTIONS] to adapt the import process.
 
 ## Better practice
+
 You can use a textfile to combine and outsource commands and the link to the config.json to keep a better overview of issued commands. Save the textfile in the same folder as the config.json.
 
 ```bash
@@ -64,7 +64,6 @@ Import a Cityjson file and create file in a separate folder with log message
 citydb import citygml generic_cityjson.json --log-file=.\log @options.txt
 ```
 
-
 ## Handling with duplicate features
 
 There are different options for the import to handle duplicates.
@@ -90,6 +89,7 @@ citydb import citygml generic_cityjson.json --import-mode=skip @options.txt
 ```
 
 ## Filter options
+
 Command | Description | Default Value
 ------------ | ------------- | -------------
 `-t`, `--type-name=<[prefix:]name>[,<[prefix:]name>...]`| Names of the features to process.

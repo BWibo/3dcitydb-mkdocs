@@ -11,8 +11,6 @@ The **`index`** command in the **citydb-tool** allows users to manage database i
 Indexes are critical for optimizing query performance, especially for large datasets.
 The `index` command provides subcommands to check index statuses, create indexes, and drop indexes.
 
----
-
 ## Usage
 
 ```bash
@@ -96,7 +94,6 @@ citydb index create --index-mode=full
 The drop subcommand of the index command allows users to remove existing indexes from the relevant database tables
 in 3DCityDB. This operation can be useful for database maintenance, freeing up storage, or temporarily disabling
 indexes during bulk data operations.
-
 
 ### Example
 
