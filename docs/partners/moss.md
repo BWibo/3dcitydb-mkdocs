@@ -23,7 +23,7 @@ We place the greatest emphasis on optimizing large geo-data volumes of vector,
 but especially raster data, point clouds, and 3D, as well as their integration 
 into existing IT and process landscapes.
 
-![Landingpage von moGI](assets/moGI.PNG)
+![Landingpage von moGI](assets/mogi.PNG)
 
 The professional focus is in the area of public administration (surveying, forestry, 
 and environmental authorities), industry, and renewable energies, in particular wind 
