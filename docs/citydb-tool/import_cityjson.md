@@ -9,13 +9,14 @@ tags:
   - import
 ---
 
-# Cityjson-specific import options
+# CityJSON-specific import options
 
 The **import** command imports one or more CityJSON files into the 3D City Database.
 
 To import your files to the 3D City Database it is necessary to give along the information for the connection. Look up [Database connection](db-connection.md) for further information.
 
-Use `citydb import cityjson [OPTIONS] <file>` to import one or more cityjson files from a directory into the database.
+Use `citydb import cityjson [OPTIONS] <file>` to import one or more CityJSON files from a directory into the database.
+
 !!! warning "Important"
     It is important that the filename + extension is mentioned in the path to the file itself.
 
@@ -23,7 +24,7 @@ The command provides a range of [OPTIONS] to adapt the import process.
 
 ## Better practice
 
-You can use a textfile to combine and outsource commands and the link to the config.json to keep a better overview of issued commands. Save the textfile in the same folder as the config.json.
+You can use a textfile to combine and outsource commands and the link to the `config.json` to keep a better overview of issued commands. Save the textfile in the same folder as the config.json.
 
 ```bash
 citydb import cityjson <file> @options.txt
@@ -58,7 +59,7 @@ Running the import in a preview mode to check the metadata in the commandline.
 citydb import citygml generic_cityjson.json --preview @options.txt
 ```
 
-Import a Cityjson file and create file in a separate folder with log message
+Import a CityJSON file and create file in a separate folder with log message
 
 ```bash
 citydb import citygml generic_cityjson.json --log-file=.\log @options.txt
