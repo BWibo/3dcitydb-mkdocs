@@ -16,13 +16,13 @@ PostgreSQL/PostGIS database environment.
 
 The following table outlines the compatibility between **3DCityDB** versions, **citydb-tool** versions (including the legacy Importer-Exporter Tool), and the supported data formats and their versions.
 
-| **3DCityDB Version** | **Tool Version**               | **Supported Data Formats**         | **Supported Format Versions**               |
-|-----------------------|--------------------------------|------------------------------------|---------------------------------------------|
+| **3DCityDB Version** | **Tool Version**               | **Supported Data Formats**         | **Supported Format Versions**                     |
+|----------------------|--------------------------------|------------------------------------|---------------------------------------------------|
 | **5.x**              | **citydb-tool (current)**      | CityGML, CityJSON                  | CityGML: 3.0, 2.0, 1.0<br>CityJSON: 2.0, 1.1, 1.0 |
-| 4.x                  | Importer-Exporter Tool 3.x     | CityGML, CityJSON                  | CityGML: 2.0, 1.0<br>CityJSON: 2.0, 1.1, 1.0 |
-| 3.x                  | Importer-Exporter Tool 3.x     | CityGML, CityJSON                  | CityGML: 2.0, 1.0<br>CityJSON: 1.0          |
-| 2.x                  | Importer-Exporter Tool 2.x     | CityGML                            | CityGML: 2.0, 1.0                           |
-| 1.x                  | Importer-Exporter Tool 1.x     | CityGML                            | CityGML: 1.0                                |
+| 4.x                  | Importer-Exporter Tool 3.x     | CityGML, CityJSON                  | CityGML: 2.0, 1.0<br>CityJSON: 2.0, 1.1, 1.0      |
+| 3.x                  | Importer-Exporter Tool 3.x     | CityGML, CityJSON                  | CityGML: 2.0, 1.0<br>CityJSON: 1.0                |
+| 2.x                  | Importer-Exporter Tool 2.x     | CityGML                            | CityGML: 2.0, 1.0                                 |
+| 1.x                  | Importer-Exporter Tool 1.x     | CityGML                            | CityGML: 1.0                                      |
 
 ---
 

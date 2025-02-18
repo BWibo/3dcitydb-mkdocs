@@ -33,22 +33,22 @@ citydb import cityjson <file> @options.txt
 
 ### Import data
 
-Command | Description | Default Value
------------- | ------------- | -------------
-`@<filename>...` | One or more argument files containing options.
-`<file>...` | One or more files and directories to process (globpatterns allowed).
-`--input-encoding= <encoding>` |  Encoding of input file(s).
-`--fail-fast` | Fail fast on errors.
-`--temp-dir= <dir>` | Store temporary files in this directory.
-`--threads=<threads>`| Number of threads to use for parallel processing.
-`--preview`| Run in preview mode. Features will not be imported.
-`--index-mode=<mode>` | Index mode: keep, drop, drop_create Consider dropping indexes when processing large quantities of data. | keep
-`--compute-extent` | Compute and overwrite extents of features.
-` --[no-]map-unknown-objects` |  Map city objects from unsupported extensions onto generic city objects. | true
-`--log-file=<file>`| Write log messages to this file.
-`--pid-file=<file>` | Create a file containing the process ID.
-`--plugins=<dir>` | Load plugins from this directory.
-`--use-plugins=<plugin[=true|false][,<plugin[=true|false]...]` | Enable or disable plugins with a matching fully qualified class name | true
+| Command                        | Description                                                                                               | Default Value |
+|:------------------------------ |:--------------------------------------------------------------------------------------------------------- |:------------- |
+| `@<filename>...`               | One or more argument files containing options.                                                            |               |
+| `<file>...`                    | One or more files and directories to process (globpatterns allowed).                                      |               |
+| `--input-encoding= <encoding>` |  Encoding of input file(s).                                                                               |               |
+| `--fail-fast`                  | Fail fast on errors.                                                                                      |               |
+| `--temp-dir= <dir>`            | Store temporary files in this directory.                                                                  |               |
+| `--threads=<threads>`          | Number of threads to use for parallel processing.                                                         |               |
+| `--preview`                    | Run in preview mode. Features will not be imported.                                                       |               |
+| `--index-mode=<mode>`          | Index mode: keep, drop, drop_create Consider dropping indexes when processing large quantities of data.   | keep          |
+| `--compute-extent`             | Compute and overwrite extents of features.                                                                |               |
+| `-[no-]map-unknown-objects`    |  Map city objects from unsupported extensions onto generic city objects.                                  | true          |
+| `--log-file=<file>`            | Write log messages to this file.                                                                          |               |
+| `--pid-file=<file>`            | Create a file containing the process ID.                                                                  |               |
+| `--plugins=<dir>`              | Load plugins from this directory.                                                                         |               |
+| `--use-plugins=<plugin[=true|false][,<plugin[=true|false]...]` | Enable or disable plugins with a matching fully qualified class name      | true          |
 
 ### Example
 
@@ -68,9 +68,9 @@ citydb import citygml generic_cityjson.json --log-file=.\log @options.txt
 
 There are different options for the import to handle duplicates.
 
-Command | Description | Default Value
------------- | ------------- | -------------
-`-m, --import-mode=<mode>` | Import mode: skip, terminate, delete, import_all | import_all
+| Command                    | Description                                      | Default Value  |
+|:---------------------------|:------------------------------------------------ |:---------------|
+| `-m, --import-mode=<mode>` | Import mode: skip, terminate, delete, import_all | import_all     |
 
 skip -->        Duplicates in the input file are not imported into the database.
 
@@ -90,19 +90,20 @@ citydb import citygml generic_cityjson.json --import-mode=skip @options.txt
 
 ## Filter options
 
-Command | Description | Default Value
------------- | ------------- | -------------
-`-t`, `--type-name=<[prefix:]name>[,<[prefix:]name>...]`| Names of the features to process.
-`-i`, `--id=<id>[,<id>...]` |  Identifiers of the features to process.
-`-b`, `--bbox=<x_min,y_min,x_max,y_max,srid>` | Bounding box to use as spatial filter.
-`--bbox-mode=<mode>` |  Bounding box mode: intersects, contains, on_tile | intersects
-`--limit=<count>` | Maximum number of features to process.
-`-a`, `--appearance-theme=<theme>[,<theme>...]` | Process appearances with a matching theme. Use 'none' for the null theme.
+| Command                                                  | Description                                                                | Default Value         |
+|:---------------------------------------------------------|:---------------------------------------------------------------------------|:----------------------|
+| `-t`, `--type-name=<[prefix:]name>[,<[prefix:]name>...]` | Names of the features to process.                                          |                       |
+| `-i`, `--id=<id>[,<id>...]`                              | Identifiers of the features to process.                                    |                       |
+| `-b`, `--bbox=<x_min,y_min,x_max,y_max,srid>`            | Bounding box to use as spatial filter.                                     |                       |
+| `--bbox-mode=<mode>`                                     | Bounding box mode: intersects, contains, on_tile  \| intersects            |                       |
+| `--limit=<count>`                                        | Maximum number of features to process.                                     |                       |
+| `-a`, `--appearance-theme=<theme>[,<theme>...]`          | Process appearances with a matching theme. Use 'none' for the null theme.  |                       |
 
 ### Example
 
 Import a feature with a specific ID from your JSON-File.
 
 ```bash
-citydb import citygml generic_cityjson.json --id=GMLID_0598627_75956_700 @options.txt
+citydb import citygml generic_cityjson.json \
+  --id=GMLID_0598627_75956_700 @options.txt
 ```

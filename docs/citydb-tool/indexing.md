@@ -20,7 +20,7 @@ citydb index [OPTIONS] SUBCOMMAND
 ## Subcommands
 
 | Subcommand       | Description                                                       |
-|-------------------|-------------------------------------------------------------------|
+|------------------|-------------------------------------------------------------------|
 | `help`           | Display help information for the `index` command or subcommands.  |
 | `status`         | Show the current indexes and their statuses in the database.      |
 | `create`         | Create indexes on the relevant database tables.                   |
@@ -32,7 +32,7 @@ citydb index [OPTIONS] SUBCOMMAND
 |--------------------------------------|-----------------------------------------------------------------------------|---------------|
 | `[@<filename>...]`                   | Specify one or more argument files containing options.                      |               |
 | `--config-file=<file>`               | Load configuration options from the specified file.                         |               |
-| `-L`, `--log-level=<level>`          | Set the logging level: `fatal`, `error`, `warn`, `info`, `debug`, `trace`.   | `info`        |
+| `-L`, `--log-level=<level>`          | Set the logging level: `fatal`, `error`, `warn`, `info`, `debug`, `trace`.  | `info`        |
 | `--log-file=<file>`                  | Write log messages to the specified file.                                   |               |
 | `--pid-file=<file>`                  | Create a file containing the process ID.                                    |               |
 | `--plugins=<dir>`                    | Load plugins from the specified directory.                                  |               |
@@ -74,9 +74,9 @@ This command supports different indexing modes to accommodate various database c
 
 ### Options
 
-| Option                               | Description                                                                 | Default Value |
-|--------------------------------------|-----------------------------------------------------------------------------|---------------|
-| `-m, --index-mode=<mode>`            | Specifies the indexing mode for property value columns. Choices are: partial, full.| partial       |
+| Option                               | Description                                                                 | Default Value     |
+|--------------------------------------|-----------------------------------------------------------------------------|-------------------|
+| `-m, --index-mode=<mode>`            | Specifies the indexing mode for property value columns. Choices are: partial, full.| partial    |
 
 ### Description
 
