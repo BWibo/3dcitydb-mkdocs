@@ -5,7 +5,7 @@ description: Import
 status: wip
 ---
 
-# CityGML-Specific Import Options
+# CityGML-specific import options
 
 The **import** command imports one or more CityGML files into the 3D City Database.
 
@@ -16,16 +16,16 @@ Use `citydb import citygml [OPTIONS] <file>` to import one or more citygml files
 
 The command provides a range of [OPTIONS] to adapt the import process.
 
-## Better Practice
+## Better practice
 You can use a textfile to combine and outsource commands and the link to the config.json to keep a better overview of issued commands. Save the textfile in the same folder as the config.json.
 
 ```bash
 citydb import citygml <file> @options.txt
 ```
 
-## Options Table
+## Options table
 
-### Import Data
+### Import data
 
 
 Command | Description | Default Value
@@ -85,7 +85,7 @@ If you want to check if the files are already imported to the database you can u
 citydb import citygml generic_citygml.gml --import-mode=skip @options.txt
 ```
 
-## Filter Options
+## Filter options
 Command | Description | Default Value
 ------------ | ------------- | -------------
 `-t`, `--type-name=<[prefix:]name>[,<[prefix:]name>...]`| Names of the features to process.
