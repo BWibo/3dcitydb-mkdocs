@@ -1,6 +1,5 @@
 ---
 title: CQL2 Query Language
-subtitle: Filtering and Querying Data with CQL2
 description:
 # icon: material/filter
 status: wip
