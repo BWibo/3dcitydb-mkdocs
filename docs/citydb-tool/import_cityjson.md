@@ -11,7 +11,7 @@ tags:
 
 # CityJSON-specific import options
 
-The **import** command imports one or more CityJSON files into the 3D City Database.
+The __import__ command imports one or more CityJSON files into the 3D City Database.
 
 To import your files to the 3D City Database it is necessary to give along the information for the connection. Look up [Database connection](db-connection.md) for further information.
 
