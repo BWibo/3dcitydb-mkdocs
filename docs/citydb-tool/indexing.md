@@ -11,8 +11,6 @@ The **`index`** command in the **citydb-tool** allows users to manage database i
 Indexes are critical for optimizing query performance, especially for large datasets.
 The `index` command provides subcommands to check index statuses, create indexes, and drop indexes.
 
----
-
 ## Usage
 
 ```bash
@@ -22,7 +20,7 @@ citydb index [OPTIONS] SUBCOMMAND
 ## Subcommands
 
 | Subcommand       | Description                                                       |
-|-------------------|-------------------------------------------------------------------|
+|------------------|-------------------------------------------------------------------|
 | `help`           | Display help information for the `index` command or subcommands.  |
 | `status`         | Show the current indexes and their statuses in the database.      |
 | `create`         | Create indexes on the relevant database tables.                   |
@@ -34,7 +32,7 @@ citydb index [OPTIONS] SUBCOMMAND
 |--------------------------------------|-----------------------------------------------------------------------------|---------------|
 | `[@<filename>...]`                   | Specify one or more argument files containing options.                      |               |
 | `--config-file=<file>`               | Load configuration options from the specified file.                         |               |
-| `-L`, `--log-level=<level>`          | Set the logging level: `fatal`, `error`, `warn`, `info`, `debug`, `trace`.   | `info`        |
+| `-L`, `--log-level=<level>`          | Set the logging level: `fatal`, `error`, `warn`, `info`, `debug`, `trace`.  | `info`        |
 | `--log-file=<file>`                  | Write log messages to the specified file.                                   |               |
 | `--pid-file=<file>`                  | Create a file containing the process ID.                                    |               |
 | `--plugins=<dir>`                    | Load plugins from the specified directory.                                  |               |
@@ -76,9 +74,9 @@ This command supports different indexing modes to accommodate various database c
 
 ### Options
 
-| Option                               | Description                                                                 | Default Value |
-|--------------------------------------|-----------------------------------------------------------------------------|---------------|
-| `-m, --index-mode=<mode>`            | Specifies the indexing mode for property value columns. Choices are: partial, full.| partial       |
+| Option                               | Description                                                                 | Default Value     |
+|--------------------------------------|-----------------------------------------------------------------------------|-------------------|
+| `-m, --index-mode=<mode>`            | Specifies the indexing mode for property value columns. Choices are: partial, full.| partial    |
 
 ### Description
 
@@ -96,7 +94,6 @@ citydb index create --index-mode=full
 The drop subcommand of the index command allows users to remove existing indexes from the relevant database tables
 in 3DCityDB. This operation can be useful for database maintenance, freeing up storage, or temporarily disabling
 indexes during bulk data operations.
-
 
 ### Example
 

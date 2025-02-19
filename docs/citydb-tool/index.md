@@ -5,7 +5,6 @@ description: Overview
 status: wip
 ---
 
-
 ## Intro
 
 The **citydb-tool** is a command-line utility designed for managing and interacting with the **3DCityDB**,
@@ -17,13 +16,13 @@ PostgreSQL/PostGIS database environment.
 
 The following table outlines the compatibility between **3DCityDB** versions, **citydb-tool** versions (including the legacy Importer-Exporter Tool), and the supported data formats and their versions.
 
-| **3DCityDB Version** | **Tool Version**               | **Supported Data Formats**         | **Supported Format Versions**               |
-|-----------------------|--------------------------------|------------------------------------|---------------------------------------------|
+| **3DCityDB Version** | **Tool Version**               | **Supported Data Formats**         | **Supported Format Versions**                     |
+|----------------------|--------------------------------|------------------------------------|---------------------------------------------------|
 | **5.x**              | **citydb-tool (current)**      | CityGML, CityJSON                  | CityGML: 3.0, 2.0, 1.0<br>CityJSON: 2.0, 1.1, 1.0 |
-| 4.x                  | Importer-Exporter Tool 3.x     | CityGML, CityJSON                  | CityGML: 2.0, 1.0<br>CityJSON: 2.0, 1.1, 1.0 |
-| 3.x                  | Importer-Exporter Tool 3.x     | CityGML, CityJSON                  | CityGML: 2.0, 1.0<br>CityJSON: 1.0          |
-| 2.x                  | Importer-Exporter Tool 2.x     | CityGML                            | CityGML: 2.0, 1.0                           |
-| 1.x                  | Importer-Exporter Tool 1.x     | CityGML                            | CityGML: 1.0                                |
+| 4.x                  | Importer-Exporter Tool 3.x     | CityGML, CityJSON                  | CityGML: 2.0, 1.0<br>CityJSON: 2.0, 1.1, 1.0      |
+| 3.x                  | Importer-Exporter Tool 3.x     | CityGML, CityJSON                  | CityGML: 2.0, 1.0<br>CityJSON: 1.0                |
+| 2.x                  | Importer-Exporter Tool 2.x     | CityGML                            | CityGML: 2.0, 1.0                                 |
+| 1.x                  | Importer-Exporter Tool 1.x     | CityGML                            | CityGML: 1.0                                      |
 
 ---
 
@@ -65,7 +64,6 @@ The citydb-tool works seamlessly with **PostgreSQL** databases enhanced with **P
 
 The **citydb-tool** is ideal for urban planners, GIS professionals, and developers working with 3D city models who require a robust and efficient way to manage large-scale spatial data within a relational database.
 
-
 The citydb command-line interface for the 3D City Database provides several general options that can be used with any command. These options allow you to configure logging, load configuration files, manage plugins, and more.
 
 ## Usage
@@ -97,6 +95,7 @@ To reference an options file, use the @<filename> syntax. The options file conta
 following format:
 
 ### Example options file (options.txt):
+
 ```text
 --log-level=debug
 --config-file=config.json
@@ -106,6 +105,7 @@ following format:
 ```
 
 ### Run the delete command with options from the file:
+
 ```bash
 citydb delete @options.txt
 ```
@@ -117,11 +117,13 @@ citydb delete @options.txt
 To display help information for a specific command, use the `help` command followed by the command name:
 
 General Help: Displays a list of all available commands and general options:
+
 ```bash
 citydb --help
 ```
 
 Command-Specific Help: Provides detailed information about a specific command and its options:
+
 ```bash
 citydb export --help
 citydb import --help
