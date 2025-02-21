@@ -1,8 +1,7 @@
 ---
-title: Docker
+title: 3DCityDB Docker
 description: Usage of the 3D City Database with Docker
 icon: fontawesome/brands/docker
-status: new
 tags:
   - 3dcitydb
   - docker
@@ -204,46 +203,22 @@ Here are some examples for full image tags:
 
 ## Usage and configuration
 
-A 3DCityDB container is configured by settings environment variables inside the container. For instance, this can be done using the `-e VARIABLE=VALUE` flag of [`docker run`](https://docs.docker.com/engine/reference/run/#env-environment-variables). The 3DCityDB Docker images introduce the variables `SRID`, `HEIGHT_EPSG` and `SRS_NAME`. Their behavior is described here. Furthermore, some variables inherited from the base images offer important configuration options.
+A 3DCityDB container is configured by settings environment variables inside the container. For instance, this can be done using the `-e VARIABLE=VALUE` flag of [`docker run`](https://docs.docker.com/engine/reference/run/#env-environment-variables). The 3DCityDB Docker images introduce the variables `SRID`, `HEIGHT_EPSG` and `SRS_NAME`. Furthermore, some variables inherited from the base images offer important configuration options.
+Refer to the documentation of the official [PostgreSQL](https://hub.docker.com/_/postgres){target="blank"} and [PostGIS](https://registry.hub.docker.com/r/postgis/postgis/){target="blank"} Docker images for much more configuration options.
+
 !!! tip
     All variables besides `POSTGRES_PASSWORD` and `SRID` are optional.
 
-`SRID=EPSG code`
-
-:   EPSG code for the 3DCityDB instance. If `SRID` is not set, the 3DCityDB schema will not be setup in the default database and you will end up with a plain PostgreSQL/PostGIS container.
-
-`HEIGHT_EPSG=EPSG code`
-
-:   EPSG code of the height system, omit or use 0 if unknown or `SRID` is already 3D. This variable is used only for the automatic generation of `SRS_NAME`.
-
-`SRS_NAME=mySrsName`
-
-:   If set, the automatically generated `SRS_NAME` from `SRID` and `HEIGHT_EPSG` is overwritten. If not set, the variable will be created automatically like this:
-
-    If only `SRID` is set:
-    `SRS_NAME` = `urn:ogc:def:crs:EPSG::SRID`
-
-    If `SRID` and `HEIGHT_EPSG` are set:
-    `SRS_NAME` = `urn:ogc:def:crs,crs:EPSG::SRID,crs:EPSG::HEIGHT_EPSG`
-
-The 3DCityDB PostgreSQL/PostGIS Docker images make use of the following environment variables inherited from the official
-[PostgreSQL](https://hub.docker.com/_/postgres){target="blank"} and [PostGIS](https://registry.hub.docker.com/r/postgis/postgis/){target="blank"} Docker images. Refer to the documentations of both images for much more configuration options.
-
-`POSTGRES_DB=database name`
-
-:     Set name for the default database. If not set, the default database is named like `POSTGRES_USER`.
-
-`POSTGRES_USER=username`
-
-:     Set name for the database user, defaults to `postgres`.
-
-`POSTGRES_PASSWORD=password`
-
-:   Set the password for the database connection. This variable is __mandatory__.
-
-`POSTGIS_SFCGAL=true|yes|no`
-
-:   If set, [PostGIS SFCGAL](http://www.sfcgal.org/){target="blank"} support is enabled. __Note:__ SFCGAL may not be available in some older Alpine based images (PostgresSQL `< v12`). Refer to the [official PostGIS Docker docs](https://registry.hub.docker.com/r/postgis/postgis/){target="blank"} for more details. Setting the variable on those images will have no effect.
+| Environment variable | Description |
+| -------- | -------- |
+| `SRID`              | EPSG code for the coordinate reference system (CRS) to be used for the 3DCityDB instance. If the `SRID` is not set, the 3DCityDB instance will not be created, and you will end up with a plain PostgreSQL/PostGIS Docker container. |
+| `HEIGHT_EPSG`       | EPSG code of the height system. You may omit it or use 0 (default value), if the value is unknown or the above `SRID` is already 3D.|
+| `SRS_NAME`          | The srsName to be used in CityGML exports. If this variable is not set, its value will be automatically created in the form `urn:ogc:def:crs,crs:EPSG::<SRID>[,crs:EPSG::<HEIGHT_EPSG>]` based on the values of the above `SRID` and `HEIGHT_EPSG` variables. |
+| `CHANGELOG`         | __yes__ or __no__ (default value) to specify whether the changelog extension should be created in the 3DCityDB instance to be created.|
+| `POSTGRES_USER`     | The database username of the 3DCityDB instance to be created. The default value is `postgres`. |
+| `POSTGRES_DB`       | The database name of the 3DCityDB instance to be created. If not set, the database name is identical to the value of the above `POSTGRES_USER` variable. |
+| `POSTGRES_PASSWORD` | The database password of the 3DCityDB instance to be created. Please note that this variable is __mandatory__.|
+| `POSTGIS_SFCGAL`    | __true__ or __false__ (default) to enabled or disable the PostgreSQL extension `postgis_sfcgal`. __Note:__ SFCGAL may not be available in some older Alpine based images (PostgresSQL `< v12`). Refer to the [official PostGIS Docker docs](https://registry.hub.docker.com/r/postgis/postgis/){target="blank"} for more details. Setting the variable on those images will have no effect. |
 
 ## How to build images
 

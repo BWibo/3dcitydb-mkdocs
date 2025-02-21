@@ -2,7 +2,6 @@
 # title: Docker
 description: citydb-tool Docker documentation and usage examples
 icon: fontawesome/brands/docker
-status: wip
 tags:
   - docker
   - citydb-tool

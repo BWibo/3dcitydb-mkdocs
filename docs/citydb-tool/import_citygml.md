@@ -2,7 +2,6 @@
 title: Import
 description: Import
 # icon: material/emoticon-happy
-status: wip
 ---
 
 # CityGML-specific import options
@@ -15,7 +14,7 @@ Use `citydb import citygml [OPTIONS] <file>` to import one or more citygml files
 
 The command provides a range of [OPTIONS] to adapt the import process.
 
-## Better practice
+## Best practice
 
 You can use a textfile to combine and outsource commands and the link to the config.json to keep a better overview of issued commands. Save the textfile in the same folder as the config.json.
 
@@ -105,7 +104,8 @@ citydb import citygml generic_citygml.gml --limit=2 @options.txt
 Create a bounding box and import the features from the file that intersects (default).
 
 ```bash
-citydb import citygml generic_citygml.gml --bbox=367123,5807268,367817,5807913,25833 @options.txt
+citydb import citygml generic_citygml.gml \
+  --bbox=367123,5807268,367817,5807913,25833 @options.txt
 ```
 
 ## Upgrade options for CityGML 2.0 and 1.0

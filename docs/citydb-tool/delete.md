@@ -2,7 +2,6 @@
 # title: Delete
 description: Deleting Features from 3DCityDB
 # icon: material/delete
-status: wip
 tags:
   - citydb-tool
   - delete
@@ -68,7 +67,7 @@ These options are shared across all commands in the citydb-tool, as a connection
 is queried, deleted, imported, or exported.
 
 For details on how to configure database connections, including host, port, schema, and credentials,
-refer to the [Database Connection Options documentation](db-connection.md) This section provides a comprehensive explanation of
+refer to the [database connection options documentation](db-connection.md) This section provides a comprehensive explanation of
 all available connection parameters.
 
 ## Examples

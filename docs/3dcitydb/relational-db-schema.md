@@ -1,11 +1,9 @@
 ---
 title: Relational database schema
 description: : How is the database relational Schema structured?
-# icon: material/emoticon-happy
-status: wip
 tags:
   - relational schema
-  - 3DCityDB
+  - 3dcitydb
 ---
 
 Since version 5, the database schema has been completely redesigned and reworked. There are no individual feature tables with columns for attributes anymore. Instead, the database schema is minimized with fewer tables. For example, a Feature table for all features and objects, and a PROPERTY table for almost all attributes and associations. The following figure presents an overview of the relational database structure, where all tables can be logically grouped into three modules:
@@ -15,8 +13,10 @@ Since version 5, the database schema has been completely redesigned and reworked
 - **Geometry Module**: containing tables for storing explicit and implicit geometry data information
 - **Appearance Module**: containing tables for storing appearance information
 
-![Relational Schema](assets/relational Schema.png)
-> Figure 1. Relation Schema of the new 3D City Database Version 5
+<figure markdown="span">
+  ![title](assets/relational Schema.png){ width="width" }
+  <figcaption>Figure 1. Relation Schema of the new 3D City Database Version 5.</figcaption>
+</figure>
 
 ## Metadata Module
 
@@ -459,7 +459,8 @@ Example of world-to-texture mapping schema
     …
   ]
 }
-Example of how to assign texture coordinates. Each texture coordinate (s,t) is embraced by another array, which represents an interior or exterior ring
+Example of how to assign texture coordinates. Each texture coordinate (s,t)
+is embraced by another array, which represents an interior or exterior ring
 {
   "surface_A": [
     [ [0.0, 0.5], [0.7, 0.3], …],

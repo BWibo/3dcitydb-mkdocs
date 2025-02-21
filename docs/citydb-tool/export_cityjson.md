@@ -1,8 +1,7 @@
 ---
 # title: CityJSON Options
-description: CityJSON-Specific Export Options
+description: CityJSON-specific export options
 # icon: material/json
-status: wip
 tags:
   - citydb-tool
   - CityJSON

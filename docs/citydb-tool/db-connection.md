@@ -2,15 +2,14 @@
 title: Database connection
 description:
 # icon: material/filter
-status: wip
 ---
 
-## Connecting to a postgreSQL database
+## Connecting to a PostgreSQL database
 
 The citydb-tool requires a connection to a PostgreSQL database hosting the 3DCityDB schema. You can specify the database
 connection details using the database [options](#specifying-database-options-in-the-command)
 (refer to the [Export](export_shared_options.md) or [Import](import_citygml.md) sections for more details) section or store them
-in an external [options file](#specifying-database-options-in-an-options-file) for reuse.  
+in an external [options file](#specifying-database-options-in-an-options-file) for reuse.
 It is also possible to use a [config file](#specifying-database-options-in-a-config-file) in JSON format to
 specify the database connection options. Alternatively, you can use **environment variables** for dynamic configuration.
 
@@ -30,7 +29,8 @@ You can provide the database connection options directly in the command:
 #### Example
 
 ```bash
-citydb export citygml -H localhost -P 5432 -d 3dcitydb -S citydb -u admin -p password -o output.gml
+citydb export citygml \
+  -H localhost -P 5432 -d 3dcitydb -S citydb -u admin -p password -o output.gml
 ```
 
 ### Specifying database options in an options file

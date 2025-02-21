@@ -1,17 +1,16 @@
 ---
 title: Setup
-subtitle:
-description:
-# icon: material/emoticon-happy
-status: wip
+description: How to setup 3DCityDB.
 tags:
   - docker
+  - shell-scripts
+  - database-scripts
 ---
-The scripts required for setting up the 3D City Database (3DCityDB) are located in the subfolder 3dcitydb/postgresql/ within the installation directory of the CityDB-Tool.
+The scripts required for setting up the 3D City Database (3DCityDB) are located in the subfolder `3dcitydb/postgresql/` within the installation directory of the CityDB-Tool.
 
 ## Shell scripts
 
-To set up a 3D City Database instance, a number of batch scripts (Windows) and shell scripts (UNIX/Linux/macOS) are available in the subfolders **shell-scripts/windows** and **shell-scripts/unix**, which query the required input from the user and then call the corresponding SQL scripts in the background. This separation makes it possible to use the SQL scripts in third-party software, automatic processes or continuous integration workflows.The following table provides an overview of the available shell scripts:
+To set up a 3D City Database instance, a number of batch scripts (Windows) and shell scripts (UNIX/Linux/macOS) are available in the subfolders `shell-scripts/windows` and `shell-scripts/unix`, which query the required input from the user and then call the corresponding SQL scripts in the background. This separation makes it possible to use the SQL scripts in third-party software, automatic processes or continuous integration workflows.The following table provides an overview of the available shell scripts:
 
 | Script | Explanation |
 | -------- | -------- |
@@ -74,7 +73,7 @@ The 3D City Database requires the PostGIS extension to be added to the database.
 CREATE EXTENSION postgis;
 ```
 
-!!! info "Hinweis"
+!!! info "Hint"
     If running PostGIS version 2.2 or higher you can optionally install the PostgreSQL extension postgis_sfcgal to enable advanced spatial 3D operations like extrusion, volume calculation or union/intersection/difference of solids (polyhedral surfaces).
     ``` SQL
     CREATE EXTENSION postgis_sfcgal;
@@ -82,7 +81,7 @@ CREATE EXTENSION postgis;
 
 ### Step 3 - Edit the connection-details script
 
-Go to the 3dcitydb/postgresql/shell-scripts directory and choose the subfolder matching your operating system. In this subfolder, open the connection-details file with a text editor of your choice, and enter the connection details to the database as well as the local path to the psql executable.Here is an example of how the connection-details can look like:
+Go to the `3dcitydb/postgresql/shell-scripts` directory and choose the subfolder matching your operating system. In this subfolder, open the connection-details file with a text editor of your choice, and enter the connection details to the database as well as the local path to the psql executable.Here is an example of how the connection-details can look like:
 
 ```bash
 PGBIN=C:\PostgreSQL\16\bin
@@ -92,7 +91,7 @@ CITYDB=citydb_v5
 PGUSER=citydb_user
 ```
 
-!!! info "Hinweis"
+!!! info "Hint"
     If the psql binary is already registered in your system path, then you do not have to set the PGBIN parameter.
 
 ### Step 4 - Execute the create-db script
@@ -114,7 +113,7 @@ First, the user is prompted for the coordinate reference system (CRS) to be used
 - The SRID of the height system. This information is considered metadata and does not affect the geometry columns in the database. If the above SRID already references a true 3D CRS or if the height system is unknown, enter "0" which means "not set". This is also the default value.
 - The GML-compliant (URN) encoding of the CRS. This string representation is, for instance, written to CityGML files when exporting data from the database. The create-db script generates a proposal of the form </br>`urn:ogc:def:crs,crs:EPSG::<crs1>[,crs:EPSG::<crs2>]`</br> based on the first two inputs. Just press Enter to accept this value.
 
-!!! info "Hinweis"
+!!! info "Hint"
     The coordinate reference system specified during setup can be changed at any time using the database function citydb_pkg.change_schema_srid.
 
 ### Step 6 – Create changelog extension
@@ -151,7 +150,7 @@ SHOW search_path;
 
 to check if the schemas `citydb, citydb_pkg` and `public` are contained.
 
-!!! info "Hinweis"
+!!! info "Hint"
     When using the created 3DCityDb as a template database for new databases, the search path information is not transferred and thus has to be set again, e.g.:
     ```SQL
     ALTER DATABASE new_citydb_v5 SET search_path TO citydb, citydb_pkg, public;
@@ -170,14 +169,16 @@ SELECT cleanup_schema();
 
 To drop a 3DCityDB instance with all data, execute the `drop-db` script in the same way as `create-db`. The connection parameters defined in `connection-details` are used to connect to the database.
 
-!!! info "Hinweis"
+!!! info "Hint"
     The script removes all 3DCityDB schemas and the contained data. The PostgreSQL database itself is not dropped.
 
 ## Docker Support
 
 The 3DCityDB can also be run in a PostgreSQL Docker container. You can either build your own Docker image based on scripts shipped with the 3DCityDB as described below in step 1a. Alternatively, you can also use a pre-built image available from the [3DCityDB DockerHub](https://hub.docker.com/r/3dcitydb/3dcitydb-pg). In this case, you first have to pull the pre-built image in your Docker environment as described in step 1b. Afterward, you can proceed with step 2 to run Docker containers using your images.
 
-!!! info "Hinweis"
+Visit the [3DCityDB Docker page](../3dcitydb/docker.md) for much on the images.
+
+!!! info "Hint"
     To run Docker containers or build your own images, you first have to install Docker on your system. How to set up such an environment is, however, outside the scope of this user manual. Downloads and detailed instructions for various operating systems can be found in the [Docker homepage](https://docs.docker.com/get-started/get-docker/). Please get in contact with our support team in case you need help or assistance.
 
 ### Step 1a - Building a 3DCityDB Docker image
@@ -221,7 +222,28 @@ A 3DCityDB container is configured by settings environment variables inside the 
 
 There are more configuration parameters available for the PostgreSQL/PostGIS Docker container itself. Please refer to the websites PostgreSQL and PostGIS for more details. The following example shows how to set up and run a 3DCityDB Docker container based on the 3DCityDB Docker image:
 
-```bash
-docker run -i -t -p 5432:5432 --name citydb-postgis-container -e POSTGRES_DB=citydb -e POSTGRES_PASSWORD=postgres -e SRID=25832 -e
-HEIGHT_EPSG=7837 -e SRS_NAME=EPSG:25832 -e CHANGELOG=yes citydb-postgis-image
-```
+=== "Linux"
+
+    ```bash
+    docker run -i -t -p 5432:5432 --name citydb-postgis-container \
+        -e POSTGRES_DB=citydb \
+        -e POSTGRES_PASSWORD=postgres \
+        -e SRID=25832 \
+        -e HEIGHT_EPSG=7837 \
+        -e SRS_NAME=EPSG:25832 \
+        -e CHANGELOG=yes \
+    citydb-postgis-image
+    ```
+
+=== "Windows"
+
+    ```bash
+    docker run -i -t -p 5432:5432 --name citydb-postgis-container ^
+        -e POSTGRES_DB=citydb ^
+        -e POSTGRES_PASSWORD=postgres ^
+        -e SRID=25832 ^
+        -e HEIGHT_EPSG=7837 ^
+        -e SRS_NAME=EPSG:25832 ^
+        -e CHANGELOG=yes ^
+    citydb-postgis-image
+    ```

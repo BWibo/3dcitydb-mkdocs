@@ -2,7 +2,6 @@
 title: Overview
 description: Overview
 # icon: material/emoticon-happy
-status: wip
 ---
 
 ## Intro
@@ -14,17 +13,7 @@ PostgreSQL/PostGIS database environment.
 
 ## Version compatibility
 
-The following table outlines the compatibility between **3DCityDB** versions, **citydb-tool** versions (including the legacy Importer-Exporter Tool), and the supported data formats and their versions.
-
-| **3DCityDB Version** | **Tool Version**               | **Supported Data Formats**         | **Supported Format Versions**                     |
-|----------------------|--------------------------------|------------------------------------|---------------------------------------------------|
-| **5.x**              | **citydb-tool (current)**      | CityGML, CityJSON                  | CityGML: 3.0, 2.0, 1.0<br>CityJSON: 2.0, 1.1, 1.0 |
-| 4.x                  | Importer-Exporter Tool 3.x     | CityGML, CityJSON                  | CityGML: 2.0, 1.0<br>CityJSON: 2.0, 1.1, 1.0      |
-| 3.x                  | Importer-Exporter Tool 3.x     | CityGML, CityJSON                  | CityGML: 2.0, 1.0<br>CityJSON: 1.0                |
-| 2.x                  | Importer-Exporter Tool 2.x     | CityGML                            | CityGML: 2.0, 1.0                                 |
-| 1.x                  | Importer-Exporter Tool 1.x     | CityGML                            | CityGML: 1.0                                      |
-
----
+Compatibility of citydb-tool, 3DCityDB and CityGML versions are explained [here](../compatibility.md).
 
 ## Key features and commands
 
@@ -122,7 +111,7 @@ General Help: Displays a list of all available commands and general options:
 citydb --help
 ```
 
-Command-Specific Help: Provides detailed information about a specific command and its options:
+Command-specific Help: Provides detailed information about a specific command and its options:
 
 ```bash
 citydb export --help
