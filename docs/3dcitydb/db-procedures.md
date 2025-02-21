@@ -1,25 +1,25 @@
 ---
-title: Database Procedures
+title: Database procedures
 ---
 
-The 3D City Database is shipped with a set of stored procedures, which are automatically installed during 
-the setup procedure of the 3D City Database. In the PostgreSQL version, functions are written in PL/pgSQL 
-and stored either in their own database schema called `citydb_pkg`. 
-Many of these functions and procedures expose certain tasks on the database side to the citydb-tool. When calling 
-stored procedures, the `citydb_pkg` schema has not to be specified as prefix since it is put on the database search 
+The 3D City Database is shipped with a set of stored procedures, which are automatically installed during
+the setup procedure of the 3D City Database. In the PostgreSQL version, functions are written in PL/pgSQL
+and stored either in their own database schema called `citydb_pkg`.
+Many of these functions and procedures expose certain tasks on the database side to the citydb-tool. When calling
+stored procedures, the `citydb_pkg` schema has not to be specified as prefix since it is put on the database search
 path during setup.
 
-## SRS Procedures
+## SRS procedures
 
-The `citydb_pkg` package provides functions and procedures dealing with the coordinate reference system used 
-for an 3D City Database instance. The most essential procedure is `change_schema_srid` to change the 
-reference system for all spatial columns within a database schema. If a coordinate transformation is needed 
-because an alternative reference system shall be used, the value `1` should be passed to the procedure as the 
-third parameter. If a wrong `SRID` had been chosen by mistake during setup, a coordinate transformation might 
+The `citydb_pkg` package provides functions and procedures dealing with the coordinate reference system used
+for an 3D City Database instance. The most essential procedure is `change_schema_srid` to change the
+reference system for all spatial columns within a database schema. If a coordinate transformation is needed
+because an alternative reference system shall be used, the value `1` should be passed to the procedure as the
+third parameter. If a wrong `SRID` had been chosen by mistake during setup, a coordinate transformation might
 not be necessary in case the coordinate values of the city objects are already matching the new reference system.
-Thus, the value `0` should be provided to the procedure, which then only changes the spatial metadata to reflect 
-the new reference system. It can also be omitted, as `0` is the default value for the procedure. 
-Either way, changing the CRS will drop and recreate the spatial index for the affected column. 
+Thus, the value `0` should be provided to the procedure, which then only changes the spatial metadata to reflect
+the new reference system. It can also be omitted, as `0` is the default value for the procedure.
+Either way, changing the CRS will drop and recreate the spatial index for the affected column.
 Therefore, this operation can take a lot of time depending on the size of the table.
 
 | Function                                                                                                                                                                                                | Return Type  | Explanation                                               |
@@ -30,7 +30,7 @@ Therefore, this operation can take a lot of time depending on the size of the ta
 | **`is_coord_ref_sys_3d`**<br/>`(schema_srid INTEGER)`                                                                                                                                                   | `INTEGER`    | Check if a a coordinate system is 3D                      |
 | **`is_db_coord_ref_sys_3d`**<br/>`(schema_name TEXT DEFAULT 'citydb')`                                                                                                                                  | `INTEGER`    | Check if the coordinate system of a database schema is 3D |
 
-## UTIL Procedures
+## UTIL procedures
 
 The `citydb_pkg` package also provides various utility functions.
 Nearly the functions `db_metadata` and `get_child_objectclass_ids` take the schema name as the last input argument (
@@ -46,13 +46,13 @@ function `get_seq_values` the schema name must be part of the first argument –
 | **`get_seq_values`**<br/>`(seq_name TEXT,seq_count BIGINT`                                                                                                                                       | `SETOF BIGINT`  | Query list of sequence values from given sequence                    |
 | **`get_child_objectclass_ids`**<br/>`(class_id INTEGER,skip_abstract INTEGER DEFAULT 0,schema_name TEXT DEFAULT 'citydb')`                                                                       | `SETOF INTEGER` | QUERY the IDs of all transitive subclasses of the given object class |
 
-## Delete Procedures
+## Delete procedures
 
-The `citydb_pkg` package contains a set of functions that facilitate to delete single and multiple city objects. 
-Each function automatically takes care of integrity constraints between relations in the database. 
-These functions can be seen as low-level APIs providing a delete function for each relation ranging 
-from a single polygon in the table `GEOMETRY_DATA` (`delete_geometry_data`) up to a complete feature (`delete_feature`). 
-This should help users to develop more complex delete operations on top of these low-level functions without 
+The `citydb_pkg` package contains a set of functions that facilitate to delete single and multiple city objects.
+Each function automatically takes care of integrity constraints between relations in the database.
+These functions can be seen as low-level APIs providing a delete function for each relation ranging
+from a single polygon in the table `GEOMETRY_DATA` (`delete_geometry_data`) up to a complete feature (`delete_feature`).
+This should help users to develop more complex delete operations on top of these low-level functions without
 re-implementing their functionality.
 
 ``` SQL
@@ -78,10 +78,10 @@ BEGIN
 END $$;
 ```
 
-Which delete function to use depends on the ratio between the number of entries to be deleted and the total count 
-of objects in the database. One array delete executes each necessary query only once compared to numerous single 
-deletes and can be faster. However, if the array is huge and covers a great portion of the table (say 20% of all rows) 
-it might be faster to go for the single version instead or batches of smaller arrays. Nested features are deleted 
+Which delete function to use depends on the ratio between the number of entries to be deleted and the total count
+of objects in the database. One array delete executes each necessary query only once compared to numerous single
+deletes and can be faster. However, if the array is huge and covers a great portion of the table (say 20% of all rows)
+it might be faster to go for the single version instead or batches of smaller arrays. Nested features are deleted
 with arrays anyway.
 
 | Function                                                                                                              | Return Type                | Explanation                                                      |
@@ -96,7 +96,7 @@ with arrays anyway.
 | **`delete_tex_image`**<br/>`(pid bigint, schema_name TEXT)` <br/> or `(pid_array bigint[], schema_name TEXT)`         | `BIGINT` or `SETOF BIGINT` | delete from `TEX_IMAGE` table based on an id or id array         |
 | **`delete_address`  **<br/>`(pid bigint, schema_name TEXT)` <br/> or `(pid_array bigint[], schema_name TEXT)`         | `BIGINT` or `SETOF BIGINT` | delete from `ADDRESS` table based on an id or id array           |
 
-## Envelope Procedures
+## Envelope procedures
 
 The `citydb_pkg` package provides functions that allow a user to calculate the maximum 3D bounding volume of a
 feature or implicit geometry identified by its ID. For each feature type, a corresponding function is provided
@@ -119,11 +119,11 @@ could not be (correctly) filled during import and, for example, is NULL.
 | **`update_bounds`**<br/> `(old_bbox GEOMETRY, new_bbox GEOMETRY, schema_name TEXT DEFAULT 'citydb')`                     | GEOMETRY    | returns the envelope geometry of two bounding boxes        |
 | **`calc_implicit_geometry_envelope`** `(gid BIGINT, ref_pt GEOMETRY, matrix VARCHAR, schema_name TEXT DEFAULT 'citydb')` | GEOMETRY    | returns the envelope geometry of a given implicit geometry |
 
-## Constraint Procedures
+## Constraint procedures
 
 The `citydb_pkg` package includes stored procedures to define constraints or change their behavior.
-A user can temporarily disable certain foreign key relationships between tables, e.g. the numerous 
-references to the `GEOMETRY_DATA` table. The constraints are not dropped. While it comes at the risk of data inconsistency 
+A user can temporarily disable certain foreign key relationships between tables, e.g. the numerous
+references to the `GEOMETRY_DATA` table. The constraints are not dropped. While it comes at the risk of data inconsistency
 it can improve the performance for bulk write operations such as huge imports or the deletion of thousands of city objects.
 
 It is also possible to change the delete rule of foreign keys from ON `DELETE NO ACTION` (use ‘a’ as input) to `ON DELETE

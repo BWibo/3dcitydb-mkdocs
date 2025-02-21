@@ -1,22 +1,18 @@
 ---
 # title: CityGML Options
-subtitle:
-description: CityGML-Specific export options
+description: CityGML-specific export options
 # icon: material/file-xml
-status: wip
 tags:
   - citydb-tool
   - CityGML
   - export
 ---
 
-# CityGML-Specific export options
+# CityGML-specific export options
 
 The **CityGML** exporter in the **citydb-tool** provides options specific to exporting data in the **CityGML format**. These options allow users to customize version compatibility, apply transformations, and manage feature mappings.
 
----
-
-## CityGML-Specific options
+## CityGML-specific options
 
 | Option                                | Description                                                                                          | Default Value |
 |---------------------------------------|------------------------------------------------------------------------------------------------------|---------------|

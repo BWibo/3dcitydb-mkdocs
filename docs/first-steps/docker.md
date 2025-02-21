@@ -1,9 +1,7 @@
 ---
 title: Docker
-
 description: Getting started with the 3DCityDB and Docker
 icon: fontawesome/brands/docker
-status: wip
 tags:
   - docker
   - 3dcitydb

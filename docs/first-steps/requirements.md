@@ -2,14 +2,13 @@
 # title: Requirements
 description: What do I need for the installation
 # icon: material/emoticon-happy
-status: wip
 tags:
   - requirements
 ---
 
-# System Requirements
+# System requirements
 
-Setting up an instance of the 3D City Database requires an existing installation of a [PostgreSQL](https://www.postgresql.org/).
+Setting up an instance of the 3D City Database requires an existing installation of a [PostgreSQL](https://www.postgresql.org/) or use our [Docker images](../3dcitydb/docker.md). We recommend checking data and database [compatibility](../compatibility.md) first.
 
 ## PostgreSQL with PostGIS extension
 

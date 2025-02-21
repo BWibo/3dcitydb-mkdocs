@@ -2,7 +2,6 @@
 title: Import CityJSON
 description: Importing CityJSON data
 # icon: material/emoticon-happy
-status: wip
 tags:
   - citydb-tool
   - CityJSON
@@ -22,7 +21,7 @@ Use `citydb import cityjson [OPTIONS] <file>` to import one or more CityJSON fil
 
 The command provides a range of [OPTIONS] to adapt the import process.
 
-## Better practice
+## Best practice
 
 You can use a textfile to combine and outsource commands and the link to the `config.json` to keep a better overview of issued commands. Save the textfile in the same folder as the config.json.
 
@@ -62,7 +61,7 @@ citydb import citygml generic_cityjson.json --preview @options.txt
 Import a CityJSON file and create file in a separate folder with log message
 
 ```bash
-citydb import citygml generic_cityjson.json --log-file=.\log @options.txt
+citydb import citygml generic_cityjson.json --log-file=log.txt @options.txt
 ```
 
 ## Handling with duplicate features
@@ -73,13 +72,13 @@ There are different options for the import to handle duplicates.
 |:---------------------------|:------------------------------------------------ |:---------------|
 | `-m, --import-mode=<mode>` | Import mode: skip, terminate, delete, import_all | import_all     |
 
-skip -->        Duplicates in the input file are not imported into the database.
+skip:material-arrow-right: Duplicates in the input file are not imported into the database.
 
-terminate -->   Duplicates in the database are terminated before importing the input file.
+terminate :material-arrow-right: Duplicates in the database are terminated before importing the input file.
 
-delete -->      Duplicates in the database are deleted before importing the input file.
+delete :material-arrow-right: Duplicates in the database are deleted before importing the input file.
 
-import_all -->  All features from the input file are imported without checking for duplicates.
+import_all :material-arrow-right: All features from the input file are imported without checking for duplicates.
 
 ### Example
 

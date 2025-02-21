@@ -5,7 +5,9 @@ description: 3D City Database v5 documentation welcome page
 status: wip
 ---
 
-Welcome to the 3D City Database documentation!
+:simple-rocket: Welcome to the brand new 3D City Database `v5` documentation! :simple-rocket:
+
+The content of this documentation is all new! If you encounter a mistake, miss some content, or for any other input, please get in touch on [Github discussions](https://github.com/3dcitydb/3dcitydb-mkdocs/discussions). We are happy for any feedback we can use to improve the documentation.
 
 ![3DCityDB logo](./assets/img/logos/3dcitydb-logo-long.jpg){ width=300 }
 /// caption

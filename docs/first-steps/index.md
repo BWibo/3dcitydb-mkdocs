@@ -2,7 +2,6 @@
 title: First Steps
 description: Getting started with the 3DCityDB
 # icon: material/emoticon-happy
-status: wip
 tags:
   - first-steps
 ---
