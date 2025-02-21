@@ -1,8 +1,6 @@
 ---
 title: Welcome
 description: 3D City Database v5 documentation welcome page
-# icon: material/emoticon-happy
-status: wip
 ---
 
 :simple-rocket: Welcome to the brand new 3D City Database `v5` documentation! :simple-rocket:
