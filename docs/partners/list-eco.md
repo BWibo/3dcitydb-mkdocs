@@ -70,3 +70,7 @@ Mehr über LIST Eco unter: [list-eco.de](https://www.list-gruppe.de/nachhaltigke
 Ein weiterer thematischer Schwerpunkt ist das Datenmanagement mit offenen Standards für Digitale Zwillinge, Smart Cities und dem Internet der Dinge. Bruno Willenborg ist bei LIST Eco Experte für Digitale Zwillinge, großmaßstäbliche Analyseverfahren mit 3D-Stadtmodellen und betreut die Bereiche Software-, Cloud- und KI-entwicklung. Für die 3DCityDB betreut die Bereiche vornehmlich Cloudentwicklung und CI/CD.
 
 [:material-contacts: Kontakt](https://www.list-gruppe.de/vcard/?vcard=wgmVbxGSPWSSkE8t5PmQ4xGYZ){target="blank"}
+
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3dcitydb.github.io%2F3dcitydb-mkdocs%2Fpartners%2Flist-eco%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)](https://hits.seeyoufarm.com/#history)
+/// caption
+///
