@@ -86,7 +86,7 @@ To run the 3DCityDB images you need to install _Docker Engine_. Installation ins
 
 Docker images are available for the following tools of the 3DCityDB software suite:
 
-- [3D City Database](3dcitydb.md)
+- [3D City Database](../3dcitydb/docker.md)
 - [CityDB tool](../citydb-tool/index.md)
 - [3DCityDB Importer/Exporter](https://3dcitydb-docs.readthedocs.io/en/latest/impexp/docker.html){target="blank"}
 - [3D Web Map Client](https://3dcitydb-docs.readthedocs.io/en/latest/webmap/docker.html){target="blank"}

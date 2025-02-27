@@ -353,7 +353,7 @@ For the following examples we assume that a 3DCityDB instance with the following
 
 ### Importing CityGML
 
-This section provides some examples for importing CityGML datasets. Refer to [`import`](./import.md) for a detailed description of the citydb-tool CLI import command.
+This section provides some examples for importing CityGML datasets. Refer to [`import`](./import_citygml.md) for a detailed description of the citydb-tool CLI import command.
 
 Import the CityGML dataset `/home/me/mydata/bigcity.gml` on you host system into the DB given above:
 
