@@ -75,8 +75,7 @@ plugins:
   - glightbox
   - awesome-pages
   - tags:
-      enabled: true
-      tags_file: tags.md
+      tags: true
 
 # Extra #######################################################################
 extra:
