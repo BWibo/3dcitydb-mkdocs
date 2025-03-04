@@ -19,8 +19,8 @@ in the [HRK’s Research Map](https://www.forschungslandkarte.de/profilbildende-
 - Future-oriented Planning, Constructing and Managing
 - Smart Cities and Urban Development
 
-As a leading hub for Digital Twin and Smart City research, HFT Stuttgart collaborates 
-closely with industry, government agencies, and international research institutions to 
+As a leading university of applied sciences in Digital Twin and Smart City research, 
+HFT Stuttgart collaborates closely with industry, government agencies, and international research institutions to 
 develop innovative technologies that pave the way for the development of modern, sustainable, and smart cities.
 
 After Prof. Zhihang Yao took over the professorship at HFT Stuttgart in 2024, HFT Stuttgart 
