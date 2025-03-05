@@ -37,7 +37,7 @@ This documentation was created with _Materials_ for _MkDocs_. The content is wri
 
 ### Contribute
 
-We are happy for all contributions! To edit or expand the documentation, create a new branch from `main` in the [3dcitydb/3dcitydb-mkdocs](https://github.com/3dcitydb/3dcitydb-mkdocs){target="blank"} repo on Github and commit your changes there. When your done, submit a [pull request](https://github.com/3dcitydb/3dcitydb-mkdocs/pulls){target="blank"} so we can review your content. If you find an error or want to discuss content, please file an [issue](https://github.com/3dcitydb/3dcitydb-mkdocs/issues){target="blank"}. For details on the Markdown or the documentation system, view the [references](#references) below.
+We are happy for all contributions! To edit or expand the documentation, create a new branch from `main` in the [3dcitydb/3dcitydb-mkdocs](https://github.com/3dcitydb/3dcitydb-mkdocs){target="blank"} repo on Github and commit your changes there. When your done, submit a [pull request](https://github.com/3dcitydb/3dcitydb-mkdocs/pulls){target="blank"} so we can review your content. If you find an error or want to discuss content, please file an [issue](https://github.com/3dcitydb/3dcitydb-mkdocs/issues){target="blank"} or contribute to the [3DCityDB discussion board](https://github.com/orgs/3dcitydb/discussions). For details on the Markdown or the documentation system, view the [references](#references) below.
 
 ## References
 
