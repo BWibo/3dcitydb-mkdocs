@@ -48,12 +48,19 @@ function `get_seq_values` the schema name must be part of the first argument –
 
 ## Delete procedures
 
-The `citydb_pkg` package contains a set of functions that facilitate to delete single and multiple city objects.
+The `citydb_pkg` package contains a set of functions that facilitate to delete single and multiple features.
 Each function automatically takes care of integrity constraints between relations in the database.
 These functions can be seen as low-level APIs providing a delete function for each relation ranging
 from a single polygon in the table `GEOMETRY_DATA` (`delete_geometry_data`) up to a complete feature (`delete_feature`).
 This should help users to develop more complex delete operations on top of these low-level functions without
 re-implementing their functionality.
+
+Most of the delete functions take the primary key ID value of the entry to be deleted as input parameter and return the
+ID value if the entry has been successfully removed. So, if `NULL` is returned, the entry is either already gone or the
+deletion did not work due to an error. Nearly every delete function comes with a pendant to delete multiple entries at
+once. These alternative functions take an array of ID values as input and return the ID values of the successfully deleted
+entry a SET OF INTEGER values. A simple code example to delete features based on a query result can look like this:
+
 
 ``` SQL
 -- single version
@@ -64,6 +71,14 @@ SELECT cleanup_appearances();
 SELECT delete_feature(array_agg(id)) FROM feature WHERE ... ;
 SELECT cleanup_appearances();
 ```
+
+Which delete function to use depends on the ratio between the number of entries to be deleted and the total count
+of objects in the database. One array delete executes each necessary query only once compared to numerous single
+deletes and can be faster. However, if the array is huge and covers a great portion of the table (say 20% of all rows)
+it might be faster to go for the single version instead or batches of smaller arrays. Nested features are deleted
+with arrays anyway.
+
+The following example demonstrates how to delete all building features from the database using a database procedure:
 
 ``` SQL
 -- example procedure for deleting all building features
@@ -78,23 +93,41 @@ BEGIN
 END $$;
 ```
 
-Which delete function to use depends on the ratio between the number of entries to be deleted and the total count
-of objects in the database. One array delete executes each necessary query only once compared to numerous single
-deletes and can be faster. However, if the array is huge and covers a great portion of the table (say 20% of all rows)
-it might be faster to go for the single version instead or batches of smaller arrays. Nested features are deleted
-with arrays anyway.
+The TERMINATE operation does not physically delete features from the database. Instead, the features remain in the
+database but are marked as terminated by populating the `TERMINATION_DATE` column in the `FEATURE` table with the
+timestamp of the operation. Additionally, the `LAST_MODIFICATION_DATE` is updated to reflect the change and will have
+the same value as `TERMINATION_DATE`. Both column values along with the `REASON_FOR_UPDATE`, `UPDATING_PERSON`, and
+`LINEAGE` can be customized using the JSON metadata parameter of the `terminate_feature` function. Additionally, An
+optional `cascade` parameter can be used to determine, whether nested features should also be terminated. The default
+value is `TRUE`, which means that all nested features will be recursively terminated as well and may result in longer
+processing times. If you only want to terminate the feature itself while maintaining better performance, you can set the
+`cascade` parameter to `FALSE`. The following example demonstrates how to terminate a single feature based
+on its database ID:
 
-| Function                                                                                                              | Return Type                | Explanation                                                      |
-|-----------------------------------------------------------------------------------------------------------------------|----------------------------|------------------------------------------------------------------|
-| **`cleanup_schema`** <br/>`(schema_name TEXT DEFAULT 'citydb') `                                                      | `void`                     | truncates all data tables                                        |
-| **`delete_feature`**<br/>`(pid bigint, schema_name TEXT)` <br/> or `(pid_array bigint[], schema_name TEXT)`           | `SETOF BIGINT` or `BIGINT` | delete from `FEATURE` table based on an id or id array           |
-| **`delete_property`**<br/>`(pid bigint, schema_name TEXT)` <br/> or `(pid_array bigint[], schema_name TEXT)`          | `BIGINT` or `SETOF BIGINT` | delete from `PROPERTY` table based on an id or id array          |
-| **`delete_geometry_data`**<br/>`(pid bigint, schema_name TEXT)` <br/> or `(pid_array bigint[], schema_name TEXT)`     | `BIGINT` or `SETOF BIGINT` | delete from `GEOMETRY_DATA` table based on an id or id array     |
-| **`delete_implicit_geometry`**<br/>`(pid bigint, schema_name TEXT)` <br/> or `(pid_array bigint[], schema_name TEXT)` | `BIGINT` or `SETOF BIGINT` | delete from `IMPLICIT_GEOMETRY` table based on an id or id array |
-| **`delete_appearance`**<br/>`(pid bigint, schema_name TEXT)` <br/> or `(pid_array bigint[], schema_name TEXT)`        | `BIGINT` or `SETOF BIGINT` | delete from `APPEARANCE` table based on an id or id array        |
-| **`delete_surface_data`**<br/>`(pid bigint, schema_name TEXT)` <br/> or `(pid_array bigint[], schema_name TEXT)`      | `BIGINT` or `SETOF BIGINT` | delete from `SURFACE_DATA` table based on an id or id array      |
-| **`delete_tex_image`**<br/>`(pid bigint, schema_name TEXT)` <br/> or `(pid_array bigint[], schema_name TEXT)`         | `BIGINT` or `SETOF BIGINT` | delete from `TEX_IMAGE` table based on an id or id array         |
-| **`delete_address`  **<br/>`(pid bigint, schema_name TEXT)` <br/> or `(pid_array bigint[], schema_name TEXT)`         | `BIGINT` or `SETOF BIGINT` | delete from `ADDRESS` table based on an id or id array           |
+``` SQL
+SELECT terminate_feature(
+    2060316, 
+    '{
+        "reason_for_update": "test reason",
+        "updating_peron": "test person",
+        "lineage": "test lineage"
+    }'::json,
+    FALSE
+);
+```
+
+| Function                                                                                                                                                                                                                         | Return Type                | Explanation                                                      |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|------------------------------------------------------------------|
+| **`cleanup_schema`** <br/>`(schema_name TEXT DEFAULT 'citydb') `                                                                                                                                                                 | `void`                     | truncates all data tables                                        |
+| **`delete_feature`**<br/>`(pid bigint, schema_name TEXT)` <br/> or `(pid_array bigint[], schema_name TEXT)`                                                                                                                      | `SETOF BIGINT` or `BIGINT` | delete from `FEATURE` table based on an id or id array           |
+| **`terminate_feature`**<br/>`(pid bigint, schema_name TEXT, metadata JSON DEFAULT '{}', cascade BOOLEAN DEFAULT TRUE)` <br/> or `pid_array bigint[], schema_name TEXT, metadata JSON DEFAULT '{}', cascade BOOLEAN DEFAULT TRUE` | `SETOF BIGINT` or `BIGINT` | Terminate `FEATURE` based on an id or id array                   |
+| **`delete_property`**<br/>`(pid bigint, schema_name TEXT)` <br/> or `(pid_array bigint[], schema_name TEXT)`                                                                                                                     | `BIGINT` or `SETOF BIGINT` | delete from `PROPERTY` table based on an id or id array          |
+| **`delete_geometry_data`**<br/>`(pid bigint, schema_name TEXT)` <br/> or `(pid_array bigint[], schema_name TEXT)`                                                                                                                | `BIGINT` or `SETOF BIGINT` | delete from `GEOMETRY_DATA` table based on an id or id array     |
+| **`delete_implicit_geometry`**<br/>`(pid bigint, schema_name TEXT)` <br/> or `(pid_array bigint[], schema_name TEXT)`                                                                                                            | `BIGINT` or `SETOF BIGINT` | delete from `IMPLICIT_GEOMETRY` table based on an id or id array |
+| **`delete_appearance`**<br/>`(pid bigint, schema_name TEXT)` <br/> or `(pid_array bigint[], schema_name TEXT)`                                                                                                                   | `BIGINT` or `SETOF BIGINT` | delete from `APPEARANCE` table based on an id or id array        |
+| **`delete_surface_data`**<br/>`(pid bigint, schema_name TEXT)` <br/> or `(pid_array bigint[], schema_name TEXT)`                                                                                                                 | `BIGINT` or `SETOF BIGINT` | delete from `SURFACE_DATA` table based on an id or id array      |
+| **`delete_tex_image`**<br/>`(pid bigint, schema_name TEXT)` <br/> or `(pid_array bigint[], schema_name TEXT)`                                                                                                                    | `BIGINT` or `SETOF BIGINT` | delete from `TEX_IMAGE` table based on an id or id array         |
+| **`delete_address`  **<br/>`(pid bigint, schema_name TEXT)` <br/> or `(pid_array bigint[], schema_name TEXT)`                                                                                                                    | `BIGINT` or `SETOF BIGINT` | delete from `ADDRESS` table based on an id or id array           |
 
 ## Envelope procedures
 
@@ -103,7 +136,8 @@ feature or implicit geometry identified by its ID. For each feature type, a corr
 starting with `envelope_` prefix. The bounding volume is calculated by evaluating all geometries of the feature
 in all LoDs including
 implicit geometries. Implicit geometries are processed using the `calc_implicit_geometry_envelope` function.
-The collected geometries are then aggregated using the `ST_3DExtent function`, which returns a `BOX3D` object representing
+The collected geometries are then aggregated using the `ST_3DExtent function`, which returns a `BOX3D` object
+representing
 the 3D bounding box. The `box2envelope` function turns this output into a diagonal cutting plane through the calculated
 bounding box. This surface representation follows the definition of the `ENVELOPE` column of the feature table.
 The Envelope functions also allow for updating the `ENVELOPE` column of the features with the calculated value
@@ -123,8 +157,10 @@ could not be (correctly) filled during import and, for example, is NULL.
 
 The `citydb_pkg` package includes stored procedures to define constraints or change their behavior.
 A user can temporarily disable certain foreign key relationships between tables, e.g. the numerous
-references to the `GEOMETRY_DATA` table. The constraints are not dropped. While it comes at the risk of data inconsistency
-it can improve the performance for bulk write operations such as huge imports or the deletion of thousands of city objects.
+references to the `GEOMETRY_DATA` table. The constraints are not dropped. While it comes at the risk of data
+inconsistency
+it can improve the performance for bulk write operations such as huge imports or the deletion of thousands of city
+objects.
 
 It is also possible to change the delete rule of foreign keys from ON `DELETE NO ACTION` (use ‘a’ as input) to `ON DELETE
 SET NULL` (‘n’) or `ON DELETE CASCADE` (‘c’). Switching the delete rule will remove and recreate the foreign key
