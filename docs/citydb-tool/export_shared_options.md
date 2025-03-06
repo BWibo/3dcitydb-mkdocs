@@ -143,3 +143,8 @@ Store export options in a file and reference it in the command:
 citydb export citygml --config-file=export_config.json
 citydb export cityjson --config-file=export_config.json
 ```
+
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3dcitydb.github.io%2F3dcitydb-mkdocs%2Fcitydb-tool%2Fexport_shared_options%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)](https://hits.seeyoufarm.com/#history)
+
+/// caption
+///

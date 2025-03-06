@@ -1,6 +1,7 @@
 nav:
   - Welcome:
     - index.md
+    - download.md
     - compatibility.md
     - usage-contrib.md
     - tags.md

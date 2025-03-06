@@ -18,3 +18,8 @@ Supported versions are PostgreSQL 13 and higher with PostGIS 3.0 and higher. Mak
     It is recommended that you always install the latest patches, minor releases, and security updates for your database system. Database versions that have reached end-of-life are no longer supported by the 3D City Database.
 
 The SQL scripts for creating the 3D City Database schema are written to be executed by the default command-line client of either database system – namely psql for PostgreSQL. The scripts include meta commands specific to these clients and would not work properly when using a different client software. So please make sure psql is installed on the machine from where you want to set up the 3D City Database.
+
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3dcitydb.github.io%2F3dcitydb-mkdocs%2Ffirst-steps%2Frequirements%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)](https://hits.seeyoufarm.com/#history)
+
+/// caption
+///

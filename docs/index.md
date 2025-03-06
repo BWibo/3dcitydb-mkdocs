@@ -25,6 +25,14 @@ The content of this documentation is all new! If you encounter a mistake, miss s
 
     [:octicons-arrow-right-24: First steps](first-steps/index.md)
 
+- :material-download:{ .lg .middle } __Downloads__
+
+    ---
+
+    Download 3DCityDB and tools
+
+    [:octicons-arrow-right-24: Downloads](download.md)
+
 - :fontawesome-solid-gears:{ .lg .middle } __Compatibility__
 
     ---
