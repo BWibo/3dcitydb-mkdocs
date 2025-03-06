@@ -33,7 +33,7 @@ The quickest way to get up and running with 3DCityDB is using Docker!  On this p
         3dcitydb/3dcitydb-pg
         ```
 
-- [CityDB tool](../citydb-tool/docker.md)
+- [citydb-tool](../citydb-tool/docker.md)
 
     === "Linux"
 
@@ -87,7 +87,7 @@ To run the 3DCityDB images you need to install _Docker Engine_. Installation ins
 Docker images are available for the following tools of the 3DCityDB software suite:
 
 - [3D City Database](../3dcitydb/docker.md)
-- [CityDB tool](../citydb-tool/index.md)
+- [citydb-tool](../citydb-tool/index.md)
 - [3DCityDB Importer/Exporter](https://3dcitydb-docs.readthedocs.io/en/latest/impexp/docker.html){target="blank"}
 - [3D Web Map Client](https://3dcitydb-docs.readthedocs.io/en/latest/webmap/docker.html){target="blank"}
 - [3DCityDB Web Feature Service (WFS)](https://3dcitydb-docs.readthedocs.io/en/latest/wfs/docker.html){target="blank"}
@@ -96,7 +96,7 @@ Docker images are available for the following tools of the 3DCityDB software sui
 
     3DCityDB `v5` introduces a substantially changed database schema, that requires a new set of tools.
 
-    :warning:    Currently, __only__ [CityDB tool](../citydb-tool/index.md) is compatible with 3DCityDB `v5`.    :warning:
+    :warning:    Currently, __only__ [citydb-tool](../citydb-tool/index.md) is compatible with 3DCityDB `v5`.    :warning:
 
     Usage of 3DCityDB `v4` tools ([3DCityDB Importer/Exporter](https://3dcitydb-docs.readthedocs.io/en/latest/impexp/docker.html), [3D Web Map Client](https://3dcitydb-docs.readthedocs.io/en/latest/webmap/docker.html){target="blank"}, [3DCityDB Web Feature Service (WFS)](https://3dcitydb-docs.readthedocs.io/en/latest/wfs/docker.html){target="blank"}) is still possible by migrating data to a 3DCityDB `v4`. See [here](../compatibility.md) for more details on compatibility of CityGML versions and 3DCityDB tools, and how to migrate data between versions.
 
@@ -134,7 +134,7 @@ All images are available from [DockerHub]{target="blank"} or Github container re
                 docker pull ghcr.io/3dcitydb/3dcitydb-pg:latest-alpine
                 ```
 
-- [CityDB tool](../citydb-tool/docker.md)
+- [citydb-tool](../citydb-tool/docker.md)
 
     === "DockerHub"
 
@@ -153,7 +153,7 @@ All images are available from [DockerHub]{target="blank"} or Github container re
 The following sections provide _quick start_ code snippets for all 3DCityDB Docker images to get you running in a few seconds. For a more comprehensive documentation please visit the individual chapters of each image.
 
 - [3DCityDB Docker](../3dcitydb/docker.md)
-- [CityDB tool Docker](../citydb-tool/docker.md)
+- [citydb-tool Docker](../citydb-tool/docker.md)
 
 ### 3DCityDB Docker
 
@@ -190,7 +190,7 @@ DB SRID           25832
 DB GMLSRSNAME     urn:ogc:def:crs:EPSG::25832
 ```
 
-### CityDB tool Docker
+### citydb-tool Docker
 
 The Docker image exposes the commands of the [`citydb-tool`](../citydb-tool/index.md). The environment variables listed below allow to specify a 3DCityDB `v5` connection. To exchange data for import or export with the container, mount a host folder to `/data` inside the container.
 

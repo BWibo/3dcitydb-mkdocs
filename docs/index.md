@@ -47,7 +47,7 @@ The content of this documentation is all new! If you encounter a mistake, miss s
 
     Connect a 3DCityDB, import, export and validate data
 
-    [:octicons-arrow-right-24: CityDB tool](citydb-tool/index.md)
+    [:octicons-arrow-right-24: citydb-tool](citydb-tool/index.md)
 
 - :material-file-search:{ .lg .middle } __About this documentation__
 

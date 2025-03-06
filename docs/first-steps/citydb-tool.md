@@ -1,16 +1,16 @@
 ---
-title: CityDB tools
-description: How to import and export CityGML data using the CityDB tool
+title: citydb-tool
+description: How to import and export CityGML data using citydb-tool
 ---
 
-This guide provides a step-by-step example of how to import and export CityGML data using the CityDB tool.
+This guide provides a step-by-step example of how to import and export CityGML data using citydb-tool.
 
 ## Prerequisites
 
 Before you begin, ensure you have the following:
 
 - A running PostgreSQL database with the 3DCityDB schema installed (LINK DOCKER EXAMPLES, DOCKER)
-- The CityDB tool installed and configured.
+- citydb-tool installed and configured.
 - CityGML files to import.
 
 ## Step 1: Connecting to the database
