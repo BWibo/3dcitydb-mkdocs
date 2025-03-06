@@ -14,7 +14,7 @@ __*3DCityDB scripts*__, __*citydb-tool*__, and __*3DCityDB-Web-Map-Client*__.
 ### 3DCityDB scripts
 
 The 3DCityDB scripts package includes the shell/SQL scripts for setting up a 3DCityDB schema in a PostgreSQL/PostGIS database. 
-You can download both the latest and previous versions from the [GitHub releases page](https://github.com/3dcitydb/citydb-tool/releases).
+You can download both the latest and previous versions from the [GitHub releases page](https://github.com/3dcitydb/3dcitydb/releases).
 For detailed instructions on using the 3DCityDB scripts, please refer to the [Database Setup](first-steps/setup.md) section.
 
 ### citydb-tool
@@ -25,7 +25,7 @@ the [GitHub releases page](https://github.com/3dcitydb/citydb-tool/releases).
 Please refer to the [First Step](first-steps/setup.md) section for a quick start and check
 the [respective page](citydb-tool/index.md) for detailed instructions.
 
-__Please note__ that the citydb-tool package includes the corresponding version of the 3DCityDB scripts. If you have already
+__*Please note*__ that the citydb-tool package includes the corresponding version of the 3DCityDB scripts. If you have already
 downloaded the citydb-tool, there is no need to download the 3DCityDB scripts separately.
 
 ### 3DCityDB-Web-Map-Client
