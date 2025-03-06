@@ -114,7 +114,7 @@ CityGML 2.0 structures to valid representations in version 3.0.
 
 !!! warning "No downgrade options"
     The citydb-tool does not offer similar options for downgrading CityGML 3.0 content to versions 2.0 or 1.0.
-    Therefore, CityGML 3.0-specific features, geometries, or attributes stored in the 3DCityDB `v5` will be lost
+    Therefore, CityGML 3.0-only features, geometries, or attributes stored in the 3DCityDB `v5` will be lost
     when exporting to versions 2.0 or 1.0, unless an automatic conversion is possible.
 
 !!! tip "When to use the upgrade options"
