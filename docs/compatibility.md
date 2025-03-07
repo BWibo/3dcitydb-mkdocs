@@ -30,7 +30,7 @@ encodings are only supported by 3DCityDB `v5`.
 On this page you will find information on which versions of CityGML and its encodings are compatible to which
 3DCityDB database versions and the tools you can use with each database version. A [compatibility overview](#compatibility-overview) is
 given in the table below. We also provide guidance on how to migrate between [CityGML versions](#migrate-citygml-or-cityjson-data) and
-[3DCityDB versions](#migrate-3dcitydb-versions) `v4` and `v5`.
+[3DCityDB versions](#migrate-citygml-or-cityjson-data) `v4` and `v5`.
 
 !!! tip "Backwards compatibility"
     All past 3DCityDB versions and tools remain usable with the CityGML versions they support. However, to take
@@ -68,7 +68,7 @@ back as CityGML 2.0. However, exporting to CityGML 3.0 might lead to data loss d
 data model differences and unsupported features between both CityGML versions. The [citydb-tool](./citydb-tool/index.md)
 offers options to handle some of those differences on-the-fly (see [below](#handle-citygml-version-differences)).
 
-The same applies to CityJSON: data can be managed without loss when the same CityJSON version is used for import
+The same applies to CityJSON: Data can be managed without loss when the same CityJSON version is used for import
 and export, but changing versions may lead to data loss.
 
 ## Migrate CityGML or CityJSON data
@@ -95,16 +95,16 @@ CityGML 3.0 introduces several significant changes in the data model that cannot
 versions 2.0/1.0 and 3.0. Most important are:
 
 - CityGML 3.0 introduces many new feature types, data types, attributes, and concepts that are not available
-  in previous versions. 
+  in previous versions.
 - The LoD concept has been refined and standardized for all feature types. Some of the specific LoDs and
-  geometry representations in CityGML 2.0 are no longer present in version 3.0. 
+  geometry representations in CityGML 2.0 are no longer present in version 3.0.
 - Interiors can be modeled independently of the LoDs. As a result, `LoD4` of CityGML 2.0 does no longer exists
   in version 3.0.
 
 As mentioned above, these differences are only relevant when changing CityGML versions between import and
 export. In such situations, citydb-tool applies automatic conversions to ensure no data loss, where possible. For cases
 where automatic conversion is not possible, the following options are provided to help upgrade unsupported
-CityGML 2.0 structures to valid representations in version 3.0. 
+CityGML 2.0 structures to valid representations in version 3.0.
 
 | Option                 | Description                                                                                       |
 |------------------------|---------------------------------------------------------------------------------------------------|
@@ -163,11 +163,11 @@ Here are some example showing how to migrate data between CityGML versions. We u
             -e POSTGRES_PASSWORD=changeMe ^
             -e SRID=3068 ^
             -e SRS_NAME="urn:ogc:def:crs,crs:EPSG::3068,crs:EPSG::5783" ^
-          3dcitydb/3dcitydb-pg-v5:edge-alpine
+          3dcitydb/3dcitydb-pg:5-alpine
         ```
 
 2. Import your dataset to the new database. Keep in mind to check if additional options for handling
-   [CityGML `v2` vs. `v3` data model differences](#handle-citygml-data-model-differences) are required.
+   [CityGML `v2` vs. `v3` data model differences](#handle-citygml-version-differences) are required.
 
     === "Linux"
 
@@ -198,7 +198,7 @@ Here are some example showing how to migrate data between CityGML versions. We u
         ```
 
 3. Export your dataset in the desired version. Use the `-v` option of citydb-tool (see above) to specify the version you want.
-   
+
     === "Linux"
 
         ```bash hl_lines="10"
