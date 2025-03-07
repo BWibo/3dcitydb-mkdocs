@@ -92,8 +92,8 @@ Below is an example of the required information to include in the `connection-de
 ### Step 4 - Execute the `create-db` script
 
 Once the connection details have been set in the `connection-details` file, execute the `create-db.[sh|bat]` script
-located in the same folder to begin the setup process. You can do this either by double-clicking the script by running
-it from within a shell environment. On UNIX/Linux machines, you may first need to set the appropriate file
+located in the same folder to begin the setup process. You can do this either by double-clicking the script or
+by running it from within a shell environment. On UNIX/Linux machines, you may first need to set the appropriate file
 permissions to make the script executable.
 
 === "Linux"
@@ -139,7 +139,7 @@ identical to the EPSG code of the CRS. There are three parameters that need to b
   database. If the above SRID already references a true 3D CRS or if the height system is unknown, enter "0"
   (meaning "not available"). This is also the default value.
 - __The OGC-compliant name of the CRS:__ The CRS name is, for instance, written to CityGML/CityJSON files
-  when exporting data from the database. The `create-db` script generates a URN-encoded name based on your
+  when exporting data from the database. The `create-db` script proposes a URN-encoded name based on your
   input, following OGC recommendations. Simply press ++enter++ to accept the proposed value.
 
       ```
@@ -154,7 +154,7 @@ identical to the EPSG code of the CRS. There are three parameters that need to b
 ### Step 6 – Create changelog extension
 
 You can choose whether to create the changelog extension for your 3DCityDB instance. The changelog
-extension adds a table to the 3DCityDB schema, where insert, delete, and update operations on city objects
+extension adds a table to the 3DCityDB schema, where insert, delete, and update operations on top-level city objects
 are tracked. Each changelog entry provides metadata about the affected city object (identifier, envelope, etc.),
 the database user executing the operation, a reason for the update, and the transaction type.
 Database triggers are installed to automatically populate the changelog table. As a result, insert, delete,

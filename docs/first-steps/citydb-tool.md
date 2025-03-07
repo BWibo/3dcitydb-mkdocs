@@ -93,7 +93,7 @@ The parameters used in this simple example are:
 During the import process, log messages will be printed to the console, informing you about the progress of the
 operation. If the import completes successfully, a summary of the imported city objects will be
 displayed. In case of errors, the import is aborted, and an error message with details about the cause
-will be shown. To enable more verbose logging and get additional details, add the `--log-level debug`
+will be shown. To enable more verbose logging and get additional error details, add the `--log-level debug`
 parameter to the export command.
 
 ![citydb-import command](assets/citydb-import.png)
@@ -145,7 +145,7 @@ Example console output of a citydb-tool export operation.
 
 !!! tip
     To export the data in CityJSON format, simply use the command `export cityjson` instead. This works
-    even if you have imported a CityGML file, as citydb-tool applies an on-the-fly conversion.
+    even if you have imported a CityGML file, as citydb-tool applies an on-the-fly conversion between both formats.
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3dcitydb.github.io%2F3dcitydb-mkdocs%2Ffirst-steps%2Fcitydb-tool%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)](https://hits.seeyoufarm.com/#history)
 
