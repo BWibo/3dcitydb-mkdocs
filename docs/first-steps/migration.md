@@ -8,7 +8,7 @@ tags:
 
 The 3D City Database `v5` is a major revision of the previous version `v4`. The database schema has been
 completely redesigned and significantly simplified compared to `v4` to support CityGML 3.0, alongside
-CityGML 2.0 and 1.0. As a result, there is no currently tool available to automatically upgrade a
+CityGML 2.0 and 1.0. As a result, there is currently no tool available to automatically upgrade a
 3DCityDB `v4` instance to version `v5` at the database level and migrate the data in one step.
 
 The **recommended migration process** for an existing 3DCityDB `v4` is:
