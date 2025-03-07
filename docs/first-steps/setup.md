@@ -135,7 +135,7 @@ identical to the EPSG code of the CRS. There are three parameters that need to b
 
 - __The SRID to be used with the geometries stored in the database:__ Only one SRID can be used for the
   3DCityDB instance.
-- __The SRID of the height system:__ This is considered metadata and does not affect the geometries in the
+- __The EPSG code of the height system:__ This is considered metadata and does not affect the geometries in the
   database. If the above SRID already references a true 3D CRS or if the height system is unknown, enter "0"
   (meaning "not available"). This is also the default value.
 - __The OGC-compliant name of the CRS:__ The CRS name is, for instance, written to CityGML/CityJSON files
@@ -143,7 +143,7 @@ identical to the EPSG code of the CRS. There are three parameters that need to b
   input, following OGC recommendations. Simply press ++enter++ to accept the proposed value.
 
       ```
-      urn:ogc:def:crs,crs:EPSG::<SRID>[,crs:EPSG::<HEIGHT_SRID>]
+      urn:ogc:def:crs,crs:EPSG::<SRID>[,crs:EPSG::<HEIGHT_EPSG>]
       ```
 
 !!! tip
