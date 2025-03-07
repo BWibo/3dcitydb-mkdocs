@@ -13,7 +13,7 @@ __*3DCityDB scripts*__, __*citydb-tool*__, and __*3DCityDB-Web-Map-Client*__.
 
 ### 3DCityDB scripts
 
-The 3DCityDB scripts package includes the shell/SQL scripts for setting up a 3DCityDB schema in a PostgreSQL/PostGIS database. 
+The 3DCityDB scripts package includes the shell/SQL scripts for setting up a 3DCityDB schema in a PostgreSQL/PostGIS database.
 You can download both the latest and previous versions from the [GitHub releases page](https://github.com/3dcitydb/3dcitydb/releases).
 For detailed instructions on using the 3DCityDB scripts, please refer to the [Database Setup](first-steps/setup.md) section.
 
@@ -36,7 +36,12 @@ the [GitHub releases page](https://github.com/3dcitydb/3dcitydb-web-map/releases
 
 !!! note
 
-    The citydb-tool currently does not support exporting geospatial data to KML/COLLADA or 3D Tiles formats, 
-    which are required for visualization in the 3DCityDB Web Map Client. Therefore, please refer to the previous 
-    [documentation](https://3dcitydb-docs.readthedocs.io/en/latest/webmap/index.html) for guidance on using the 
+    The citydb-tool currently does not support exporting geospatial data to KML/COLLADA or 3D Tiles formats,
+    which are required for visualization in the 3DCityDB Web Map Client. Therefore, please refer to the previous
+    [documentation](https://3dcitydb-docs.readthedocs.io/en/latest/webmap/index.html) for guidance on using the
     3DCityDB Web Map Client with these formats.
+
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3dcitydb.github.io%2F3dcitydb-mkdocs%2Fdownload%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)](https://hits.seeyoufarm.com/#history)
+
+/// caption
+///
