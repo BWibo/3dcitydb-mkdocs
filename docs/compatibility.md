@@ -69,7 +69,7 @@ in data models and supported features between the two versions. The [citydb-tool
 automatically converts data between versions where possible and offers additional options to handle 
 differences on-the-fly when automatic conversion is not feasible (see [below](#handle-citygml-version-differences)).
 
-The same applies to CityJSON: data can be managed without loss when using the same CityJSON version for both import and
+The same applies to CityJSON: Data can be managed without loss when using the same CityJSON version for both import and
 export. However, changing versions may result in data loss unless automatic conversion is possible. Note that CityJSON
 is a JSON-based encoding of a subset of the CityGML data model. As such, it is less expressive than the GML/XML
 encoding of CityGML, which may also contribute to data loss when switching between CityJSON and GML/XML.
