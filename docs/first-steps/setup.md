@@ -54,7 +54,7 @@ Now it's time to use the 3DCityDB setup scripts. Navigate to the `3dcitydb/postg
 where you have unzipped the 3DCityDB software package, or locate this folder within the installation directory of
 `citydb-tool`. Then, change to the subfolder `unix` or `windows`, depending on your operating system.
 
-Once inside, locate the `connection-details.[sh|bat]` script and and open it with a text editor of your choice.
+Once inside, locate the `connection-details.[sh|bat]` script and open it with a text editor of your choice.
 Enter the database connection details along with the full path to the `psql` executable in this file. As mentioned
 above, it is recommended to provide the user who owns the database as `PGUSER` in the script.
 
@@ -185,7 +185,7 @@ summary of the required user input for the `create-db` script.
 
 ![create-db script](assets/create-db.png)
 /// figure-caption
-Example user input for the create-db script
+Example user input for the create-db script.
 ///
 
 ## Shell scripts
