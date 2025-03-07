@@ -21,21 +21,21 @@ tags:
 ---
 
 CityGML 3.0 was officially released as a standard by the [Open Geospatial Consortium (OGC)](https://www.ogc.org/de/publications/standard/citygml/){target="blank"} in
-September 2021. CityGML 3.0 is an evolution of the previous versions 1.0 and 2.0 of CityGML. The latest version
-introduces significant modifications to the data model (see [here](https://www.asg.ed.tum.de/en/gis/projects/citygml-30/){target="blank"}), which led to the decision
-of a full re-implementation of 3D City Database (3DCityDB) and the toolset that comes with it. Compared to
-3DCityDB `v4`, `v5` introduces a substantially simplified [database schema](./3dcitydb/relational-db-schema.md). CityGML 3.0 and its GML/CityJSON
-encodings are only supported by 3DCityDB `v5`.
+September 2021. It is an evolution of CityGML 2.0 and 1.0 and introduces significant modifications and improvements to
+the data model (see [here](https://www.asg.ed.tum.de/en/gis/projects/citygml-30/){target="blank"}). These major changes led to a complete re-implementation of
+3D City Database (3DCityDB) and the toolset that comes with it. Compared to 3DCityDB `v4`, `v5` features a
+substantially simplified [database schema](./3dcitydb/relational-db-schema.md). CityGML 3.0 and its encodings are supported only by 3DCityDB `v5`.
 
-On this page you will find information on which versions of CityGML and its encodings are compatible to which
-3DCityDB database versions and the tools you can use with each database version. A [compatibility overview](#compatibility-overview) is
-given in the table below. We also provide guidance on how to migrate between [CityGML versions](#migrate-citygml-or-cityjson-data) and
-[3DCityDB versions](#migrate-citygml-or-cityjson-data) `v4` and `v5`.
+This page provides information on the compatibility of CityGML versions and their encodings with different 3DCityDB
+versions, along with the tools available for each database version. The table below offers a
+[compatibility overview](#compatibility-overview), and we also provide guidance on migrating between
+[CityGML versions](#migrate-citygml-or-cityjson-data) and between [3DCityDB versions](#migrate-3dcitydb-database-instances)
+`v4` and `v5`.
 
 !!! tip "Backwards compatibility"
-    All past 3DCityDB versions and tools remain usable with the CityGML versions they support. However, to take
-    advantage of CityGML 3.0 as well as the simplified database schema and new features of 3DCityDB `v5`, a database
-    and/or data migration to the 3DCityDB `v5` is required.
+    All previous 3DCityDB versions and tools remain fully usable with the CityGML versions they support. However, to 
+    benefit from CityGML 3.0, the simplified database schema, and new features of 3DCityDB `v5`, a database
+    migration to the 3DCityDB `v5` is required.
 
     __Currently, only [citydb-tool](./citydb-tool/index.md) is compatible with 3DCityDB `v5`.__ If you want to
     use legacy 3DCityDB `v4` tools such as the [Importer/Exporter](https://3dcitydb-docs.readthedocs.io/en/latest/impexp/docker.html){target="blank"},
@@ -47,7 +47,7 @@ given in the table below. We also provide guidance on how to migrate between [Ci
 
 The following table outlines the compatibility between __3DCityDB__ versions, __citydb-tool__ versions
 (including the legacy [Importer-Exporter](https://3dcitydb-docs.readthedocs.io/en/latest/impexp/index.html)), and the supported data formats and their versions. The 3DCityDB `v3`
-is included for reference but should no longer be used in production.
+is included for reference but is no longer recommended for production use.
 
 | 3DCityDB version | Tool version                     | Supported standards and encodings | Supported standard/encoding versions                           |
 |------------------|----------------------------------|-----------------------------------|----------------------------------------------------------------|
@@ -57,23 +57,24 @@ is included for reference but should no longer be used in production.
 
 ## CityGML and CityJSON support in 3DCityDB `v5`
 
-The [3DCityDB `v5`](3dcitydb/index.md) supports __all versions of CityGML__. Although the database schema has been
-designed with CityGML 3.0 in mind, 3DCityDB `v5` remains backwards compatible, with full support for the previous
-versions 2.0 and 1.0 of CityGML. Data can be managed without loss in 3DCityDB `v5` as long as the same CityGML version
-is used for both import and export. However, changing the CityGML version between import and export may result in
-data loss, as CityGML 3.0 is not fully backwards compatible with CityGML 2.0/1.0.
+[3DCityDB `v5`](3dcitydb/index.md) supports __all versions of CityGML__. Although the database schema is
+designed with CityGML 3.0 in mind, 3DCityDB `v5` remains backwards compatible, offering full support for CityGML 2.0 and 1.0.
+Data can be managed without loss in 3DCityDB `v5` as long as the same CityGML version
+is used for both import and export. Changing the CityGML version between import and export may result in
+data loss, as CityGML 3.0 is not fully backwards compatible with versions 2.0 and 1.0.
 
-For example, if you import CityGML 2.0 data into the 3DCityDB `v5`, you can be sure that the same data can be exported
-back as CityGML 2.0. However, exporting to CityGML 3.0 might lead to data loss due to
-data model differences and unsupported features between both CityGML versions. The [citydb-tool](./citydb-tool/index.md)
-offers options to handle some of those differences on-the-fly (see [below](#handle-citygml-version-differences)).
+For example, when importing CityGML 2.0 data into 3DCityDB `v5`, you can be confident that it can be exported
+back as CityGML 2.0 without loss. However, exporting to CityGML 3.0 might lead to data loss due to differences
+in data models and supported features between the two versions. The [citydb-tool](./citydb-tool/index.md)
+automatically converts data between versions where possible and offers additional options to handle 
+differences on-the-fly when automatic conversion is not feasible (see [below](#handle-citygml-version-differences)).
 
 The same applies to CityJSON: Data can be managed without loss when the same CityJSON version is used for import
 and export, but changing versions may lead to data loss.
 
 ## Migrate CityGML or CityJSON data
 
-To migrate CityGML data between versions and encodings, we recommend using [3DCityDB `v5`](3dcitydb/index.md)
+To convert CityGML data between versions and encodings, we recommend using [3DCityDB `v5`](3dcitydb/index.md)
 and [citydb-tool](./citydb-tool/index.md). The workflow is the same for all version up- or downgrades,
 or encoding changes.
 
@@ -91,20 +92,20 @@ for the export.
 
 ### Handle CityGML version differences
 
-CityGML 3.0 introduces several significant changes in the data model that cannot be transferred one-to-one between
-versions 2.0/1.0 and 3.0. Most important are:
+CityGML 3.0 introduces significant changes to the data model that cannot be transferred one-to-one between
+versions 2.0/1.0 and 3.0. The most important changes include:
 
-- CityGML 3.0 introduces many new feature types, data types, attributes, and concepts that are not available
-  in previous versions.
-- The LoD concept has been refined and standardized for all feature types. Some of the specific LoDs and
-  geometry representations in CityGML 2.0 are no longer present in version 3.0.
-- Interiors can be modeled independently of the LoDs. As a result, `LoD4` of CityGML 2.0 does no longer exists
-  in version 3.0.
+- __New feature types and concepts:__ CityGML 3.0 introduces many new feature types, data types, attributes,
+  and concepts that are not available in previous versions. 
+- __Refined LoD concept:__ The LoD model has been standardized across all feature types. Some LoDs levels and
+  geometry representations from CityGML 2.0 are no longer present in version 3.0. 
+- __LoD-independent interior modeling:__ Interiors can now be modeled independently of LoD levels. As a result,
+  `LoD4` of CityGML 2.0 no longer exists in version 3.0.
 
-As mentioned above, these differences are only relevant when changing CityGML versions between import and
-export. In such situations, citydb-tool applies automatic conversions to ensure no data loss, where possible. For cases
-where automatic conversion is not possible, the following options are provided to help upgrade unsupported
-CityGML 2.0 structures to valid representations in version 3.0.
+As mentioned above, these differences are only relevant when switching between CityGML versions during import and
+export. When possible, the citydb-tool applies automatic conversions to prevent data loss. For cases
+where automatic conversion is not feasible, the following options are provided to help __upgrade__ deprecated
+CityGML 2.0 structures to valid representations in version 3.0. 
 
 | Option                 | Description                                                                                       |
 |------------------------|---------------------------------------------------------------------------------------------------|
@@ -112,24 +113,29 @@ CityGML 2.0 structures to valid representations in version 3.0.
 | `--map-lod0-roof-edge` | __LoD0 roof edge geometries__ are mapped onto __roof surfaces__ with LoD0 surface geometry.       |
 | `--map-lod1-surface`   | __LoD1 multi-surfaces__ are mapped onto __generic thematic surfaces__ with LoD1 surface geometry. |
 
-!!! warning "No downgrade options"
-    The citydb-tool does not offer similar options for downgrading CityGML 3.0 content to versions 2.0 or 1.0.
-    Therefore, CityGML 3.0-only features, geometries, or attributes stored in the 3DCityDB `v5` will be lost
-    when exporting to versions 2.0 or 1.0, unless an automatic conversion is possible.
+!!! warning
+    The citydb-tool does not provide options for downgrading CityGML 3.0 content to versions 2.0 or 1.0.
+    Therefore, CityGML 3.0-specific features, geometries, or attributes stored in 3DCityDB `v5` will be lost
+    when exporting to earlier versions unless an automatic conversion is possible.
 
 !!! tip "When to use the upgrade options"
-    The decision on whether and how to apply the upgrade options depends on which CityGML version is intended
-    to be the leading one in your 3DCityDB `v5`.
+    The decision to apply upgrade options depends on which CityGML version serves as the primary and leading
+    version in your 3DCityDB `v5`.
 
-    - __CityGML 2.0:__ Import CityGML 2.0/1.0 data as-is, without using the upgrade options. Importing CityGML 3.0
-      data should be avoided if it contains features not avaialble in CityGML 2.0. The upgrade options can be used
-      for data exports when the CityGML 3.0 format is explicitly requested or required.
-    - __CityGML 3:0 (recommended):__ The upgrade options should be applied when importing CityGML 2.0/1.0 data,
-      provided the data contains corresponding content. Exporting to CityGML 2.0/1.0 might lead to data loss.
+    - __CityGML 2.0:__ Import CityGML 2.0/1.0 data as-is without using upgrade options. Avoid importing CityGML 3.0
+      data if it contains features not avaialble in CityGML 2.0. Upgrade options can be used
+      when exporting data in CityGML 3.0 format if explicitly required.
+    - __CityGML 3.0 (recommended):__ Apply upgrade options when importing CityGML 2.0/1.0 data,
+      provided the data contains corresponding content. Exporting to CityGML 2.0/1.0 might lead to data loss unless
+      automatic conversion is possible.
 
 ### Examples
 
-Here are some example showing how to migrate data between CityGML versions. We use the [3DCityDB](3dcitydb/docker.md) and [citydb-tool](citydb-tool/docker.md) Docker images in the following examples. However, the migration can be done with [bare metal database](first-steps/setup.md) installations too. The only difference is the creation of the database in that case. For this example we use the test dataset available [here](citydb-tool/docker.md#data-preparation) and assume your data is located in the current working directory (`$PWD`).
+The following examples demonstrate how to migrate data between CityGML versions. We use the [3DCityDB](3dcitydb/docker.md) and
+[citydb-tool](citydb-tool/docker.md) Docker images in the examples. However, migration can also be performed with
+[bare metal database](first-steps/setup.md) installations; the only difference is in how the database is created.
+For this example we use the test dataset available [here](citydb-tool/docker.md#data-preparation) and assume your data
+is located in the current working directory (`$PWD`).
 
     SRID        3068
     SRS_NAME    urn:ogc:def:crs,crs:EPSG::3068,crs:EPSG::5783
@@ -166,8 +172,7 @@ Here are some example showing how to migrate data between CityGML versions. We u
           3dcitydb/3dcitydb-pg:5-alpine
         ```
 
-2. Import your dataset to the new database. Keep in mind to check if additional options for handling
-   [CityGML `v2` vs. `v3` data model differences](#handle-citygml-version-differences) are required.
+2. Import your dataset to the new database.
 
     === "Linux"
 
@@ -231,19 +236,22 @@ Here are some example showing how to migrate data between CityGML versions. We u
           -o "Railway_Scene_LoD3_CityGML_v3.gml"
         ```
 
-This is it! You have now migrated your CityGML dataset to the version you need.
+This is it! You have now migrated your CityGML dataset to the version you need. Keep in mind to check if additional
+upgrade options for handling [CityGML version differences](#handle-citygml-version-differences) are required.
 
 ## Migrate 3DCityDB database instances
 
-Migration between 3DCityDB `v5` and older versions is done by migrating data to a compatible CityGML version and
-re-importing the data to the target 3DCityDB version. The typical use case is upgrading an existing 3DCityDB
-`v4` instance to `v5`.
+Migration between 3DCityDB `v5` and older versions is performed by exporting data to a compatible CityGML version and
+then re-importing it into the target 3DCityDB version.
 
 1. Check 3DCityDB and CityGML compatibility in the [table above](#compatibility-overview).
 2. Migrate you dataset to a compatible CityGML version of your target database version, as described in [data migration above](#migrate-citygml-or-cityjson-data).
 3. Create a 3DCityDB instance in your target version using [Docker](3dcitydb/docker.md) or [bare metal setup](first-steps/setup.md).
 4. Import your dataset to the 3DCityDB with your target version. For 3DCityDB `v5` use [citydb-tool](citydb-tool/import_citygml.md), for older
    3DCityDB versions use the [Importer/Exporter](https://3dcitydb-docs.readthedocs.io/en/latest/impexp/index.html){target="blank"}.
+
+If 3DCityDB `v5` is your target database, ensure that you follow the guidance above on selecting a primary CityGML
+version and applying upgrade options, if necessary, when re-importing the data.
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3dcitydb.github.io%2F3dcitydb-mkdocs%2Fcompatibility%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)](https://hits.seeyoufarm.com/#history)
 

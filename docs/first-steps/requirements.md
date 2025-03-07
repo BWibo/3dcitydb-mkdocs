@@ -8,16 +8,48 @@ tags:
 
 # System requirements
 
-Setting up an instance of the 3D City Database requires an existing installation of a [PostgreSQL](https://www.postgresql.org/) or use our [Docker images](../3dcitydb/docker.md). We recommend checking data and database [compatibility](../compatibility.md) first.
+## 3D City Database
 
-## PostgreSQL with PostGIS extension
+Setting up an instance of the 3D City Database requires an existing installation of
+a [PostgreSQL](https://www.postgresql.org/) database with [PostGIS](https://postgis.net/) extension or use our [Docker images](../3dcitydb/docker.md).
+We recommend checking data and database [compatibility](../compatibility.md) first.
 
-Supported versions are PostgreSQL 13 and higher with PostGIS 3.0 and higher. Make sure to check the [PostgreSQL versioning policy](https://www.postgresql.org/support/versioning/) to find out which PostgreSQL versions are actively maintained or have reached end-of-life. The [PostGIS support matrix](https://trac.osgeo.org/postgis/wiki/UsersWikiPostgreSQLPostGIS) shows which versions of PostgreSQL are supported by which versions of PostGIS and whether a specific PostGIS version has reached end-of-life.
+!!! info
+    We are expanding support to include more database systems, starting with __Oracle Database__. Stay tuned!
 
-!!! info "NOTE"
-    It is recommended that you always install the latest patches, minor releases, and security updates for your database system. Database versions that have reached end-of-life are no longer supported by the 3D City Database.
+Supported PostgreSQL versions include __PostgreSQL 13__ and higher, with __PostGIS 3.0__ and higher. Make sure to check
+the [PostgreSQL versioning policy](https://www.postgresql.org/support/versioning/) to determine which PostgreSQL versions are actively maintained or have
+reached end-of-life. The [PostGIS support matrix](https://trac.osgeo.org/postgis/wiki/UsersWikiPostgreSQLPostGIS) provides details on which PostgreSQL versions are supported
+by specific PostGIS versions and whether any particular version of PostGIS has reached end-of-life.
 
-The SQL scripts for creating the 3D City Database schema are written to be executed by the default command-line client of either database system – namely psql for PostgreSQL. The scripts include meta commands specific to these clients and would not work properly when using a different client software. So please make sure psql is installed on the machine from where you want to set up the 3D City Database.
+The SQL scripts for setting up a 3D City Database schema are designed to be executed by the default command-line client
+of the respective database system – specifically, `psql` for PostgreSQL. These scripts include meta-commands specific to
+these clients and may not work properly with other client software. Therefore, ensure that `psql` is installed on the
+machine from which you plan to set up the 3D City Database before proceeding with the [setup instructions](setup.md).
+
+!!! tip
+    It is recommended to always install the latest patches, minor releases, and security updates for your database
+    system. The 3D City Database does not support database versions that have reached end-of-life.
+
+## Database client `citydb-tool`
+`citydb-tool` is the default command-line client of the 3D City Database, used to import and export city model data
+as well as perform database operations. It is implemented as a Java application and can be run on any platform that
+supports __Java 17__ and higher.
+
+To use `citydb-tool` on your machine, ensure that a matching Java Runtime Environment (JRE) is installed. Java
+installation packages are available from various vendors and for different platforms. The following is a non-exhaustive
+list of Java distributions that are free to download and use:
+
+* [Eclipse Temurin](https://adoptium.net/de/)
+* [Amazon Coretto](https://aws.amazon.com/corretto/)
+* [Oracle Java](https://www.oracle.com/java/technologies/downloads/)
+* [OpenJDK](https://openjdk.org/)
+
+Follow the installation instructions for your operating system. Note that starting with Java 17 LTS, Oracle Java is
+released under a no-fee, free-to-use license. However, previous versions of Oracle Java are
+available only under a fee-based subscription license. Similarly, Java binaries from other vendors may require a license
+for commercial use or access to updates. Please review the license terms and conditions provided by the vendors
+carefully.
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3dcitydb.github.io%2F3dcitydb-mkdocs%2Ffirst-steps%2Frequirements%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)](https://hits.seeyoufarm.com/#history)
 

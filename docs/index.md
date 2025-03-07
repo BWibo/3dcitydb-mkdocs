@@ -5,9 +5,13 @@ description: 3D City Database v5 documentation welcome page
 
 :simple-rocket: Welcome to the brand new 3D City Database `v5` documentation! :simple-rocket:
 
-The 3D City Database (3DCityDB) is a free and open source package consisting of a database schema and a set of software tools to import, export, manage, analyse, and visualize virtual 3D city models on top of a spatial database system. This user manual provides the documentation of the 3D City Database `v5` consisting of the following components.
+The 3D City Database (3DCityDB) is a free and open source package consisting of a database schema and a set of software
+tools to import, export, manage, analyse, and visualize virtual 3D city models on top of a spatial database system. This
+user manual provides the documentation of the 3DCityDB `v5` and its components.
 
-The content of this documentation is all new! If you encounter a mistake, miss some content, or for any other input, please get in touch on [Github discussions](https://github.com/orgs/3dcitydb/discussions). We are happy for any feedback we can use to improve the documentation.
+The content of this documentation is all new! If you encounter a mistake, miss some content, or for any other input,
+please get in touch on [Github discussions](https://github.com/orgs/3dcitydb/discussions). We are happy for any feedback
+we can use to improve the documentation.
 
 ![3DCityDB logo](./assets/img/logos/3dcitydb-logo-long.png){ width=300 }
 /// caption
@@ -45,15 +49,15 @@ The content of this documentation is all new! If you encounter a mistake, miss s
 
     ---
 
-    3DCityDB's relational model explained, Docker usage
+    3DCityDB's relational schema explained, Docker usage
 
     [:octicons-arrow-right-24: 3D City DB](3dcitydb/index.md)
 
-- :material-database-edit:{ .lg .middle } __Database interaction__
+- :material-database-edit:{ .lg .middle } __Data management__
 
     ---
 
-    Connect a 3DCityDB, import, export and validate data
+    Connect to a 3DCityDB, import and export data, and run database operations
 
     [:octicons-arrow-right-24: citydb-tool](citydb-tool/index.md)
 

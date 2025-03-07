@@ -1,5 +1,5 @@
 ---
-title: citydb-tool
+title: Using the citydb-tool
 description: How to import and export CityGML data using citydb-tool
 ---
 

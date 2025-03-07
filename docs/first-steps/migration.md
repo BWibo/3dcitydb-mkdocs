@@ -1,5 +1,5 @@
 ---
-title: Migration from previous releases
+title: Migration from previous versions
 description:
 # icon: material/emoticon-happy
 tags:
