@@ -13,7 +13,7 @@ CityGML 2.0 and 1.0. As a result, there is currently no tool available to automa
 
 The **recommended migration process** for an existing 3DCityDB `v4` is:
 
-1. Export all data from the 3DCityDB `v4` as CityGML 2.0 using
+1. Export all data from the 3DCityDB `v4` as CityGML 2.0 using the
    [Importer/Exporter](https://3dcitydb-docs.readthedocs.io/en/latest/impexp/docker.html){target="blank"} tool.
 2. Set up a new 3DCityDB `v5` instance (see [3DCitydb setup guide](setup.md)).
 3. Re-import the data into the 3DCityDB `v5` instance using `citydb-tool`.
