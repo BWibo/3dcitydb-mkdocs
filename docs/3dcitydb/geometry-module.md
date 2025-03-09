@@ -20,7 +20,7 @@ The `GEOMETRY_DATA` table serves as the central location for storing both explic
 the features in the 3DCityDB. It supports various geometry types, including points, lines, surface-based geometries, and
 volume geometries.
 
-### Explicit feature geometries
+### Feature geometries
 
 Explicit feature geometries, which are geometries with real-world coordinates, are stored in the `geometry` column. This
 column uses a predefined spatial data type from the database system running the 3DCityDB to store the geometry data. All
@@ -33,7 +33,21 @@ table. Additionally, the `GEOMETRY_DATA` table contains a `feature_id` foreign k
 feature. This setup allows you to query features and follow to the geometry, or query geometries and trace back to
 the feature.
 
-The use of predefined spatial database types for storing feature geometries presents two main challenges:
+### Implicit geometries
+
+Implicit geometries are stored in the `implicit_geometry` column of the `GEOMETRY_DATA` table. Unlike feature geometries,
+implicit geometries use local coordinates, which allows them to serve as templates for multiple city objects in the
+database. This is also the reason why they are stored in a separate column, rather than in the `geometry` column.
+Since implicit geometries are not assigned to specific features directly, the `feature_id` column is set to `NULL`.
+Instead, they are referenced from the [`IMPLICIT_GEOMETRY`](#implicit_geometry-table) table.
+
+Implicit geometries are typically not involved in spatial queries, so the `implicit_geometry` column does not
+have a spatial index by default.
+
+### JSON-based geometry metadata
+
+The use of predefined spatial database types for storing both explicit and implicit geometries presents two
+main challenges:
 
 1. **Geometry types:** CityGML features use a wide range of geometry types, including primitives (i.e.,
    points, lines, surfaces, and volume geometries) and composite or aggregate geometries, all based on
@@ -56,12 +70,10 @@ greatly improves spatial query performance and reduces storage requirements. To 
 reference geometries and their parts, and to maintain the expressivity of CityGML geometry types, JSON-based metadata is
 stored alongside the geometry in the `geometry_properties` column.
 
-### JSON-based geometry metadata
-
-To illustrate the structure and use of this JSON metadata, consider storing a CityGML 3D solid geometry in
+To illustrate the structure and use of this JSON metadata, consider storing a CityGML solid geometry in
 PostgreSQL/PostGIS. The PostGIS-specific data type used is `POLYHEDRALSURFACE Z`, which stores a simple array of
 polygons. The following snippet demonstrates how a 1-unit cube is represented as a polyhedral surface
-having six polygons:
+consisting of six polygons:
 
 ```
 POLYHEDRALSURFACE Z (
@@ -74,8 +86,9 @@ POLYHEDRALSURFACE Z (
 )
 ```
 
-To represent that these six polygons form a CityGML `Solid` geometry and to assign individual identifiers to each component,
-the following JSON metadata object is used alongside the raw database geometry in the 3DCityDB:
+A CityGML `Solid` geometry requires an additional `CompositeSurface` to represent the outer shell formed by the polygons.
+Additionally, the solid, the composite surface, and each polygon can have an identifier that allows the reuse of the
+component and the assignment of textures or colors. The following JSON object adds this extra metadata:
 
 ```javascript
 {
@@ -88,37 +101,37 @@ the following JSON metadata object is used alongside the raw database geometry i
     },
     {
       "type": 5, // (3)!
-      "objectId": "firstSurface",
+      "objectId": "first",
       "parent": 0,
       "geometryIndex": 0
     },
     {
       "type": 5,
-      "objectId": "secondSurface",
+      "objectId": "second",
       "parent": 0,
       "geometryIndex": 1
     },
     {
       "type": 5,
-      "objectId": "thirdSurface",
+      "objectId": "third",
       "parent": 0,
       "geometryIndex": 2
     },
     {
       "type": 5,
-      "objectId": "fourthSurface",
+      "objectId": "fourth",
       "parent": 0,
       "geometryIndex": 3
     },
     {
       "type": 5,
-      "objectId": "fifthSurface",
+      "objectId": "fifth",
       "parent": 0,
       "geometryIndex": 4
     },
     {
       "type": 5,
-      "objectId": "sixthSurface",
+      "objectId": "sixth",
       "parent": 0,
       "geometryIndex": 5
     }
@@ -130,31 +143,24 @@ the following JSON metadata object is used alongside the raw database geometry i
 2. A value of `6` means `CompositeSurface`.
 3. A value of `5` means `Polygon`.
 
-The JSON metadata is interpreted as follows:
+The metadata is interpreted as follows: The `"type"` property of the JSON object classifies the geometry as a `Solid` (`type = 9`), with a
+unique `"objectId"` of `"mySolid"`. The `"children"` array lists all the components of the `Solid` and establishes a
+hierarchical relationship between them. The first item in the `"children"` array represents the outer shell of the solid
+(`type = 6`) and is identified as `"myOuterShell"`. As defined in ISO 19107, the outer shell acts as a container but does not
+directly reference a specific geometry from the polyhedral surface.
 
-- **Solid geometry:** The `"type"` property classifies the geometry as `Solid` (`type = 9`). It has a unique `"objectId"`
-  of `"mySolid"`.
+The other six items in the `"children"` array represent the individual polygons (`type = 5`) that form the outer shell. Each
+polygon has its own unique `"objectId"`. The `"parent"` field contains a `0`-based reference into the `"children"` array and
+defines the parent of the component. In this example, a value of `0` indicates that the polygon belongs to the outer shell.
+The `"geometryIndex"` is a `0`-based index linking the item to a specific polygon of the polyhedral surface stored
+in the `geometry` column.
 
-- **Child components:** The `"children"` array lists all the components of the `Solid` and establishes a hierarchical
-  relationship between them.
-
-- **Outer shell**: The first element in the `"children"` array serves as the outer shell of the solid (`type = 6`), identified as
-  `"myOuterShell"`. As defined in ISO 1907, the outer shell acts as a container to organize the surfaces of the solid
-  but does not directly reference a specific geometry from the polyhedral surface.
-
-- **Surfaces of the outer shell**: The remaining six elements represent the individual polygons (`type = 5`) of the outer shell. Each
-  polygon has:
-    - `"objectId"`: A unique identifier (e.g., `"firstSurface"`, `"secondSurface"`, etc.).
-    - `"parent"`: A `0`-based reference into the `"children"` array to identify the parent object, where `0` means the polygon is
-    a child of the outer shell in this example.
-    - `"geometryIndex"`: A `0`-based index that links the element to a specific polygon in the polyhedral surface, as
-    represented by the spatial database type.
-
-This simple JSON structure works for mapping any CityGML geometry type onto a spatial database type. In summary, the main idea is that the
-primitives in the spatial database type (points, lines, polygons) are referenced by the `geometryIndex`, while the
-`children` and `parent` structure enables embedding the primitives into any CityGML geometry hierarchy. The `objectId`
-provides a unique identifier for each component, ensuring that each geometry and its parts can be individually
-referenced and distinguished within the database.
+!!! note "Summary"
+    This simple JSON structure works for mapping any CityGML geometry type onto a spatial database type. In summary, the main idea is that the
+    primitives in the spatial database type (points, lines, polygons) are referenced by the `geometryIndex`, while the
+    `children` and `parent` structure enables embedding the primitives into any CityGML geometry hierarchy. The `objectId`
+    provides a unique identifier for each component, ensuring that each geometry and its parts can be individually
+    referenced and distinguished within the database.
 
 The following list shows all supported values for the `type` attribute in the JSON metadata, mapping them to their
 corresponding CityGML geometry types:
@@ -178,22 +184,6 @@ corresponding CityGML geometry types:
     `"type"`, and `"children"` mentioned above. When `"is2D"` is set to `true`, it indicates that the geometry should be
     interpreted as a 2D geometry. Although the geometry must still be stored using 3D coordinates (e.g., with a height value
     of `0`), tools consuming the geometry shall ignore the height values when the `"is2D"` property is set.
-
-!!! note
-    The tool used to import city model data into 3DCityDB `v5` must ensure that the JSON metadata is 
-    populated correctly.
-
-### Implicit geometries
-
-Implicit geometries are stored in the `implicit_geometry` column of the `GEOMETRY_DATA` table. Unlike feature geometries,
-implicit geometries use local coordinates, which allows them to serve as templates for multiple city objects in the
-database. This is also the reason why they are stored in a separate column, rather than in the `geometry` column.
-Since implicit geometries are not assigned to specific features directly, the `feature_id` column is set to `NULL`.
-Instead, they are referenced from the `IMPLICIT_GEOMETRY` table.
-
-!!! note
-    Implicit geometries are typically not involved in spatial queries, so the `implicit_geometry` column does not
-    have a spatial index by default.
 
 ## `IMPLICIT_GEOMETRY` table
 
