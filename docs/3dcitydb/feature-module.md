@@ -6,7 +6,7 @@ tags:
   - relational schema
 ---
 
-The Feature module defines the core tables for storing city objects, including their attributes and relationships
+The Feature module defines the tables for storing city objects, including their attributes and relationships
 with other features, geometries, and appearances. It provides a streamlined yet powerful framework capable of
 representing all city objects defined in CityGML.
 
