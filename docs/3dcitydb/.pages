@@ -1,5 +1,11 @@
 nav:
   - index.md
-  - relational-db-schema.md
+  - Relational schema:
+    - Schema overview: relational-schema.md
+    - Feature module: feature-module.md
+    - Geometry module: geometry-module.md
+    - Appearance module: appearance-module.md
+    - Metadata module: metadata-module.md
+    - Codelist module: codelist-module.md
   - db-procedures.md
   - ...

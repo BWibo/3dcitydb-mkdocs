@@ -24,7 +24,7 @@ CityGML 3.0 was officially released as a standard by the [Open Geospatial Consor
 September 2021. It is an evolution of CityGML 2.0 and 1.0 and introduces significant modifications and improvements to
 the data model (see [here](https://www.asg.ed.tum.de/en/gis/projects/citygml-30/){target="blank"}). These major changes led to a complete re-implementation of
 3D City Database (3DCityDB) and the toolset that comes with it. Compared to 3DCityDB `v4`, `v5` features a
-substantially simplified [database schema](./3dcitydb/relational-db-schema.md). CityGML 3.0 and its encodings are supported only by 3DCityDB `v5`.
+substantially simplified [database schema](./3dcitydb/relational-schema.md). CityGML 3.0 and its encodings are supported only by 3DCityDB `v5`.
 
 This page provides information on the compatibility of CityGML versions and their encodings with different 3DCityDB
 versions, along with the tools available for each database version. The table below offers a
