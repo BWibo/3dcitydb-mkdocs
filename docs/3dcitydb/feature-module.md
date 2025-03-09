@@ -10,7 +10,7 @@ The Feature module defines the tables for storing city objects, including their 
 with other features, geometries, and appearances. It provides a streamlined yet powerful framework capable of
 representing all city objects defined in CityGML.
 
-![feature model](assets/feature-module.png)
+![feature module](assets/feature-module.png)
 /// figure-caption
 Feature module of the new 3DCityDB `v5` relational schema.
 ///
@@ -285,7 +285,7 @@ the parent row will have `NULL` in all `val_*` columns.
 | 4  | "lowReference"  | 1         | "lowestGroundPoint" | `NULL`     | `NULL`  | "https://references.org/heights" | ... |
 | 5  | "highReference" | 1         | "highestRoofEdge"   | `NULL`     | `NULL`  | "https://references.org/heights" | ... |
 
-## ADDRESS table
+## `ADDRESS` table
 
 Although [`Address`](https://docs.ogc.org/is/20-010/20-010.html#Address-section) is a feature type
 in CityGML, it is not stored in the `FEATURE` table. Instead, it is mapped to a dedicated `ADDRESS` table in

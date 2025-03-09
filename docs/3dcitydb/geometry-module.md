@@ -9,7 +9,7 @@ tags:
 The Geometry module contains the tables for storing feature geometries, as well as implicit geometries. These implicit
 geometries can be reused as templates for multiple features, following the CityGML implicit geometry concept.
 
-![geometry model](assets/geometry-module.png)
+![geometry module](assets/geometry-module.png)
 /// figure-caption
 Geometry module of the new 3DCityDB `v5` relational schema.
 ///
@@ -33,7 +33,7 @@ table. Additionally, the `GEOMETRY_DATA` table contains a `feature_id` foreign k
 feature. This setup allows you to query features and follow to the geometry, or query geometries and trace back to
 the feature.
 
-The use of predefined spatial database types presents two main challenges:
+The use of predefined spatial database types for storing feature geometries presents two main challenges:
 
 1. **Geometry types:** CityGML features use a wide range of geometry types, including primitives (i.e.,
    points, lines, surfaces, and volume geometries) and composite or aggregate geometries, all based on
@@ -75,7 +75,7 @@ POLYHEDRALSURFACE Z (
 ```
 
 To represent that these six polygons form a CityGML `Solid` geometry and to assign individual identifiers to each component,
-the following JSON metadata object is used in the 3DCityDB:
+the following JSON metadata object is used alongside the raw database geometry in the 3DCityDB:
 
 ```javascript
 {
