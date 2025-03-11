@@ -102,7 +102,7 @@ versions 2.0/1.0 and 3.0. The most important changes include:
 
 - __New feature types and concepts:__ CityGML 3.0 introduces many new feature types, data types, attributes,
   and concepts that are not available in previous versions. 
-- __Refined LoD concept:__ The LoD model has been standardized across all feature types. Some LoDs levels and
+- __Refined LoD concept:__ The LoD model has been standardized across all feature types. Some LoD levels and
   geometry representations from CityGML 2.0 are no longer present in version 3.0. 
 - __LoD-independent interior modeling:__ Interiors can now be modeled independently of LoD levels. As a result,
   `LoD4` of CityGML 2.0 no longer exists in version 3.0.

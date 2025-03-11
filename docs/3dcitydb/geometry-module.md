@@ -44,7 +44,7 @@ Instead, they are referenced from the [`IMPLICIT_GEOMETRY`](#implicit_geometry-t
 Implicit geometries are typically not involved in spatial queries, so the `implicit_geometry` column does not
 have a spatial index by default.
 
-### JSON-based geometry metadata
+### JSON-based metadata
 
 The use of predefined spatial database types for storing both explicit and implicit geometries presents two
 main challenges:
@@ -179,11 +179,20 @@ corresponding CityGML geometry types:
     11: MultiSolid
 ```
 
+In addition to `"objectId"`, `"type"`, and `"children"` mentioned above, the JSON metadata object can also include the
+`"is2D"` property. When `"is2D"` is set to `true`, the geometry should be interpreted as 2D. However, it must
+still be stored using 3D coordinates in the `geometry` column (e.g., with a height value of `0`). Tools processing the
+geometry should ignore height values when `"is2D"` is set.
+
+Additionally, each component in the `"children"` array can have an `"isReversed"` property. This flag indicates whether the
+coordinates of the component were flipped during import to reverse its orientation. This can occur, for example, when
+importing CityGML datasets that contain orientable primitives such as `gml:OrientableSurface` with their `orientation`
+attribute set to `"-"`. The `"isReversed"` property enables tools to export the component as orientable primitive again.
+
 !!! tip
-    The JSON metadata object can include an additional boolean property, `"is2D"`, alongside the properties `"objectId"`,
-    `"type"`, and `"children"` mentioned above. When `"is2D"` is set to `true`, it indicates that the geometry should be
-    interpreted as a 2D geometry. Although the geometry must still be stored using 3D coordinates (e.g., with a height value
-    of `0`), tools consuming the geometry shall ignore the height values when the `"is2D"` property is set.
+    The [3DCityDB software package](../download.md#3dcitydb-scripts) includes a JSON Schema specification that defines
+    the allowed structure of the JSON metadata object. You can find this schema file, named `geometry-properties.schema.json`,
+    in the `json-schema` folder of the software package.
 
 ## `IMPLICIT_GEOMETRY` table
 
