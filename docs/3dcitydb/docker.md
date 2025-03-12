@@ -219,6 +219,7 @@ Refer to the documentation of the official [PostgreSQL](https://hub.docker.com/_
 | `POSTGRES_DB`       | The database name of the 3DCityDB instance to be created. If not set, the database name is identical to the value of the above `POSTGRES_USER` variable. |
 | `POSTGRES_PASSWORD` | The database password of the 3DCityDB instance to be created. Please note that this variable is __mandatory__.|
 | `POSTGIS_SFCGAL`    | __true__ or __false__ (default) to enabled or disable the PostgreSQL extension `postgis_sfcgal`. __Note:__ SFCGAL may not be available in some older Alpine based images (PostgresSQL `< v12`). Refer to the [official PostGIS Docker docs](https://registry.hub.docker.com/r/postgis/postgis/){target="blank"} for more details. Setting the variable on those images will have no effect. |
+| `PROJ_NETWORK`     | Since a recent change in the PostGIS base images, coordinate transformation grid files are no longer downloaded automatically. For normal 3DCityDB operation this is not needed, so you can leave this option untouched. If you perform coordinate transformations on the database, this option should be set to `PROJ_NETWORK=on`. |
 
 ## How to build images
 
