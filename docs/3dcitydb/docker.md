@@ -44,7 +44,7 @@ When designing the images we tried to stay as close as possible to the behavior 
     3dcitydb/3dcitydb-pg
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ``` bat
     docker run --name 3dciytdb -p 5432:5432 -d ^
@@ -71,10 +71,10 @@ The `edge` images are automatically built and published on every push to the _ma
 
 |   Tag  | PostGIS (Debian) | PostGIS (Alpine) |
 | :------ | :---------------- | :---------------- |
-|  __edge__  | [![psql-deb-build-edge](https://img.shields.io/github/actions/workflow/status/%0A3dcitydb/3dcitydb/psql-docker-build-push-edge.yml?label=Debian&%0Astyle=flat-square&logo=Docker&logoColor=white)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated)[![psql-deb-size-edge](https://img.shields.io/docker/image-size/%0A3dcitydb/3dcitydb-pg/edge?label=image%20size&logo=Docker&logoColor=white&style=flat-square)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated)              | [![psql-alp-build-edge](https://img.shields.io/github/actions/workflow/status/%0A3dcitydb/3dcitydb/psql-docker-build-push-edge.yml?label=Alpine&%0Astyle=flat-square&logo=Docker&logoColor=white)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated) [![psql-alp-size-edge](https://img.shields.io/docker/image-size/%0A3dcitydb/3dcitydb-pg/edge-alpine?label=image%20size&logo=Docker&logoColor=white&%0Astyle=flat-square)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated)              |
-| __latest__ | [![psql-deb-size-latest](https://img.shields.io/docker/image-size/%0A3dcitydb/3dcitydb-pg/latest?label=image%20size&logo=Docker&logoColor=white&style=flat-square)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated)              | [![psql-alp-size-latest](https://img.shields.io/docker/image-size/%0A3dcitydb/3dcitydb-pg/latest-alpine?label=image%20size&logo=Docker&logoColor=white&%0Astyle=flat-square)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated)                |
-|  __5.0.0__ |                 |                  |
-|  __4.0.0__ | [![psql-deb-size-v4.0.0](https://img.shields.io/docker/image-size/%0A3dcitydb/3dcitydb-pg/14-3.2-4.0.0?label=image%20size&logo=Docker&logoColor=white&style=flat-square)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg)                 |   [![psql-alp-size-v4.0.0](https://img.shields.io/docker/image-size/%0A3dcitydb/3dcitydb-pg/14-3.2-4.0.0-alpine?label=image%20size&logo=Docker&logoColor=white&%0Astyle=flat-square)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg)             |
+|  __edge__  | [![psql-deb-build-edge](https://img.shields.io/github/actions/workflow/status/3dcitydb/3dcitydb/psql-docker-build-push-edge.yml?label=Debian&style=flat-square&logo=Docker&logoColor=white)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated)[![psql-deb-size-edge](https://img.shields.io/docker/image-size/3dcitydb/3dcitydb-pg/edge?label=image%20size&logo=Docker&logoColor=white&style=flat-square)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated) | [![psql-alp-build-edge](https://img.shields.io/github/actions/workflow/status/3dcitydb/3dcitydb/psql-docker-build-push-edge.yml?label=Alpine&%0Astyle=flat-square&logo=Docker&logoColor=white)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated) [![psql-alp-size-edge](https://img.shields.io/docker/image-size/3dcitydb/3dcitydb-pg/edge-alpine?label=image%20size&logo=Docker&logoColor=white&%0Astyle=flat-square)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated) |
+| __latest__ | [![psql-deb-size-latest](https://img.shields.io/docker/image-size/3dcitydb/3dcitydb-pg/latest?label=image%20size&logo=Docker&logoColor=white&style=flat-square)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated) | [![psql-alp-size-latest](https://img.shields.io/docker/image-size/3dcitydb/3dcitydb-pg/latest-alpine?label=image%20size&logo=Docker&logoColor=white&%0Astyle=flat-square)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags?page=1&ordering=last_updated)                |
+|  __5.0.0__ | [![psql-deb-size-v5.0.0](https://img.shields.io/docker/image-size/3dcitydb/3dcitydb-pg/5?label=image%20size&logo=Docker&logoColor=white&style=flat-square)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg) | [![psql-alp-size-v5.0.0](https://img.shields.io/docker/image-size/3dcitydb/3dcitydb-pg/5-alpine?label=image%20size&logo=Docker&logoColor=white&%0Astyle=flat-square)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg) |
+|  __4.0.0__ | [![psql-deb-size-v4.0.0](https://img.shields.io/docker/image-size/3dcitydb/3dcitydb-pg/14-3.2-4.0.0?label=image%20size&logo=Docker&logoColor=white&style=flat-square)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg) | [![psql-alp-size-v4.0.0](https://img.shields.io/docker/image-size/3dcitydb/3dcitydb-pg/14-3.2-4.0.0-alpine?label=image%20size&logo=Docker&logoColor=white&%0Astyle=flat-square)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg) |
 
 /// table-caption
 Overview 3DCityDB Docker image variants and versions.
@@ -89,7 +89,7 @@ Overview 3DCityDB Docker image variants and versions.
 
     [![version-badge-dockerhub](https://img.shields.io/docker/v/3dcitydb/3dcitydb-pg?label=Docker%20Hub&logo=docker&logoColor=white&sort=semver)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags){ target="blank" }
 
-    The latest `v5` image versions are:
+    The latest `v5-beta` image versions are:
 
     [![version badge v5](https://ghcr-badge.egpl.dev/3dcitydb/3dcitydb-pg-v5/tags?color=%2344cc11&ignore=latest&n=4&label=image+tags&trim=)](https://github.com/3dcitydb/3dcitydb/pkgs/container/3dcitydb-pg-v5)
 
@@ -219,6 +219,7 @@ Refer to the documentation of the official [PostgreSQL](https://hub.docker.com/_
 | `POSTGRES_DB`       | The database name of the 3DCityDB instance to be created. If not set, the database name is identical to the value of the above `POSTGRES_USER` variable. |
 | `POSTGRES_PASSWORD` | The database password of the 3DCityDB instance to be created. Please note that this variable is __mandatory__.|
 | `POSTGIS_SFCGAL`    | __true__ or __false__ (default) to enabled or disable the PostgreSQL extension `postgis_sfcgal`. __Note:__ SFCGAL may not be available in some older Alpine based images (PostgresSQL `< v12`). Refer to the [official PostGIS Docker docs](https://registry.hub.docker.com/r/postgis/postgis/){target="blank"} for more details. Setting the variable on those images will have no effect. |
+| `PROJ_NETWORK`     | Since a recent change in the PostGIS base images, coordinate transformation grid files are no longer downloaded automatically. For normal 3DCityDB operation this is not needed, so you can leave this option untouched. If you perform coordinate transformations on the database, this option should be set to `PROJ_NETWORK=on`. |
 
 ## How to build images
 
@@ -257,7 +258,7 @@ The images are build by cloning the 3DCityDB Github repository and running [`doc
             --build-arg BASEIMAGE_TAG=17-3.5
         ```
 
-    === "Windows"
+    === "Windows CMD"
 
         ``` bat
         docker build -t 3dcitydb/3dcitydb-pg .
@@ -293,7 +294,7 @@ automated tests operating on the exact same data every time or you want to prepa
         3dcitydb/3dcitydb-pg:17-3.5-5.0.0
         ```
 
-    === "Windows"
+    === "Windows CMD"
 
         ``` bat
         docker network create citydb-net
@@ -326,12 +327,12 @@ automated tests operating on the exact same data every time or you want to prepa
             /data/Railway_Scene_LoD3.zip
         ```
 
-    === "Windows"
+    === "Windows CMD"
 
         ``` bat
         docker run -i -t --rm ^
             --network citydb-net ^
-            -v /d/temp:/data ^
+            -v "d:\temp:/data" ^
         3dcitydb/citydb-tool import ^
             -H citydbTemp ^
             -d postgres ^
@@ -363,7 +364,7 @@ automated tests operating on the exact same data every time or you want to prepa
         3dcitydb/3dcitydb-pg:17-3.5-5.0.0-railwayScene_LoD3
         ```
 
-    === "Windows"
+    === "Windows CMD"
 
         ``` bat
         docker run --name cdbWithData --rm -p 5432:5432 ^
@@ -445,7 +446,7 @@ The configuration of the PostgreSQL database has significant impact on performan
         -c max_parallel_maintenance_workers=4
         ```
 
-    === "Windows"
+    === "Windows CMD"
 
         ``` bat hl_lines="4-20"
         docker run -d -i -t --name citydb -p 5432:5342 ^
@@ -532,7 +533,7 @@ max_parallel_maintenance_workers = 4
         -c max_locks_per_transaction=1024
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ``` bash hl_lines="2 7 23"
     docker run -d -i -t --name citydb -p 5432:5342 ^

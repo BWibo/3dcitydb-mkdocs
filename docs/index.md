@@ -5,6 +5,8 @@ description: 3D City Database v5 documentation welcome page
 
 :simple-rocket: Welcome to the brand new 3D City Database `v5` documentation! :simple-rocket:
 
+Press ++s++ to start searching the docs, or use ++n++ and ++p++ to navigate to the next/previous page. [Here](usage-contrib.md) is more on how to use this documentation.
+
 The 3D City Database (3DCityDB) is a free and open source package consisting of a database schema and a set of software
 tools to import, export, manage, analyse, and visualize virtual 3D city models on top of a spatial database system. This
 user manual provides the documentation of the 3DCityDB `v5` and its components.
@@ -13,7 +15,7 @@ The content of this documentation is all new! If you encounter a mistake, miss s
 please get in touch on [Github discussions](https://github.com/orgs/3dcitydb/discussions). We are happy for any feedback
 we can use to improve the documentation.
 
-![3DCityDB logo](./assets/img/logos/3dcitydb-logo-long.png){ width=300 }
+[![3DCityDB logo](./assets/img/logos/3dcitydb-logo-long.png){ width="300" }](https://www.3dcitydb.org){target="blank"}
 /// caption
 ///
 

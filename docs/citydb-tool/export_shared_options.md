@@ -76,7 +76,7 @@ These options are shared across all commands in the citydb-tool, as a connection
 is queried, deleted, imported, or exported.
 
 For details on how to configure database connections, including host, port, schema, and credentials,
-refer to the [catabase connection options](db-connection.md). This section provides a comprehensive explanation of
+refer to the [database connection options](db-connection.md). This section provides a comprehensive explanation of
 all available connection parameters.
 
 ## Examples
