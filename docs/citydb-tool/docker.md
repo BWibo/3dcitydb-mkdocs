@@ -35,7 +35,7 @@ The citydb-tool Docker images expose the capabilities of the [citydb-tool](../ci
     3dcitydb/citydb-tool[:TAG] COMMAND
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ``` bat
     docker run --rm --name citydb-tool [-i -t] ^
@@ -45,7 +45,7 @@ The citydb-tool Docker images expose the capabilities of the [citydb-tool](../ci
       [-e CITYDB_SCHEMA=theCityDBSchemaName] ^
       [-e CITYDB_USERNAME=theUsername] ^
       [-e CITYDB_PASSWORD=theSecretPass] ^
-      [-v /my/data/:/data] ^
+      [-v "c:\users\me\mydata:/data" ] ^
     3dcitydb/citydb-tool[:TAG] COMMAND
     ```
 
@@ -176,12 +176,12 @@ All import and export operations require a mounted directory for exchanging data
         3dcitydb/citydb-tool COMMAND
         ```
 
-    === "Windows"
+    === "Windows CMD"
 
         ``` bat
         # mount /my/data/ on the host system to /data
         docker run -i -t --rm --name citydb-tool ^
-          -v /my/data/:/data ^
+          -v "c:\users\me\mydata:/data" ^
         3dcitydb/citydb-tool COMMAND
         ```
 
@@ -192,16 +192,16 @@ All import and export operations require a mounted directory for exchanging data
         ``` bash
         # Mount the current working directory on the host system to /data
         docker run -i -t --rm --name citydb-tool \
-          -v $(pwd):/data \
+          -v $PWD:/data \
         3dcitydb/citydb-tool COMMAND
         ```
 
-    === "Windows"
+    === "Windows CMD"
 
         ``` bat
         # Mount the current working directory on the host system to /data
         docker run -i -t --rm --name citydb-tool ^
-          -v $(pwd):/data ^
+          -v "%cd%:/data" ^
         3dcitydb/citydb-tool COMMAND
         ```
 
@@ -221,11 +221,11 @@ In order to allocate an interactive console session for the container process, y
       bigcity.gml
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ``` bat
     docker run -i -t --rm --name citydb-tool ^
-      -v /my/data/:/data ^
+      -v "c:\users\me\mydata:/data" ^
     3dcitydb/citydb-tool import ^
       -H my.host.de -d citydb -u postgres -p ^
       bigcity.gml
@@ -277,7 +277,7 @@ When exchanging files between the host system and the citydb-tool container, it 
     # ubuntu:x:1000:1000:Ubuntu:/home/ubuntu:/bin/bash
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ``` bat
     docker run --rm --entrypoint bash 3dcitydb/citydb-tool ^
@@ -299,12 +299,12 @@ The following example illustrates how to use the `-u` option to pass the user ID
     3dcitydb/citydb-tool COMMAND
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ``` bat hl_lines="2"
     docker run --rm --name citydb-tool ^
       -u $(id -u):$(id -g) ^
-      -v /my/data/:/data ^
+      -v "c:\users\me\mydata:/data" ^
     3dcitydb/citydb-tool COMMAND
     ```
 
@@ -367,11 +367,11 @@ Import the CityGML dataset `/home/me/mydata/bigcity.gml` on you host system into
       bigcity.gml
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ``` bat
     docker run --rm --name citydb-tool ^
-      -v /home/me/mydata/:/data ^
+      -v "c:\users\me\mydata:/data" ^
     3dcitydb/citydb-tool import citygml ^
       -H my.host.de -d citydb -u postgres -p changeMe ^
       bigcity.gml
@@ -395,11 +395,11 @@ Import all CityGML datasets from `/home/me/mydata/` on your host system into the
       /data/
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ``` bat
     docker run --rm --name citydb-tool ^
-      -v /home/me/mydata/:/data ^
+      -v "c:\users\me\mydata:/data" ^
     3dcitydb/citydb-tool import citygml ^
       -H my.host.de -d citydb -u postgres -p changeMe ^
       /data/
@@ -421,11 +421,11 @@ Export all data from the DB given above to `/home/me/mydata/output.gml`:
       -o output.gml
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ``` bat
     docker run --rm --name citydb-tool ^
-      -v /home/me/mydata/:/data ^
+      -v "c:\users\me\mydata:/data" ^
     3dcitydb/citydb-tool export ^
       -H my.host.de -d citydb -u postgres -p changeMe ^
       -o output.gml
@@ -492,10 +492,10 @@ Now let's create a a 3DCityDB instance using the [3DCityDB Docker images](../3dc
       -e POSTGRES_PASSWORD=changeMe \
       -e SRID=3068 \
       -e SRS_NAME="urn:ogc:def:crs,crs:EPSG::3068,crs:EPSG::5783" \
-    3dcitydb/3dcitydb-pg-v5:edge-alpine
+    3dcitydb/3dcitydb-pg
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ``` bat linenums="1"
     # docker rm -f -v citydb
@@ -505,7 +505,7 @@ Now let's create a a 3DCityDB instance using the [3DCityDB Docker images](../3dc
       -e POSTGRES_PASSWORD=changeMe ^
       -e SRID=3068 ^
       -e SRS_NAME="urn:ogc:def:crs,crs:EPSG::3068,crs:EPSG::5783" ^
-    3dcitydb/3dcitydb-pg-v5:edge-alpine
+    3dcitydb/3dcitydb-pg
     ```
 
 We now have a 3DCityDB instance running with these properties:
@@ -542,12 +542,12 @@ The next step is to import our data to the 3DCityDB. Therefore, we need to mount
       "Railway_Scene_LoD3.zip"
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ``` bat hl_lines="5" linenums="1"
     docker run -i -t --rm --name citydb-tool ^
       --network citydb-net ^
-      -v "$PWD:/data" ^
+      -v "%cd%:/data" ^
     3dcitydb/citydb-tool:edge import citygml ^
       -H citydb ^
       -d postgres ^
@@ -575,13 +575,13 @@ Now, with our data inside the 3DCityDB, let's use the citydb-tool to create a Ci
       -o "Railway_Scene_LoD3_CityGML_v3.gml"
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ``` bat linenums="1"
     docker run -i -t --rm --name citydb-tool ^
       -u "$(id -u):$(id -g)" ^
       --network citydb-net ^
-      -v "$PWD:/data" ^
+      -v "%cd%:/data" ^
     3dcitydb/citydb-tool:edge export citygml ^
       -H citydb ^
       -d postgres ^
@@ -609,13 +609,13 @@ Creating a CityJSON export works the same way as described above for CityGML. Th
       -o "Railway_Scene_LoD3_CityJSON.json"
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ``` bat linenums="1" hl_lines="5 10"
     docker run -i -t --rm --name citydb-tool ^
       -u "$(id -u):$(id -g)" ^
       --network citydb-net ^
-      -v "$PWD:/data" ^
+      -v "%cd%:/data" ^
     3dcitydb/citydb-tool:edge export cityjson ^
       -H citydb ^
       -d postgres ^

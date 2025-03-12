@@ -44,7 +44,7 @@ When designing the images we tried to stay as close as possible to the behavior 
     3dcitydb/3dcitydb-pg
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ``` bat
     docker run --name 3dciytdb -p 5432:5432 -d ^
@@ -89,7 +89,7 @@ Overview 3DCityDB Docker image variants and versions.
 
     [![version-badge-dockerhub](https://img.shields.io/docker/v/3dcitydb/3dcitydb-pg?label=Docker%20Hub&logo=docker&logoColor=white&sort=semver)](https://hub.docker.com/r/3dcitydb/3dcitydb-pg/tags){ target="blank" }
 
-    The latest `v5` image versions are:
+    The latest `v5-beta` image versions are:
 
     [![version badge v5](https://ghcr-badge.egpl.dev/3dcitydb/3dcitydb-pg-v5/tags?color=%2344cc11&ignore=latest&n=4&label=image+tags&trim=)](https://github.com/3dcitydb/3dcitydb/pkgs/container/3dcitydb-pg-v5)
 
@@ -257,7 +257,7 @@ The images are build by cloning the 3DCityDB Github repository and running [`doc
             --build-arg BASEIMAGE_TAG=17-3.5
         ```
 
-    === "Windows"
+    === "Windows CMD"
 
         ``` bat
         docker build -t 3dcitydb/3dcitydb-pg .
@@ -293,7 +293,7 @@ automated tests operating on the exact same data every time or you want to prepa
         3dcitydb/3dcitydb-pg:17-3.5-5.0.0
         ```
 
-    === "Windows"
+    === "Windows CMD"
 
         ``` bat
         docker network create citydb-net
@@ -326,12 +326,12 @@ automated tests operating on the exact same data every time or you want to prepa
             /data/Railway_Scene_LoD3.zip
         ```
 
-    === "Windows"
+    === "Windows CMD"
 
         ``` bat
         docker run -i -t --rm ^
             --network citydb-net ^
-            -v /d/temp:/data ^
+            -v "d:\temp:/data" ^
         3dcitydb/citydb-tool import ^
             -H citydbTemp ^
             -d postgres ^
@@ -363,7 +363,7 @@ automated tests operating on the exact same data every time or you want to prepa
         3dcitydb/3dcitydb-pg:17-3.5-5.0.0-railwayScene_LoD3
         ```
 
-    === "Windows"
+    === "Windows CMD"
 
         ``` bat
         docker run --name cdbWithData --rm -p 5432:5432 ^
@@ -445,7 +445,7 @@ The configuration of the PostgreSQL database has significant impact on performan
         -c max_parallel_maintenance_workers=4
         ```
 
-    === "Windows"
+    === "Windows CMD"
 
         ``` bat hl_lines="4-20"
         docker run -d -i -t --name citydb -p 5432:5342 ^
@@ -532,7 +532,7 @@ max_parallel_maintenance_workers = 4
         -c max_locks_per_transaction=1024
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ``` bash hl_lines="2 7 23"
     docker run -d -i -t --name citydb -p 5432:5342 ^
