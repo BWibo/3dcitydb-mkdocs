@@ -13,7 +13,7 @@ The content of this documentation is all new! If you encounter a mistake, miss s
 please get in touch on [Github discussions](https://github.com/orgs/3dcitydb/discussions). We are happy for any feedback
 we can use to improve the documentation.
 
-![3DCityDB logo](./assets/img/logos/3dcitydb-logo-long.png){ width=300 }
+[![3DCityDB logo](./assets/img/logos/3dcitydb-logo-long.png){ width=300 }](https://www.3dcitydb.org){target="blank"}
 /// caption
 ///
 
