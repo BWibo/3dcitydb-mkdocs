@@ -11,7 +11,7 @@ geometries can be reused as templates for multiple features, following the CityG
 
 ![geometry module](assets/geometry-module.png)
 /// figure-caption
-Geometry module of the new 3DCityDB `v5` relational schema.
+Geometry module of the 3DCityDB `v5` relational schema.
 ///
 
 ## `GEOMETRY_DATA` table

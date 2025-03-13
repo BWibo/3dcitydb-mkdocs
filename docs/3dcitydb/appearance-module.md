@@ -12,7 +12,7 @@ mapped to the surface geometries of city objects to define their visual and obse
 
 ![appearance module](assets/appearance-module.png)
 /// figure-caption
-Appearance module of the new 3DCityDB `v5` relational schema.
+Appearance module of the 3DCityDB `v5` relational schema.
 ///
 
 ## `APPEARANCE` table
@@ -86,7 +86,7 @@ The remaining columns of the `SURFACE_DATA` table are populated based on the spe
 The `x3d_*` columns define surface material properties according to the X3DMaterial type.
 
 | Column                  | Description                                                                                             |
-|-------------------------|---------------------------------------------------------------------------------------------------------|
+|:------------------------|---------------------------------------------------------------------------------------------------------|
 | `x3d_shininess`         | Specifies the sharpness of the specular highlight (`0..1`).                                             |
 | `x3d_transparency`      | Defines the transparency level of the material (`0.0` = opaque, `1.0` = fully transparent).             |
 | `x3d_ambient_intensity` | Specifies the minimum percentage of diffuse color that is visible regardless of light sources (`0..1`). |

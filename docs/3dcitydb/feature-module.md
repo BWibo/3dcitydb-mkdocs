@@ -12,7 +12,7 @@ representing all city objects defined in CityGML.
 
 ![feature module](assets/feature-module.png)
 /// figure-caption
-Feature module of the new 3DCityDB `v5` relational schema.
+Feature module of the 3DCityDB `v5` relational schema.
 ///
 
 ## `FEATURE` table
@@ -57,8 +57,8 @@ geometries, and appearances.
     As described above, each feature must be assigned a **feature type** from the
     [`OBJECTCLASS`](metadata-module.md#objectclass-table) table. This table includes a JSON-based type definition
     specifying the properties available for a feature. It also includes inheritance information, enabling you to
-    look up properties inherited from superfeatures. Check out the [Metadata module](metadata-module.md) for more
-    information.
+    look up properties inherited from superfeatures. Check out the [Metadata module](metadata-module.md#objectclass-table)
+    for more information.
 
 The property's name and namespace are stored in the `name` and `namespace_id` columns, respectively. The
 `namespace_id` is a foreign key referencing a namespace from the [`NAMESPACE`](metadata-module.md#namespace-table)
@@ -73,7 +73,7 @@ columns, depending on its data type.
 Simple attribute values such as integers, doubles, strings, or timestamps are stored in the corresponding `val_int`,
 `val_double`, `val_string`, or `val_timestamp` columns. Boolean values are stored in the `val_int` column, with 0
 representing `false` and 1 representing `true`. Array values of attributes are represented as JSON arrays in the
-`val_array` column, with elements that can either be simple values or JSON objects.
+`val_array` column, with items that can either be simple values or JSON objects.
 
 The `val_content` column can hold arbitrary content as a character blob, while the `val_content_mime_type` column
 specifies the MIME type of the content. This setup can be used to store property values in the format they appear in the original
@@ -98,30 +98,29 @@ Relationships to other features are represented by the `feature_id` column, link
 the `FEATURE` table. The `val_relation_type` defines the type of the feature relationship as an integer:
 
 - 0 for "relates" (a general association between features), and
-- 1 for "contains" (a subfeature relationship, where the referenced feature is considered a part of parent feature).
+- 1 for "contains" (a subfeature relationship, where the referenced feature is considered a part of the parent feature).
 
 !!! note
     The relation type has specific implications. For example, "contained" features are deleted along with their parent
     features, while "related" features are not.
 
 Geometries are linked to features through the `val_geometry_id` column, which references the
-[`GEOMETRY_DATA`](geometry-module.md#geometry_data-table) table. The optional `val_lod` indicates the
-Level of Detail (LoD) of the geometry.
+[`GEOMETRY_DATA`](geometry-module.md#geometry_data-table) table. The optional `val_lod` indicates the Level of Detail (LoD) of the geometry.
 
 Implicit geometries are referenced via the `val_implicitgeom_id` foreign key and are also stored in the
 [`GEOMETRY_DATA`](geometry-module.md#geometry_data-table) table. In addition to `val_lod`, the
-transformation matrix and reference point needed to compute the feature's implicit representation are stored in
+transformation matrix and reference point needed to define the feature's implicit representation are stored in
 `val_array` and `val_implicitgeom_refpoint`.
 
 Appearance and address information are linked using the `val_appearance_id` and `val_address_id` foreign keys,
 referencing the [`APPEARANCE`](appearance-module.md#appearance-table) and [`ADDRESS`](#address-table) tables.
 
-!!! question "How do you determine how to store and access property values?"
+!!! question "In which columns do you store or look up property values?"
     The `PROPERTY` table is **type-enforced**, with each data type defined in the
     [`DATATYPE`](metadata-module.md#datatype-table) table. This table includes a JSON-based type definition for all
     attributes and relationships, that clearly specifies which `val_*` column the property value should be stored in
     and whether a property has nested properties. Each nested property will have its own data type and type definition.
-    Check out the [Metadata module](metadata-module.md) for more information.
+    Check out the [Metadata module](metadata-module.md#datatype-table) for more information.
 
 ### Examples
 

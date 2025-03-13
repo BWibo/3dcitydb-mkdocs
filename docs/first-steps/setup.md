@@ -196,7 +196,7 @@ also prompt the user for information necessary to execute them. The `connection-
 scripts to establish a connection to your 3DCityDB instance, so ensure to adjust the connection details before
 executing any of these scripts
 
-The following table provides an overview of the available shell scripts. They can then be executed either by
+The following table provides an overview of the available shell scripts. They can be executed either by
 double-clicking them or by running them from within a shell environment.
 
 | Script [.sh\|.bat]   | Description                                                                                               |

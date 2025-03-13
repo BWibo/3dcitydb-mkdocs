@@ -1,8 +1,6 @@
 ---
 title: General
 description:
-# icon: material/emoticon-happy
-status: wip
 ---
 
 ## Todos
