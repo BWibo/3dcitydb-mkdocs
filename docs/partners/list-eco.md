@@ -10,7 +10,11 @@ tags:
   - certification
 ---
 
-![alt text](assets/List_Eco_Farbe_sRGB.svg){ align=left width="200"}
+![alt text](assets/LIST_Eco_Endorsement_Farbe_CMYK.png){width="500px"}
+
+/// caption
+///
+
 [LIST Eco GmbH & Co. KG](https://list-eco.de){target="blank"} is part of the [LIST Group](https://www.list-gruppe.de/){target="blank"} and develops holistic sustainability concepts for EU taxonomy-compliant real estate and future-proof neighborhoods. The company advises investors, property owners, project developers, cities and municipalities on long-term sustainability strategies across all disciplines and life cycles. LIST Eco's specialists use GIS and BIM-based optimization methods to carry out various analyses - from life cycle assessments to circularity assessments. The service portfolio also includes all standard certifications.
 
 ## Specialist for sustainable cities and neighborhoods
