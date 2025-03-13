@@ -17,6 +17,7 @@ Besides the 3DCityDB, TUMGIS also released many more Open Source projects (>130)
 ## 3DCityDB usage in research and education
 
 The 3DCityDB has always been an important tool within our research activities around semantic 3D city models, CityGML, and spatial databases as well for education. It is employed, for example, in different courses as well as in student projects and theses in our international master's programs
+
 - [MSc. Geodesy and Geoinformation](https://www.ed.tum.de/en/ed/studies/degree-programs/geodesy-and-geoinformation-m-sc/){target="blank"}
 - [MSc. Land Management and Geospatial Science](https://www.ed.tum.de/en/ed/studies/degree-programs/land-management-and-geospatial-science-m-sc/){target="blank"}
 - [MSc. Environmental Engineering](https://www.ed.tum.de/en/ed/studies/degree-programs/environmental-engineering-m-sc/){target="blank"}
