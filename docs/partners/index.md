@@ -15,6 +15,30 @@ This section contains some background information about the 3DCityDB contributor
 ## List of contributors
 
 <div style="display: table; width: 100%;">
+
+  <div style="display: table-row;">
+    <div style="display: table-cell; text-align: center; vertical-align: middle; width: 20%;">
+      <a href="tum-gis/"><img src="./assets/TUMLogo_oZ_Vollfl_blau_RGB.png" alt="Icon" style="max-width: 100px;"></a>
+    </div>
+    <div style="display: table-cell; text-align: left; vertical-align: top; width: 40%;">
+      <p>
+        <b>Chair of Geoinformatics, Technical University of Munich (TUM)</b>
+      </p>
+      <p>
+         Arcisstr. 21</br>
+         80333 Munich, Germany
+      </p>
+    </div>
+    <div style="display: table-cell; text-align: left; vertical-align: top; width: 40%;">
+      <p>Contact</p>
+      <p>
+        Thomas H. Kolbe</br>
+        <a href="mailto:thomas.kolbe(at)tum.de">thomas.kolbe(at)tum.de</a></br>
+        <a href="https://www.asg.ed.tum.de/gis/" target="_blank">https://www.asg.ed.tum.de/gis/</a>
+      </p>
+    </div>
+  </div>
+  
   <div style="display: table-row;">
     <div style="display: table-cell; text-align: center; vertical-align: middle; width: 20%;">
       <a href="list-eco/"><img src="./assets/List_Eco_Farbe_sRGB.svg" alt="Icon" style="max-width: 100px;"></a>
