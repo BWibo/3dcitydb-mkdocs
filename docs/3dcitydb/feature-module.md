@@ -17,7 +17,7 @@ Feature module of the 3DCityDB `v5` relational schema.
 
 ## `FEATURE` table
 
-The `FEATURE` table is the central table in the 3DCityDB `v5`relational schema. It serves as the primary storage for
+The `FEATURE` table is the central table in the 3DCityDB `v5` relational schema. It serves as the primary storage for
 all city objects and uniquely identifiable entities such as buildings, roads, or vegetation objects within
 your city model.
 
@@ -71,13 +71,13 @@ columns, depending on its data type.
 ### Simple and complex attributes
 
 Simple attribute values such as integers, doubles, strings, or timestamps are stored in the corresponding `val_int`,
-`val_double`, `val_string`, or `val_timestamp` columns. Boolean values are stored in the `val_int` column, with 0
-representing `false` and 1 representing `true`. Array values of attributes are represented as JSON arrays in the
+`val_double`, `val_string`, or `val_timestamp` columns. Boolean values are stored in the `val_int` column, with `0`
+representing false and `1` representing true. Array values of attributes are represented as JSON arrays in the
 `val_array` column, with items that can either be simple values or JSON objects.
 
 The `val_content` column can hold arbitrary content as a character blob, while the `val_content_mime_type` column
 specifies the MIME type of the content. This setup can be used to store property values in the format they appear in the original
-input datasets (e.g., XML or JSON).
+input datasets (e.g., GML/XML or JSON).
 
 The `PROPERTY` table also supports complex attributes, which may include both a simple value and nested attributes
 of either simple or complex types. When the value and the nested attributes can be represented using multiple `val_*`
@@ -94,26 +94,28 @@ depth.
 In addition to attributes, the `PROPERTY` table stores relationships that define how a feature is connected to other
 objects. These relationships are stored as separate rows and are not mixed with attribute values in the same row.
 
-Relationships to other features are represented by the `feature_id` column, linking to related features in
+**Relationships to other features** are represented by the `feature_id` column, linking to related features in
 the `FEATURE` table. The `val_relation_type` defines the type of the feature relationship as an integer:
 
-- 0 for "relates" (a general association between features), and
-- 1 for "contains" (a subfeature relationship, where the referenced feature is considered a part of the parent feature).
+- `0` for "relates" (a general association between features), and
+- `1` for "contains" (a subfeature relationship, where the referenced feature is considered a part of the parent feature).
 
 !!! note
     The relation type has specific implications. For example, "contained" features are deleted along with their parent
-    features, while "related" features are not.
+    features, while "related" features are not (see [delete functions](db-functions.md#delete-functions)).
 
-Geometries are linked to features through the `val_geometry_id` column, which references the
+**Geometries** are linked to features through the `val_geometry_id` column, which references the
 [`GEOMETRY_DATA`](geometry-module.md#geometry_data-table) table. The optional `val_lod` indicates the Level of Detail (LoD) of the geometry.
 
-Implicit geometries are referenced via the `val_implicitgeom_id` foreign key and are also stored in the
+**Implicit geometries** are referenced via the `val_implicitgeom_id` foreign key and are also stored in the
 [`GEOMETRY_DATA`](geometry-module.md#geometry_data-table) table. In addition to `val_lod`, the
 transformation matrix and reference point needed to define the feature's implicit representation are stored in
 `val_array` and `val_implicitgeom_refpoint`.
 
-Appearance and address information are linked using the `val_appearance_id` and `val_address_id` foreign keys,
+**Appearance and address information** are linked using the `val_appearance_id` and `val_address_id` foreign keys,
 referencing the [`APPEARANCE`](appearance-module.md#appearance-table) and [`ADDRESS`](#address-table) tables.
+
+### Examples
 
 !!! question "In which columns do you store or look up property values?"
     The `PROPERTY` table is **type-enforced**, with each data type defined in the
@@ -122,11 +124,10 @@ referencing the [`APPEARANCE`](appearance-module.md#appearance-table) and [`ADDR
     and whether a property has nested properties. Each nested property will have its own data type and type definition.
     Check out the [Metadata module](metadata-module.md#datatype-table) for more information.
 
-### Examples
-
-All CityGML city objects have a `name` attribute of type [`Code`](https://docs.ogc.org/is/20-010/20-010.html#Code-section),
-whose value is a string-based term with an optional `codeSpace` attribute. The JSON type definition from
-the [`DATATYPE`](metadata-module.md#datatype-table) table is as follows:
+To demonstrate how feature properties are stored in the `PROPERTY` table based on their data type, let's use the `name`
+attribute of city objects as an example. The `name` attribute is of type [`core:Code`](https://docs.ogc.org/is/20-010/20-010.html#Code-section), with a value that is a
+string-based term and an optional `codeSpace` attribute. The JSON type definition from the [`DATATYPE`](metadata-module.md#datatype-table)
+table is as follows:
 
 ```json
 {
@@ -151,7 +152,7 @@ the [`DATATYPE`](metadata-module.md#datatype-table) table is as follows:
 }
 ```
 
-Based on this definition, the `Code` value is stored as a string in the `val_string` column, while the nested
+Based on this definition, the `core:Code` value is stored as a string in the `val_string` column, while the nested
 `codeSpace` attribute, also a string, is mapped to the `val_codespace` column. Since the type definition does not
 require linking the `codeSpace` via `parent_id`, both values are stored within the same row, as shown below. Note that
 all other `PROPERTY` columns have been omitted for brevity.
@@ -160,7 +161,7 @@ all other `PROPERTY` columns have been omitted for brevity.
 |----|--------|-----------|--------------|---------------------------------|-----|
 | 1  | "name" | `NULL`    | "myBuilding" | "https://example.org/buildings" | ... |
 
-The `height` of CityGML buildings can be represented using the [`Height`](https://docs.ogc.org/is/20-010/20-010.html#Height-section)
+The `height` of CityGML buildings can be represented using the [`con:Height`](https://docs.ogc.org/is/20-010/20-010.html#Height-section)
 data type, which serves as example of a more complex type. The JSON type definition for this data type in the `DATATYPE`
 table is shown below:
 
@@ -262,7 +263,7 @@ table is shown below:
     }
     ```
 
-This type definition specifies that `Height` has four nested attributes:
+This type definition specifies that `con:Height` has four nested attributes:
 
 1. `value` of type `core:Measure`: Represents a measurement, with the value stored in `val_double` and the unit in
    `val_uom`.
@@ -271,9 +272,9 @@ This type definition specifies that `Height` has four nested attributes:
    in `val_codespace`.
 4. `highReference` of type `core:Code`: Stored the same way as `lowReference`.
 
-Additionally, the `join` property in the JSON defines a hierarchical relationship, where each of these attributes
+Additionally, the `"join"` property in the JSON defines a hierarchical relationship, where each of these attributes
 is linked back to the parent through the `parent_id` foreign key. This means that each nested attribute should be
-stored in a separate row, all referencing the same parent `id`. Since `Height` does not store an own value,
+stored in a separate row, all referencing the same parent `id`. Since `con:Height` does not store an own `"value"`,
 the parent row will have `NULL` in all `val_*` columns.
 
 | id | name            | parent_id | val_string          | val_double | val_uom | val_codespace                    | ... |
