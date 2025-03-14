@@ -18,22 +18,22 @@ This section contains some background information about the 3DCityDB contributor
 
   <div style="display: table-row;">
     <div style="display: table-cell; text-align: center; vertical-align: middle; width: 20%;">
-      <a href="tum-gis/"><img src="./assets/TUMLogo_oZ_Vollfl_blau_RGB.png" alt="Icon" style="max-width: 100px;"></a>
+      <a href="tum-gis/"><img src="./assets/TUMLogo_oZ_Vollfl_blau_RGB.png" alt="Logo" style="max-width: 100px;"></a>
     </div>
     <div style="display: table-cell; text-align: left; vertical-align: top; width: 40%;">
       <p>
         <b>Chair of Geoinformatics, Technical University of Munich (TUM)</b>
       </p>
       <p>
-         Arcisstr. 21</br>
+         Arcisstr. 21<br/>
          80333 Munich, Germany
       </p>
     </div>
     <div style="display: table-cell; text-align: left; vertical-align: top; width: 40%;">
       <p>Contact</p>
       <p>
-        Thomas H. Kolbe</br>
-        <a href="mailto:thomas.kolbe(at)tum.de">thomas.kolbe(at)tum.de</a></br>
+        Thomas H. Kolbe<br/>
+        <a href="mailto:thomas.kolbe(at)tum.de">thomas.kolbe(at)tum.de</a><br/>
         <a href="https://www.asg.ed.tum.de/gis/" target="_blank">https://www.asg.ed.tum.de/gis/</a>
       </p>
     </div>
@@ -41,22 +41,22 @@ This section contains some background information about the 3DCityDB contributor
 
   <div style="display: table-row;">
     <div style="display: table-cell; text-align: center; vertical-align: middle; width: 20%;">
-      <a href="hft-stuttgart/"><img src="./assets/HFT-Stuttgart-Logo-2025.svg" alt="Icon" style="max-width: 100px;"></a>
+      <a href="hft-stuttgart/"><img src="./assets/HFT-Stuttgart-Logo-2025.svg" alt="Logo" style="max-width: 100px;"></a>
     </div>
     <div style="display: table-cell; text-align: left; vertical-align: top; width: 40%;">
       <p>
         <b>Hochschule für Technik Stuttgart (HFT Stuttgart)</b>
       </p>
       <p>
-         Schellingstr. 24</br>
+         Schellingstr. 24<br/>
          70174 Stuttgart, Germany
       </p>
     </div>
     <div style="display: table-cell; text-align: left; vertical-align: top; width: 40%;">
       <p>Contact</p>
       <p>
-        Zhihang Yao</br>
-        <a href="mailto:zhihang.yao(at)hft-stuttgart.de">zhihang.yao(at)hft-stuttgart.de</a></br>
+        Zhihang Yao<br/>
+        <a href="mailto:zhihang.yao(at)hft-stuttgart.de">zhihang.yao(at)hft-stuttgart.de</a><br/>
         <a href="https://www.hft-stuttgart.com/" target="_blank">https://www.hft-stuttgart.com/</a>
       </p>
     </div>
@@ -64,22 +64,22 @@ This section contains some background information about the 3DCityDB contributor
 
   <div style="display: table-row;">
     <div style="display: table-cell; text-align: center; vertical-align: middle; width: 20%;">
-      <a href="list-eco/"><img src="./assets/List_Eco_Farbe_sRGB.svg" alt="Icon" style="max-width: 100px;"></a>
+      <a href="list-eco/"><img src="./assets/List_Eco_Farbe_sRGB.svg" alt="Logo" style="max-width: 100px;"></a>
     </div>
     <div style="display: table-cell; text-align: left; vertical-align: top; width: 40%;">
       <p>
         <b>LIST Eco GmbH & Co. KG</b>
       </p>
       <p>
-        Vogelsanger Str. 321a</br>
+        Vogelsanger Str. 321a<br/>
         50827 Köln-Ehrenfeld
       </p>
     </div>
     <div style="display: table-cell; text-align: left; vertical-align: top; width: 40%;">
       <p>Contact</p>
       <p>
-        Bruno Willenborg (<a href="https://www.list-gruppe.de/vcard/?vcard=8ltoiBNbvu2POP8fuZm3VH7JD" target="_blank">vCard</a>)</br>
-        <a href="mailto:bruno.willenborg(at)list-eco.de">bruno.willenborg(at)list-eco.de</a></br>
+        Bruno Willenborg (<a href="https://www.list-gruppe.de/vcard/?vcard=8ltoiBNbvu2POP8fuZm3VH7JD" target="_blank">vCard</a>)<br/>
+        <a href="mailto:bruno.willenborg(at)list-eco.de">bruno.willenborg(at)list-eco.de</a><br/>
         <a href="https://www.list-eco.de" target="_blank">https://www.list-eco.de</a>
       </p>
     </div>
@@ -87,8 +87,31 @@ This section contains some background information about the 3DCityDB contributor
 
   <div style="display: table-row;">
     <div style="display: table-cell; text-align: center; vertical-align: middle; width: 20%;">
+      <a href="vcs/"><img src="./assets/vcs-logo-small.png" alt="Logo" style="max-width: 100px;"></a>
+    </div>
+    <div style="display: table-cell; text-align: left; vertical-align: top; width: 40%;">
+      <p>
+        <b>Virtual City Systems</b>
+      </p>
+      <p>
+         Tauentzienstr. 7b/c<br/>
+         10789 Berlin<br/>
+      </p>
+    </div>
+    <div style="display: table-cell; text-align: left; vertical-align: top; width: 40%;">
+      <p>Contact</p>
+      <p>
+        Claus Nagel<br/>
+        <a href="mailto:cnagel@vc.systems">cnagel(at)vc.systems</a><br/>
+        <a href="https://vc.systems/en/" target="_blank">https://vc.systems</a>
+      </p>
+    </div>
+  </div>
+
+  <div style="display: table-row;">
+    <div style="display: table-cell; text-align: center; vertical-align: middle; width: 20%;">
       <!-- Replace with your icon -->
-      <a href="list-eco/"><img src="./assets/List_Eco_Farbe_sRGB.svg" alt="Icon" style="max-width: 100px;"></a>
+      <a href="."><img src="." alt="Logo" style="max-width: 100px;"></a>
     </div>
     <div style="display: table-cell; text-align: left; vertical-align: top; width: 40%;">
       <!-- Replace with your text -->
@@ -96,7 +119,7 @@ This section contains some background information about the 3DCityDB contributor
         <b>Company name</b>
       </p>
       <p>
-         Address line 1</br>
+         Address line 1<br/>
          Address line 2
       </p>
     </div>
@@ -104,8 +127,8 @@ This section contains some background information about the 3DCityDB contributor
       <!-- Replace with your text -->
       <p>Contact</p>
       <p>
-        Name</br>
-        <a href="mailto:me(at)company.de">me(at)company.de</a></br>
+        Name<br/>
+        <a href="mailto:me(at)company.de">me(at)company.de</a><br/>
         <a href="https://www.my-homepage.de" target="_blank">https://www.my-homepage.de</a>
       </p>
     </div>
