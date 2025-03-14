@@ -50,10 +50,10 @@ and urban designs, delivering an immersive digital twin experience accessible to
 
 ![Digital Twin Bremen](assets/vcs-digital-twin-bremen.png)
 /// figure-caption
-The Urban Digital Twin of the City Of Bremen, managed with 3DCityDB and visualized with VC Map.
+The Urban Digital Twin of the City Of Bremen, managed with 3DCityDB and visualized in VC Map.
 ///
 
-## Urban Simulations – Data-Driven Planning Certainty
+## Urban Simulations – Data-Driven Decision Support
 
 VCS supports simulations for solar potential analysis, flood risk assessment, urban climate studies, and hazard
 analysis, such as detecting and neutralizing unexploded ordnance. These models provide critical data and insights on
@@ -72,11 +72,12 @@ Dr. Claus Nagel is Managing Director of Virtual City Systems and a leading exper
 He has played a key role in the development of CityGML and the 3D City Database, significantly advancing their
 worldwide adoption in research, public administration, and industry.
 
-[![Hits](https://img.shields.io/badge/CTO_@-VCS-blue)](https://vc.systems/en/)&nbsp;
-[![Hits](https://img.shields.io/badge/Co_Chair_@-OGC_CityGML_SWG-blue)](https://www.ogc.org/standards-working-groups/)&nbsp;
-[![Hits](https://img.shields.io/badge/Co_Editor_@-CityGML_3.0_to_1.0-blue)](https://www.ogc.org/publications/standard/citygml/)&nbsp;
-[![Hits](https://img.shields.io/badge/Chair_@-3DCityDB_Steering_WG-blue)](https://github.com/3dcitydb)&nbsp;
-[![Hits](https://img.shields.io/badge/Core_Dev_@-3DCityDB-blue)](https://github.com/3dcitydb)
+[![CTO @ VCS](https://img.shields.io/badge/CTO-VCS-blue)](https://vc.systems/en/)&nbsp;
+[![Co-Chair @ OGC CityGML SWG](https://img.shields.io/badge/Co--Chair-OGC_CityGML_SWG-blue)](https://www.ogc.org/standards-working-groups/)&nbsp;
+[![Co-Editor @ CityGML 3.0 - 1.0](https://img.shields.io/badge/Co--Editor-CityGML_3.0_--_1.0-blue)](https://www.ogc.org/publications/standard/citygml/)&nbsp;
+[![Chair @ 3DCityDB Steering WG](https://img.shields.io/badge/Chair-3DCityDB_Steering_WG-blue)](https://github.com/3dcitydb)&nbsp;
+[![Core-Dev @ 3DCityDB](https://img.shields.io/badge/Core--Dev-3DCityDB-blue)](https://github.com/3dcitydb)&nbsp;
+[![Core-Dev @ citygml4j](https://img.shields.io/badge/Core--Dev-citygml4j-blue)](https://github.com/citygml4j)
 
 <p>&nbsp;</p>
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3dcitydb.github.io%2F3dcitydb-mkdocs%2Fpartners%2Fvcs%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)](https://hits.seeyoufarm.com/#history)
