@@ -73,10 +73,8 @@ He has played a key role in the development of CityGML and the 3D City Database,
 worldwide adoption in research, public administration, and industry.
 
 [![Hits](https://img.shields.io/badge/CTO_@-VCS-blue)](https://vc.systems/en/)&nbsp;
-[![Hits](https://img.shields.io/badge/Co_Chair_@-OGC_CityGML_SWG-blue)](https://www.ogc.org/standards-working-groups/)
-&nbsp;
-[![Hits](https://img.shields.io/badge/Co_Editor_@-CityGML_3.0_to_1.0-blue)](https://www.ogc.org/publications/standard/citygml/)
-&nbsp;
+[![Hits](https://img.shields.io/badge/Co_Chair_@-OGC_CityGML_SWG-blue)](https://www.ogc.org/standards-working-groups/)&nbsp;
+[![Hits](https://img.shields.io/badge/Co_Editor_@-CityGML_3.0_to_1.0-blue)](https://www.ogc.org/publications/standard/citygml/)&nbsp;
 [![Hits](https://img.shields.io/badge/Chair_@-3DCityDB_Steering_WG-blue)](https://github.com/3dcitydb)&nbsp;
 [![Hits](https://img.shields.io/badge/Core_Dev_@-3DCityDB-blue)](https://github.com/3dcitydb)
 
