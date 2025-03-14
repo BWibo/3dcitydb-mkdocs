@@ -56,3 +56,8 @@ property value in the `PROPERTY` table, and vice versa.
     and export, they can also be used to build a web service that provides stored codelists as files or serves as a lookup and
     validation service for individual codelist values. Tools for building such services are not included in the
     3DCityDB `v5`, though.
+
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3dcitydb.github.io%2F3dcitydb-mkdocs%2F3dcitydb%2Fcodelist-module%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)](https://hits.seeyoufarm.com/#history)
+
+/// caption
+///

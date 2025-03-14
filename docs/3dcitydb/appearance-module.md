@@ -242,3 +242,8 @@ The `mime_type` column specifies the MIME type of the texture image, ensuring th
 according to its format (e.g., `image/png` for a PNG image or `image/jpeg` for a JPEG image). Additionally, the
 `mime_type_codespace` column can store an optional code space for the MIME type, providing further context or
 classification.
+
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3dcitydb.github.io%2F3dcitydb-mkdocs%2F3dcitydb%2Fappearance-module%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)](https://hits.seeyoufarm.com/#history)
+
+/// caption
+///

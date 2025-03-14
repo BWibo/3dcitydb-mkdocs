@@ -588,3 +588,8 @@ tables, referencing the `id` column of the ADE table.
     automatically register an ADE in the `ADE` table or generate the necessary feature types, data types, and namespaces based
     on the ADE data model. Additionally, the [`citydb-tool`](../citydb-tool/index.md) command-line utility included in
     3DCityDB `v5` does not yet support importing or exporting ADE data. **We are working on improvements, so stay tuned!**
+
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3dcitydb.github.io%2F3dcitydb-mkdocs%2F3dcitydb%2Fmetadata-module%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)](https://hits.seeyoufarm.com/#history)
+
+/// caption
+///
