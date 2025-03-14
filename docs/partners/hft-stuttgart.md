@@ -30,7 +30,7 @@ it more extensively into its teaching activities and research projects.
 
 ### Your contact: Zhihang Yao
 
-![Zhihang Yao](https://www.hft-stuttgart.de/fileadmin/Dateien/Profilbilder/_processed_/6/d/csm_Profil3_58ddab6dd3.jpg){align="right" width="250"}
+![Zhihang Yao](assets/zyao.jpg){align="right" width="250"}
 Prof. Zhihang Yao specializes in 3D geoinformation, spatial data infrastructure, and digital urban modeling.
 He began his PhD at TUMGI and joined the 3DCityDB team, where he became one of the lead developers and maintainers
 of the 3DCityDB software, with a particular focus on the 3DCityDB Web Map Client.

@@ -41,6 +41,29 @@ This section contains some background information about the 3DCityDB contributor
 
   <div style="display: table-row;">
     <div style="display: table-cell; text-align: center; vertical-align: middle; width: 20%;">
+      <a href="hft-stuttgart/"><img src="./assets/HFT-Stuttgart-Logo-2025.svg" alt="Icon" style="max-width: 100px;"></a>
+    </div>
+    <div style="display: table-cell; text-align: left; vertical-align: top; width: 40%;">
+      <p>
+        <b>Hochschule für Technik Stuttgart (HFT Stuttgart)</b>
+      </p>
+      <p>
+         Schellingstr. 24</br>
+         70174 Stuttgart, Germany
+      </p>
+    </div>
+    <div style="display: table-cell; text-align: left; vertical-align: top; width: 40%;">
+      <p>Contact</p>
+      <p>
+        Zhihang Yao</br>
+        <a href="mailto:zhihang.yao(at)hft-stuttgart.de">zhihang.yao(at)hft-stuttgart.de</a></br>
+        <a href="https://www.hft-stuttgart.com/" target="_blank">https://www.hft-stuttgart.com/</a>
+      </p>
+    </div>
+  </div>
+
+  <div style="display: table-row;">
+    <div style="display: table-cell; text-align: center; vertical-align: middle; width: 20%;">
       <a href="list-eco/"><img src="./assets/List_Eco_Farbe_sRGB.svg" alt="Icon" style="max-width: 100px;"></a>
     </div>
     <div style="display: table-cell; text-align: left; vertical-align: top; width: 40%;">
