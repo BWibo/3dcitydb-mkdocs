@@ -148,7 +148,7 @@ identical to the EPSG code of the CRS. There are three parameters that need to b
 
 !!! tip
     The coordinate reference system can be changed at any time after setup using the database function
-    `citydb_pkg.change_schema_srid`. Refer to the [database procedures section](../3dcitydb/db-procedures.md) for
+    `citydb_pkg.change_schema_srid`. Refer to the [database procedures section](../3dcitydb/db-functions.md) for
     more information.
 
 ### Step 6 – Create changelog extension

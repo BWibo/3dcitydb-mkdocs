@@ -94,8 +94,8 @@ schema mapping that provides additional details about the feature type and its m
 the 3DCityDB `v5`, including feature properties and their data types.
 
 !!! tip
-    The JSON-based schema mapping is essential for understanding how feature types are represented and
-    retrieved in the 3DCityDB `v5`. Tools can automatically parse and interpret it to interact with the database.
+    The JSON-based schema mapping is essential for understanding how feature types and their properties are represented
+    and retrieved in the 3DCityDB `v5`. Tools can automatically parse and interpret it to interact with the database.
 
 The example below shows the JSON definitions for the `Road` feature type and the common supertype `AbstractObject`.
 
@@ -264,9 +264,9 @@ The example below shows the JSON definitions for the `Road` feature type and the
     }
     ```
 
-Each feature type is represented as a JSON object and has an `"identifier"`, which combines the namespace alias and type name
-for unique identification and reference, along with a `"description"` property defining the type. These definitions
-come from CityGML 3.0. The `"table"` property specifies the 3DCityDB table where the feature is stored, typically the
+Each feature type is represented as a JSON object and includes an `"identifier"`, which combines the namespace alias and type name
+for unique identification and reference. It also has a `"description"` property that defines the type, based on CityGML 3.0
+definitions . The `"table"` property specifies the 3DCityDB table where the feature is stored, typically the
 [`FEATURE`](feature-module.md#feature-table) table.
 
 The `"properties"` array lists the feature type's properties as separate JSON objects. Each property has a `"name"`, matching
@@ -569,7 +569,7 @@ with the following meanings:
 !!! tip
     The coordinate reference system can be changed at any time after setup using the database function
     `citydb_pkg.change_schema_srid`. However, **changing the values directly in the `DATABASE_SRS` table will have no impact
-    on the geometries stored in the database**. Refer to the [database procedures section](../3dcitydb/db-procedures.md) for more information.
+    on the geometries stored in the database**. Refer to the [database procedures section](../3dcitydb/db-functions.md) for more information.
 
 ## `ADE` table
 
