@@ -1,5 +1,5 @@
 ---
-title: Downloads
+title: Get the software
 description: Download 3DCityDB and citydb-tool
 # icon: material/emoticon-happy
 tags:

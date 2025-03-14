@@ -13,7 +13,7 @@ tags:
 
 The 3DCityDB Docker images are available for _PostgreSQL/PostGIS_. The PostgreSQL/PostGIS version is based on the official [PostgreSQL](https://github.com/docker-library/postgres/){target="blank"} and [PostGIS](https://github.com/postgis/docker-postgis/){target="blank} Docker images.
 
-![3D City Database on Docker](./assets/citydb_docker_logo.png){ width="100" }
+![3D City Database on Docker](./assets/citydb-docker-logo.png){ width="100" }
 /// caption
 ///
 

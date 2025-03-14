@@ -24,7 +24,7 @@ CityGML 3.0 was officially released as a standard by the [Open Geospatial Consor
 September 2021. It is an evolution of CityGML 2.0 and 1.0 and introduces significant modifications and improvements to
 the data model (see [here](https://www.asg.ed.tum.de/en/gis/projects/citygml-30/){target="blank"}). These major changes led to a complete re-implementation of
 3D City Database (3DCityDB) and the toolset that comes with it. Compared to 3DCityDB `v4`, `v5` features a
-substantially simplified [database schema](./3dcitydb/relational-db-schema.md). CityGML 3.0 and its encodings are supported only by 3DCityDB `v5`.
+substantially simplified [database schema](./3dcitydb/relational-schema.md). CityGML 3.0 and its encodings are supported only by 3DCityDB `v5`.
 
 This page provides information on the compatibility of CityGML versions and their encodings with different 3DCityDB
 versions, along with the tools available for each database version. The table below offers a
@@ -102,7 +102,7 @@ versions 2.0/1.0 and 3.0. The most important changes include:
 
 - __New feature types and concepts:__ CityGML 3.0 introduces many new feature types, data types, attributes,
   and concepts that are not available in previous versions. 
-- __Refined LoD concept:__ The LoD model has been standardized across all feature types. Some LoDs levels and
+- __Refined LoD concept:__ The LoD model has been standardized across all feature types. Some LoD levels and
   geometry representations from CityGML 2.0 are no longer present in version 3.0. 
 - __LoD-independent interior modeling:__ Interiors can now be modeled independently of LoD levels. As a result,
   `LoD4` of CityGML 2.0 no longer exists in version 3.0.
@@ -127,12 +127,12 @@ CityGML 2.0 structures to valid representations in version 3.0.
     The decision to apply upgrade options depends on which CityGML version serves as the primary and leading
     version in your 3DCityDB `v5`.
 
-    - __CityGML 2.0:__ Import CityGML 2.0/1.0 data as-is without using upgrade options. Avoid importing CityGML 3.0
-      data if it contains features not avaialble in CityGML 2.0. Upgrade options can be used
-      when exporting data in CityGML 3.0 format if explicitly required.
     - __CityGML 3.0 (recommended):__ Apply upgrade options when importing CityGML 2.0/1.0 data,
       provided the data contains corresponding content. Exporting to CityGML 2.0/1.0 might lead to data loss unless
       automatic conversion is possible.
+    - __CityGML 2.0:__ Import CityGML 2.0/1.0 data as-is without using upgrade options. Avoid importing CityGML 3.0
+      data if it contains features not avaialble in CityGML 2.0. Upgrade options can be used
+      when exporting data in CityGML 3.0 format if explicitly required.
 
 ### Examples
 

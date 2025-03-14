@@ -15,5 +15,10 @@
 
 .md-typeset .admonition,
 .md-typeset details {
-  font-size: 15px
+  font-size: 15px;
+}
+
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
+  padding: 10px 5px;
 }
