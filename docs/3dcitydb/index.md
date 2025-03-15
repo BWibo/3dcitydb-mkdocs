@@ -11,21 +11,27 @@ far beyond visualization.
 
 The database schema of the 3D City Database V5 results from a systematic mapping 
 of the data model defined in the 
-[OGC City Geography Markup Language Conceptual Model (**CityGML Version 3.0**)](https://www.ogc.org/standard/citygml/),
+[OGC City Geography Markup Language Conceptual Model (**CityGML Version 3.0**)](https://www.ogc.org/standard/citygml/){target="blank"},
 an international standard for representing and exchanging
-virtual 3D city models issued by the [Open Geospatial Consortium (OGC)](https://www.ogc.org/). 
+virtual 3D city models issued by the [Open Geospatial Consortium (OGC)](https://www.ogc.org/){target="blank"}. 
 
-## The 3DCityDB software suite
+All software of the new 3DCityDB v5 - but also of the previous versions - are available 
+from the 3DCityDB Github repository [https://github.com/3dcitydb](https://github.com/3dcitydb){target="blank"}
+and from the 3DCityDB homepage at [https://www.3dcitydb.org/](https://www.3dcitydb.org/){target="blank"}.
 
-3DCityDB v5 is a software suite, currently consisting of these components (which are 
+## 3DCityDB v5 software suite
+
+`3DCityDB v5` is a software suite, currently consisting of these components (which are 
 all covered by this documentation):
 
-1) The `3dcitydb` database schema and pgSQL utility scripts, running within a PostgreSQL
-   database management system with PostGIS spatial extension. 
-2) The software `citydb-tool` to import and export CityGML datasets of arbitrary file 
+1. The `3dcitydb` database schema and pgSQL utility scripts, running within a PostgreSQL
+   database management system with PostGIS spatial extension. Github repo:
+   [https://github.com/3dcitydb/3dcitydb](https://github.com/3dcitydb/3dcitydb){target="blank"}
+3. The software `citydb-tool` to import and export CityGML datasets of arbitrary file 
    sizes using both GML and CityJSON encoding. All CityGML versions (3.0, 2.0, and 1.0)
    as well as GML-based encodings ("CityGML files") and JSON-based encodings 
-   ("CityJSON files") are supported.
+   ("CityJSON files") are supported. Github repo:
+   [https://github.com/3dcitydb/citydb-tool](https://github.com/3dcitydb/citydb-tool){target="blank"}
 
 ## Key features of 3DCityDB v5
 
@@ -44,7 +50,7 @@ all covered by this documentation):
    This realizes a simple but powerful historization / versioning mechanism. 
  * Import and export tool to read and write CityGML datasets of arbitrary file 
    sizes using both GML and CityJSON encoding. 
-   The [citydb-tool](https://github.com/3dcitydb/citydb-tool) allows the on-the-fly
+   The [citydb-tool](https://github.com/3dcitydb/citydb-tool){target="blank"} allows the on-the-fly
    upgrade of CityGML 2.0 / 1.0 datasets during import to CityGML 3.0 and the downgrade 
    of stored CityGML 3.0 datasets in the database to CityGML 2.0 or 1.0 files.
 
@@ -71,15 +77,16 @@ interface.
 
 An exporter for visualization formats like KML, COLLADA, glTF (as was included in the 
 `3DCityDB-Importer-Exporter`) is not available yet. However, we are already working on 
-a tool to export visualization data in the form of OGC 3DTiles. For that purpose we are 
-currently customizing the third-party Open Source tool [pg2b3dm](https://github.com/Geodan/pg2b3dm) 
-developed by Bert Temme to directly work on the 3DCityDB V5. The tool will be provided as a customized 
-Docker container, too.
+a tool to export visualization data in the form of OGC `3DTiles`. For that purpose we are 
+currently customizing the third-party Open Source tool [pg2b3dm](https://github.com/Geodan/pg2b3dm){target="blank"} 
+developed by Bert Temme to directly work on the 3DCityDB v5. The tool will be provided as a 
+customized Docker container, too.
 
-Note, that `3DCityDB v4` and its tools remain functioning and are still available. If you
-are interested in using the previous version and its tools, please refer to the old 
-package (3DCityDB v4 suite)[https://github.com/3dcitydb/3dcitydb-suite]. The documentation 
-of the 3DCityDB v4 suite is still [available here](https://3dcitydb-docs.readthedocs.io/en/latest/).
+Note, that `3DCityDB v4` and its tools remain functioning and are still available. They will
+be maintained at least for the next 1-2 years to give users enough time to migrate to the new version.
+If you are (interested in) using the previous version and its tools, please refer to the old 
+package [3DCityDB v4 suite](https://github.com/3dcitydb/3dcitydb-suite){target="blank"}. The documentation 
+of the 3DCityDB v4 suite is still [available here](https://3dcitydb-docs.readthedocs.io/en/latest/){target="blank"}.
 
 ## Who is using the 3D City Database?
 
