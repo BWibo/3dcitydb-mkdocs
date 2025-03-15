@@ -188,7 +188,8 @@ The example below illustrates texture mapping for `surface_B` and `surface_C` of
       if it duplicates the first to close the ring.
     - Texture coordinates must be listed in the same order as the corresponding ring coordinates of the surface.
     - Every surface must have texture coordinates for its exterior ring. If the surface has interior rings, texture
-      coordinates must also be provided for each interior ring.
+      coordinates must also be provided for each interior ring, following the same order in which the rings appear
+      in the surface.
 
 ### Assigning textures through linear transformations
 
