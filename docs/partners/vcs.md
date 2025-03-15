@@ -37,7 +37,7 @@ storing and managing CityGML-based 3D city models, ensuring scalable and efficie
 The **VC Suite** is our innovative 3D urban platform solution, designed to build, manage, and leverage 3D city models. It
 forms the foundation for creating urban digital twins, transforming complex geospatial data into valuable, actionable
 insights. With tools such as [VC Map](https://vc.systems/en/products/vc-map/), [VC Publisher](https://vc.systems/en/products/vc-publisher/),
-[VC Warehouse](https://vc.systems/en/products/vc-warehouse/), and [VC Solar](https://vc.systems/en/products/vc-solar/),
+[VC Planner](https://vc.systems/en/products/vc-planner/), and [VC Solar](https://vc.systems/en/products/vc-solar/),
 the VC Suite empowers smart city applications, simulations, and analyses, enabling our customers to make more
 informed decisions and optimize urban planning. 
 

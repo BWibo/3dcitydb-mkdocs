@@ -32,17 +32,6 @@ versions, along with the tools available for each database version. The table be
 [CityGML versions](#migrate-citygml-or-cityjson-data) and between [3DCityDB versions](#migrate-3dcitydb-database-instances)
 `v4` and `v5`.
 
-!!! tip "Backwards compatibility"
-    All previous 3DCityDB versions and tools remain fully usable with the CityGML versions they support. However, to 
-    benefit from CityGML 3.0, the simplified database schema, and new features of 3DCityDB `v5`, a database
-    migration to the 3DCityDB `v5` is required.
-
-    __Currently, only [citydb-tool](./citydb-tool/index.md) is compatible with 3DCityDB `v5`.__ If you want to
-    use legacy 3DCityDB `v4` tools such as the [Importer/Exporter](https://3dcitydb-docs.readthedocs.io/en/latest/impexp/docker.html){target="blank"},
-    the [3D Web Map Client](https://3dcitydb-docs.readthedocs.io/en/latest/webmap/docker.html){target="blank"}, or the
-    [Web Feature Service (WFS)](https://3dcitydb-docs.readthedocs.io/en/latest/wfs/docker.html){target="blank"},
-    your data must first be imported into a 3DCityDB `v4`.
-
 ## Compatibility overview
 
 The following table outlines the compatibility between __3DCityDB__ versions, __citydb-tool__ versions
@@ -51,9 +40,20 @@ is included for reference but is no longer recommended for production use.
 
 | 3DCityDB version | Tool version                     | Supported standards and encodings | Supported standard/encoding versions                           |
 |------------------|----------------------------------|-----------------------------------|----------------------------------------------------------------|
-| __5.x__          | __citydb-tool 1.x__              | CityGML, CityJSON                 | CityGML: __3.0__, 2.0, 1.0</br>CityJSON: __2.0__, __1.1__, 1.0 |
+| __5.0.x__        | __citydb-tool 1.0.x__            | CityGML, CityJSON                 | CityGML: __3.0__, 2.0, 1.0</br>CityJSON: __2.0__, __1.1__, 1.0 |
 | 4.x              | Importer-Exporter 5.x            | CityGML, CityJSON                 | CityGML: 2.0, 1.0</br>CityJSON: 1.0                            |
 | 3.x              | Importer-Exporter 4.3 and higher | CityGML, CityJSON                 | CityGML: 2.0, 1.0</br>CityJSON: 1.0                            |
+
+!!! tip "Backwards compatibility"
+    All previous 3DCityDB versions and tools remain fully usable with the CityGML versions they support. However, to
+    benefit from CityGML 3.0, the simplified database schema, and new features of 3DCityDB `v5`, a database
+    migration to the 3DCityDB `v5` is required.
+
+    __Currently, only [citydb-tool](./citydb-tool/index.md) is compatible with 3DCityDB `v5`.__ If you want to
+    use legacy 3DCityDB `v4` tools such as the [Importer/Exporter](https://3dcitydb-docs.readthedocs.io/en/latest/impexp/docker.html){target="blank"},
+    the [3D Web Map Client](https://3dcitydb-docs.readthedocs.io/en/latest/webmap/docker.html){target="blank"}, or the
+    [Web Feature Service (WFS)](https://3dcitydb-docs.readthedocs.io/en/latest/wfs/docker.html){target="blank"},
+    your data must first be imported into a 3DCityDB `v4`.
 
 ## CityGML and CityJSON support in 3DCityDB `v5`
 
