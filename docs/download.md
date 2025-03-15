@@ -8,7 +8,7 @@ tags:
   - download
 ---
 
-The 3D City Database `v5` (3DCityDB) is hosted on [:fontawesome-brands-github: GitHub](https://github.com/3dcitydb){target="blank"}, where we
+The 3D City Database (3DCityDB) is hosted on [:fontawesome-brands-github: GitHub](https://github.com/3dcitydb){target="blank"}, where we
 regularly publish new releases, including new features and bug fixes, for the 3DCityDB and its tools. Development takes
 place in separate repositories on GitHub, with software release packages available for download in the "Releases"
 section of each repository. All notable changes in new releases are documented in changelogs, which are maintained
