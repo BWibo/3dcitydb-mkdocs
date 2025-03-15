@@ -50,8 +50,8 @@ Appearances are assigned to either features or implicit geometries in one of the
 
 3. **Global appearances:** Appearances can be shared across multiple surface geometries of different features,
    referred to as global appearances in CityGML. To designate an appearance as global, the `is_global` property should
-   be set to `1` (true), and the `feature_id` should be set to `NULL`. Additionally, a global appearance shall not be
-   referenced from individual features using an appearance property.
+   be set to `1` (true), and both `feature_id` and `implicit_geometry_id` should be set to `NULL`. Additionally,
+   a global appearance shall not be referenced from individual features using an appearance property.
 
 !!! tip
     Storing global appearances in the database should be avoided, as it increases data management overhead and
