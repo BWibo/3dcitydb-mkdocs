@@ -345,7 +345,7 @@ the `core:AbstractObject` feature type, illustrate this.
     ```
 
 !!! tip
-    The [3DCityDB software package](../download.md#3dcitydb-scripts) includes a JSON Schema specification that defines
+    The [3DCityDB software package](../download.md#3dcitydb-database-scripts) includes a JSON Schema specification that defines
     the allowed structure of the schema mapping for feature types. You can find this schema file, named
     `schema-mapping.schema.json`, in the `json-schema` folder of the software package.
 
@@ -552,7 +552,7 @@ separate row of `PROPERTY` and joined with the parent row representing the data 
 !!! tip
     The complete JSON Schema specification for defining data types is provided in the file
     `schema-mapping.schema.json`, which can be found in the `json-schema` folder of the  
-    [3DCityDB software package](../download.md#3dcitydb-scripts).
+    [3DCityDB software package](../download.md#3dcitydb-database-scripts).
 
 ## `DATABASE_SRS` table
 

@@ -14,7 +14,7 @@ Before you begin, ensure you have the following:
 
 - A ready-to-use 3DCityDB `v5` instance (see [3DCitydb setup guide](setup.md)).
 - A matching release package of `citydb-tool` (follow the [download instructions](../download.md)).
-- A system that meets the [requirements](requirements.md#database-client-citydb-tool) for running citydb-tool.
+- A system that meets the [requirements](requirements.md#citydb-tool-database-client) for running citydb-tool.
 - A CityGML dataset to import.
 
 ## Step 1: Setting up citydb-tool

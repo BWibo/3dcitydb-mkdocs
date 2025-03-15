@@ -190,7 +190,7 @@ importing CityGML datasets that contain orientable primitives such as `gml:Orien
 attribute set to `"-"`. The `"isReversed"` property enables tools to export the component as orientable primitive again.
 
 !!! tip
-    The [3DCityDB software package](../download.md#3dcitydb-scripts) includes a JSON Schema specification that defines
+    The [3DCityDB software package](../download.md#3dcitydb-database-scripts) includes a JSON Schema specification that defines
     the allowed structure of the JSON metadata object. You can find this schema file, named `geometry-properties.schema.json`,
     in the `json-schema` folder of the software package.
 

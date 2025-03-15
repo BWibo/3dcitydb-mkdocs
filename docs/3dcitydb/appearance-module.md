@@ -226,7 +226,7 @@ for geo-referenced textures are stored in the `georeferenced_texture_mapping` co
 
     - If a mapping lists identifiers not found in the target geometry's JSON metadata, the mapping for those
       identifiers is invalid.
-    - JSON Schema specifications for each mapping are included in the [3DCityDB software package](../download.md#3dcitydb-scripts),
+    - JSON Schema specifications for each mapping are included in the [3DCityDB software package](../download.md#3dcitydb-database-scripts),
       located in the `json-schema` folder. The schema files are named after the respective column names
       (e.g., `texture-mapping.schema.json`).
 
