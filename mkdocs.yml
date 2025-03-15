@@ -134,14 +134,14 @@ markdown_extensions:
 # Extra js ####################################################################
 extra_javascript:
   - assets/javascripts/tablesort.js
-  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js
   - assets/javascripts/katex.js
-  - https://unpkg.com/katex@0/dist/katex.min.js
-  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js
 
 # Extra CSS ###################################################################
 extra_css:
-  - https://unpkg.com/katex@0/dist/katex.min.css
+  - https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css
   - assets/stylesheets/extra.css
 
 watch:
