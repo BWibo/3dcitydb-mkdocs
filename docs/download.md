@@ -35,7 +35,7 @@ PostgreSQL/PostGIS.
 A step-by-step guide on setting up a 3DCityDB using the database scripts is available [here](first-steps/setup.md).
 For complete documentation of the 3DCityDB and its relational schema, refer to the [3D City Database section](3dcitydb/index.md).  
 
-## citydb-tool client for the 3DCityDB
+## `citydb-tool` database client
 
 `citydb-tool` is the default command-line client for the 3DCityDB, used to import and export city model data as well as
 perform database operations. Java is required to be installed on your system in order to run citydb-tool.
