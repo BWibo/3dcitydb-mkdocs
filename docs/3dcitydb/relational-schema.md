@@ -26,7 +26,7 @@ following chapters:
 - **Geometry module**: Contains tables for storing both explicit and implicit geometry data.
 - **Appearance module**: Contains tables for storing appearance information.
 - **Metadata module**: Holds meta-information about features and their properties.
-- **Codelist module]**: Stores codelists with their corresponding values.
+- **Codelist module**: Stores codelists with their corresponding values.
 
 !!! note
     Although conceptually the database model is applicable to any database system, this chapter uses
