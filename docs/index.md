@@ -35,7 +35,7 @@ we can use to improve the documentation.
 
     Download 3DCityDB and tools
 
-    [:octicons-arrow-right-24: Downloads](download.md)
+    [:octicons-arrow-right-24: Get the software](download.md)
 
 - :fontawesome-solid-gears:{ .lg .middle } __Compatibility__
 
