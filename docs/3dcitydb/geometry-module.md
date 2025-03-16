@@ -287,7 +287,7 @@ The `IMPLICIT_GEOMETRY` table supports three methods for storing template geomet
 
 For both methods 2 and 3, the `mime_type` column should specify the MIME type of the binary 3D model or
 external file. This ensures that the 3D model can be processed correctly according to its format (e.g., 
-`model/gltf+json` for a glTF model or `application/vnd.collada+xml` for a Collada model). Additionally,
+`model/gltf+json` for a glTF model or `application/vnd.collada+xml` for a COLLADA model). Additionally,
 the `mime_type_codespace` column can store an optional code space for the MIME type, providing further context or
 classification.
 
