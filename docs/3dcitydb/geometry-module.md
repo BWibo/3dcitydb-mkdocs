@@ -154,9 +154,9 @@ consisting of six polygons. The equivalent CityGML `Solid` geometry is shown in 
     ```
 
 Unlike the PostGIS polyhedral surface, the CityGML `Solid` geometry has an additional `CompositeSurface` to represent
-the outer shell formed by the polygons. Additionally, the solid, the composite surface, and each polygon have an
+the outer shell formed by the polygons. Moreover, the solid, the composite surface, and each polygon have an
 identifier that allows the reuse of the component and the assignment of textures or colors. The following JSON object
-captures this extra metadata and links it to the `POLYHEDRALSURFACE Z`:
+encodes this extra metadata and links it to the `POLYHEDRALSURFACE Z` representation:
 
 ```javascript
 {
