@@ -51,7 +51,7 @@ we can use to improve the documentation.
 
     3DCityDB's relational schema explained, Docker usage
 
-    [:octicons-arrow-right-24: 3D City DB](3dcitydb/index.md)
+    [:octicons-arrow-right-24: 3D City Database](3dcitydb/index.md)
 
 - :material-database-edit:{ .lg .middle } __Data management__
 
