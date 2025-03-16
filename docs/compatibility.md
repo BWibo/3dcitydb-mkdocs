@@ -22,7 +22,7 @@ tags:
 
 CityGML 3.0 was officially released as a standard by the [Open Geospatial Consortium (OGC)](https://www.ogc.org/de/publications/standard/citygml/){target="blank"} in
 September 2021. It is an evolution of CityGML 2.0 and 1.0 and introduces significant modifications and improvements to
-the data model (see [here](https://www.asg.ed.tum.de/en/gis/projects/citygml-30/){target="blank"}). These major changes led to a complete re-implementation of
+the data model. These major changes led to a complete re-implementation of
 3D City Database (3DCityDB) and the toolset that comes with it. Compared to 3DCityDB `v4`, `v5` features a
 substantially simplified [database schema](./3dcitydb/relational-schema.md). CityGML 3.0 and its encodings are supported only by 3DCityDB `v5`.
 
@@ -51,8 +51,7 @@ is included for reference but is no longer recommended for production use.
 
     __Currently, only [citydb-tool](./citydb-tool/index.md) is compatible with 3DCityDB `v5`.__ If you want to
     use legacy 3DCityDB `v4` tools such as the [Importer/Exporter](https://3dcitydb-docs.readthedocs.io/en/latest/impexp/docker.html){target="blank"},
-    the [3D Web Map Client](https://3dcitydb-docs.readthedocs.io/en/latest/webmap/docker.html){target="blank"}, or the
-    [Web Feature Service (WFS)](https://3dcitydb-docs.readthedocs.io/en/latest/wfs/docker.html){target="blank"},
+    or the [Web Feature Service (WFS)](https://3dcitydb-docs.readthedocs.io/en/latest/wfs/docker.html){target="blank"},
     your data must first be imported into a 3DCityDB `v4`.
 
 ## CityGML and CityJSON support in 3DCityDB `v5`

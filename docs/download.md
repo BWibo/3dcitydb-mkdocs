@@ -68,7 +68,7 @@ The complete documentation of the 3DCityDB-Web-Map-Client is available
 including it in this documentation.
 
 !!! note
-    Currently, we do not offer a tool to export city model data from the 3DCityDB `v5` in KML/COLLADA or 3D Tiles
+    Currently, we do not offer a tool to export city model data from the 3DCityDB `v5` in KML, COLLADA, or 3D Tiles
     format, which is required for visualization in the 3DCityDB-Web-Map-Client. **This feature is a work in progress, so stay
     tuned for future updates!**
 

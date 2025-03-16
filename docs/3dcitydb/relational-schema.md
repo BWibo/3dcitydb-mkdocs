@@ -6,6 +6,8 @@ tags:
   - relational schema
 ---
 
+# Relational schema overview
+
 The 3D City Database `v5` is a major revision of the previous `v4` release. The database schema has been
 completely redesigned, significantly simplified, and restructured. Unlike `v4`, it no longer uses individual feature
 tables with dedicated attribute columns. Instead, the schema is streamlined with fewer tables, including a single

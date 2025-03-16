@@ -13,7 +13,7 @@ tags:
 
 ![Virtual City Systems](assets/vcs-logo.png){width="300"}
 
-Since 2005, [Virtual City Systems](https://vc.systems/en/) has been developing software solutions for managing,
+Since 2005, [Virtual City Systems](https://vc.systems/en/){target="blank"} has been developing software solutions for managing,
 distributing, and utilizing digital 3D city models and urban twins. Our technology enables the efficient
 processing of geospatial data, supporting cities and municipalities in building holistic digital twins and shaping
 the future of urban planning.
@@ -29,22 +29,22 @@ and risk analysis.
 Since 2010, VCS has been a key contributor to the 3D City Database (3DCityDB), a milestone for the CityGML community
 and a core component of our products and services. By continuously advancing and widely applying 3DCityDB
 and CityGML in customer and research projects, we play a vital role in the global adoption of urban digital twins.
-Built on 3DCityDB, our [VC Database](https://vc.systems/en/products/vc-database/) provides a reliable solution for
+Built on 3DCityDB, our [VC Database](https://vc.systems/en/products/vc-database/){target="blank"} provides a reliable solution for
 storing and managing CityGML-based 3D city models, ensuring scalable and efficient management of urban data.
 
 ## VC Suite — Ready to Twin
 
 The **VC Suite** is our innovative 3D urban platform solution, designed to build, manage, and leverage 3D city models. It
 forms the foundation for creating urban digital twins, transforming complex geospatial data into valuable, actionable
-insights. With tools such as [VC Map](https://vc.systems/en/products/vc-map/), [VC Publisher](https://vc.systems/en/products/vc-publisher/),
-[VC Planner](https://vc.systems/en/products/vc-planner/), and [VC Solar](https://vc.systems/en/products/vc-solar/),
+insights. With tools such as [VC Map](https://vc.systems/en/products/vc-map/){target="blank"}, [VC Publisher](https://vc.systems/en/products/vc-publisher/){target="blank"},
+[VC Planner](https://vc.systems/en/products/vc-planner/){target="blank"}, and [VC Solar](https://vc.systems/en/products/vc-solar/){target="blank"},
 the VC Suite empowers smart city applications, simulations, and analyses, enabling our customers to make more
 informed decisions and optimize urban planning. 
 
 Rooted in our commitment to open standards, interfaces, and APIs, the VC Suite seamlessly integrates
 with other systems, unlocking data from proprietary silos. Beyond 3DCityDB, we actively contribute to the
 open-source community. As part of this effort, we have released
-[VC Map as open source](https://github.com/virtualcitySYSTEMS/map-ui) — a high-performance, modern
+[VC Map as open source](https://github.com/virtualcitySYSTEMS/map-ui){target="blank"} — a high-performance, modern
 web mapping application that integrates 3D and 2D geospatial data, oblique aerial imagery, panoramic views, sensor data,
 and urban designs, delivering an immersive digital twin experience accessible to all on the web.
 

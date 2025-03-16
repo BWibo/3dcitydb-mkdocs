@@ -8,9 +8,9 @@ tags:
 
 # Partners and contributors
 
-Since 2007, the 3D City Database has been open-source, providing a reliable, scalable, and efficient solution for
+Since 2007, the 3D City Database has been open source, providing a reliable, scalable, and efficient solution for
 managing CityGML-based city models, widely used in production by cities and municipalities worldwide. The ongoing
-development is driven by the project partners of the 3DCityDB open-source initiative and its growing community.
+development is driven by the partners of the 3DCityDB open-source project and its growing community.
 This section provides background information about the contributors to the 3DCityDB and how they use the software in
 research and daily business.
 
