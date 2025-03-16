@@ -72,23 +72,91 @@ stored alongside the geometry in the `geometry_properties` column.
 
 To illustrate the structure and use of this JSON metadata, consider storing a CityGML solid geometry in
 PostgreSQL/PostGIS. The PostGIS-specific data type used is `POLYHEDRALSURFACE Z`, which stores a simple array of
-polygons. The following snippet demonstrates how a 1-unit cube is represented as a polyhedral surface
-consisting of six polygons:
+polygons. The following snippet demonstrates how a unit cube is represented as a polyhedral surface
+consisting of six polygons. The equivalent CityGML `Solid` geometry is shown in a second tab.
 
-```
-POLYHEDRALSURFACE Z (
-  ((0 0 0, 0 1 0, 1 1 0, 1 0 0, 0 0 0)),
-  ((0 0 0, 0 1 0, 0 1 1, 0 0 1, 0 0 0)),
-  ((0 0 0, 1 0 0, 1 0 1, 0 0 1, 0 0 0)),
-  ((1 1 1, 1 0 1, 0 0 1, 0 1 1, 1 1 1)),
-  ((1 1 1, 1 0 1, 1 0 0, 1 1 0, 1 1 1)),
-  ((1 1 1, 1 1 0, 0 1 0, 0 1 1, 1 1 1))
-)
-```
+=== "POLYHEDRALSURFACE Z"
 
-A CityGML `Solid` geometry requires an additional `CompositeSurface` to represent the outer shell formed by the polygons.
-Additionally, the solid, the composite surface, and each polygon can have an identifier that allows the reuse of the
-component and the assignment of textures or colors. The following JSON object adds this extra metadata:
+    ```
+    POLYHEDRALSURFACE Z (
+      ((0 0 0, 0 1 0, 1 1 0, 1 0 0, 0 0 0)),
+      ((0 0 0, 0 1 0, 0 1 1, 0 0 1, 0 0 0)),
+      ((0 0 0, 1 0 0, 1 0 1, 0 0 1, 0 0 0)),
+      ((1 1 1, 1 0 1, 0 0 1, 0 1 1, 1 1 1)),
+      ((1 1 1, 1 0 1, 1 0 0, 1 1 0, 1 1 1)),
+      ((1 1 1, 1 1 0, 0 1 0, 0 1 1, 1 1 1))
+    )
+    ```
+
+=== "CityGML Solid"
+
+    ```xml
+    <gml:Solid gml:id="mySolid">
+      <gml:exterior>
+        <gml:Shell gml:id="myOuterShell">
+          <gml:surfaceMember>
+            <gml:Polygon gml:id="first">
+              <gml:exterior>
+                <gml:LinearRing>
+                  <gml:posList>0 0 0 0 1 0 1 1 0 1 0 0 0 0 0</gml:posList>
+                </gml:LinearRing>
+              </gml:exterior>
+            </gml:Polygon>
+          </gml:surfaceMember>
+          <gml:surfaceMember>
+            <gml:Polygon gml:id="second">
+              <gml:exterior>
+                <gml:LinearRing>
+                  <gml:posList>0 0 0 0 1 0 0 1 1 0 0 1 0 0 0</gml:posList>
+                </gml:LinearRing>
+              </gml:exterior>
+            </gml:Polygon>
+          </gml:surfaceMember>
+          <gml:surfaceMember>
+            <gml:Polygon gml:id="third">
+              <gml:exterior>
+                <gml:LinearRing>
+                  <gml:posList>0 0 0 1 0 0 1 0 1 0 0 1 0 0 0</gml:posList>
+                </gml:LinearRing>
+              </gml:exterior>
+            </gml:Polygon>
+          </gml:surfaceMember>
+          <gml:surfaceMember>
+            <gml:Polygon gml:id="fourth">
+              <gml:exterior>
+                <gml:LinearRing>
+                  <gml:posList>1 1 1 1 0 1 0 0 1 0 1 1 1 1 1</gml:posList>
+                </gml:LinearRing>
+              </gml:exterior>
+            </gml:Polygon>
+          </gml:surfaceMember>
+          <gml:surfaceMember>
+            <gml:Polygon gml:id="fifth">
+              <gml:exterior>
+                <gml:LinearRing>
+                  <gml:posList>1 1 1 1 0 1 1 0 0 1 1 0 1 1 1</gml:posList>
+                </gml:LinearRing>
+              </gml:exterior>
+            </gml:Polygon>
+          </gml:surfaceMember>
+          <gml:surfaceMember>
+            <gml:Polygon gml:id="sixth">
+              <gml:exterior>
+                <gml:LinearRing>
+                  <gml:posList>1 1 1 1 1 0 0 1 0 0 1 1 1 1 1</gml:posList>
+                </gml:LinearRing>
+              </gml:exterior>
+            </gml:Polygon>
+          </gml:surfaceMember>
+        </gml:Shell>
+      </gml:exterior>
+    </gml:Solid>
+    ```
+
+Unlike the PostGIS polyhedral surface, the CityGML `Solid` geometry has an additional `CompositeSurface` to represent
+the outer shell formed by the polygons. Additionally, the solid, the composite surface, and each polygon have an
+identifier that allows the reuse of the component and the assignment of textures or colors. The following JSON object
+captures this extra metadata and links it to the `POLYHEDRALSURFACE Z`:
 
 ```javascript
 {
@@ -152,7 +220,7 @@ directly reference a specific geometry from the polyhedral surface.
 The other six items in the `"children"` array represent the individual polygons (`type = 5`) that form the outer shell. Each
 polygon has its own unique `"objectId"`. The `"parent"` field contains a `0`-based reference into the `"children"` array and
 defines the parent of the component. In this example, a value of `0` indicates that the polygon belongs to the outer shell.
-The `"geometryIndex"` is a `0`-based index linking the item to a specific polygon of the polyhedral surface stored
+The `"geometryIndex"` is a `0`-based index linking the child to a specific polygon of the polyhedral surface stored
 in the `geometry` column.
 
 !!! note "Summary"
