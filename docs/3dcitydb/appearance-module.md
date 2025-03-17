@@ -111,10 +111,10 @@ and linked through the `tex_image_id` foreign key, enabling multiple surface dat
 
 The orientation and spatial reference specific to a `GeoreferencedTexture` are stored in the `gt_*` columns.
 
-| Column           | Description                                                                                                                   |
-|------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| `gt_orientation` | Specifies the rotation and scaling of a georeferenced texture image as a 2x2 matrix, stored as JSON array in row-major order. |
-| `tex_wrap_mode`  | Defines the 2D point representing the center of the upper left image pixel in real-world space.                               |
+| Column               | Description                                                                                                                   |
+|----------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| `gt_orientation`     | Specifies the rotation and scaling of a georeferenced texture image as a 2x2 matrix, stored as JSON array in row-major order. |
+| `gt_reference_point` | Defines the 2D point representing the center of the upper left image pixel in real-world space.                               |
 
 ## `SURFACE_DATA_MAPPING` table
 
