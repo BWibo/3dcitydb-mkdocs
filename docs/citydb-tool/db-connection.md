@@ -1,7 +1,10 @@
 ---
 title: Database connection
-description:
-# icon: material/filter
+description: Connect to 3DCityDB
+tags:
+  - database connection
+  - postgresql
+  - 3dcitydb
 ---
 
 ## Connecting to a PostgreSQL database

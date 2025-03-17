@@ -4,6 +4,9 @@ description:
 # icon: material/emoticon-happy
 tags:
   - migration
+  - compatibility
+  - 3dcitydb
+  - citydb-tool
 ---
 
 The 3D City Database `v5` is a major revision of the previous version `v4`. The database schema has been

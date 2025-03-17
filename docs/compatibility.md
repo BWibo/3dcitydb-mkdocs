@@ -15,9 +15,9 @@ tags:
   - CityGML 3.0
   - CityJSON 1.0
   - CityJSON 2.0
-  - data-migration
-  - database-migration
-  - legacy-support
+  - data migration
+  - database migration
+  - legacy support
 ---
 
 CityGML 3.0 was officially released as a standard by the [Open Geospatial Consortium (OGC)](https://www.ogc.org/de/publications/standard/citygml/){target="blank"} in
@@ -65,7 +65,7 @@ data loss, as CityGML 3.0 is not fully backwards compatible with versions 2.0 an
 For example, when importing CityGML 2.0 data into 3DCityDB `v5`, you can be confident that it can be exported
 back as CityGML 2.0 without loss. However, exporting to CityGML 3.0 might lead to data loss due to differences
 in data models and supported features between the two versions. The [citydb-tool](./citydb-tool/index.md)
-automatically converts data between versions where possible and offers additional options to handle 
+automatically converts data between versions where possible and offers additional options to handle
 differences on-the-fly when automatic conversion is not feasible (see [below](#handle-citygml-version-differences)).
 
 The same applies to CityJSON: Data can be managed without loss when using the same CityJSON version for both import and
@@ -100,16 +100,16 @@ CityGML 3.0 introduces significant changes to the data model that cannot be tran
 versions 2.0/1.0 and 3.0. The most important changes include:
 
 - __New feature types and concepts:__ CityGML 3.0 introduces many new feature types, data types, attributes,
-  and concepts that are not available in previous versions. 
+  and concepts that are not available in previous versions.
 - __Refined LoD concept:__ The LoD model has been standardized across all feature types. Some LoD levels and
-  geometry representations from CityGML 2.0 are no longer present in version 3.0. 
+  geometry representations from CityGML 2.0 are no longer present in version 3.0.
 - __LoD-independent interior modeling:__ Interiors can now be modeled independently of LoD levels. As a result,
   `LoD4` of CityGML 2.0 no longer exists in version 3.0.
 
 As mentioned above, these differences are only relevant when switching between CityGML versions during import and
 export. When possible, the citydb-tool applies automatic conversions to prevent data loss. For cases
 where automatic conversion is not feasible, the following options are provided to help __upgrade__ deprecated
-CityGML 2.0 structures to valid representations in version 3.0. 
+CityGML 2.0 structures to valid representations in version 3.0.
 
 | Option                 | Description                                                                                       |
 |------------------------|---------------------------------------------------------------------------------------------------|

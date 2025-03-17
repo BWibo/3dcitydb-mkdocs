@@ -1,7 +1,7 @@
 ---
 # title: Docker
 description: citydb-tool Docker documentation and usage examples
-icon: fontawesome/brands/docker
+icon: material/docker
 tags:
   - docker
   - citydb-tool

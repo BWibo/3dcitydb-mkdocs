@@ -4,6 +4,9 @@ description: Tables for storing features and properties
 tags:
   - 3dcitydb
   - relational schema
+  - feature
+  - property
+  - address
 ---
 
 The Feature module defines the tables for storing city objects, including their attributes and relationships

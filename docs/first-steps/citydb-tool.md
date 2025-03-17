@@ -1,6 +1,9 @@
 ---
 title: Using the citydb-tool
 description: How to import and export CityGML data using citydb-tool
+tags:
+  - citydb-tool
+  - quickstart
 ---
 
 This guide provides a quick introduction to importing and exporting CityGML or CityJSON data into the 3DCityDB

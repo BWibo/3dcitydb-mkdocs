@@ -3,6 +3,12 @@ title: Metadata module
 description: Tables for storing meta-information
 tags:
   - 3dcitydb
+  - ade
+  - database srs
+  - datatype
+  - metadata
+  - namespace
+  - objectclass
   - relational schema
 ---
 
@@ -275,7 +281,7 @@ for the `name` and `namespace_id` columns when the property is stored in the [`P
 table. The CityGML 3.0 definition of the property is available as `"description"`.
 
 !!! note
-    To get the list of all properties for a given feature, be sure to combine the `"properties"` of its feature 
+    To get the list of all properties for a given feature, be sure to combine the `"properties"` of its feature
     type with the `"properties"` of all its supertypes.
 
 There are two ways to define the data type of each property:
@@ -535,7 +541,7 @@ The data type of a nested property can be specified in one of two ways:
 2. As a reference to a data type from the `DATATYPE` table via its identifier using the `"type"` property.
 
 !!! note
-    Complex data types are not required to have a `"value"` but can consist solely of nested properties (see the 
+    Complex data types are not required to have a `"value"` but can consist solely of nested properties (see the
     `core:ExternalReference` example). Alternatively, they can designate one of their nested properties as `"value"`
     by using a `0`-based index into the properties array (see the `con:Height` example).
 
@@ -551,7 +557,7 @@ separate row of `PROPERTY` and joined with the parent row representing the data 
 
 !!! tip
     The complete JSON Schema specification for defining data types is provided in the file
-    `schema-mapping.schema.json`, which can be found in the `json-schema` folder of the  
+    `schema-mapping.schema.json`, which can be found in the `json-schema` folder of the
     [3DCityDB software package](../download.md#3dcitydb-database-scripts).
 
 ## `DATABASE_SRS` table

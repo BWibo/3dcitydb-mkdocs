@@ -1,14 +1,14 @@
 ---
 title: 3DCityDB Docker
 description: Usage of the 3D City Database with Docker
-icon: fontawesome/brands/docker
+icon: material/docker
 tags:
   - 3dcitydb
   - docker
   - image
   - postgresql
   - postgis
-  - performance-tuning
+  - performance tuning
 ---
 
 The 3DCityDB Docker images are available for _PostgreSQL/PostGIS_. The PostgreSQL/PostGIS version is based on the official [PostgreSQL](https://github.com/docker-library/postgres/){target="blank"} and [PostGIS](https://github.com/postgis/docker-postgis/){target="blank} Docker images.

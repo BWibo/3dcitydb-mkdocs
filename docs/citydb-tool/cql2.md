@@ -1,7 +1,12 @@
 ---
 title: CQL2 query language
-description:
-# icon: material/filter
+description: Filter and query data using CQL2 query language
+tags:
+  - cql2
+  - query
+  - filter
+  - spatial filter
+  - attribute filter
 ---
 
 **CQL2** (Common Query Language 2) is an advanced query language used to filter and query spatial and attribute

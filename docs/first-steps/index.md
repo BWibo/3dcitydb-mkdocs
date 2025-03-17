@@ -3,6 +3,7 @@ title: First Steps
 description: Getting started with the 3DCityDB
 tags:
   - first-steps
+  - quickstart
 ---
 
 This quickstart guide gives step-by-step instructions for setting up a 3D City Database instance and the database client

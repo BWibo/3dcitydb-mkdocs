@@ -2,6 +2,10 @@
 title: Import
 description: Import
 # icon: material/emoticon-happy
+tags:
+  - citydb-tool
+  - CityGML
+  - import
 ---
 
 # CityGML-specific import options

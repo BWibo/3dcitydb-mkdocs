@@ -1,5 +1,9 @@
 ---
 title: Database functions
+description: Database functions installed with 3DCityDB
+tags:
+  - 3dcitydb
+  - database functions
 ---
 
 The 3DCityDB `v5` includes a set of database-side functions that are automatically installed during setup. These functions
@@ -126,7 +130,7 @@ The following example demonstrates how to terminate a single feature based on it
 
 ```sql
 SELECT terminate_feature(
-    2060316, 
+    2060316,
     '{
         "reason_for_update": "test reason",
         "updating_peron": "test person",

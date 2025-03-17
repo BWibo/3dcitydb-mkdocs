@@ -2,14 +2,19 @@
 title: Setting up a 3DCityDB
 description: How to setup a 3DCityDB.
 tags:
+  - 3dcitydb
+  - setup
+  - bare metal
   - docker
-  - shell-scripts
-  - database-scripts
+  - shell scripts
+  - database scripts
+  - sql scripts
+  - template database
 ---
 
 The recommended way to set up a bare metal 3D City Database (3DCityDB) instance is by using the installation scripts
 provided as separate 3DCityDB download package. These scripts are also included in each `citydb-tool` distribution.
-Follow the [download instruction](../download.md) to obtain them. Alternatively, [use Docker](docker.md) for
+Follow the [download instruction](../download.md) to obtain them. Alternatively, [use Docker :material-docker:](docker.md) for
 a simpler setup and deployment of a 3DCityDB instance.
 
 ## 3DCityDB setup steps

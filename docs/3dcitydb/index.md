@@ -1,8 +1,10 @@
 ---
 title: 3D City Database
-description:
+description: Intro to 3DCityDB.
 tags:
-   - 3DCityDB
+  - 3dcitydb
+  - CityGML data
+  - features
 ---
 
 The **3D City Database `v5`** (3DCityDB) is a free 3D geo database to store, represent, and manage
@@ -22,19 +24,19 @@ in just a few seconds.
 
 ## Key features of 3DCityDB v5
 
- - Full support for CityGML versions 3.0, 2.0 and 1.0
- - Complex thematic modelling including support for Application Domain Extensions (ADE)
- - Four (CityGML 3.0) or five (CityGML 2.0 and 1.0) different Levels of Detail (LoDs)
- - Appearance information (textures and materials)
- - Digital terrain models (DTMs) represented as TINs
- - Representation of generic and prototypical 3D objects
- - Free, also recursive aggregation of geo objects
- - Flexible 3D geometries such as Solid, CompositeSolid, MultiSurface, CompositeSurface,
-   Polygon, TINs, MultiCurve, CompositeCurve, LineString, Point, and MultiPoint
- - Database functions to delete complex objects including all their nested
-   sub-objects and geometries. As an alternative, objects can only be marked as terminated,
-   which leaves them in the database but sets their termination date timestamps accordingly.
-   This realizes a simple but powerful historization / versioning mechanism. 
+- Full support for CityGML versions 3.0, 2.0 and 1.0
+- Complex thematic modelling including support for Application Domain Extensions (ADE)
+- Four (CityGML 3.0) or five (CityGML 2.0 and 1.0) different Levels of Detail (LoDs)
+- Appearance information (textures and materials)
+- Digital terrain models (DTMs) represented as TINs
+- Representation of generic and prototypical 3D objects
+- Free, also recursive aggregation of geo objects
+- Flexible 3D geometries such as Solid, CompositeSolid, MultiSurface, CompositeSurface,
+  Polygon, TINs, MultiCurve, CompositeCurve, LineString, Point, and MultiPoint
+- Database functions to delete complex objects including all their nested
+  sub-objects and geometries. As an alternative, objects can only be marked as terminated,
+  which leaves them in the database but sets their termination date timestamps accordingly.
+  This realizes a simple but powerful historization / versioning mechanism.
 - [`citydb-tool`](../citydb-tool/index.md) for for importing and exporting CityGML datasets of any size, supporting both
   GML and CityJSON encodings. It works with CityGML versions 3.0, 2.0, and 1.0, as well as CityJSON versions 2.0, 1.1,
   and 1.0. Additionally, it enables seamless on-the-fly upgrading and downgrading between different versions.

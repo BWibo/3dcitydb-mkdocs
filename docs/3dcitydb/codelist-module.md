@@ -4,6 +4,7 @@ description: Tables for storing codelists
 tags:
   - 3dcitydb
   - relational schema
+  - codelist
 ---
 
 The Codelist module in 3DCityDB `v5` adds support for storing codelists, which are tables of values with corresponding

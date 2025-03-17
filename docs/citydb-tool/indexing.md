@@ -2,6 +2,10 @@
 title: Index
 description: Managing database indexes in 3DCityDB
 # icon: material/database-cog-outline
+tags:
+  - citydb-tool
+  - index
+  - 3dcitydb
 ---
 
 # Index command

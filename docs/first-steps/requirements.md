@@ -3,7 +3,11 @@
 description: What do I need for the installation
 # icon: material/emoticon-happy
 tags:
+  - 3dcitydb
   - requirements
+  - postgresql
+  - postgis
+  - oracle
 ---
 
 # System requirements
@@ -32,6 +36,7 @@ machine from which you plan to set up the 3D City Database before proceeding wit
     system. The 3D City Database does not support database versions that have reached end-of-life.
 
 ## `citydb-tool` database client
+
 `citydb-tool` is the default command-line client for the 3D City Database, used to import and export city model data
 as well as perform database operations. It is implemented as a Java application and can be run on any platform that
 supports __Java 17__ and higher.

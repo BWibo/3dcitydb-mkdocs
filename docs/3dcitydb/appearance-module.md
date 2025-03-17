@@ -4,6 +4,9 @@ description: Tables for storing appearance information
 tags:
   - 3dcitydb
   - relational schema
+  - appearance
+  - texture
+  - materials
 ---
 
 The Appearance module enables the storage and assignment of textures and colors to surface geometries in the 3DCityDB
