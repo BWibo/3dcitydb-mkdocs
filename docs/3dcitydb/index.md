@@ -55,8 +55,8 @@ and also to directly connect to the 3DCityDB from geoinformation systems
 like QGIS, FME, or ArcGIS and utilize the spatial objects.
 
 **New database client:** `citydb-tool` is the new default command-line client for 3DCityDB `v5`, designed to import and
-export city model data as well as perform database operations.  Its command-line interface
-enables easier automation, integration with other software, and efficient use in workflows and pipelines.
+export city model data as well as perform data and database operations. Its command-line interface
+enables easy automation, integration with other software, and efficient use in workflows and pipelines.
 Unlike the previous [Importer/Exporter](https://github.com/3dcitydb/importer-exporter) tool for 3DCityDB `v4`, it no
 longer provides a graphical user interface.
 

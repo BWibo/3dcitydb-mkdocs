@@ -38,7 +38,7 @@ For complete documentation of the 3DCityDB and its relational schema, refer to t
 ## `citydb-tool` database client
 
 `citydb-tool` is the default command-line client for the 3DCityDB, used to import and export city model data as well as
-perform database operations. Java is required to be installed on your system in order to run citydb-tool.
+perform data and database operations. Java is required to be installed on your system in order to run citydb-tool.
 
 - GitHub repository: [https://github.com/3dcitydb/citydb-tool](https://github.com/3dcitydb/citydb-tool){target="blank"}
 - Release download page: [https://github.com/3dcitydb/citydb-tool/releases](https://github.com/3dcitydb/citydb-tool/releases){target="blank"}

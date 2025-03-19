@@ -38,8 +38,8 @@ machine from which you plan to set up the 3D City Database before proceeding wit
 ## `citydb-tool` database client
 
 `citydb-tool` is the default command-line client for the 3D City Database, used to import and export city model data
-as well as perform database operations. It is implemented as a Java application and can be run on any platform that
-supports __Java 17__ and higher.
+as well as perform data and database operations. It is implemented as a Java application and can be run on any platform
+that supports __Java 17__ and higher.
 
 To use `citydb-tool` on your machine, ensure that a matching Java Runtime Environment (JRE) is installed. Java
 installation packages are available from various vendors and for different platforms. The following is a non-exhaustive
