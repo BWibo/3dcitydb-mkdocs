@@ -19,7 +19,7 @@ a simpler setup and deployment of a 3DCityDB instance.
 
 ## 3DCityDB setup steps
 
-### Step 1 - Create an empty PostgreSQL database
+### Step 1: Create an empty PostgreSQL database
 
 The first step is to create a new, empty database on your PostgreSQL server. Use a superuser or a database user
 with the `CREATEDB` permission to do so. While not required, it is recommended to select or create a dedicated user
@@ -36,7 +36,7 @@ CREATE DATABASE citydb_v5 OWNER citydb_user;
     graphical database client [`pgAdmin`](https://www.pgadmin.org/). Refer to the documentation of your preferred tool
     for more information.
 
-### Step 2 - Add the PostGIS extension
+### Step 2: Add the PostGIS extension
 
 The 3D City Database requires the PostGIS extension to be added to the database. This can only be done by a superuser.
 Use the following command to add the PostGIS extension:
@@ -53,7 +53,7 @@ CREATE EXTENSION postgis;
     CREATE EXTENSION postgis_sfcgal;
     ```
 
-### Step 3 - Edit the `connection-details` script
+### Step 3: Edit the `connection-details` script
 
 Now it's time to use the 3DCityDB setup scripts. Navigate to the `3dcitydb/postgresql/shell-scripts` directory
 where you have unzipped the 3DCityDB software package, or locate this folder within the installation directory of
@@ -94,7 +94,7 @@ Below is an example of the required information to include in the `connection-de
     If the `psql` executable is already on your `PATH`, you can comment out or remove the line setting
     the `PGBIN` variable in the script.
 
-### Step 4 - Execute the `create-db` script
+### Step 4: Execute the `create-db` script
 
 Once the connection details have been set in the `connection-details` file, execute the `create-db.[sh|bat]` script
 located in the same folder to begin the setup process. You can do this either by double-clicking the script or
@@ -132,7 +132,7 @@ After executing the script, a welcome message along with usage hints will be dis
 will prompt the user for several essential parameters required for setting up the 3DCityDB instance.
 The details of these user inputs are explained in the following steps.
 
-### Step 5 – Specify the coordinate reference system
+### Step 5: Specify the coordinate reference system
 
 You are prompted for the coordinate reference system (CRS) to be used for the 3DCityDB instance.
 Simply enter the PostGIS-specific SRID (**S**patial **R**eference **ID**) of the CRS. In most cases, the SRID will be
@@ -156,7 +156,7 @@ identical to the EPSG code of the CRS. There are three parameters that need to b
     `citydb_pkg.change_schema_srid`. Refer to the [database procedures section](../3dcitydb/db-functions.md) for
     more information.
 
-### Step 6 – Create changelog extension
+### Step 6: Create changelog extension
 
 You can choose whether to create the changelog extension for your 3DCityDB instance. The changelog
 extension adds a table to the 3DCityDB schema, where insert, delete, and update operations on top-level city objects
@@ -172,7 +172,7 @@ can be confirmed by simply pressing ++enter++.
     The changelog extension can be installed and removed at any time after setup using the shell scripts
     `create-changelog` and `drop-changelog`.
 
-### Step 7 - Execute the installation
+### Step 7: Execute the installation
 
 Finally, enter the password for the database user provided in the `connection-details` script. Afterward,
 the setup process will begin, and log messages informing you about the progress will be printed to the console.
