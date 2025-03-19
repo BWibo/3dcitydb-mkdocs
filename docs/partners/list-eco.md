@@ -25,6 +25,11 @@ In the field of cities and districts, the 50-strong team specializes in
 - Simulations (energy, flow, etc.) and PV potential analyses
 - Creation of digital twins for city models and GIS data management
 
+![alt text](assets/LIST_Eco_overview-quarter.jpg){ width="650"}
+
+/// caption
+///
+
 More about LIST Eco at: [list-eco.de](https://www.list-gruppe.de/nachhaltigkeit/list-eco/){target="blank"}
 
 ## Your contact: Bruno Willenborg
