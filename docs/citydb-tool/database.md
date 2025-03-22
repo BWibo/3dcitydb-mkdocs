@@ -108,17 +108,17 @@ citydb-tool supports loading options and settings from a JSON-encoded configurat
         },
         "poolOptions": {
           "loginTimeout": 120
-        },
-        "mySecondConnection": {
-          "host": "the.host.de",
-          "database": "3dcitydb",
-          "user": "citydb_user",
-          "password": "mySecret"
         }
+      },
+      "mySecondConnection": {
+        "host": "the.host.de",
+        "database": "3dcitydb",
+        "user": "citydb_user",
+        "password": "mySecret"
       }
-    },
-    "defaultConnection": "myFirstConnection"
-  }
+    }
+  },
+  "defaultConnection": "myFirstConnection"
 }
 ```
 
