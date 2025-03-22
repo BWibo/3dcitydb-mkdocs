@@ -322,7 +322,7 @@ The following example illustrates how to use the `-u` option to pass the user ID
 
 ### Build process
 
-1. Clone the [citydb-tool Github repository](https://github.com/3dcitydb/citydb-tools) and navigate to the cloned repo:
+1. Clone the [citydb-tool Github repository](https://github.com/3dcitydb/citydb-tool) and navigate to the cloned repo:
 
     ``` bash
     git clone https://github.com/3dcitydb/citydb-tool.git
