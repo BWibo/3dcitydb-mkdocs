@@ -8,17 +8,15 @@ tags:
 ---
 
 Most citydb-tool commands require a connection to a 3DCityDB `v5` instance. Connection details can be specified via
-[command-line options](#using-command-line-options), an [argument file](#using-argument-files),
-a [JSON configuration file](#using-configuration-files), or [environment variables](#using-environment-variables).
-
+command-line options, argument files, JSON configuration files, or environment variables.
 
 ## Using command-line options
 
 --8<-- "docs/citydb-tool/includes/db-options.md"
 
-The `--db-host` option specifies the network name or IP address of the database server. The name of the 3DCityDB `v5`
-instance must be provided via `--db-name`. The `--db-schema` option defines the database schema to connect to. For
-PostgreSQL, the default schema is `citydb`, but additional schemas can be created using
+Use `--db-host` to specify the network name or IP address of the database server. The `--db-name` option
+defines the name of the 3DCityDB `v5` instance, while `--db-schema` sets the database schema to connect to. For
+PostgreSQL, the default schema is `citydb`. Additional schemas can be created using
 the [database scripts](../first-steps/setup.md#shell-scripts) included in the 3DCityDB `v5` software package.
 
 The username and password for connecting to the 3DCityDB are set with `--db-username` and `--db-password`. You can
@@ -26,16 +24,16 @@ provide the password directly or leave it empty to be prompted for input before 
 after 60 seconds. If this option is omitted, citydb-tool will attempt to connect without a password.
 
 In addition to the standard connection parameters, database-specific properties can be provided through the
-`--db-property` option to configure the Java driver's behavior. These properties should be listed as a comma-separated
-series of `key=value` pairs.
+`--db-property` option to configure the JDBC driver behavior. These properties should be specified as a comma-separated
+list of `property=value` pairs.
 
 The example below shows how to use the database connection options. It includes the PostgreSQL-specific `ssl` parameter to
-establish an SSL connection
+establish an SSL connection.
 
 === "Linux"
 
     ```bash
-    citydb export citygml \
+    ./citydb export citygml \
         -H localhost \
         -d citdb \
         -u citydb_user \
@@ -61,7 +59,7 @@ establish an SSL connection
 
 ## Using argument files
 
-You can store the database connection options in an argument file and reference it in the command using the `@`
+You can also store the database connection options in an argument file and reference it in the command using the `@`
 symbol. The contents of the argument file are automatically expanded into the argument list. For more information on
 using argument files, refer to the section [here](cli.md#argument-files).
 
@@ -163,22 +161,22 @@ citydb export citygml --config-file=/path/to/config.json -o output.gml
 
 ## Using environment variables
 
-You can use environment variables to define database connection details dynamically. This approach is useful for
-automated scripts, CI/CD pipelines, or when credentials should not be hard-coded. It is also ideal for running in Docker
-environments, where environment variables can be easily passed into containers at runtime.
+Environment variables allow for dynamic definition of database connection details. This approach is useful for
+automated scripts, CI/CD pipelines, or when credentials should not be hard-coded. It is also ideal for running
+citydb-tool in Docker environments, where environment variables can be easily passed into containers at runtime.
 
 The following environment variables for defining database connection details are supported by citydb-tool and
 closely align with the command-line options:
 
-| Environment variable | Description                                                          |
-|----------------------|----------------------------------------------------------------------|
-| `CITYDB_HOST`        | Name of the host on which the 3DCityDB is running.                   |
-| `CITYDB_PORT`        | Port of the 3DCityDB server.                                         |
-| `CITYDB_NAME`        | Name of the 3DCityDB database to connect to.                         |
-| `CITYDB_SCHEMA`      | Schema to use when connecting to the 3DCityDB.                       |
-| `CITYDB_USER`        | Username to use when connecting to the 3DCityDB.                     |
-| `CITYDB_PASSWORD`    | Password to use when connecting to the 3DCityDB.                     |
-| `CITYDB_CONN_PROPS`  | Database-specific connection properties provided as key-value pairs. |
+| Environment variable | Description                                                                                         |
+|----------------------|-----------------------------------------------------------------------------------------------------|
+| `CITYDB_HOST`        | Name of the host on which the 3DCityDB is running.                                                  |
+| `CITYDB_PORT`        | Port of the 3DCityDB server.                                                                        |
+| `CITYDB_NAME`        | Name of the 3DCityDB database to connect to.                                                        |
+| `CITYDB_SCHEMA`      | Schema to use when connecting to the 3DCityDB.                                                      |
+| `CITYDB_USER`        | Username to use when connecting to the 3DCityDB.                                                    |
+| `CITYDB_PASSWORD`    | Password to use when connecting to the 3DCityDB.                                                    |
+| `CITYDB_CONN_PROPS`  | Database-specific connection properties provided as comma-separated list of `property=value` pairs. |
 
 The following command demonstrates how to use these environment variables to dynamically specify database connection
 details.
@@ -192,6 +190,7 @@ details.
     export CITYDB_SCHEMA=citydb
     export CITYDB_USER=citydb_user
     export CITYDB_PASSWORD=mySecret
+    export CITYDB_CONN_PROPS=ssl=true
         
     ./citydb export citygml -o output.gml
     ```
@@ -205,6 +204,7 @@ details.
     set CITYDB_SCHEMA=citydb
     set CITYDB_USER=citydb_user
     set CITYDB_PASSWORD=mySecret
+    set CITYDB_CONN_PROPS=ssl=true
     
     citydb export citygml -o output.gml
     ```

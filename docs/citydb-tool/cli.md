@@ -116,7 +116,7 @@ citydb-tool will automatically detect and load the plugins from this location, l
 separately in the console. To uninstall a plugin, simply delete its folder from the `plugins` subfolder.
 
 The `--plugins` option allows you to specify a different location for loading plugins. To enable or disable plugins, use
-the `--use-plugins` option followed by the fully qualified Java class name and a value of `true` (enable) or `false` 
+the `--use-plugin` option followed by the fully qualified Java class name and a value of `true` (enable) or `false`
 (disable) (default: `true`). Disabled plugins will not be loaded. Multiple plugins can be specified as a comma-separated
 list as shown below.
 
@@ -125,7 +125,7 @@ list as shown below.
     ```bash
     ./citydb export citygml [...] \
         --plugins=/path/to/my/plugins \
-        --use-plugins=com.example.PluginA=true,com.example.PluginB=false
+        --use-plugin=com.example.PluginA=true,com.example.PluginB=false
     ```
 
 === "Windows"
@@ -133,12 +133,12 @@ list as shown below.
     ```bat
     citydb export citygml [...] ^
         --plugins=/path/to/my/plugins ^
-        --use-plugins=com.example.PluginA=true,com.example.PluginB=false
+        --use-plugin=com.example.PluginA=true,com.example.PluginB=false
     ```
 
 !!! tip
     Refer to the plugin's documentation for details on its functionality, available CLI commands, options, and the fully
-    qualified class name for the `--use-plugins` option. The class name will also be printed to the console when the plugin
+    qualified class name for the `--use-plugin` option. The class name will also be printed to the console when the plugin
     is loaded by citydb-tool.
 
 ### Exit codes
@@ -166,6 +166,16 @@ The following generic examples are all equivalent, assuming `-f` is a short form
 <command> -ab -c --file my-file.txt 
 <command> -abc -f my-file.txt 
 <command> -abcf=my-file.txt 
+```
+
+Multi-value options, such as `--use-plugin`, can accept one or more values. If multiple values are needed, they can either
+be provided as a comma-separated list or by specifying the option multiple times.
+
+The following examples are all valid:
+
+```bash
+citydb --use-plugin=com.example.PluginA,com.example.PluginB=false
+citydb --use-plugin=com.example.PluginA --use-plugin=com.example.PluginB=false
 ```
 
 ### Double dash delimiter

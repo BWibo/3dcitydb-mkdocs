@@ -31,8 +31,8 @@ in a shell, `citydb-tool` can be automated, integrated with other software, and 
 
 ## Installing and launching
 
-To get citydb-tool, follow the [download instructions](../download.md#citydb-tool-database-client). Java is required
-to run the software. Please refer to the [system requirements](../first-steps/requirements.md#citydb-tool-database-client) for more details.
+To obtain citydb-tool, follow the [download instructions](../download.md#citydb-tool-database-client). Java is required
+to run the software. For more information, consult the [system requirements](../first-steps/requirements.md#citydb-tool-database-client).
 
 citydb-tool is distributed as a ZIP package and does not require installation. Simply extract the package to a
 directory of your choice. Inside this directory, you will find the `citydb` start script for running the tool.
