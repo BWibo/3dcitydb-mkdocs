@@ -251,7 +251,7 @@ then re-importing it into the target 3DCityDB version.
 1. Check 3DCityDB and CityGML compatibility in the [table above](#compatibility-overview).
 2. Migrate you dataset to a compatible CityGML version of your target database version, as described in [data migration above](#migrate-citygml-or-cityjson-data).
 3. Create a 3DCityDB instance in your target version using [Docker](3dcitydb/docker.md) or [bare metal setup](first-steps/setup.md).
-4. Import your dataset to the 3DCityDB with your target version. For 3DCityDB `v5` use [citydb-tool](citydb-tool/import_citygml.md), for older
+4. Import your dataset to the 3DCityDB with your target version. For 3DCityDB `v5` use [citydb-tool](citydb-tool/import.md), for older
    3DCityDB versions use the [Importer/Exporter](https://3dcitydb-docs.readthedocs.io/en/latest/impexp/index.html){target="blank"}.
 
 If 3DCityDB `v5` is your target database, ensure that you follow the guidance above on selecting a primary CityGML

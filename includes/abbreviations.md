@@ -5,3 +5,5 @@
 *[CityJSON]: OGC CityJSON
 *[CLI]: Command Line Interface
 *[JRE]: Java Runtime Environment
+*[JDK]: Java Development Kit
+*[JVM]: Java Virtual Machine

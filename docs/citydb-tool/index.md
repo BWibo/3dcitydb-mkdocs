@@ -1,160 +1,121 @@
 ---
-title: Overview
-description: Overview
+title: citydb-tool
+description: Introduction to citydb-tool
 tags:
   - citydb-tool
   - overview
   - features
 ---
 
-## Intro
+`citydb-tool` is the default command-line client for the 3D City Database `v5`. It supports importing and exporting city
+model data, as well as data and database management operations. The command-line interface (CLI) offers various
+commands for interacting with the database, each with its own parameters and options. In addition to manual execution
+in a shell, `citydb-tool` can be automated, integrated with other software, and used in workflows and pipelines.
 
-The **citydb-tool** is a command-line utility designed for managing and interacting with the **3DCityDB**,
-a database schema for the storage, management, and querying of 3D city models. The tool provides a set of
-powerful commands to facilitate the import, export, and manipulation of spatial data, particularly within a
-PostgreSQL/PostGIS database environment.
+## Key features
 
-## Version compatibility
+- Support for CityGML 3.0, 2.0, and 1.0
+- Support for CityJSON 2.0, 1.1, and 1.0, including CityJSONSeq
+- On-the-fly upgrade and downgrade between versions
+- Import and export of datasets of any file size
+- Multiple import strategies for consistent city model updates
+- Deletion and termination of city objects with support for object histories
+- Advanced querying capabilities based on [OGC CQL2](https://www.ogc.org/publications/standard/cql2/){target="blank"} and SQL
+- Extensible via user-defined plugins
+- Easy deployment and execution in a Docker container
+- Seamless integration into automation workflows for streamlined processes
 
-Compatibility of citydb-tool, 3DCityDB and CityGML versions are explained [here](../compatibility.md).
+!!! tip
+    `citydb-tool` is more than a CLI. It also provides an easy-to-use Java API, making it simple to integrate 3DCityDB support
+    into your own Java applications.
 
-## Key features and commands
+## Installing and launching
 
-The citydb-tool supports a variety of operations to streamline database workflows. The following commands are available:
+To get citydb-tool, follow the [download instructions](../download.md#citydb-tool-database-client). Java is required
+to run the software. Please refer to the [system requirements](../first-steps/requirements.md#citydb-tool-database-client) for more details.
 
-- **`help`**
-  Displays help information about a specified command, providing guidance on its usage and options.
+citydb-tool is distributed as a ZIP package and does not require installation. Simply extract the package to a
+directory of your choice. Inside this directory, you will find the `citydb` start script for running the tool.
+Two versions of this start script are provided:
 
-- **`import`**
-  Allows users to import data into the 3DCityDB in a supported format, such as CityGML or CityJSON.
+1. `citydb` for UNIX/Linux/macOS systems; and
+2. `citydb.bat` for Windows systems.
 
-- **`export`**
-  Enables the export of data from the database to various supported formats, including CityGML and CityJSON.
+To launch citydb-tool, open a shell, navigate to the citydb-tool installation directory, and run the following command
+to display a general help message in the console. On UNIX/Linux systems, you may first need to adjust file permissions
+to make the script executable.
 
-- **`delete`**
-  Deletes specific features or records from the database, offering flexible control over stored data.
+=== "Linux"
 
-- **`index`**
-  Performs index operations to optimize database performance, ensuring efficient querying and data retrieval.
+    ```bash
+    chmod u+x citydb
+    ./citydb --help
+    ```
 
-## Supported database platforms
+=== "Windows"
 
-The citydb-tool works seamlessly with **PostgreSQL** databases enhanced with **PostGIS**, a spatial extension that enables advanced geospatial operations.
+    ```shell
+    citydb --help    # you can omit the .bat file extension
+    ```
 
-## Supported data formats
+If your system is set up correctly and the `citydb --help` command runs successfully, you should see output similar to the
+example below.
 
-- **CityGML**: A standard format for the representation, storage, and exchange of 3D urban and landscape models.
-- **CityJSON**: A JSON-based format derived from CityGML, optimized for web applications and simplified data exchange.
+![citydb-help script](assets/citydb-help.png)
+/// figure-caption
+Running `citydb --help` in the Windows Command Prompt.
+///
 
-## Key use cases
+## Using environment variables for launch
 
-- Importing complex 3D city models into a PostgreSQL/PostGIS database.
-- Exporting city models for further analysis, visualization, or sharing in CityGML/CityJSON formats.
-- Performing maintenance operations, such as deleting outdated features or indexing for better database performance.
+citydb-tool supports the following environment variables to configure the launch process.
 
----
+| Environment variable | Description                                                                                                                 |
+|----------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| `JAVA_HOME`          | Specifies the directory where the Java Runtime Environment (JRE) or Java Development Kit (JDK) is installed on your system. |
+| `DEFAULT_JVM_OPTS`   | Defines Java Virtual Machine (JVM) options for the launch process.                                                          |
+| `JAVA_OPTS`          | Functions like `DEFAULT_JVM_OPTS`, but takes precedence over it.                                                            |
+| `CITYDB_OPTS`        | Functions like `JAVA_OPTS` and `DEFAULT_JVM_OPTS`, but takes precedence over both.                                          |
 
-The **citydb-tool** is ideal for urban planners, GIS professionals, and developers working with 3D city models who require a robust and efficient way to manage large-scale spatial data within a relational database.
+`JAVA_HOME` defines the JRE or JDK that citydb-tool will use. This is helpful if you want to use a different
+version of Java than the system default or if the Java installation is not automatically detected, preventing
+citydb-tool from launching.
 
-The citydb command-line interface for the 3D City Database provides several general options that can be used with any command. These options allow you to configure logging, load configuration files, manage plugins, and more.
+citydb-tool is launched with default JVM options, which can be overridden by setting the `CITYDB_OPTS`
+environment variable. You can also use `JAVA_OPTS` or `DEFAULT_JVM_OPTS` to pass JVM options to the `citydb`
+script. For example, to increase the JVM's maximum heap size, the option `-Xmx` can be used. The following command
+shows how to set `JAVA_HOME` to specify the Java installation and use `CITYDB_OPTS` to allocate 2 gigabytes for
+the heap space.
 
-## Usage
+=== "Linux"
 
-```bash
-citydb [OPTIONS] COMMAND
-```
+    ```bash
+    export JAVA_HOME="/path/to/your/java/installation"
+    export CITYDB_OPTS="-Xmx2g"
 
-## Options
+    ./citydb import citygml \
+        -H localhost -d citydb -u citydb_user -p mySecret \
+        /my/city.gml
+    ```
 
-| Option                        | Description                                                                 |
-|-------------------------------|-----------------------------------------------------------------------------|
-| `[@<filename>...]`            | One or more argument files containing options.                              |
-| `--config-file=<file>`        | Load configuration from this file.                                          |
-| `-L`, `--log-level=<level>`   | Log level: `fatal`, `error`, `warn`, `info`, `debug`, `trace` (default: `info`). |
-| `--log-file=<file>`           | Write log messages to this file.                                            |
-| `--pid-file=<file>`           | Create a file containing the process ID.                                     |
-| `--plugins=<dir>`             | Load plugins from this directory.                                           |
-| `--use-plugins=<plugin[=true\|false][,<plugin[=true\|false]...]` | Enable or disable plugins with a matching fully qualified class name (default: `true`). |
-| `-h`, `--help`                | Show this help message and exit.                                            |
-| `-V`, `--version`             | Print version information and exit.                                         |
+=== "Windows"
 
-## Using an options file for commands
+    ```bat
+    set JAVA_HOME="C:\path\to\your\java\installation"
+    set CITYDB_OPTS="-Xmx2g"
 
-For every citydb-tool command, you can store command-line options in an external options file to simplify complex
-or repetitive workflows. This is especially useful when working with commands that require multiple parameters.
+    citydb import citygml citygml ^
+        -H localhost -d citydb -u citydb_user -p mySecret ^
+        C:\my\city.gml
+    ```
 
-To reference an options file, use the @<filename> syntax. The options file contains one option per line in the
-following format:
+Additional JVM options, such as `-Xms` for the initial heap size or `-Dproperty=value` for system properties, can also be
+added as needed.
 
-### Example options file (options.txt):
-
-```text
---log-level=debug
---config-file=config.json
---temp-dir=/tmp/citydb_temp
---commit=1000
-
-```
-
-### Run the delete command with options from the file:
-
-```bash
-citydb delete @options.txt
-```
-
-## Examples
-
-### Accessing help information
-
-To display help information for a specific command, use the `help` command followed by the command name:
-
-General Help: Displays a list of all available commands and general options:
-
-```bash
-citydb --help
-```
-
-Command-specific Help: Provides detailed information about a specific command and its options:
-
-```bash
-citydb export --help
-citydb import --help
-citydb delete --help
-citydb index --help
-```
-
-### Setting the log level
-
-To adjust the logging level for a command, use the `-L` or `--log-level` option followed by the desired level:
-
-```bash
-citydb export citygml --log-level=debug
-```
-
-### Loading configuration from a file
-
-To load configuration settings from a file, use the `--config-file` option followed by the file path:
-
-```bash
-citydb import citygml --config-file=config.json
-```
-
-### Using plugins
-
-To enable or disable specific plugins, use the `--use-plugins` option followed by the fully
-qualified class name of the plugin:
-
-```bash
-citydb export citygml --use-plugins=com.example.plugin1=false,com.example.plugin2=true
-```
-
-### Writing log messages to a file
-
-To save log messages to a specific file, use the `--log-file` option followed by the file path:
-
-```bash
-citydb delete --log-file=delete.log
-```
+!!! tip
+    The default JVM options are typically sufficient for most use cases and should only be overridden if necessary.
+    Advanced users can also modify the `citydb` start script directly to adjust the launch configuration and add custom
+    JVM options. 
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3dcitydb.github.io%2F3dcitydb-mkdocs%2Fcitydb-tool%2Findex%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)](https://hits.seeyoufarm.com/#history)
 

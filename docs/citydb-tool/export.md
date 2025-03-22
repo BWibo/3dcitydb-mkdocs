@@ -1,7 +1,6 @@
 ---
-title: Shared export options
-description: General options for CityGML and CityJSON
-# icon: material/tools
+title: Export command
+description: Overview of the export command
 tags:
   - citydb-tool
   - export
@@ -76,7 +75,7 @@ These options are shared across all commands in the citydb-tool, as a connection
 is queried, deleted, imported, or exported.
 
 For details on how to configure database connections, including host, port, schema, and credentials,
-refer to the [database connection options](db-connection.md). This section provides a comprehensive explanation of
+refer to the [database connection options](database.md). This section provides a comprehensive explanation of
 all available connection parameters.
 
 ## Examples

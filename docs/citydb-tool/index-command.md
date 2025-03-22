@@ -1,5 +1,5 @@
 ---
-title: Index
+title: Index command
 description: Managing database indexes in 3DCityDB
 # icon: material/database-cog-outline
 tags:
@@ -53,7 +53,7 @@ These options are shared across all commands in the citydb-tool, as a connection
 is queried, deleted, imported, or exported.
 
 For details on how to configure database connections, including host, port, schema, and credentials,
-refer to the [database connection options documentation](db-connection.md) This section provides a comprehensive explanation of
+refer to the [database connection options documentation](database.md) This section provides a comprehensive explanation of
 all available connection parameters.
 
 ## Check index status

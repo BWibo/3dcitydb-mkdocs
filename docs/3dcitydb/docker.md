@@ -26,7 +26,7 @@ The images described here are available for 3DCityDB version `v5.0.0` and newer.
 When designing the images we tried to stay as close as possible to the behavior of the base images and the [3DCityDB Shell scripts](../first-steps/setup.md). Thus, all configuration options you may be used to from the base images, are available for the 3DCityDB Docker images as well.
 
 !!! tip "Performance tuning for large datasets"
-    The configuration of the PostgreSQL database has significant impact on performance, e.g. for data [`import`](../citydb-tool/import_citygml.md) and [`export`](../citydb-tool/export_shared_options.md) operations. See [Performance tuning for PostgreSQL/PostGIS](#performance-tuning) for more.
+    The configuration of the PostgreSQL database has significant impact on performance, e.g. for data [`import`](../citydb-tool/import.md) and [`export`](../citydb-tool/export.md) operations. See [Performance tuning for PostgreSQL/PostGIS](#performance-tuning) for more.
 
 ## TL;DR
 
@@ -311,7 +311,7 @@ automated tests operating on the exact same data every time or you want to prepa
 
     Note down the database connection credentials (db name, username,  password) or you won't be able to access the content later.
 
-3. Import data to the container. For this example we are using the [:material-download: LoD3 Railway dataset](https://github.com/3dcitydb/importer-exporter/raw/master/resources/samples/Railway%20Scene/Railway_Scene_LoD3.zip){target="blank"} and the [citydb-tool](../citydb-tool/import_citygml.md).
+3. Import data to the container. For this example we are using the [:material-download: LoD3 Railway dataset](https://github.com/3dcitydb/importer-exporter/raw/master/resources/samples/Railway%20Scene/Railway_Scene_LoD3.zip){target="blank"} and the [citydb-tool](../citydb-tool/import.md).
 
     === "Linux"
 
@@ -388,7 +388,7 @@ automated tests operating on the exact same data every time or you want to prepa
 
 ## Performance tuning
 
-The configuration of the PostgreSQL database has significant impact on performance, e.g. for data [`import`](../citydb-tool/import_citygml.md) and [`export`](../citydb-tool/export_shared_options.md) operations. PostgreSQL databases offer a wide range of configuration parameters that affect database performance and enable e.g. parallelization of queries. Database optimization is a complex topic but using [PGTune](https://pgtune.leopard.in.ua){target="blank"} you can easily get a set of configuration options, that may help to increase database performance.
+The configuration of the PostgreSQL database has significant impact on performance, e.g. for data [`import`](../citydb-tool/import.md) and [`export`](../citydb-tool/export.md) operations. PostgreSQL databases offer a wide range of configuration parameters that affect database performance and enable e.g. parallelization of queries. Database optimization is a complex topic but using [PGTune](https://pgtune.leopard.in.ua){target="blank"} you can easily get a set of configuration options, that may help to increase database performance.
 
 1. Visit the [PGTune website](https://pgtune.leopard.in.ua/){target="blank"}, fill in the form and generate a set of parameters for your system. You will get something like this:
 
