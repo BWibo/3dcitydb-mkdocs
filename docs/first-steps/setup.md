@@ -208,9 +208,9 @@ double-clicking them or by running them from within a shell environment.
 |----------------------|-----------------------------------------------------------------------------------------------------------|
 | `connection-details` | Stores the connection details for a 3DCityDB instance which are used by all other scripts                 |
 | `create-db`          | Creates a new 3DCityDB instance (relational schema including all database functions)                      |
-| `create-schema`      | Creates an additional data-schema (analogous to the default schema `citydb`) with a user-defined name     |
+| `create-schema`      | Creates an additional data schema (analogous to the default schema `citydb`) with a user-defined name     |
 | `drop-db`            | Drops a 3DCityDB instance (incl. all elements of the relational schema)                                   |
-| `drop-schema`        | Drops a data-schema that has been created with `create-schema`                                            |
+| `drop-schema`        | Drops a data schema that has been created with `create-schema`                                            |
 | `grant-access`       | Grants read-only or read-write access to a 3DCityDB instance                                              |
 | `revoke-access`      | Revokes read-only or read-write access to a 3DCityDB instance, which has been granted with `grant-access` |
 | `create-changelog`   | Create the changelog extension for a 3DCityDB instance                                                    |
