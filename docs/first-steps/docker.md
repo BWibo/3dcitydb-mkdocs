@@ -9,11 +9,13 @@ tags:
   - quickstart
 ---
 
-The quickest way to get up and running with 3DCityDB is using Docker!  On this page you will find quick start examples for the 3DCityDB and tools using Docker :fontawesome-brands-docker:. Follow the examples to [create](#3dcitydb-docker) a database, [import CityGML](#import-citygml-data) data, and create an [export](#export-citygml-data) in minutes.
+The quickest way to get up and running with 3DCityDB is using Docker!  On this page you will find quick start examples for the 3DCityDB and tools using Docker :material-docker:. Follow the examples to [create](#3dcitydb-docker) a database, [import CityGML](#import-citygml-data) data, and create an [export](#export-citygml-data) in minutes.
+
+A much more detailed example on importing and export data using 3DCityDB and citydb-tool Docker including a test dataset can be found [here](../citydb-tool/docker.md#citydb-tool-docker-combined-with-3dcitydb-docker).
 
 ## TL;DR
 
-- [3D City Database](../3dcitydb/docker.md): Create a 3DCityDB Docker container.
+- [3D City Database](../3dcitydb/docker.md): Create a 3DCityDB Docker container with `SRID=25832`.
 
     === "Linux"
 
@@ -319,7 +321,7 @@ Run the `export` command to export :material-database-export: a CityGML dataset 
     3dcitydb/citydb-tool export citygml -o "/data/export.gml"
     ```
 
-A much more detailed example on importing and export data using 3DCityDB and citydb-tool docker can be found [here](../citydb-tool/docker.md#citydb-tool-docker-combined-with-3dcitydb-docker).
+A much more detailed example on importing and export data using 3DCityDB and citydb-tool Docker can be found [here](../citydb-tool/docker.md#citydb-tool-docker-combined-with-3dcitydb-docker).
 
 [Dockerhub]: https://hub.docker.com/u/3dcitydb
 [ghcr.io]: https://github.com/orgs/3dcitydb/packages?ecosystem=container
