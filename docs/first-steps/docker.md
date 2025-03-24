@@ -13,13 +13,15 @@ The quickest way to get up and running with 3DCityDB is using Docker!  On this p
 
 ## TL;DR
 
-- [3D City Database](../3dcitydb/docker.md)
+- [3D City Database](../3dcitydb/docker.md): Create a 3DCityDB Docker container.
 
     === "Linux"
 
         ``` bash
+        docker pull 3dcitydb/3dcitydb-pg
+
         docker run -d -p 5432:5432 --name citydb \
-          -e POSTGRES_PASSWORD=changeMe! \
+          -e POSTGRES_PASSWORD=changeMe \
           -e SRID=25832 \
         3dcitydb/3dcitydb-pg
         ```
@@ -27,40 +29,42 @@ The quickest way to get up and running with 3DCityDB is using Docker!  On this p
     === "Windows"
 
         ``` bash
+        docker pull 3dcitydb/3dcitydb-pg
+
         docker run -d -p 5432:5432 --name citydb ^
-          -e POSTGRES_PASSWORD=changeMe! ^
+          -e POSTGRES_PASSWORD=changeMe ^
           -e SRID=25832 ^
         3dcitydb/3dcitydb-pg
         ```
 
-- [citydb-tool](../citydb-tool/docker.md)
+- [citydb-tool](../citydb-tool/docker.md): Connect to the container specified above.
 
     === "Linux"
 
         ``` bash
         docker run -i -t --rm --name citydb-tool \
+          --network host \
           -v /my/data/:/data \
-          -e CITYDB_HOST=the.host.de \
+          -e CITYDB_HOST=localhost \
           -e CITYDB_PORT=5432 \
-          -e CITYDB_NAME=theDBName \
-          -e CITYDB_SCHEMA=theCityDBSchemaName \
-          -e CITYDB_USERNAME=theUsername \
-          -e CITYDB_PASSWORD=theSecretPass \
-        3dcitydb/3dcitydb-pg [help|import|export|delete|index]
+          -e CITYDB_NAME=postgres \
+          -e CITYDB_USERNAME=postgres \
+          -e CITYDB_PASSWORD=changeMe \
+        3dcitydb/citydb-tool [help|import|export|delete|index]
         ```
 
     === "Windows"
 
         ``` bash
         docker run -i -t --rm --name citydb-tool ^
+          --network host ^
           -v /my/data/:/data ^
-          -e CITYDB_HOST=the.host.de ^
+          -e CITYDB_HOST=localhost ^
           -e CITYDB_PORT=5432 ^
-          -e CITYDB_NAME=theDBName ^
-          -e CITYDB_SCHEMA=theCityDBSchemaName ^
-          -e CITYDB_USERNAME=theUsername ^
-          -e CITYDB_PASSWORD=theSecretPass ^
-        3dcitydb/3dcitydb-pg [help|import|export|delete|index]
+          -e CITYDB_NAME=postgres ^
+          -e CITYDB_USERNAME=postgres ^
+          -e CITYDB_PASSWORD=changeMe ^
+        3dcitydb/citydb-tool [help|import|export|delete|index]
         ```
 
     !!! tip
@@ -100,7 +104,7 @@ Docker images are available for the following tools of the 3DCityDB software sui
 
 ### Get 3DCityDB Docker images
 
-All images are available from [DockerHub]{target="blank"} or Github container registry ([ghcr.io]{target="blank"}). An overview on available versions and image variants is available [here](../3dcitydb/docker.md#image-variants-and-versions).
+All images are available from [DockerHub]{target="blank"} or Github container registry ([ghcr.io]{target="blank"}). An overview on available versions and image variants is available [here](../3dcitydb/docker.md#image-variants-and-versions). Pull a fresh image once to make sure you are using 3DCityDB `v5`.
 
 - [3D City Database](../3dcitydb/docker.md)
 
@@ -116,21 +120,21 @@ All images are available from [DockerHub]{target="blank"} or Github container re
         docker pull ghcr.io/3dcitydb/3dcitydb-pg
         ```
 
-        !!! tip
+!!! tip
 
-            To benefit of the latest bugfixes and features of PostgreSQL/PostGIS spatial functions we recommend to use the `alpine` image versions. See [here](../3dcitydb/docker.md#image-variants-and-versions) for more details on the differences between the `debian` and `alpine` image variants.
+    To benefit of the latest bugfixes and features of PostgreSQL/PostGIS spatial functions, we recommend to use the `alpine` image versions. See [here](../3dcitydb/docker.md#image-variants-and-versions) for more details on the differences between the `debian` and `alpine` image variants.
 
-            === "DockerHub"
+    === "DockerHub"
 
-                ``` bash
-                docker pull 3dcitydb/3dcitydb-pg:latest-alpine
-                ```
+        ``` bash
+        docker pull 3dcitydb/3dcitydb-pg:latest-alpine
+        ```
 
-            === "Github container registry"
+    === "Github container registry"
 
-                ``` bash
-                docker pull ghcr.io/3dcitydb/3dcitydb-pg:latest-alpine
-                ```
+        ``` bash
+        docker pull ghcr.io/3dcitydb/3dcitydb-pg:latest-alpine
+        ```
 
 - [citydb-tool](../citydb-tool/docker.md)
 
@@ -196,10 +200,11 @@ The Docker image exposes the commands of the [`citydb-tool`](../citydb-tool/inde
 
     ``` bash
     docker run --rm --name citydb-tool -i -t \
-      -e CITYDB_HOST=the.host.de \
-      -e CITYDB_NAME=theDBName \
-      -e CITYDB_USERNAME=theUsername \
-      -e CITYDB_PASSWORD=theSecretPass \
+      --network host \
+      -e CITYDB_HOST=localhost \
+      -e CITYDB_NAME=postgres \
+      -e CITYDB_USERNAME=postgres \
+      -e CITYDB_PASSWORD=changeMe \
       -v /my/data/:/data \
     3dcitydb/citydb-tool COMMAND # (1)!
     ```
