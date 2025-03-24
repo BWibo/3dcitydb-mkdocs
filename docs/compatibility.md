@@ -161,7 +161,7 @@ is located in the current working directory (`$PWD`).
           3dcitydb/3dcitydb:5-alpine
         ```
 
-    === "Windows"
+    === "Windows CMD"
 
         ```bash
           # docker network remove citydb-net
@@ -192,7 +192,7 @@ is located in the current working directory (`$PWD`).
           "Railway_Scene_LoD3.zip"
         ```
 
-    === "Windows"
+    === "Windows CMD"
 
         ```bash
         docker run -i -t --rm --name citydb-tool ^
@@ -224,7 +224,7 @@ is located in the current working directory (`$PWD`).
           -o "Railway_Scene_LoD3_CityGML_v3.gml"
         ```
 
-    === "Windows"
+    === "Windows CMD"
 
         ```bash hl_lines="10"
         docker run -i -t --rm --name citydb-tool ^
