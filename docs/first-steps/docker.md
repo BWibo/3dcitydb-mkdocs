@@ -11,7 +11,7 @@ tags:
 
 The quickest way to get up and running with 3DCityDB is using Docker!  On this page you will find quick start examples for the 3DCityDB and tools using Docker :material-docker:. Follow the examples to [create](#3dcitydb-docker) a database, [import CityGML](#import-citygml-data) data, and create an [export](#export-citygml-data) in minutes.
 
-A much more detailed example on importing and export data using 3DCityDB and citydb-tool Docker including a test dataset can be found [here](../citydb-tool/docker.md#citydb-tool-docker-combined-with-3dcitydb-docker).
+A much more detailed example on importing and exporting data using 3DCityDB and citydb-tool Docker including a test dataset can be found [here](../citydb-tool/docker.md#citydb-tool-docker-combined-with-3dcitydb-docker).
 
 ## TL;DR
 
