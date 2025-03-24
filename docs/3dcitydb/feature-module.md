@@ -42,7 +42,7 @@ in the real world. The `creation_date` shall be automatically populated when the
 3DCityDB, unless the input dataset already contains a value. The `termination_date` can be used as a flag to indicate that a
 feature version is no longer active, without physically deleting the feature from the database.
 
-The columns `last_modification_date`, `updating_person`, `reasons_for_upate`, and `lineage` are specific to 3DCityDB and
+The columns `last_modification_date`, `updating_person`, `reason_for_update`, and `lineage` are specific to 3DCityDB and
 are not defined in CityGML. These metadata fields capture details about the feature's origin, its update history, the person
 responsible for changes, and the reasons behind those updates.
 
