@@ -26,7 +26,7 @@ The quickest way to get up and running with 3DCityDB is using Docker!  On this p
         3dcitydb/3dcitydb-pg
         ```
 
-    === "Windows"
+    === "Windows CMD"
 
         ``` bash
         docker pull 3dcitydb/3dcitydb-pg
@@ -53,7 +53,7 @@ The quickest way to get up and running with 3DCityDB is using Docker!  On this p
         3dcitydb/citydb-tool [help|import|export|delete|index]
         ```
 
-    === "Windows"
+    === "Windows CMD"
 
         ``` bash
         docker run -i -t --rm --name citydb-tool ^
@@ -178,7 +178,7 @@ To run a PostgreSQL/PostGIS 3DCityDB container the only required settings are a 
     3dcitydb/3dcitydb-pg
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ``` shell
     docker run -d -p 5432:5432 --name cdb ^
@@ -219,7 +219,7 @@ The Docker image exposes the commands of the [`citydb-tool`](../citydb-tool/inde
 
     1. The commands of `citydb-tool` are documented [here](../citydb-tool/index.md).
 
-=== "Windows"
+=== "Windows CMD"
 
     ``` bash
     docker run --rm --name citydb-tool -i -t ^
@@ -275,7 +275,7 @@ Run the `import` command to import :material-database-import: a CityGML dataset 
     3dcitydb/citydb-tool import citygml "/data/data.gml"
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ``` bash
     docker run -i -t --rm ^
@@ -306,7 +306,7 @@ Run the `export` command to export :material-database-export: a CityGML dataset 
     3dcitydb/citydb-tool export citygml -o "/data/export.gml"
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ``` bash
     docker run -i -t --rm ^

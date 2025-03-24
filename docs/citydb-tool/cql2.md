@@ -148,7 +148,7 @@ AND, OR, and NOT can be used to combine conditions.
               -o filtered_tree.gml
         ```
 
-    === "Windows"
+    === "Windows CMD"
 
         ```bash
         citydb export citygml ^
@@ -192,7 +192,7 @@ AND, OR, and NOT can be used to combine conditions.
               -o filtered_trees.gml
         ```
 
-    === "Windows"
+    === "Windows CMD"
 
         ```bash
         citydb export citygml ^
@@ -233,7 +233,7 @@ Use spatial functions to filter based on the spatial relationship of geometries.
               -553.8099297783192, 627.1318523068805))" \
               @options.txt -o=output.gml
         ```
-    === "Windows"
+    === "Windows CMD"
 
         ```bash
         citydb export citygml ^

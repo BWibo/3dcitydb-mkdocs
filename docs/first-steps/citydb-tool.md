@@ -42,7 +42,7 @@ set the appropriate file permissions to make the script executable.
     ./citydb --version
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ```shell
     citydb --version    # you can omit the .bat file extension
@@ -74,7 +74,7 @@ The general command to import CityGML data is shown below:
         /path/to/citygml.gml
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ```bat
     citydb import citygml ^
@@ -123,7 +123,7 @@ Exporting the data from the 3DCityDB back to CityGML format is as easy as this:
         -o /path/to/target/citygml.gml
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ```bat
     citydb export citygml ^
