@@ -104,7 +104,7 @@ Docker images are available for the following tools of the 3DCityDB software sui
 
 ### Get 3DCityDB Docker images
 
-All images are available from [DockerHub]{target="blank"} or Github container registry ([ghcr.io]{target="blank"}). An overview on available versions and image variants is available [here](../3dcitydb/docker.md#image-variants-and-versions). Pull a fresh image once to make sure you are using 3DCityDB `v5`.
+All images are available from [DockerHub]{target="blank"} or Github container registry ([ghcr.io]{target="blank"}). An overview on available versions and image variants is available [here](../3dcitydb/docker.md#image-variants-and-versions). Pull the `latest` image once to make sure you are using 3DCityDB `v5`, or use a `v5` tag.
 
 - [3D City Database](../3dcitydb/docker.md)
 
@@ -112,12 +112,16 @@ All images are available from [DockerHub]{target="blank"} or Github container re
 
         ``` bash
         docker pull 3dcitydb/3dcitydb-pg
+        # or
+        docker pull 3dcitydb/3dcitydb-pg:5
         ```
 
     === "Github container registry"
 
         ``` bash
         docker pull ghcr.io/3dcitydb/3dcitydb-pg
+        # or
+        docker pull ghcr.io/3dcitydb/3dcitydb-pg:5
         ```
 
 !!! tip
@@ -128,12 +132,16 @@ All images are available from [DockerHub]{target="blank"} or Github container re
 
         ``` bash
         docker pull 3dcitydb/3dcitydb-pg:latest-alpine
+        # or
+        docker pull 3dcitydb/3dcitydb-pg:5-alpine
         ```
 
     === "Github container registry"
 
         ``` bash
         docker pull ghcr.io/3dcitydb/3dcitydb-pg:latest-alpine
+        # or
+        docker pull ghcr.io/3dcitydb/3dcitydb-pg:5-alpine
         ```
 
 - [citydb-tool](../citydb-tool/docker.md)
@@ -215,11 +223,12 @@ The Docker image exposes the commands of the [`citydb-tool`](../citydb-tool/inde
 
     ``` bash
     docker run --rm --name citydb-tool -i -t ^
-      -e CITYDB_HOST=the.host.de ^
-      -e CITYDB_NAME=theDBName ^
-      -e CITYDB_USERNAME=theUsername ^
-      -e CITYDB_PASSWORD=theSecretPass ^
-      -v /my/data/:/data ^
+      --network host ^
+      -e CITYDB_HOST=localhost ^
+      -e CITYDB_NAME=postgres ^
+      -e CITYDB_USERNAME=postgres ^
+      -e CITYDB_PASSWORD=changeMe ^
+      -v "c:\mydata:/data" ^
     3dcitydb/citydb-tool COMMAND # (1)!
     ```
 
@@ -250,44 +259,46 @@ docker run -i -t --rm 3dcitydb/citydb-tool import help citygml
 
 #### Import CityGML data
 
-Run the `import` command to import :material-database-import: a CityGML dataset located at `/local/data/dir/data.gml`.
+Run the `import` command to import :material-database-import: a CityGML dataset located at `/local/data/dir/data.gml` (Linux) or
+`c:\local\data\dir\data.gml` (Windows).
 
 === "Linux"
 
     ``` bash
     docker run -i -t --rm -u $(id -u):$(id -g) \
       --network host \
-      -v ${PWD}:/data/ \
+      -v /local/data/dir:/data/ \
       -e CITYDB_HOST=localhost \
       -e CITYDB_NAME=postgres \
       -e CITYDB_USERNAME=postgres \
       -e CITYDB_PASSWORD=changeMe \
-    3dcitydb/citydb-tool import citygml "/data/*.gml"
+    3dcitydb/citydb-tool import citygml "/data/data.gml"
     ```
 
 === "Windows"
 
     ``` bash
-    docker run -i -t --rm -u $(id -u):$(id -g) ^
+    docker run -i -t --rm ^
       --network host ^
-      -v ${PWD}:/data/ ^
+      -v "c:\local\data\dir:/data/" ^
       -e CITYDB_HOST=localhost ^
       -e CITYDB_NAME=postgres ^
       -e CITYDB_USERNAME=postgres ^
       -e CITYDB_PASSWORD=changeMe ^
-    3dcitydb/citydb-tool import citygml "/data/*.gml"
+    3dcitydb/citydb-tool import citygml "/data/data.gml"
     ```
 
 #### Export CityGML data
 
-Run the `export` command to export :material-database-export: a CityGML dataset to `/local/data/dir/export.gml`.
+Run the `export` command to export :material-database-export: a CityGML dataset to `/local/data/dir/export.gml` (Linux) or
+`c:\local\data\dir\export.gml` (Windows).
 
 === "Linux"
 
     ``` bash
     docker run -i -t --rm -u $(id -u):$(id -g) \
       --network host \
-      -v ${PWD}:/data/ \
+      -v /local/data/dir:/data/ \
       -e CITYDB_HOST=localhost \
       -e CITYDB_NAME=postgres \
       -e CITYDB_USERNAME=postgres \
@@ -298,9 +309,9 @@ Run the `export` command to export :material-database-export: a CityGML dataset 
 === "Windows"
 
     ``` bash
-    docker run -i -t --rm -u $(id -u):$(id -g) ^
+    docker run -i -t --rm ^
       --network host ^
-      -v ${PWD}:/data/ ^
+      -v "c:\local\data\dir:/data/" ^
       -e CITYDB_HOST=localhost ^
       -e CITYDB_NAME=postgres ^
       -e CITYDB_USERNAME=postgres ^
@@ -308,8 +319,7 @@ Run the `export` command to export :material-database-export: a CityGML dataset 
     3dcitydb/citydb-tool export citygml -o "/data/export.gml"
     ```
 
-The exported file will be available on the host system at:
-`/local/data/dir/export.gml`.
+A much more detailed example on importing and export data using 3DCityDB and citydb-tool docker can be found [here](../citydb-tool/docker.md#citydb-tool-docker-combined-with-3dcitydb-docker).
 
 [Dockerhub]: https://hub.docker.com/u/3dcitydb
 [ghcr.io]: https://github.com/orgs/3dcitydb/packages?ecosystem=container
