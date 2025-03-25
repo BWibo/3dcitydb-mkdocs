@@ -38,7 +38,3 @@ His current research focuses on advancing CityGML-based 3D-geodatabases and thei
 smart cities, and geospatial analytics.
 
 [:material-contacts: Contact](https://www.hft-stuttgart.de/p/zhihang-yao){target="blank"}
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3dcitydb.github.io%2F3dcitydb-mkdocs%2Fpartners%2Fhft-stuttgart%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)](https://hits.seeyoufarm.com/#history)
-
-/// caption
-///

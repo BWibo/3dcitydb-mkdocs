@@ -246,8 +246,3 @@ The `citydb_pkg` package also provides various utility functions as shown below.
 | **`db_metadata`**<br/>`(schema_name TEXT, OUT srid INTEGER, OUT srs_name TEXT, OUT coord_ref_sys_name TEXT, OUT coord_ref_sys_kind TEXT, OUT wktext TEXT, OUT versioning TEXT)` | `RECORD`        | Returns meta information about the 3DCityDB instance                           |
 | **`get_seq_values`**<br/>`(seq_name TEXT,seq_count BIGINT)`                                                                                                                     | `SETOF BIGINT`  | Returns `n` sequence values from the given sequence                            |
 | **`get_child_objectclass_ids`**<br/>`(class_id INTEGER,skip_abstract INTEGER, schema_name TEXT)`                                                                                | `SETOF INTEGER` | Returns the `id` values of all transitive subclasses of the given object class |
-
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3dcitydb.github.io%2F3dcitydb-mkdocs%2F3dcitydb%2Fdb-functions%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)](https://hits.seeyoufarm.com/#history)
-
-/// caption
-///

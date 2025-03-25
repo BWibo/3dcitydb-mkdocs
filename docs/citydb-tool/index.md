@@ -155,8 +155,3 @@ To save log messages to a specific file, use the `--log-file` option followed by
 ```bash
 citydb delete --log-file=delete.log
 ```
-
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3dcitydb.github.io%2F3dcitydb-mkdocs%2Fcitydb-tool%2Findex%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)](https://hits.seeyoufarm.com/#history)
-
-/// caption
-///

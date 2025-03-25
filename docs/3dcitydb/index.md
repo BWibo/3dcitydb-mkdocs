@@ -97,8 +97,3 @@ can be found in the [Awesome CityGML](https://github.com/OloOcki/awesome-citygml
 Currently, datasets from 21 countries and 65 regions/cities can be downloaded for free,
 with a total of >210 million semantic 3D building models. All the provided CityGML files
 can be loaded, analyzed, and managed using the 3DCityDB.
-
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3dcitydb.github.io%2F3dcitydb-mkdocs%2F3dcitydb%2Findex%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)](https://hits.seeyoufarm.com/#history)
-
-/// caption
-///
