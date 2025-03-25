@@ -57,34 +57,6 @@ establish an SSL connection.
     Consult the database documentation for an overview of supported JDBC connection properties. For PostgreSQL, further
     details can be found [here](https://jdbc.postgresql.org/documentation/use/#connection-parameters){target="blank"}.
 
-## Using argument files
-
-You can also store the database connection options in an argument file and reference it in the command using the `@`
-symbol. The contents of the argument file are automatically expanded into the argument list. For more information on
-using argument files, refer to the section [here](cli.md#argument-files).
-
-For example, suppose the following database options are stored in an `@-file` located at `/home/foo/db-args`:
-
-```bash
---db-host=localhost
---db-port=5432
---db-name=citdb
---db-schema=citydb
---db-username=citydb_user
---db-password=mySecret
---db-property=ssl=true
-```
-
-This `@-file` can then be used as shown below.
-
-```bash
-citydb export citygml @/home/foo/db-args -o output.gml
-```
-
-!!! warning
-    Storing passwords in an argument file in clear text may pose a security risk. Consider using an environment
-    variable for the password instead, or leave the `--db-password` option empty to be prompted.
-
 ## Using configuration files
 
 citydb-tool supports loading options and settings from a JSON-encoded configuration file, as described
@@ -157,6 +129,34 @@ citydb export citygml --config-file=/path/to/config.json -o output.gml
 
 !!! warning
     Storing passwords in a configuration file in clear text may pose a security risk. Consider using an environment
+    variable for the password instead, or leave the `--db-password` option empty to be prompted.
+
+## Using argument files
+
+You can also store the database connection options in an argument file and reference it in the command using the `@`
+symbol. The contents of the argument file are automatically expanded into the argument list. For more information on
+using argument files, refer to the section [here](cli.md#argument-files).
+
+For example, suppose the following database options are stored in an `@-file` located at `/home/foo/db-args`:
+
+```bash
+--db-host=localhost
+--db-port=5432
+--db-name=citdb
+--db-schema=citydb
+--db-username=citydb_user
+--db-password=mySecret
+--db-property=ssl=true
+```
+
+This `@-file` can then be used as shown below.
+
+```bash
+citydb export citygml @/home/foo/db-args -o output.gml
+```
+
+!!! warning
+    Storing passwords in an argument file in clear text may pose a security risk. Consider using an environment
     variable for the password instead, or leave the `--db-password` option empty to be prompted.
 
 ## Using environment variables

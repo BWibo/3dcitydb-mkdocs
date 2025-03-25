@@ -6,6 +6,8 @@ tags:
   - export
 ---
 
+# Export command
+
 Both **CityGML** and **CityJSON** exporters in the **citydb-tool** share a common set of options.
 These options allow users to customize the export process, including output configuration, query and
 filter parameters, and tiling for large datasets.

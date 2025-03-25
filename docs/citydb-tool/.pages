@@ -4,12 +4,12 @@ nav:
   - database.md
   - Import command:
     - Import overview: import.md
-    - CityGML options: import-citygml.md
-    - CityJSON options: import-cityjson.md
+    - CityGML import: import-citygml.md
+    - CityJSON import: import-cityjson.md
   - Export command:
     - Export overview: export.md
-    - CityGML options: export-citygml.md
-    - CityJSON options: export-cityjson.md
+    - CityGML export: export-citygml.md
+    - CityJSON export: export-cityjson.md
   - delete.md
   - index-command.md
   - cql2.md

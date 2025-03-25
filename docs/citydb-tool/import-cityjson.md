@@ -1,5 +1,5 @@
 ---
-title: Import CityJSON
+title: Import CityJSON command
 description: Importing CityJSON data
 # icon: material/emoticon-happy
 tags:
@@ -8,105 +8,141 @@ tags:
   - import
 ---
 
-# CityJSON-specific import options
+# Import CityJSON command
 
-The __import__ command imports one or more CityJSON files into the 3D City Database.
+The `import cityjson` command imports one or more [CityJSON files](https://www.cityjson.org/) into the 3DCityDB `v5`.
 
-To import your files to the 3D City Database it is necessary to give along the information for the connection. Look up [Database connection](database.md) for further information.
-
-Use `citydb import cityjson [OPTIONS] <file>` to import one or more CityJSON files from a directory into the database.
-
-!!! warning "Important"
-    It is important that the filename + extension is mentioned in the path to the file itself.
-
-The command provides a range of [OPTIONS] to adapt the import process.
-
-## Best practice
-
-You can use a textfile to combine and outsource commands and the link to the `config.json` to keep a better overview of issued commands. Save the textfile in the same folder as the config.json.
+## Synopsis
 
 ```bash
-citydb import cityjson <file> @options.txt
+citydb import cityjson [OPTIONS] <file>...
 ```
 
-## Options table
+## Options
 
-### Import data
+The `import cityjson` command inherits global options from the main [`citydb`](cli.md) command and general import and
+metadata options from its parent [`import`](import.md) command. Additionally, it provides CityJSON format-specific
+import and filter options.
 
-| Command                        | Description                                                                                               | Default Value |
-|:------------------------------ |:--------------------------------------------------------------------------------------------------------- |:------------- |
-| `@<filename>...`               | One or more argument files containing options.                                                            |               |
-| `<file>...`                    | One or more files and directories to process (globpatterns allowed).                                      |               |
-| `--input-encoding= <encoding>` |  Encoding of input file(s).                                                                               |               |
-| `--fail-fast`                  | Fail fast on errors.                                                                                      |               |
-| `--temp-dir= <dir>`            | Store temporary files in this directory.                                                                  |               |
-| `--threads=<threads>`          | Number of threads to use for parallel processing.                                                         |               |
-| `--preview`                    | Run in preview mode. Features will not be imported.                                                       |               |
-| `--index-mode=<mode>`          | Index mode: keep, drop, drop_create Consider dropping indexes when processing large quantities of data.   | keep          |
-| `--compute-extent`             | Compute and overwrite extents of features.                                                                |               |
-| `-[no-]map-unknown-objects`    |  Map city objects from unsupported extensions onto generic city objects.                                  | true          |
-| `--log-file=<file>`            | Write log messages to this file.                                                                          |               |
-| `--pid-file=<file>`            | Create a file containing the process ID.                                                                  |               |
-| `--plugins=<dir>`              | Load plugins from this directory.                                                                         |               |
-| `--use-plugins=<plugin[=true|false][,<plugin[=true|false]...]` | Enable or disable plugins with a matching fully qualified class name      | true          |
+### Global options
 
-### Example
+--8<-- "docs/citydb-tool/includes/global-options.md"
 
-Running the import in a preview mode to check the metadata in the commandline.
+For more details on the global options and usage hints, see [here](cli.md#options).
 
-```bash
-citydb import citygml generic_cityjson.json --preview @options.txt
-```
+### General import options
 
-Import a CityJSON file and create file in a separate folder with log message
+--8<-- "docs/citydb-tool/includes/import-general-options.md"
 
-```bash
-citydb import citygml generic_cityjson.json --log-file=log.txt @options.txt
-```
+For more details on the general import options and usage hints, see [here](import.md#usage).
 
-## Handling with duplicate features
+### CityJSON import options
 
-There are different options for the import to handle duplicates.
+| Option                       | Description                                                             | Default value |
+|------------------------------|-------------------------------------------------------------------------|---------------|
+| `--[no-]map-unknown-objects` | Map city objects from unsupported extensions onto generic city objects. | `true`        |
 
-| Command                    | Description                                      | Default Value  |
-|:---------------------------|:------------------------------------------------ |:---------------|
-| `-m, --import-mode=<mode>` | Import mode: skip, terminate, delete, import_all | import_all     |
+### Metadata options
 
-skip:material-arrow-right: Duplicates in the input file are not imported into the database.
+--8<-- "docs/citydb-tool/includes/import-metadata-options.md"
 
-terminate :material-arrow-right: Duplicates in the database are terminated before importing the input file.
+For more details on the metadata options and usage hints, see [here](import.md#metadata-options).
 
-delete :material-arrow-right: Duplicates in the database are deleted before importing the input file.
+### Filter options
 
-import_all :material-arrow-right: All features from the input file are imported without checking for duplicates.
+--8<-- "docs/citydb-tool/includes/import-filter-options.md"
 
-### Example
+### Database connection options
 
-If you want to check if the files are already imported to the database you can use the import-mode skip to check on it.
+--8<-- "docs/citydb-tool/includes/db-options.md"
 
-```bash
-citydb import citygml generic_cityjson.json --import-mode=skip @options.txt
-```
+For more details on the database connection options and usage hints, see [here](database.md).
 
-## Filter options
+## Usage
 
-| Command                                                  | Description                                                                | Default Value         |
-|:---------------------------------------------------------|:---------------------------------------------------------------------------|:----------------------|
-| `-t`, `--type-name=<[prefix:]name>[,<[prefix:]name>...]` | Names of the features to process.                                          |                       |
-| `-i`, `--id=<id>[,<id>...]`                              | Identifiers of the features to process.                                    |                       |
-| `-b`, `--bbox=<x_min,y_min,x_max,y_max,srid>`            | Bounding box to use as spatial filter.                                     |                       |
-| `--bbox-mode=<mode>`                                     | Bounding box mode: intersects, contains, on_tile  \| intersects            |                       |
-| `--limit=<count>`                                        | Maximum number of features to process.                                     |                       |
-| `-a`, `--appearance-theme=<theme>[,<theme>...]`          | Process appearances with a matching theme. Use 'none' for the null theme.  |                       |
+!!! tip
+    For general usage hints applicable to all subcommands of the `import` command (including but not limited to
+    `import cityjson`), refer to the documentation for the `import` command [here](import.md#usage).
 
-### Example
+### Supported CityJSON versions
 
-Import a feature with a specific ID from your JSON-File.
+The `import cityjson` command supports importing CityJSON files in versions 2.0, 1.1, and 1.0. In addition to regular
+CityJSON files, the [CityJSON Text Sequence (CityJSONSeq)](https://www.cityjson.org/cityjsonseq/) format is also
+supported. CityJSONSeq decomposes the CityJSON dataset into its 1st-level features, which are stored as separate JSON
+objects on individual lines, each delimited by newlines. This format enables efficient streaming of large CityJSON data.
 
-```bash
-citydb import citygml generic_cityjson.json \
-  --id=GMLID_0598627_75956_700 @options.txt
-```
+The following file types and extensions are recognized by citydb-tool:
+
+| File type            | File extensions |
+|----------------------|-----------------|
+| CityJSON file        | json, jsonl     |
+| GZIP compressed file | gz, gzip        |
+| ZIP archive          | zip             |
+
+The file extensions are used when a directory or ZIP archive is provided as `<file>` input instead of a single file.
+In such cases, the directory or archive is recursively scanned for input files, which are identified using the
+extensions listed above and then processed for import.
+
+### Filtering CityJSON content
+
+The `import cityjson` command offers the same filtering options and capabilities as the `import citygml` command.
+For more details, refer to the [corresponding section](import-citygml.md#filtering-citygml-content) of that command.
+
+- [Feature type filter](import-citygml.md#feature-type-filter) (`--type-name`): Filters features by their feature type.
+- [Feature identifier filter](import-citygml.md#feature-identifier-filter) (`--id`): Filters features by their
+  identifier. The filter behavior depends on the CityJSON file format:
+    - **Regular CityJSON**: Only features with a matching `key` in `"CityObjects"` are imported.
+    - **CityJSONSeq:** Only `"CityJSONFeature"` objects with a matching `"id"` property are imported.
+- [Bounding box filter](import-citygml.md#bounding-box-filter) (`--bbox`, `--bbox-mode`): Filters features using a 2D bounding box based on
+  their `"geographicalExtent"` property.
+- [Count filter](import-citygml.md#count-filter) (`--limit`, `--start-index`): Limits the number of imported features.
+- [Appearance filter](import-citygml.md#appearance-filter) (`--appearance-theme`, `--no-appearances`): Controls
+  the import of appearances.
+
+The following example illustrates an `import cityjson` command with multiple filters:
+
+=== "Linux"
+
+    ```bash
+    ./citydb import cityjson [...] my-city.json \
+        --type-name=bldg:Building,tran:Road \
+        --bbox=367123,5807268,367817,5807913,25833 \
+        --bbox-mode=on_tile \
+        --no-appearances \
+        --limit=100
+    ```
+
+=== "Windows CMD"
+
+    ```bat
+    citydb import cityjson [...] my-city.json ^
+        --type-name=bldg:Building,tran:Road ^
+        --bbox=367123,5807268,367817,5807913,25833 ^
+        --bbox-mode=on_tile ^
+        --no-appearances ^
+        --limit=100
+    ```
+
+!!! note
+    - If multiple filters are used, all conditions must be satisfied for a feature to be imported.
+    - Filters are applied to the 1st-level city objects in the input file. Matching city objects are imported, including all
+      their 2nd-level city objects. Filtering 2nd-level city objects is not supported.
+
+### Handling unknown extensions
+
+CityJSON provides a flexible extension mechanism similar to CityGML Application Domain Extensions (ADE). This mechanism
+allows the addition of new feature attributes and feature types not covered by the CityJSON specification. If a dataset
+contains extensions that are not registered in the 3DCityDB `v5`, citydb-tool handles them as follows:
+
+- Unknown attributes are mapped to generic attributes and stored in the database.
+- Unknown feature types are mapped to generic city objects in the database. This default behavior can be
+  suppressed using the -`-no-map-unknown-objects` option, which will prevent unknown feature types from being imported.
+
+!!! tip
+    To import CityJSON extensions as defined, the corresponding type definitions have to be registered in the
+    [`OBJECTCLASS`](../3dcitydb/metadata-module.md#objectclass-table) and
+    [`DATATYPE`](../3dcitydb/metadata-module.md#datatype-table) metadata tables of the 3DCityDB `v5`. Additionally, a
+    corresponding extension module must be loaded for citydb-tool to correctly parse and import the extensions.
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3dcitydb.github.io%2F3dcitydb-mkdocs%2Fcitydb-tool%2Fimport_cityjson%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)](https://hits.seeyoufarm.com/#history)
 

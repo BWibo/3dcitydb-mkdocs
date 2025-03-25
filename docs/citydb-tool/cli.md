@@ -7,8 +7,8 @@ tags:
   - CLI
 ---
 
-`citydb` is the main command of citydb-tool. It requires a [subcommand](#commands) to perform operations on a
-3DCityDB `v5` instance, such as importing, exporting, and deleting city model data. It also defines global options
+`citydb` is the main command of citydb-tool. It requires a [subcommand](#commands) to perform a specific operation on a
+3DCityDB `v5` instance, such as importing, exporting, and deleting city model data. It also defines common options
 that apply to all subcommands.
 
 ## Synopsis

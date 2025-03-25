@@ -10,6 +10,12 @@ tags:
 
 # Index command
 
+Meine Version
+The 3DCityDB uses indexes to improve query performance by enabling faster data retrieval. However, maintaining indexes
+comes with a cost, as they are updated in real time during imports, which can slow down the process. This overhead can be
+especially significant when importing large amounts of data.
+
+
 The **`index`** command in the **citydb-tool** allows users to manage database indexes in **3DCityDB**.
 Indexes are critical for optimizing query performance, especially for large datasets.
 The `index` command provides subcommands to check index statuses, create indexes, and drop indexes.
