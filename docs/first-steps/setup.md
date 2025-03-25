@@ -78,7 +78,7 @@ Below is an example of the required information to include in the `connection-de
       #----------------------------------------------------
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ```bat
       # Provide your database details here ----------------
@@ -108,7 +108,7 @@ permissions to make the script executable.
     ./create-db.sh
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ```bat
     create-db.bat
@@ -122,7 +122,7 @@ It is also possible to use a different `connection-details` file from another fo
     ./create-db.sh /path/to/connection-details.sh
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ```bat
     create-db.bat C:\path\to\connection-details.bat
@@ -246,7 +246,7 @@ a 3DCityDB instance. The required input parameters have been discussed in the se
         -v changelog="no"
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ```bat
     psql -d "citydb_v5" ^

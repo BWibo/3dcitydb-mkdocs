@@ -49,7 +49,7 @@ To apply one or more XSLT stylesheets during the export process:
            -o transformed_output.gml \
            --xsl-transform=transform1.xsl,transform2.xsl
     ```
-=== "Windows"
+=== "Windows CMD"
 
     ```bash
     citydb export citygml ^
