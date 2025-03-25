@@ -136,7 +136,7 @@ contains extensions that are not registered in the 3DCityDB `v5`, citydb-tool ha
 
 - Unknown attributes are mapped to generic attributes and stored in the database.
 - Unknown feature types are mapped to generic city objects in the database. This default behavior can be
-  suppressed using the -`-no-map-unknown-objects` option, which will prevent unknown feature types from being imported.
+  suppressed using the `--no-map-unknown-objects` option, which will prevent unknown feature types from being imported.
 
 !!! tip
     To import CityJSON extensions as defined, the corresponding type definitions have to be registered in the

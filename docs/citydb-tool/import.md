@@ -70,7 +70,7 @@ The following example shows different ways for defining input files.
         /bar/**/city*.{gml,gz,zip}
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ```bat
     citydb import citygml [...] ^
@@ -185,7 +185,7 @@ Alternatively, you can use `swap_xy` as a shorthand for this transformation, as 
         --transform=swap_xy
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ```bat
     citydb import citygml [...] my-city.gml ^

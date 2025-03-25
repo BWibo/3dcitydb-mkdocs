@@ -52,7 +52,7 @@ to make the script executable.
     ./citydb --help
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ```shell
     citydb --help    # you can omit the .bat file extension
@@ -98,7 +98,7 @@ the heap space.
         /my/city.gml
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ```bat
     set JAVA_HOME="C:\path\to\your\java\installation"

@@ -42,7 +42,7 @@ establish an SSL connection.
         -o output.gml
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ```bat
     citydb export citygml ^
@@ -195,7 +195,7 @@ details.
     ./citydb export citygml -o output.gml
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ```bat
     set CITYDB_HOST=localhost

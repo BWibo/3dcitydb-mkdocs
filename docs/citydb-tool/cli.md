@@ -128,7 +128,7 @@ list as shown below.
         --use-plugin=com.example.PluginA=true,com.example.PluginB=false
     ```
 
-=== "Windows"
+=== "Windows CMD"
 
     ```bat
     citydb export citygml [...] ^
