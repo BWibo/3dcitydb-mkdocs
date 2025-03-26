@@ -73,11 +73,11 @@ objects on individual lines, each delimited by newlines. This format enables eff
 
 The following file types and extensions are recognized by citydb-tool:
 
-| File type            | File extensions |
-|----------------------|-----------------|
-| CityJSON file        | json, jsonl     |
-| GZIP compressed file | gz, gzip        |
-| ZIP archive          | zip             |
+| File type            | File extensions    |
+|----------------------|--------------------|
+| CityJSON file        | `.json`, `.jsonl ` |
+| GZIP compressed file | `.gz`, `.gzip`     |
+| ZIP archive          | `.zip`             |
 
 The file extensions are used when a directory or ZIP archive is provided as `<file>` input instead of a single file.
 In such cases, the directory or archive is recursively scanned for input files, which are identified using the

@@ -9,18 +9,18 @@ tags:
 # Import command
 
 The `import` command imports city model data into the 3DCityDB `v5` in a supported format. Each format has a dedicated
-[subcommand](#subcommands) with format-specific options.
+[subcommand](#commands) with format-specific options.
 
 ## Synopsis
 
 ```bash
-citydb import [OPTIONS] SUBCOMMAND
+citydb import [OPTIONS] COMMAND
 ```
 
 ## Options
 
-The `import` command inherits global options from the main [`citydb`](cli.md) command. Additionally, the general
-import and metadata options listed below are applicable to all of its [subcommands](#subcommands).
+The `import` command inherits global options from the main [`citydb`](cli.md) command. Additionally, it defines general
+import and metadata options, which apply to all of its [subcommands](#commands).
 
 ### Global options
 
@@ -36,7 +36,7 @@ For more details on the global options and usage hints, see [here](cli.md#option
 
 --8<-- "docs/citydb-tool/includes/import-metadata-options.md"
 
-## Subcommands
+## Commands
 
 | Command                                     | Description                                                                                |
 |---------------------------------------------|--------------------------------------------------------------------------------------------|
@@ -57,7 +57,7 @@ or a directory. You can also use glob patterns with wildcard characters such as 
 files.
 
 If a directory is provided, it will be scanned recursively for supported input files. The supported file formats and
-extensions depend on the [subcommand](#subcommands). In addition to regular files, ZIP archives and GZIP-compressed files are
+extensions depend on the [subcommand](#commands). In addition to regular files, ZIP archives and GZIP-compressed files are
 supported as input. Like directories, ZIP archives are also scanned recursively for supported input files.
 The following example shows different ways for defining input files.
 

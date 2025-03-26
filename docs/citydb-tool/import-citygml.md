@@ -39,10 +39,10 @@ For more details on the general import options and usage hints, see [here](impor
 
 ### CityGML import options
 
-| Option                                                                             | Description                                  | Default value |
-|------------------------------------------------------------------------------------|----------------------------------------------|---------------|
-| `--import-xal-source`                                                              | Import XML snippets of xAL address elements. |               |
-| `-x`, <code>--xsl-transform=<br/>&lt;stylesheet&gt;[,&lt;stylesheet&gt;...]</code> | Apply XSLT stylesheets to transform input.   |               |
+| Option                                                                       | Description                                  | Default value |
+|------------------------------------------------------------------------------|----------------------------------------------|---------------|
+| `--import-xal-source`                                                        | Import XML snippets of xAL address elements. |               |
+| `-x`, <code>--xsl-transform=&lt;stylesheet><br/>[,&lt;stylesheet>...]</code> | Apply XSLT stylesheets to transform input.   |               |
 
 ### Metadata options
 
@@ -81,9 +81,9 @@ file types and extensions:
 
 | File type            | File extensions |
 |----------------------|-----------------|
-| CityGML file         | gml, xml        |
-| GZIP compressed file | gz, gzip        |
-| ZIP archive          | zip             |
+| CityGML file         | `.gml`, `.xml`  |
+| GZIP compressed file | `.gz`, `.gzip`  |
+| ZIP archive          | `.zip`          |
 
 The file extensions are used when a directory or ZIP archive is provided as `<file>` input instead of a single file.
 In such cases, the directory or archive is recursively scanned for input files, which are identified using the
@@ -180,7 +180,7 @@ The following example illustrates an `import citygml` command with multiple filt
     ```
 
 !!! note
-    - If multiple filters are used, all conditions must be satisfied for a feature to be imported.
+    - When using multiple filters, all conditions must be satisfied for a feature to be imported.
     - Filters are applied to the top-level `<cityObjectMember>` elements in the input file. Matching features
       are imported, including all their subfeatures. Filtering subfeatures is not supported.
 

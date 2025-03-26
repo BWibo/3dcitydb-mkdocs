@@ -1,0 +1,6 @@
+| Option                                                              | Description                                                                                                                | Default value |
+|---------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|---------------|
+| `--tile-matrix=<columns,rows>`                                      | Export tiles in a columns x rows grid.                                                                                     |               |
+| `--tile-dimension=<width[unit],height[unit]>`                       | Export tiles with specified width and height, aligned with the database CRS grid (default length unit of the CRS assumed). |               |
+| <code>--tile-extent=&lt;x_min,y_min,x_max,y_max<br/>[,srid]></code> | Extent to use for tiling.                                                                                                  | auto-computed |
+| `--tile-origin=<origin>`                                            | Tile indexes origin: `top_left`, `bottom_left`.                                                                            | `top_left`    |
