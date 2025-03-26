@@ -135,13 +135,8 @@ research and daily business.
 </div>
 
 !!! question "Missing your name and logo?"
-    Contact us to get involved as partner in the 3DCityDB open-source project. 
+    Contact us to get involved as partner in the 3DCityDB open-source project.
 
 ## Past contributors
 
 Contributors to previous versions of 3DCityDB and its tools are listed [here](https://3dcitydb-docs.readthedocs.io/en/latest/appendix/contributors.html){target="blank"}.
-
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3dcitydb.github.io%2F3dcitydb-mkdocs%2Fpartners%2Findex%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)](https://hits.seeyoufarm.com/#history)
-
-/// caption
-///
