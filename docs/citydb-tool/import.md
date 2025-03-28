@@ -128,7 +128,7 @@ operation:
     The [`index`](index.md) command allows you to manage indexes independently of the import operation, giving you
     greater control over index handling.
 
-### Computing feature extents
+### Computing extents
 
 By default, citydb-tool reads feature bounding boxes from the input file and stores them in the `envelope` column of the
 [`FEATURE`](../3dcitydb/feature-module.md#feature-table) table. A correct envelope is essential for spatial queries.
@@ -138,7 +138,7 @@ computation considers the geometries of each feature and its subfeatures across 
 !!! tip
     You can also recompute envelopes after import using database functions in the 3DCityDB `v5`, as explained [here](../3dcitydb/db-functions.md#envelope-functions).
 
-### Transforming feature geometries
+### Transforming geometries
 
 The `--transform` option applies an affine transformation to input geometries using a 3x4 transformation matrix
 before they are imported into the database. The matrix operates on homogeneous coordinates to compute the transformed
@@ -165,18 +165,8 @@ to $m_{11}$:
 --transform=m0,m1,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11
 ```
 
-A common use case is swapping the $x$ and $y$ coordinates while keeping $z$ unchanged. This can be achieved with the
-following matrix:
-
-$$
-\begin{pmatrix}
-0 & 1 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0
-\end{pmatrix}
-\quad \Rightarrow \quad
-[0,1,0,0,1,0,0,0,0,0,1,0]
-$$
-
-Alternatively, you can use `swap_xy` as a shorthand for this transformation, as shown below.
+A common use case is swapping the $x$ and $y$ coordinates while keeping $z$ unchanged. You can use `swap_xy` as a
+shorthand for this transformation, as shown below.
 
 === "Linux"
 
@@ -193,7 +183,7 @@ Alternatively, you can use `swap_xy` as a shorthand for this transformation, as 
     ```
 
 !!! note
-    Ensure that the transformed coordinates remain consistent with CRS defined for your 3DCityDB instance.
+    Ensure that the transformed coordinates remain consistent with the CRS defined for your 3DCityDB instance.
 
 ### Defining import metadata
 

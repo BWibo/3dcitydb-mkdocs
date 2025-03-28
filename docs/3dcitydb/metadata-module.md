@@ -541,7 +541,7 @@ The data type of a nested property can be specified in one of two ways:
 2. As a reference to a data type from the `DATATYPE` table via its identifier using the `"type"` property.
 
 !!! note
-    Complex data types are not required to have a `"value"` but can consist solely of nested properties (see the
+    Complex data types are not required to have a `"value"` member but can consist solely of nested `"properties"` (see the
     `core:ExternalReference` example). Alternatively, they can designate one of their nested properties as `"value"`
     by using a `0`-based index into the properties array (see the `con:Height` example).
 

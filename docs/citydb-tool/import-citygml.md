@@ -155,6 +155,8 @@ one or more themes as a comma-separated list. To filter appearances that have no
 Only appearances associated with the specified themes will be imported. To exclude all appearances from the import,
 use the `--no-appearances` option.
 
+#### Filter example
+
 The following example illustrates an `import citygml` command with multiple filters:
 
 === "Linux"
@@ -223,8 +225,3 @@ of the [`ADDRESS`](../3dcitydb/feature-module.md#address-table) table, which pro
 structure for storing address data. However, if the original xAL address element is too complex to be fully mapped to
 the `ADDRESS` table columns, the `--import-xal-source` option allows importing and retaining the original xAL element.
 For more details, see [here](../3dcitydb/feature-module.md#address-table).
-
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3dcitydb.github.io%2F3dcitydb-mkdocs%2Fcitydb-tool%2Fimport_citygml%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)](https://hits.seeyoufarm.com/#history)
-
-/// caption
-///
