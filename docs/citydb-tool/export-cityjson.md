@@ -1,92 +1,176 @@
 ---
-# title: CityJSON Options
-description: CityJSON-specific export options
-# icon: material/json
+title: Export CityJSON command
+description: Exporting CityJSON data
 tags:
   - citydb-tool
   - CityJSON
   - export
 ---
 
-# CityJSON-specific export options
+# Export CityJSON command
 
-The **CityJSON** exporter in the **citydb-tool** provides additional options unique to the CityJSON format. These options allow precise control over JSON formatting, geometry precision, and transformations.
+The `export cityjson` command export city model data from the 3DCityDB `v5` to a [CityJSON file](https://www.cityjson.org/).
 
----
-
-## CityJSON-specific options
-
-| Option                               | Description                                                                                           | Default Value |
-|--------------------------------------|-------------------------------------------------------------------------------------------------------|------------|
-| `-v`, `--cityjson-version=<version>` | Specify the CityJSON version to use: `2.0`, `1.1`, or `1.0`.                                          | 2.0        |
-| `--[no-]json-lines`                  | Export data as **CityJSON Sequence** in JSON Lines format (each line is a separate JSON object). Requires CityJSON `1.1`+. | true       |
-| `--vertex-precision=<digits>`        | Set the number of decimal places for geometry coordinates to reduce file size (e.g., `3` for 0.001). |            |
-| `--template-precision=<digits>`      | Set the precision (decimal places) for template vertices, reducing file size while retaining accuracy.|            |
-| `--texture-vertex-precision=<digits>`| Define the precision for texture coordinates used in geometries (e.g., `7` for high precision).       |            |
-| `--[no-]transform-coordinates`       | Transform geometry coordinates into integers when using CityJSON `1.0` to optimize file size.         | true       |
-| `--replace-templates`                | Replace template geometries with explicit vertex coordinates, increasing file size but simplifying output. |            |
-| `--[no-]material-defaults`           | Apply default material values (e.g., colors and textures) as defined in the CityGML standard.         | true       |
-| `--html-safe`                        | Escape problematic characters to ensure the JSON can be safely embedded into HTML documents.          |            |
-
----
-
-## Examples for CityJSON export options
-
-Below are practical examples demonstrating how to use **CityJSON-specific options** in the **citydb-tool**.
-
----
-
-### Export with custom precision for geometry vertices
-
-To set the **vertex precision** to 5 decimal places to reduce file size:
+## Synopsis
 
 ```bash
-citydb export cityjson -o output.json --vertex-precision=5
+citydb export cityjson [OPTIONS]
 ```
 
-### Export with CityJSON lines format
+## Options
 
-To export data as a CityJSON Sequence in JSON Lines format (requires CityJSON version 1.1+):
+The `export cityjson` command inherits global options from the main [`citydb`](cli.md) command and general export, query
+and filter, and tiling options from its parent [`export`](export.md) command. Additionally, it provides CityJSON
+format-specific export options.
 
-```bash
-citydb export cityjson -o output.json --json-lines -v 1.1
-```
-Each line in the output file will contain a separate JSON object.
+### Global options
 
-### Transform coordinates into integers
+--8<-- "docs/citydb-tool/includes/global-options.md"
 
-To transform geometry coordinates into integers for optimized file size (CityJSON version 1.0):
+For more details on the global options and usage hints, see [here](cli.md#options).
 
-```bash
-citydb export cityjson -o output.json --transform-coordinates -v 1.0
-```
+### General export options
 
-### Replace templates with explicit coordinates
+--8<-- "docs/citydb-tool/includes/export-general-options.md"
 
-To replace template geometries with explicit vertex coordinates for simplified output:
+For more details on the general export options and usage hints, see [here](export.md#general-export-options).
 
-```bash
-citydb export cityjson -o output.json --replace-templates
-```
+### CityJSON export options
 
-### Export with default material values
+| Option                                | Description                                                                                         | Default value |
+|---------------------------------------|-----------------------------------------------------------------------------------------------------|---------------|
+| `-v`, `--cityjson-version=<version>`  | CityJSON version: `2.0`, `1.1`, `1.0`.                                                              | `2.0`         |
+| `--[no-]json-lines`                   | Write output as CityJSON Sequence in JSON Lines format. This option requires CityJSON 1.1 or later. | `true`        |
+| `--pretty-print`                      | Format and indent output file.                                                                      |               |
+| `--html-safe`                         | Write JSON that is safe to embed into HTML.                                                         |               |
+| `--vertex-precision=<digits>`         | Number of decimal places to keep for geometry vertices.                                             | 3             |
+| `--template-precision=<digits>`       | Number of decimal places to keep for template vertices.                                             | 3             |
+| `--texture-vertex-precision=<digits>` | Number of decimal places to keep for texture vertices.                                              | 7             |
+| `--[no-]transform-coordinates`        | Transform coordinates to integer values when exporting in CityJSON 1.0.                             | `true`        |
+| `--replace-templates`                 | Replace template geometries with real coordinates.                                                  |               |
+| `--[no-]material-defaults`            | Use CityGML default values for material properties.                                                 | `true`        |
 
-To export CityJSON with default material values (e.g., colors and textures) defined in the CityGML standard:
+### Upgrade options for CityGML 2.0 and 1.0
 
-```bash
-citydb export cityjson -o output.json --material-defaults
-```
+| Option                 | Description                                             | Default value |
+|------------------------|---------------------------------------------------------|---------------|
+| `--use-lod4-as-lod3`   | Use LoD4 as LoD3, replacing an existing LoD3.           |               |
 
-To disable default material values:
+### Query and filter options
 
-```bash
-citydb export cityjson -o output.json --no-material-defaults
-```
+--8<-- "docs/citydb-tool/includes/export-filter-options.md"
 
-### Export CityJSON for HTML embedding
+For more details on the query and filter options and usage hints, see [here](export.md#query-and-filter-options).
 
-To escape problematic characters in the JSON output for safe embedding into HTML documents:
+### Time-based feature history options
 
-```bash
-citydb export cityjson -o output.json --html-safe
-```
+--8<-- "docs/citydb-tool/includes/export-history-options.md"
+
+For more details on the time-based feature history options and usage hints, see [here](export.md#time-based-feature-history-options).
+
+### Tiling options
+
+--8<-- "docs/citydb-tool/includes/export-tiling-options.md"
+
+For more details on the tiling options and usage hints, see [here](export.md#tiling-options).
+
+### Database connection options
+
+--8<-- "docs/citydb-tool/includes/db-options.md"
+
+For more details on the database connection options and usage hints, see [here](database.md).
+
+## Usage
+
+!!! tip
+    For general usage hints applicable to all subcommands of the `export` command (including but not limited to
+    `export cityjson`), refer to the documentation for the `export` command [here](export.md#usage).
+
+### Specifying the CityJSON version
+
+The `export cityjson` command supports CityJSON versions 2.0, 1.1, and 1.0 as output formats. Use the `--cityjson-version`
+option to select a specific version for export (default: `2.0`).
+
+!!! warning "Note"
+    Since CityJSON implements only a subset of the [CityGML Conceptual Model](https://docs.ogc.org/is/20-010/20-010.html),
+    city model data stored in the 3DCityDB `v5` may not be fully exportable to a CityJSON output file. Where possible,
+    citydb-tool applies automatic conversions to ensure compatibility.
+
+### Streaming exports
+
+By default, CityJSON data is exported using the [CityJSON Text Sequence](https://www.cityjson.org/cityjsonseq/){target="blank"}
+format to efficiently handle large exports. Features are exported sequentially in chunks as individual
+`CityJSONFeature` objects, each written to the output file on a separate line. This streaming approach improves memory
+efficiency, reduces storage requirements, and provides immediate access to the streamed data.
+
+!!! warning "Disabling streaming exports"
+    You can disable streaming export by using the `--no-json-lines` option. Without streaming, the entire export must be
+    loaded into memory before being written to the output file, which could quickly exceed system memory limits for large
+    exports. In such cases, consider using [filters](export.md#querying-and-filtering)
+    or [tiled exports](export.md#tiled-exports) to reduce the export size.
+
+!!! note
+    Streaming export is not available when exporting to CityJSON 1.0.
+
+### Upgrading CityGML 2.0 and 1.0
+
+CityJSON does not support LoD4 representations of features as defined in CityGML 2.0 and 1.0. Therefore, if you have
+imported CityGML 2.0 or 1.0 data containing LoD4 geometries into your 3DCityDB `v5`, these geometries will be skipped
+by default when exporting to CityJSON.
+
+To address this, you can use the `--use-lod4-as-lod3` option to map LoD4 geometries to LoD3 during export. However,
+this will also overwrite any existing LoD3 representation of the features.
+
+### Transforming coordinates
+
+CityJSON applies quantization to the coordinates of the geometry vertices to reduce file size. The coordinates are
+represented as integer values, with the scale factor and translation required to recover the original coordinates stored
+as separate `"transform"` property.
+
+Quantization is mandatory for CityJSON 2.0 and 1.1, but optional for CityJSON 1.0. By default, the `export cityjson`
+command uses quantization for CityJSON 1.0 as well, though it can be disabled using the `--no-transform-coordinates`
+option.
+
+### Replacing template geometries
+
+CityJSON supports the CityGML concept of [implicit geometries](../3dcitydb/geometry-module.md#implicit-geometries),
+enabling template geometries to be defined and stored once in the CityJSON file and reused by multiple features. These
+template geometries are stored using local coordinates. Features that reference a template must provide both a reference
+point and a transformation matrix to convert the coordinates to real-world values and place the template correctly
+within the city model.
+
+If the target system consuming the CityJSON export cannot handle template geometries, the `--replace-templates` option can
+be used to replace them with real-world coordinates during export.
+
+!!! note
+    Replacing templates will increase the file size and eliminate the benefits of reusing them.
+
+### Suppressing material defaults
+
+By default, citydb-tool includes default values for material properties such as `"diffuseColor"`, `"emissiveColor"`, and
+`"ambientIntensity"` in the output file when specific values for these properties are missing in the database.
+These defaults are defined in the [CityGML Appearance model](https://docs.ogc.org/is/20-010/20-010.html#toc31) and help
+prevent issues with target systems that do not automatically apply them.
+
+You can use the `--no-material-defaults` option to suppress this behavior and omit the properties with default values,
+which also reduces the file size.
+
+### Formatting the output
+
+The `export cityjson` command provides several options to format the CityJSON output:
+
+- `--vertex-precision`: Controls the number of decimal places retained for the coordinates of geometries. The coordinate
+  values will be rounded to the specified number of decimal places (default: `3`). This option balances data accuracy
+  with file size. More decimal places increase precision but may result in a larger file size.
+- `--template-precision`: Similar to `--vertex-precision`, but affects the number of decimal places for the coordinates
+  of implicit geometries (default: `3`).
+- `--texture-vertex-precision`: Similar to `--vertex-precision`, but affects the number of decimal places for texture
+  coordinates (default: `7`).
+- `--pretty-print`: Enhances readability by adding line breaks and indentation to clearly represent the hierarchy and
+  nesting of JSON elements, but increases file size.
+- `--html-safe`: Escapes special characters in the CityJSON output for safe use in HTML contexts.
+
+The --no-transform-coordinates
+
+!!! note
+    The `--pretty-print` option cannot be used with streaming exports that use newline-delimited JSON.

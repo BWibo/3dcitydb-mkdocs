@@ -1,7 +1,6 @@
 ---
 title: Import CityJSON command
 description: Importing CityJSON data
-# icon: material/emoticon-happy
 tags:
   - citydb-tool
   - CityJSON
@@ -34,7 +33,7 @@ For more details on the global options and usage hints, see [here](cli.md#option
 
 --8<-- "docs/citydb-tool/includes/import-general-options.md"
 
-For more details on the general import options and usage hints, see [here](import.md#usage).
+For more details on the general import options and usage hints, see [here](import.md#general-import-options).
 
 ### CityJSON import options
 
@@ -85,19 +84,10 @@ extensions listed above and then processed for import.
 
 ### Filtering CityJSON content
 
-The `import cityjson` command offers the same filtering options and capabilities as the `import citygml` command.
-For more details, refer to the [corresponding section](import-citygml.md#filtering-citygml-content) of that command.
+The `import cityjson` command provides several filtering options to control which content is imported from the input
+files.
 
-- [Feature type filter](import-citygml.md#feature-type-filter) (`--type-name`): Filters features by their feature type.
-- [Feature identifier filter](import-citygml.md#feature-identifier-filter) (`--id`): Filters features by their
-  identifier. The filter behavior depends on the CityJSON file format:
-    - **Regular CityJSON**: Only features with a matching `key` in `"CityObjects"` are imported.
-    - **CityJSONSeq:** Only `"CityJSONFeature"` objects with a matching `"id"` property are imported.
-- [Bounding box filter](import-citygml.md#bounding-box-filter) (`--bbox`, `--bbox-mode`): Filters features using a 2D bounding box based on
-  their `"geographicalExtent"` property.
-- [Count filter](import-citygml.md#count-filter) (`--limit`, `--start-index`): Limits the number of imported features.
-- [Appearance filter](import-citygml.md#appearance-filter) (`--appearance-theme`, `--no-appearances`): Controls
-  the import of appearances.
+--8<-- "docs/citydb-tool/import-filter-usage.md"
 
 The following example illustrates an `import cityjson` command with multiple filters:
 
