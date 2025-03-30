@@ -55,8 +55,3 @@ released under a no-fee, free-to-use license. However, previous versions of Orac
 available only under a fee-based subscription license. Similarly, Java binaries from other vendors may require a license
 for commercial use or access to updates. Please review the license terms and conditions provided by the vendors
 carefully.
-
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3dcitydb.github.io%2F3dcitydb-mkdocs%2Ffirst-steps%2Frequirements%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)](https://hits.seeyoufarm.com/#history)
-
-/// caption
-///

@@ -1,143 +1,307 @@
 ---
-# title: Delete
-description: Deleting Features from 3DCityDB
-# icon: material/delete
+title: Delete command
+description: Deleting features from 3DCityDB
 tags:
   - citydb-tool
   - delete
 ---
 
-# Delete command
+The `delete` command removes or terminates features in the 3DCityDB `v5`. It is built on top the corresponding
+[database functions](../3dcitydb/db-functions.md) to perform these operations.
 
-The **citydb-tool** provides a `delete` command to remove features from the **3DCityDB** database.
-The `delete` command offers flexible options for filtering, committing changes, managing indexes, and metadata logging.
+!!! tip
+    Be cautious when using the `delete` command, as it starts the delete process immediately. There is no 'Are you sure?'
+    prompt. You can first run the command in [preview mode](#previewing-the-deletion), which leaves the database unchanged.
 
----
-
-## Usage
+## Synopsis
 
 ```bash
 citydb delete [OPTIONS]
 ```
 
-## General options
+## Options
 
-| Option                               | Description                                                                 | Default Value |
-|--------------------------------------|-----------------------------------------------------------------------------|---------------|
-| `[@<filename>...]`                   | Specify one or more argument files containing options.                      |               |
-| `--temp-dir=<dir>`                   | Directory to store temporary files during the delete operation.             |               |
-| `-m`, `--delete-mode=<mode>`         | Delete mode: `delete` (hard delete) or `terminate` (logical delete).         | `terminate`   |
-| `--index-mode=<mode>`                | Index mode: `keep`, `drop`, or `drop_create`. Dropping indexes can improve performance for large deletes. | `keep`        |
-| `--preview`                          | Run the command in **preview mode**. Features will not actually be deleted. |               |
-| `-c`, `--commit=<number>`            | Commit changes after deleting this number of features.                      | None          |
-| `--config-file=<file>`               | Load configuration options from the specified file.                         |               |
-| `-L`, `--log-level=<level>`          | Set the logging level: `fatal`, `error`, `warn`, `info`, `debug`, `trace`.   | `info`        |
-| `--log-file=<file>`                  | Write log messages to the specified file.                                   |               |
-| `--pid-file=<file>`                  | Create a file containing the process ID.                                    |               |
-| `--plugins=<dir>`                    | Load plugins from the specified directory.                                  |               |
-| `--use-plugins=<plugin>`             | Enable/disable specific plugins using their fully qualified class names.    | `true`        |
+The `delete` command inherits global options from the main [`citydb`](cli.md) command. Additionally, it defines general
+delete, query and filter, and metadata options.
 
-## Metadata options
+### Global options
 
-| Option                               | Description                                                                 | Default Value       |
-|--------------------------------------|-----------------------------------------------------------------------------|---------------------|
-| `--lineage=<lineage>`                | Specify the lineage information for the deleted features.                   | None                |
-| `--updating-person=<name>`           | Name of the user responsible for the delete operation.                      | Database user       |
-| `--reason-for-update=<reason>`       | Provide a reason for deleting the data.                                     | None                |
+--8<-- "docs/citydb-tool/includes/global-options.md"
 
+For more details on the global options and usage hints, see [here](cli.md#options).
 
-## Query and filter options
+### Delete options
 
-| Option                               | Description                                                                 | Default Value       |
-|--------------------------------------|-----------------------------------------------------------------------------|---------------------|
-| `-t`, `--type-name=<name>`           | Specify feature names to process. Example: `CityFurniture`.                 | None                |
-| `-f`, `--filter=<cql2-text>`         | Apply a **CQL2 filter** to retrieve specific features.                      | None                |
-| `--filter-crs=<crs>`                 | SRID or CRS identifier for the filter geometries.                           | Storage CRS         |
-| `--sql-filter=<sql>`                 | Use an **SQL query** to filter features.                                    | None                |
-| `--limit=<count>`                    | Limit the number of features to process. Example: `1000`.                   | None                |
-| `--start-index=<index>`              | Start processing features from a specific index. Example: `10`.             | `0`                 |
+| Option                       | Description                                                                                              | Default value |
+|------------------------------|----------------------------------------------------------------------------------------------------------|---------------|
+| `--temp-dir=<dir>`           | Store temporary files in this directory.                                                                 |               |
+| `-m`, `--delete-mode=<mode>` | Delete mode: `delete`, `terminate`.                                                                      | `terminate`   |
+| `--[no-]terminate-all`       | Also terminate sub-features.                                                                             | `true`        |
+| `--index-mode=<mode>`        | Index mode: keep, drop, drop_create. Consider dropping indexes when processing large quantities of data. | `keep`        |
+| `--preview`                  | Run in preview mode. Features will not be deleted.                                                       |               |
+| `-c`, `--commit=<number>`    | Commit changes after deleting this number of features.                                                   |               |
 
-## Database connection options
+### Metadata options for termination operation
 
-The citydb-tool requires a connection to a 3DCityDB database for all operations, including the delete command.
-Database connection details, such as host, port, schema, and credentials, must be provided to ensure the
-tool can interact with the database successfully.
+| Option                         | Description                                                                                                             | Default value |
+|--------------------------------|-------------------------------------------------------------------------------------------------------------------------|---------------|
+| `--termination-date=<time>`    | Time in `<YYYY-MM-DD>` or <code>&lt;YYYY-MM-DDThh&#58;mm:ss[(+&#124;-)hh:mm]></code> format to use as termination date. | `now`         |
+| `--lineage=<lineage>`          | Lineage to use for the features.                                                                                        |               |
+| `--updating-person=<name>`     | Name of the user responsible for the delete.                                                                            | database user |
+| `--reason-for-update=<reason>` | Reason for deleting the data.                                                                                           |               |
 
-These options are shared across all commands in the citydb-tool, as a connection is essential every time data
-is queried, deleted, imported, or exported.
+### Query and filter options
 
-For details on how to configure database connections, including host, port, schema, and credentials,
-refer to the [database connection options documentation](db-connection.md) This section provides a comprehensive explanation of
-all available connection parameters.
+| Option                                                                                 | Description                                                                                         | Default value |
+|----------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|---------------|
+| `-t`, <code>--type-name=<[prefix:]name><br/>[,<[prefix:]name>...]</code>               | Names of the features to process.                                                                   |               |
+| `-f`, `--filter=<cql2-text>`                                                           | Filter to apply when retrieving features. Use the extended CQL2 filtering language of the 3DCityDB. |               |
+| `--filter-crs=<crs>`                                                                   | SRID or identifier of the CRS to use for geometries in the filter expression.                       | 3DCityDB CRS  |
+| `--sql-filter=<sql>`                                                                   | SQL query expression to use as filter.                                                              |               |
+| `--limit=<count>`                                                                      | Maximum number of features to process.                                                              |               |
+| `--start-index=<index>`                                                                | Index within the input set from which features are processed.                                       |               |
 
-## Examples
+### Time-based feature history options
 
-### Basic delete
+--8<-- "docs/citydb-tool/includes/export-history-options.md"
 
-Delete features using default settings:
+### Database connection options
 
-```bash
-citydb delete
-```
+--8<-- "docs/citydb-tool/includes/db-options.md"
 
-### Preview delete operation
+For more details on the database connection options and usage hints, see [here](database.md).
 
-Run the delete command in **preview mode** to check which features would be deleted without
-performing the actual operation:
+## Usage
 
-```bash
-citydb delete -t Building --preview
-```
+### Delete mode
 
-### Delete specific features
+The delete mode, defined by the `--delete-mode` option, determines how features are deleted in the database. The
+available modes are:
 
-Delete specific features using a **CQL2 filter**:
+- `delete`: Features are physically removed from the database, helping keep it streamlined and focused on the most
+  recent versions of features.
+- `terminate`: Features are not physically removed but are marked as terminated by setting their `termination_date`
+  property to the timestamp of the operation, which allows retaining the feature history. This is the default mode.
 
-```bash
-citydb delete -t Building -f "height > 100"
-```
+Both modes delete a feature along with its "contained" subfeatures, which are considered part of the feature.
+The `--no-terminate-all` option changes this default behavior for termination. Terminating all subfeatures can
+take significantly longer than just terminating the feature itself, so it is important to evaluate whether cascading
+termination is necessary based on your use cases and scenarios.
 
-### Delete with metadata
+!!! note
+    - The `delete` command operates on non-terminated features unless specified otherwise. See
+      [below](#deleting-historical-versions) for instructions on how to delete historical versions.
+    - Terminated features cannot be terminated again; they can only be physically removed.
+    - Unlike "contained" subfeatures, "related" subfeatures are not deleted. For the distinction between the two,
+      refer to [this section](../3dcitydb/feature-module.md#relationships).
 
-Delete features and provide lineage information and a reason for the operation:
+### Committing the deletion
 
-```bash
-citydb delete -t Building --lineage="CityGML 2.0" --reason-for-update="Data cleanup"
-```
+By default, the delete operation is committed only after it completes successfully. If an error occurs or the operation
+is aborted, no features are deleted, leaving the database unchanged.
 
-### Delete with commit
+Alternatively, you can use the `--commit` option to specify the number of features after which the delete operation is
+committed. This breaks the operation into smaller batches, with each batch being committed individually. In this case,
+the all-or-nothing strategy applies to each batch rather than the entire operation.
 
-Delete features and commit changes after deleting 1000 features:
+!!! tip
+    In rare situations, deleting a very large quantity of features with a single delete operation may require more SQL
+    commands than the database allows per transaction. The `--commit` option helps prevent such large deletes from
+    failing. For PostgreSQL, the maximum allowed number of SQL commands per transaction is 2<sup>32</sup>.
 
-```bash
-citydb delete -t Building --commit=1000
-```
+### Previewing the deletion
 
-### Delete with custom temporary directory
+The `--preview` option runs the deletion in preview mode. The `delete` command is processed as if the deletion were taking
+place, but no changes are made to the database. This mode helps identify potential issues, such as conflicts or errors,
+before they affect the database, ensuring the actual delete operation proceeds as expected.
 
-Specify a custom directory for storing temporary files during the delete operation:
+### Filtering features to delete
 
-```bash
-citydb delete -t Building --temp-dir=/path/to/temp
-```
+The `delete` command offers several filtering options to control which features are deleted from the 3DCityDB `v5` instance.
 
-### Delete with SQL filter
+#### Feature type filter
 
-Delete features using an SQL query to filter specific records:
+The `--type-name` option specifies one or more feature types to delete. For each feature type, provide its type name as
+defined in the [`OBJECTCLASS`](../3dcitydb/metadata-module.md#objectclass-table) table of the 3DCityDB `v5`. To avoid
+ambiguity, you can use the namespace alias from the [`NAMESPACE`](../3dcitydb/metadata-module.md#namespace-table) table
+as a prefix in the format `prefix:name`. Only features matching the specified type will be deleted.
 
-```bash
-citydb delete -t Building --sql-filter="SELECT * FROM building WHERE height > 100"
-```
+#### CQL2-based filtering
 
-### Limit the number of features to process
+citydb-tool supports the [OGC Common Query Language (CQL2)](https://www.ogc.org/publications/standard/cql2/){target="blank"} as the
+default language for filtering features from the 3DCityDB `v5`. CQL2 enables both attribute-based and spatial
+filtering, offering advanced comparison operators, spatial functions, and logical operators. Only features that meet
+the specified filter criteria will be deleted.
 
-Delete a limited number of features, starting from index 10:
+CQL2 filter expressions are passed to the `delete` command using the `--filter` option. Be sure to enclose them in
+quotes if needed. When applying spatial filters, the filter geometries are assumed to be in the same CRS as the 3DCityDB
+instance. To specify a different CRS, use the `--filter-crs` option and provide the SRID (e.g., `4326` for WGS84).
 
-```bash
-citydb delete -t Building --limit=1000 --start-index=10
-```
+!!! tip
+    For more details on using CQL2 with the 3DCityDB `v5`, refer to the [CQL2 documentation](cql2.md).
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3dcitydb.github.io%2F3dcitydb-mkdocs%2Fcitydb-tool%2Fdelete%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)](https://hits.seeyoufarm.com/#history)
+The example below demonstrates how to delete buildings based on their `height` property.
 
-/// caption
-///
+=== "Linux"
+
+    ```bash
+    ./citydb delete [...] \
+        --type-name=bldg:Building \
+        --filter="con:height > 15"
+    ```
+
+=== "Windows CMD"
+
+    ```bat
+    citydb delete [...] ^
+        --type-name=bldg:Building ^
+        --filter="con:height > 15"
+    ```
+
+To apply a bounding box filter to the `envelope` property of features, you can use the following CQL2 filter expression.
+
+=== "Linux"
+
+    ```bash
+    ./citydb delete [...] \
+        --filter="s_intersects(core:envelope, bbox(13.369,52.506,13.405,52.520))" \
+        --filter-crs=4326
+    ```
+
+=== "Windows CMD"
+
+    ```bat
+    citydb delete [...] ^
+        --filter="s_intersects(core:envelope, bbox(13.369,52.506,13.405,52.520))" ^
+        --filter-crs=4326
+    ```
+
+#### SQL-based filtering
+
+The `--sql-filter` option allows the use of SQL `SELECT` statements as a filter expressions, providing access to all
+details of the [relational schema](../3dcitydb/relational-schema.md). Any `SELECT` statement supported by the underlying
+database system is permitted, as long as it returns only a list of `id` values from
+the [FEATURE](../3dcitydb/feature-module.md#feature-table) table. Only features included in the returned list will be
+considered for deletion.
+
+Below is a simple example of filtering features based on their identifier in the `objectid` column of the `FEATURE`
+table. The `SELECT` statement must be enclosed in quotes, and special characters may need to be escaped.
+
+=== "Linux"
+
+    ```bash
+    ./citydb delete [...] \
+        --sql-filter="SELECT id FROM feature WHERE objectid IN ('ABC', 'DEF')"
+    ```
+
+=== "Windows CMD"
+
+    ```bat
+    citydb delete [...] ^
+        --sql-filter="SELECT id FROM feature WHERE objectid IN ('ABC', 'DEF')"
+    ```
+
+#### Count filter
+
+The `--limit` option sets the maximum number of features to delete. The `--start-index` option defines the `0`-based
+index of the first feature to delete. These options can be used separately or together to control the total number of
+features deleted.
+
+!!! note
+    - When using multiple filters, all conditions must be satisfied for a feature to be deleted.
+    - [Configuration](cli.md#configuration-files) and [argument](cli.md#argument-files) files are an excellent way
+      to store complex filter expressions and easily reuse them.
+
+### Deleting historical versions
+
+The bi-temporal intervals `[creation_date, termination_date)` and `[valid_from, valid_to)` enable
+feature histories in the 3DCityDB `v5` (see [here](../3dcitydb/feature-module.md#feature-table)). The first interval
+defines the feature's lifespan in the database, indicating when it was inserted and terminated, while the second
+interval represents the feature’s real-world lifespan.
+
+A feature's validity depends on whether its time interval is bounded or unbounded:
+
+- **Unbounded (no end point):** The feature is currently valid.
+- **Bounded:** The feature was valid during the specified interval but is no longer valid.
+
+The `--validity` option controls which features are deleted based on their validity:
+
+- `valid`: Deletes only features that are currently valid. This is the default mode.
+- `invalid`: Deletes only historical features that are no longer valid.
+- `all`: Deletes all features, regardless of their validity.
+
+The `--validity-reference` option specifies whether validity is determined based on database time (`database`,
+default) or real-world time (`real_world`).
+
+Additionally, the `--validity-at` option allows you to check the validity of features at a specific point in time in the
+past. You can provide this time as either a date (`<YYYY-MM-DD>`) or a date-time with an optional UTC offset
+(`<YYYY-MM-DDThh:mm:ss[(+|-)hh:mm]>`). Only features that were either `valid` or `invalid` at the specified time will be
+deleted.
+
+The example below demonstrates how to physically remove all features that were terminated before 2018-07-01, and are
+thus `invalid` at that date:
+
+=== "Linux"
+
+    ```bash
+    ./citydb delete [...] \
+        --mode=delete \
+        --validity=invalid \
+        --validity-at=2018-07-01 \
+        --validity-referene=database
+    ```
+
+=== "Windows CMD"
+
+    ```bat
+    citydb delete [...] ^
+        --mode=delete ^
+        --validity=invalid ^
+        --validity-at=2018-07-01 ^
+        --validity-referene=database
+    ```
+
+!!! note
+    Validity checks are strict by default. Use `--lenient-validity` to treat time intervals as valid, even if their start
+    point is undefined.
+
+### Managing indexes during deletion
+
+When deleting data, database indexes are updated in real time, which can slow down the delete process, especially
+with large databases. The `--index-mode` option offers the following modes for handling indexes during the delete
+operation:
+
+- `keep`: The indexes remain unchanged. This is the default mode.
+- `drop`: The indexes are removed before the delete operation starts, improving delete performance.
+- `drop_create`: Similar to `drop`, but the indexes are re-created after the deletion completes, ensuring they are
+  available for subsequent queries.
+
+!!! note
+    Dropping and re-creating indexes can also take a significant amount of time, depending on the size of the database. This
+    mode is beneficial when deleting large amounts of features. However, as the database grows, the overhead of dropping and
+    re-creating indexes may outweigh the benefits, especially when deleting smaller sets of features.
+
+!!! tip
+    The [`index`](index.md) command allows you to manage indexes independently of the delete operation, giving you
+    greater control over index handling.
+
+### Defining termination metadata
+
+When running in `terminate` mode, the metadata of the affected features in the database can be updated to track
+information about the termination process.
+
+The options `--lineage`, `--updating-person`, and `--reason-for-update` can be used to specify the feature’s origin, the
+person responsible for the termination, and the reason for the termination. The termination timestamp can be set to a
+specific point in time using `--termination-date`, provided as either a date (`<YYYY-MM-DD>`) or a date-time with an
+optional UTC offset (`<YYYY-MM-DDThh:mm:ss[(+|-)hh:mm]>`).
+
+This metadata is specific to 3DCityDB and is not
+part of the CityGML standard (see also [here](../3dcitydb/feature-module.md#feature-table)). If not provided, the
+termination timestamp is set to the time of the operation, and the username used to establish the 3DCityDB database
+connection will be used as the default value for `--updating-person`.
+
+!!! note
+    The termination timestamp specified with `--termination-date` will apply to all features. Be careful when selecting a
+    timestamp, as the [feature's validity in the database](#deleting-historical-versions) is determined by the time
+    interval `[creation_date, termination_date)`. To maintain a valid feature history, these intervals
+    should not overlap for the same real-world feature instance.

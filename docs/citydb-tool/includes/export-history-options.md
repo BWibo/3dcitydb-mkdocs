@@ -1,0 +1,6 @@
+| Option                          | Description                                                                                                                                                       | Default value |
+|---------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
+| `-M`, `--validity=<mode>`       | Process features by validity: `valid`, `invalid`, `all`.                                                                                                          | `valid`       |
+| `-T`, `--validity-at=<time>`    | Check validity at a specific point in time. If provided, the time must be in `<YYYY-MM-DD>` or <code>&lt;YYYY-MM-DDThh&#58;mm:ss[(+&#124;-)hh:mm]></code> format. |               |
+| `--validity-reference=<source>` | Validity time reference: `database`, `real_world`                                                                                                                 | `database`    |
+| `--lenient-validity`            | Ignore incomplete validity intervals of features.                                                                                                                 |               |

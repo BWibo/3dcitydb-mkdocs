@@ -1,15 +1,16 @@
 nav:
   - index.md
-  - db-connection.md
-  - Import:
-    - CityGML options: import_citygml.md
-    - CityJSON options: import_cityjson.md
-  - Export:
-    - Shared export options: export_shared_options.md
-    - CityGML options: export_citygml.md
-    - CityJSON options: export_cityjson.md
+  - cli.md
+  - database.md
+  - Import command:
+    - Import overview: import.md
+    - CityGML import: import-citygml.md
+    - CityJSON import: import-cityjson.md
+  - Export command:
+    - Export overview: export.md
+    - CityGML export: export-citygml.md
+    - CityJSON export: export-cityjson.md
   - delete.md
-  - indexing.md
+  - index-command.md
   - cql2.md
   - docker.md
-  - ...

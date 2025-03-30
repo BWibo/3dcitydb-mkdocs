@@ -235,7 +235,7 @@ The `docker run` command offers further options to configure the container proce
 
 ### Environment variables
 
-The citydb-tool Docker images support the following environment variables to set the credentials for the connection to a 3DCityDB instance. A detailed documentation of the environment variables is available [here](../citydb-tool/db-connection.md#using-environment-variables-for-database-connection).
+The citydb-tool Docker images support the following environment variables to set the credentials for the connection to a 3DCityDB instance. A detailed documentation of the environment variables is available [here](../citydb-tool/database.md#using-environment-variables).
 
 !!! warning
 
@@ -353,7 +353,7 @@ For the following examples we assume that a 3DCityDB instance with the following
 
 ### Importing CityGML
 
-This section provides some examples for importing CityGML datasets. Refer to [`import`](./import_citygml.md) for a detailed description of the citydb-tool CLI import command.
+This section provides some examples for importing CityGML datasets. Refer to [`import`](import-citygml.md) for a detailed description of the citydb-tool CLI import command.
 
 Import the CityGML dataset `/home/me/mydata/bigcity.gml` on you host system into the DB given above:
 
@@ -407,7 +407,7 @@ Import all CityGML datasets from `/home/me/mydata/` on your host system into the
 
 ### Exporting CityGML
 
-This section provides some examples for exporting CityGML datasets. Refer to [`export`](./export_citygml.md) for a detailed description of the citydb-tool CLI export command.
+This section provides some examples for exporting CityGML datasets. Refer to [`export`](export-citygml.md) for a detailed description of the citydb-tool CLI export command.
 
 Export all data from the DB given above to `/home/me/mydata/output.gml`:
 
@@ -632,8 +632,3 @@ If you no longer need the 3DCityDB, its container, data volume, and the network 
 docker rm -f -v citydb
 docker network rm citydb-net
 ```
-
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3dcitydb.github.io%2F3dcitydb-mkdocs%2Fcitydb-tool%2Fdocker%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)](https://hits.seeyoufarm.com/#history)
-
-/// caption
-///

@@ -284,8 +284,3 @@ ALTER DATABASE new_citydb_v5 SET search_path TO citydb, citydb_pkg, public;
 !!! info
     If your 3DCityDB template contains more schemas, ensure to add them all to the `search_path`.
     Note that the search path will be updated upon the next login, not within the same session.
-
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3dcitydb.github.io%2F3dcitydb-mkdocs%2Ffirst-steps%2Fsetup%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)](https://hits.seeyoufarm.com/#history)
-
-/// caption
-///

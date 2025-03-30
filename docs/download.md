@@ -33,7 +33,7 @@ PostgreSQL/PostGIS.
 - Issue tracker: [https://github.com/3dcitydb/3dcitydb/issues](https://github.com/3dcitydb/3dcitydb/issues){target="blank"}
 
 A step-by-step guide on setting up a 3DCityDB using the database scripts is available [here](first-steps/setup.md).
-For complete documentation of the 3DCityDB and its relational schema, refer to the [3D City Database section](3dcitydb/index.md).  
+For complete documentation of the 3DCityDB and its relational schema, refer to the [3D City Database section](3dcitydb/index.md).
 
 ## `citydb-tool` database client
 
@@ -45,7 +45,7 @@ perform data and database operations. Java is required to be installed on your s
 - Issue tracker: [https://github.com/3dcitydb/citydb-tool/issues](https://github.com/3dcitydb/citydb-tool/issues){target="blank"}
 
 Check out the [first steps](first-steps/citydb-tool.md) and the [complete documentation](citydb-tool/index.md) to learn
-more about using citydb-tool. 
+more about using citydb-tool.
 
 !!! tip
     citydb-tool requires a matching version of the 3DCityDB `v5`. To ensure compatibility, the latest stable release of 3DCityDB
@@ -57,7 +57,7 @@ more about using citydb-tool.
 
 The 3DCityDB-Web-Map-Client is a web-based viewer designed for high-performance 3D visualization and interactive
 exploration of geospatial data, including 3D city models exported from the 3DCityDB. It is built on top of the
-[Cesium Virtual Globe](https://cesium.com/) platform. 
+[Cesium Virtual Globe](https://cesium.com/) platform.
 
 - GitHub repository: [https://github.com/3dcitydb/3dcitydb-web-map](https://github.com/3dcitydb/3dcitydb-web-map){target="blank"}
 - Release download page: [https://github.com/3dcitydb/3dcitydb-web-map/releases](https://github.com/3dcitydb/3dcitydb-web-map/releases){target="blank"}
@@ -71,8 +71,3 @@ including it in this documentation.
     Currently, we do not offer a tool to export city model data from the 3DCityDB `v5` in KML, COLLADA, or 3D Tiles
     format, which is required for visualization in the 3DCityDB-Web-Map-Client. **This feature is a work in progress, so stay
     tuned for future updates!**
-
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3dcitydb.github.io%2F3dcitydb-mkdocs%2Fdownload%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)](https://hits.seeyoufarm.com/#history)
-
-/// caption
-///

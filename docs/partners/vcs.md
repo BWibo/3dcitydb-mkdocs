@@ -39,7 +39,7 @@ forms the foundation for creating urban digital twins, transforming complex geos
 insights. With tools such as [VC Map](https://vc.systems/en/products/vc-map/){target="blank"}, [VC Publisher](https://vc.systems/en/products/vc-publisher/){target="blank"},
 [VC Planner](https://vc.systems/en/products/vc-planner/){target="blank"}, and [VC Solar](https://vc.systems/en/products/vc-solar/){target="blank"},
 the VC Suite empowers smart city applications, simulations, and analyses, enabling our customers to make more
-informed decisions and optimize urban planning. 
+informed decisions and optimize urban planning.
 
 Rooted in our commitment to open standards, interfaces, and APIs, the VC Suite seamlessly integrates
 with other systems, unlocking data from proprietary silos. Beyond 3DCityDB, we actively contribute to the
@@ -62,7 +62,7 @@ CityGML and 3DCityDB serve as the foundation for these simulations and analyses.
 
 ![Urban Simulation](assets/vcs-urban-simulation.jpg)
 /// figure-caption
-Urban climate simulations and what-if scenarios, visualized in VC Map. 
+Urban climate simulations and what-if scenarios, visualized in VC Map.
 ///
 
 ## Your contact: Claus Nagel
@@ -78,9 +78,3 @@ worldwide adoption in research, public administration, and industry.
 [![Chair @ 3DCityDB Steering WG](https://img.shields.io/badge/Chair-3DCityDB_Steering_WG-blue)](https://github.com/3dcitydb)&nbsp;
 [![Core-Dev @ 3DCityDB](https://img.shields.io/badge/Core--Dev-3DCityDB-blue)](https://github.com/3dcitydb)&nbsp;
 [![Core-Dev @ citygml4j](https://img.shields.io/badge/Core--Dev-citygml4j-blue)](https://github.com/citygml4j)
-
-<p>&nbsp;</p>
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3dcitydb.github.io%2F3dcitydb-mkdocs%2Fpartners%2Fvcs%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)](https://hits.seeyoufarm.com/#history)
-
-/// caption
-///
