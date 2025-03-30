@@ -117,6 +117,8 @@ The following example illustrates an `import cityjson` command with multiple fil
     - If multiple filters are used, all conditions must be satisfied for a feature to be imported.
     - Filters are applied to the 1st-level city objects in the input file. Matching city objects are imported, including all
       their 2nd-level city objects. Filtering 2nd-level city objects is not supported.
+    - [Configuration](cli.md#configuration-files) and [argument](cli.md#argument-files) files are an excellent way
+      to store complex filter expressions and easily reuse them.
 
 ### Handling unknown extensions
 

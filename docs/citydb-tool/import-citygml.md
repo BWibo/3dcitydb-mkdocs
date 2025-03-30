@@ -145,6 +145,8 @@ The following example illustrates an `import citygml` command with multiple filt
     - When using multiple filters, all conditions must be satisfied for a feature to be imported.
     - Filters are applied to the top-level `<cityObjectMember>` elements in the input file. Matching features
       are imported, including all their subfeatures. Filtering subfeatures is not supported.
+    - [Configuration](cli.md#configuration-files) and [argument](cli.md#argument-files) files are an excellent way
+      to store complex filter expressions and easily reuse them.
 
 ### Applying XSL transformations
 

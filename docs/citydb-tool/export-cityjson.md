@@ -9,7 +9,9 @@ tags:
 
 # Export CityJSON command
 
-The `export cityjson` command export city model data from the 3DCityDB `v5` to a [CityJSON file](https://www.cityjson.org/).
+The `export cityjson` command exports city model data from the 3DCityDB `v5` to a [CityJSON file](https://www.cityjson.org/).
+Since CityJSON implements only a subset of the [CityGML Conceptual Model](https://docs.ogc.org/is/20-010/20-010.html),
+some data may not be fully exportable.
 
 ## Synopsis
 
@@ -91,26 +93,24 @@ For more details on the database connection options and usage hints, see [here](
 The `export cityjson` command supports CityJSON versions 2.0, 1.1, and 1.0 as output formats. Use the `--cityjson-version`
 option to select a specific version for export (default: `2.0`).
 
-!!! warning "Note"
-    Since CityJSON implements only a subset of the [CityGML Conceptual Model](https://docs.ogc.org/is/20-010/20-010.html),
-    city model data stored in the 3DCityDB `v5` may not be fully exportable to a CityJSON output file. Where possible,
-    citydb-tool applies automatic conversions to ensure compatibility.
-
 ### Streaming exports
 
-By default, CityJSON data is exported using the [CityJSON Text Sequence](https://www.cityjson.org/cityjsonseq/){target="blank"}
-format to efficiently handle large exports. Features are exported sequentially in chunks as individual
-`CityJSONFeature` objects, each written to the output file on a separate line. This streaming approach improves memory
-efficiency, reduces storage requirements, and provides immediate access to the streamed data.
+When exporting to CityJSON 2.0 and 1.1, the default output format
+is [CityJSON Text Sequence (CityJSONSeq)](https://www.cityjson.org/cityjsonseq/){target="blank"}, which efficiently
+supports streaming large exports. Features are exported in chunks as individual `CityJSONFeature` objects, with each
+object written to the output file on a separate line. This streaming approach improves memory efficiency, reduces storage
+requirements, and allows immediate access to the data as it is streamed.
 
-!!! warning "Disabling streaming exports"
-    You can disable streaming export by using the `--no-json-lines` option. Without streaming, the entire export must be
-    loaded into memory before being written to the output file, which could quickly exceed system memory limits for large
-    exports. In such cases, consider using [filters](export.md#querying-and-filtering)
-    or [tiled exports](export.md#tiled-exports) to reduce the export size.
+If the newline-delimited CityJSONSeq format is not preferred, streaming can be disabled using the
+`--no-json-lines` option.
 
 !!! note
-    Streaming export is not available when exporting to CityJSON 1.0.
+    CityJSON 1.0 does not support CityJSONSeq or streaming.
+
+!!! warning
+    Without streaming, the entire export must be loaded into memory before being written to the output file, which could
+    quickly exceed system memory limits for large exports. In such cases, consider
+    using [filters](export.md#querying-and-filtering) or [tiled exports](export.md#tiled-exports) to reduce the export size.
 
 ### Upgrading CityGML 2.0 and 1.0
 
@@ -134,7 +134,7 @@ option.
 ### Replacing template geometries
 
 CityJSON supports the CityGML concept of [implicit geometries](../3dcitydb/geometry-module.md#implicit-geometries),
-enabling template geometries to be defined and stored once in the CityJSON file and reused by multiple features. These
+enabling template geometries to be defined and stored once in a CityJSON file and reused by multiple features. These
 template geometries are stored using local coordinates. Features that reference a template must provide both a reference
 point and a transformation matrix to convert the coordinates to real-world values and place the template correctly
 within the city model.
@@ -169,8 +169,6 @@ The `export cityjson` command provides several options to format the CityJSON ou
 - `--pretty-print`: Enhances readability by adding line breaks and indentation to clearly represent the hierarchy and
   nesting of JSON elements, but increases file size.
 - `--html-safe`: Escapes special characters in the CityJSON output for safe use in HTML contexts.
-
-The --no-transform-coordinates
 
 !!! note
     The `--pretty-print` option cannot be used with streaming exports that use newline-delimited JSON.

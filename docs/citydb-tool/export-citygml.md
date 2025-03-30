@@ -9,7 +9,7 @@ tags:
 
 # Export CityGML command
 
-The `export citygml` command export city model data from the 3DCityDB `v5` to a [CityGML file](https://www.ogc.org/publications/standard/citygml/).
+The `export citygml` command exports city model data from the 3DCityDB `v5` to a [CityGML file](https://www.ogc.org/publications/standard/citygml/).
 
 ## Synopsis
 

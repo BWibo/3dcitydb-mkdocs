@@ -94,18 +94,17 @@ as a prefix in the format `prefix:name`. Only features matching the specified ty
 
 citydb-tool supports the [OGC Common Query Language (CQL2)](https://www.ogc.org/publications/standard/cql2/){target="blank"} as the
 default language for filtering features from the 3DCityDB `v5`. CQL2 enables both attribute-based and spatial
-filtering, offering advanced comparison operators, spatial functions, and logical operators.  Only features that meet
+filtering, offering advanced comparison operators, spatial functions, and logical operators. Only features that meet
 the specified filter criteria will be exported.
 
-CQL2 filter expressions are passed to the `export`
-command using the `--filter` option. Be sure to enclose them in quotes if needed. When applying
-spatial filters, the filter geometries are assumed to be in the same CRS as the 3DCityDB instance. To specify a
-different CRS, use the `--filter-crs` option and provide the SRID (e.g., `4326` for WGS84).
+CQL2 filter expressions are passed to the `export` command using the `--filter` option. Be sure to enclose them in
+quotes if needed. When applying spatial filters, the filter geometries are assumed to be in the same CRS as the 3DCityDB
+instance. To specify a different CRS, use the `--filter-crs` option and provide the SRID (e.g., `4326` for WGS84).
 
 !!! tip
-    - For more details on using CQL2 with the 3DCityDB `v5`, refer to the [CQL2 documentation](cql2.md).
+    For more details on using CQL2 with the 3DCityDB `v5`, refer to the [CQL2 documentation](cql2.md).
 
-The example below demonstrates how to filter buildings based on their `height` property.
+The example below demonstrates how to export buildings based on their `height` property.
 
 === "Linux"
 
@@ -141,14 +140,13 @@ To apply a bounding box filter to the `envelope` property of features, you can u
         --filter-crs=4326
     ```
 
-
 #### SQL-based filtering
 
-The `--sql-filter` option allows the use of SQL `SELECT` statements as a filter expressions, providing access to
-all details of the [relational schema](../3dcitydb/relational-schema.md). Any `SELECT` statement
-supported by the underlying database system is permitted, as long as it returns only a list of `id` values from the
-[FEATURE](../3dcitydb/feature-module.md#feature-table) table. Only features included in the returned list
-will be considered for export.
+The `--sql-filter` option allows the use of SQL `SELECT` statements as a filter expressions, providing access to all
+details of the [relational schema](../3dcitydb/relational-schema.md). Any `SELECT` statement supported by the underlying
+database system is permitted, as long as it returns only a list of `id` values from
+the [FEATURE](../3dcitydb/feature-module.md#feature-table) table. Only features included in the returned list will be
+considered for export.
 
 Below is a simple example of filtering features based on their identifier in the `objectid` column of the `FEATURE`
 table. The `SELECT` statement must be enclosed in quotes, and special characters may need to be escaped.
@@ -244,7 +242,7 @@ descending order.
         --sort-by=con:height,core:objectId-
     ```
 
-!!! tip
+!!! note
     - When using multiple filters, all conditions must be satisfied for a feature to be exported.
     - [Configuration](cli.md#configuration-files) and [argument](cli.md#argument-files) files are an excellent way
       to store complex filter expressions and easily reuse them.
@@ -501,9 +499,9 @@ The `export` command offers the following options to control the export process:
 
 - `--fail-fast`: Terminates the process immediately upon encountering an error. By default, the export continues despite
   errors with individual features.
-- `--temp-dir=<dir>`: Specifies the directory for storing temporary files during export. For optimal performance, choose
+- `--temp-dir`: Specifies the directory for storing temporary files during export. For optimal performance, choose
   a fast storage medium not used for writing the output files.
-- `--threads=<threads>`: Sets the number of threads for parallel processing to improve performance. By default, it
+- `--threads`: Sets the number of threads for parallel processing to improve performance. By default, it
   equals the number of processors available to the JVM, or at least two.
 
 !!! note

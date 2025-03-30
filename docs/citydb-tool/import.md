@@ -84,7 +84,7 @@ To enforce a specific encoding for the input files, provide the IANA-based encod
 
 ### Import modes and duplicate features
 
-The import mode defined by the `--import-mode` option determines how duplicate features are handled in the database.
+The import mode, defined by the `--import-mode` option, determines how duplicate features are handled in the database.
 The available modes are:
 
 - `import_all`: All features from the input files are imported, even if duplicates are created. This is the default mode.
@@ -105,7 +105,7 @@ The available modes are:
 
 The `--preview` option runs the import in preview mode. The input data is processed as if the import were taking place, but
 no changes are made to the database. This mode helps identify potential issues, such as conflicts or errors, before they
-affect the database and ensures the actual import proceeds as expected.
+affect the database, ensuring the actual import proceeds as expected.
 
 ### Managing indexes during import
 
@@ -188,7 +188,7 @@ shorthand for this transformation, as shown below.
 ### Defining import metadata
 
 The options `--lineage`, `--updating-person`, and `--reason-for-update` capture metadata about the feature’s origin, the
-person responsible for the import, and the reasons for the import. This metadata is specific to 3DCityDB and is not
+person responsible for the import, and the reason for the import. This metadata is specific to 3DCityDB and is not
 part of the CityGML standard (see also [here](../3dcitydb/feature-module.md#feature-table)). If not provided, the
 username used to establish the 3DCityDB database connection will be used as the default value for `--updating-person`.
 
@@ -198,9 +198,9 @@ The `import` command offers the following options to control the import process:
 
 - `--fail-fast`: Terminates the process immediately upon encountering an error. By default, the import continues despite
   errors with individual features.
-- `--temp-dir=<dir>`: Specifies the directory for storing temporary files during import. For optimal performance, choose
+- `--temp-dir`: Specifies the directory for storing temporary files during import. For optimal performance, choose
   a fast storage medium not used for reading the input files.
-- `--threads=<threads>`: Sets the number of threads for parallel processing to improve performance. By default, it
+- `--threads`: Sets the number of threads for parallel processing to improve performance. By default, it
   equals the number of processors available to the JVM, or at least two.
 
 !!! note
