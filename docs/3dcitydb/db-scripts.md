@@ -75,11 +75,37 @@ below.
     the `PGBIN` variable in the script.
 
 After adjusting the `connection-details` script, all other scripts can be executed either by double-clicking them or by
-running them from within a shell environment.
+running them from within a shell environment. On UNIX/Linux machines, you may first need to set the appropriate file
+permissions to make the script executable.
 
-!!! note
-    You may first need to set the appropriate file permissions to make the scripts executable on
-    UNIX/Linux machines.
+The example below demonstrates how to run the `create-db` script to set up a new 3DCityDB v5 instance.
+
+=== "Linux"
+
+    ```bash
+    chmod u+x create-db.sh
+    ./create-db.sh
+    ```
+
+=== "Windows CMD"
+
+    ```bat
+    create-db.bat
+    ```
+
+It is also possible to use a different `connection-details` file from another folder:
+
+=== "Linux"
+
+    ```bash
+    ./create-db.sh /path/to/connection-details.sh
+    ```
+
+=== "Windows CMD"
+
+    ```bat
+    create-db.bat C:\path\to\connection-details.bat
+    ```
 
 ## SQL scripts
 
