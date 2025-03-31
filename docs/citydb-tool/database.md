@@ -17,7 +17,7 @@ command-line options, argument files, JSON configuration files, or environment v
 Use `--db-host` to specify the network name or IP address of the database server. The `--db-name` option
 defines the name of the 3DCityDB `v5` instance, while `--db-schema` sets the database schema to connect to. For
 PostgreSQL, the default schema is `citydb`. Additional schemas can be created using
-the [database scripts](../first-steps/setup.md#shell-scripts) included in the 3DCityDB `v5` software package.
+the [database scripts](../3dcitydb/db-scripts.md) included in the 3DCityDB `v5` software package.
 
 The username and password for connecting to the 3DCityDB are set with `--db-username` and `--db-password`. You can
 provide the password directly or leave it empty to be prompted for input before connecting. The prompt will time out
@@ -86,9 +86,9 @@ citydb-tool supports loading options and settings from a JSON-encoded configurat
         "user": "citydb_user",
         "password": "mySecret"
       }
-    }
-  },
-  "defaultConnection": "myFirstConnection"
+    },
+    "defaultConnection": "myFirstConnection"
+  }
 }
 ```
 
