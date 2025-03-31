@@ -282,7 +282,7 @@ operation:
     re-creating indexes may outweigh the benefits, especially when deleting smaller sets of features.
 
 !!! tip
-    The [`index`](index.md) command allows you to manage indexes independently of the delete operation, giving you
+    The [`index`](index-command.md) command allows you to manage indexes independently of the delete operation, giving you
     greater control over index handling.
 
 ### Defining termination metadata

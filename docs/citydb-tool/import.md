@@ -125,7 +125,7 @@ operation:
     importing smaller datasets.
 
 !!! tip
-    The [`index`](index.md) command allows you to manage indexes independently of the import operation, giving you
+    The [`index`](index-command.md) command allows you to manage indexes independently of the import operation, giving you
     greater control over index handling.
 
 ### Computing extents
