@@ -7,5 +7,6 @@ nav:
     - Appearance module: appearance-module.md
     - Metadata module: metadata-module.md
     - Codelist module: codelist-module.md
+  - db-scripts.md
   - db-functions.md
   - ...

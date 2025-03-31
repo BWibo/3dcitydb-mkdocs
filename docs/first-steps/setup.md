@@ -68,26 +68,26 @@ Below is an example of the required information to include in the `connection-de
 === "Linux"
 
     ```bash
-      #!/bin/bash
-      # Provide your database details here ----------------
-      export PGBIN=/var/lib/postgresql/[version]/bin
-      export PGHOST=localhost
-      export PGPORT=5432
-      export CITYDB=citydb_v5
-      export PGUSER=citydb_user
-      #----------------------------------------------------
+    #!/bin/bash
+    # Provide your database details here ----------------
+    export PGBIN=/var/lib/postgresql/[version]/bin
+    export PGHOST=localhost
+    export PGPORT=5432
+    export CITYDB=citydb_v5
+    export PGUSER=citydb_user
+    #----------------------------------------------------
     ```
 
 === "Windows CMD"
 
     ```bat
-      # Provide your database details here ----------------
-      set PGBIN=C:\Program Files\PostgreSQL\[version]\bin
-      set PGHOST=localhost
-      set PGPORT=5432
-      set CITYDB=citydb_v5
-      set PGUSER=citydb_user
-      #----------------------------------------------------
+    # Provide your database details here ----------------
+    set PGBIN=C:\Program Files\PostgreSQL\[version]\bin
+    set PGHOST=localhost
+    set PGPORT=5432
+    set CITYDB=citydb_v5
+    set PGUSER=citydb_user
+    #----------------------------------------------------
     ```
 
 !!! info
@@ -193,77 +193,12 @@ summary of the required user input for the `create-db` script.
 Example user input for the create-db script.
 ///
 
-## Shell scripts
-
-In addition to the `connection-details` and `create-db` shell scripts for setting up a 3DCityDB instance, the 3DCityDB
-package includes several other shell scripts designed for various tasks. Like the `create-db` script, these scripts may
-also prompt the user for information necessary to execute them. The `connection-details` script is used by all these
-scripts to establish a connection to your 3DCityDB instance, so ensure to adjust the connection details before
-executing any of these scripts
-
-The following table provides an overview of the available shell scripts. They can be executed either by
-double-clicking them or by running them from within a shell environment.
-
-| Script [.sh\|.bat]   | Description                                                                                               |
-|----------------------|-----------------------------------------------------------------------------------------------------------|
-| `connection-details` | Stores the connection details for a 3DCityDB instance which are used by all other scripts                 |
-| `create-db`          | Creates a new 3DCityDB instance (relational schema including all database functions)                      |
-| `create-schema`      | Creates an additional data schema (analogous to the default schema `citydb`) with a user-defined name     |
-| `drop-db`            | Drops a 3DCityDB instance (incl. all elements of the relational schema)                                   |
-| `drop-schema`        | Drops a data schema that has been created with `create-schema`                                            |
-| `grant-access`       | Grants read-only or read-write access to a 3DCityDB instance                                              |
-| `revoke-access`      | Revokes read-only or read-write access to a 3DCityDB instance, which has been granted with `grant-access` |
-| `create-changelog`   | Create the changelog extension for a 3DCityDB instance                                                    |
-| `drop-changelog`     | Remove the changelog extension from a 3DCityDB instance                                                   |
 
 !!! tip
-    Remember that you may first need to set the appropriate file permissions to make the scripts executable on
-    UNIX/Linux machines.
-
-## SQL scripts
-
-Technically, the shell scripts listed above are simply wrappers designed to collect user input in a convenient manner.
-The actual actions at the database level are carried out by SQL scripts that are invoked by these shell scripts.
-
-The SQL scripts are provided in the `3dcitydb/postgresql/sql-scripts` directory of the 3DCityDB software package
-or inside the installation directory of the `citydb-tool`. Navigate to the `unix` or `windows` subfolder,
-depending on your operating system. The SQL scripts are designed to be executed with `psql`.
-
-Most of the SQL scripts require input parameters to execute the database action. These parameters are expected to be
-passed as command-line parameters to `psql`. Below is an example of how to invoke the `create-db.sql` script to set up
-a 3DCityDB instance. The required input parameters have been discussed in the setup steps above. Refer to the
-`psql` documentation for more information about the command-line parameters.
-
-=== "Linux"
-
-    ```bash
-    psql -d "citydb_v5" \
-        -h localhost \
-        -U "citydb_user" \
-        -f "/path/to/the/reate-db.sql" \
-        -v srid="25833" \
-        -v srs_name="urn:ogc:def:crs:EPSG::25833" \
-        -v changelog="no"
-    ```
-
-=== "Windows CMD"
-
-    ```bat
-    psql -d "citydb_v5" ^
-        -h localhost ^
-        -U "citydb_user" ^
-        -f "C:\path\to\the\create-db.sql" ^
-        -v srid="25833" ^
-        -v srs_name="urn:ogc:def:crs:EPSG::25833" ^
-        -v changelog="no"
-    ```
-
-!!! tip
-    By using shell or environment variables instead of hardcoding values directly into your command as shown above, you make
-    it easier to reuse the SQL scripts across different setups or systems. This makes automating things, integrating them
-    into other
-    software, or running them as part of a CI/CD pipeline way more flexible. This is an easy way to streamline workflows
-    using the SQL scripts.
+    In addition to the `connection-details` and `create-db` shell scripts for setting up a 3DCityDB instance, the 3DCityDB
+    package includes several other shell and SQL scripts for tasks such as removing a 3DCityDB instance, creating additional
+    schemas, and granting or revoking access permissions. Complete documentation of these database scripts is
+    available [here](../3dcitydb/db-scripts.md).
 
 ## Using template databases to set up a 3DCityDB
 
