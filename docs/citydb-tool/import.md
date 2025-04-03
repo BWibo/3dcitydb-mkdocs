@@ -20,7 +20,7 @@ citydb import [OPTIONS] COMMAND
 ## Options
 
 The `import` command inherits global options from the main [`citydb`](cli.md) command. Additionally, it defines general
-import and metadata options, which apply to all of its [subcommands](#commands).
+import, metadata, and filter options, which apply to all of its [subcommands](#commands).
 
 ### Global options
 
@@ -35,6 +35,10 @@ For more details on the global options and usage hints, see [here](cli.md#option
 ### Metadata options
 
 --8<-- "docs/citydb-tool/includes/import-metadata-options.md"
+
+### Filter options
+
+--8<-- "docs/citydb-tool/includes/import-filter-options.md"
 
 ## Commands
 
@@ -106,6 +110,75 @@ The available modes are:
 The `--preview` option runs the import in preview mode. The input data is processed as if the import were taking place, but
 no changes are made to the database. This mode helps identify potential issues, such as conflicts or errors, before they
 affect the database, ensuring the actual import proceeds as expected.
+
+### Filtering features
+
+The `import` command provides several filtering options to control which features are imported from the input files.
+
+#### Feature type filter
+
+The `--type-name` option specifies one or more feature types to import. For each feature type, provide its type name as
+defined in the [`OBJECTCLASS`](../3dcitydb/metadata-module.md#objectclass-table) table of the 3DCityDB `v5`. To avoid
+ambiguity, you can use the namespace alias from the [`NAMESPACE`](../3dcitydb/metadata-module.md#namespace-table) table
+as a prefix in the format `prefix:name`. Only features matching the specified type will be imported.
+
+#### Feature identifier filter
+
+The `--id` option enables filtering by one or more feature identifiers provided as a comma-separated list. Only features
+with a matching identifier will be imported.
+
+#### Bounding box filter
+
+The `--bbox` option defines a 2D bounding box as a spatial filter using four coordinates for the lower-left and
+upper-right corners. By default, the coordinates are assumed to be in the same CRS as the 3DCityDB instance. However,
+you can specify the database SRID of the CRS as a fifth value (e.g., `4326` for WGS84). All values must be separated by
+commas.
+
+The filter behavior is controlled by the `--bbox-mode` option:
+
+- `intersects`: Only features whose bounding box overlaps with the filter bounding box will be imported. This is the
+  default mode.
+- `contains`: Only features whose bounding box is entirely within the filter bounding box will be imported.
+- `on_tile`: Only features whose bounding box center lies within the filter bounding box or on its left/bottom
+  boundary will be imported. This mode ensures that when multiple filter bounding boxes are organized in a tile grid,
+  each feature matches exactly one tile.
+
+#### Count filter
+
+The `--limit` option sets the maximum number of features to import. The `--start-index` option
+defines the `0`-based index of the first feature to import. These options apply across all input files and can be used
+separately or together to control the total number of features imported.
+
+#### Filter example
+
+The following example illustrates a CityGML import command with multiple filters:
+
+=== "Linux"
+
+    ```bash
+    ./citydb import citygml [...] my-city.gml \
+        --type-name=bldg:Building,tran:Road \
+        --bbox=367123,5807268,367817,5807913,25833 \
+        --bbox-mode=on_tile \
+        --no-appearances \
+        --limit=100
+    ```
+
+=== "Windows CMD"
+
+    ```bat
+    citydb import citygml [...] my-city.gml ^
+        --type-name=bldg:Building,tran:Road ^
+        --bbox=367123,5807268,367817,5807913,25833 ^
+        --bbox-mode=on_tile ^
+        --no-appearances ^
+        --limit=100
+    ```
+
+!!! note
+    - When using multiple filters, all conditions must be satisfied for a feature to be imported.
+    - [Configuration](cli.md#configuration-files) and [argument](cli.md#argument-files) files are an excellent way
+      to store complex filter expressions and easily reuse them.
 
 ### Managing indexes during import
 
