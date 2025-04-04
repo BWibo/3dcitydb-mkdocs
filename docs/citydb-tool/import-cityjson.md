@@ -103,7 +103,7 @@ command. In the context of CityJSON input files, the filters operate as follows:
 ### Filtering appearances
 
 By default, the `import cityjson` command imports all appearance information from the input files. The
-`--appearance-theme` option restricts the import of appearances based on their `<theme>` property. You can specify one
+`--appearance-theme` option restricts the import of appearances based on their `"theme"` property. You can specify one
 or more themes as a comma-separated list. To filter appearances that have no theme property, use `none` as the value.
 
 Only appearances associated with the specified themes will be imported. To exclude all appearances from the import, use
