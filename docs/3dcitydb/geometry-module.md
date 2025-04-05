@@ -160,7 +160,7 @@ the outer shell formed by the polygons. Moreover, the solid, the composite surfa
 identifier that allows the reuse of the component and the assignment of textures or colors. The following JSON object
 encodes this extra metadata and links it to the `POLYHEDRALSURFACE Z` representation:
 
-```javascript
+```json
 {
   "type": 9, // (1)!
   "objectId": "mySolid",

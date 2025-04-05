@@ -97,9 +97,23 @@ Log messages can also be recorded in a log file specified with the `--log-file` 
 ### Configuration files
 
 Options and settings for executing a citydb-tool command can also be loaded from a JSON-encoded configuration file
-specified with `--config-file`. Each CLI command defines its own JSON structure, so refer to the respective command's
-documentation for details. Configuration files override default settings and can be used alongside command-line options
-for flexibility. However, command-line options always take precedence.
+specified with `--config-file`. Configuration files override default settings and can be used alongside command-line
+options for flexibility. However, command-line options always take precedence. Each CLI command defines its own JSON
+structure. For more information, see the [JSON configuration](config.md) chapter.
+
+=== "Linux"
+
+    ```bash
+    ./citydb export citygml [...] \
+        --config-file=/path/to/my-config.json
+    ```
+
+=== "Windows CMD"
+
+    ```bat
+    citydb export citygml [...] ^
+        --config-file=C:\path\to\my-config.json
+    ```
 
 !!! note
     Some commands may provide options exclusively in the JSON configuration, without corresponding command-line options.
