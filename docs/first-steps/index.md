@@ -18,4 +18,4 @@ code of the 3D City Database is hosted and maintained on [GitHub](https://github
 
 The individual components of the 3D City Database are also available as images for the Docker virtualization technology.
 This makes it possible to install and configure a 3D City Database with a single command line statement in almost any
-runtime environment. See Section [Docker](docker.md) for more details.
+runtime environment. See the [Docker](docker.md) section for more details.

@@ -150,12 +150,12 @@ SELECT terminate_feature(
 The `citydb_pkg` package offers functions for calculating the 3D bounding box of features and implicit geometries, as well
 as additional utility functions to support these operations.
 
-| Function                                                                                             | Return type | Description                                                |
-|------------------------------------------------------------------------------------------------------|-------------|------------------------------------------------------------|
-| **`get_feature_envelope`**<br/> `(fid BIGINT, set_envelope INTEGER, schema_name TEXT)`               | GEOMETRY    | Returns the envelope geometry of a given feature           |
-| **`calc_implicit_geometry_envelope`** `(gid BIGINT, ref_pt GEOMETRY, matrix JSON, schema_name TEXT)` | GEOMETRY    | Returns the envelope geometry of a given implicit geometry |
-| **`box2envelope`**<br/> `(box BOX3D, schema_name TEXT)`                                              | GEOMETRY    | Converts a box geometry to to envelope                     |
-| **`update_bounds`**<br/> `(old_bbox GEOMETRY, new_bbox GEOMETRY, schema_name TEXT)`                  | GEOMETRY    | Returns the envelope geometry of two bounding boxes        |
+| Function                                                                                                  | Return type | Description                                                |
+|-----------------------------------------------------------------------------------------------------------|-------------|------------------------------------------------------------|
+| **`get_feature_envelope`**<br/> `(fid BIGINT, set_envelope INTEGER, schema_name TEXT)`                    | `GEOMETRY`  | Returns the envelope geometry of a given feature           |
+| **`calc_implicit_geometry_envelope`**<br/> `(gid BIGINT, ref_pt GEOMETRY, matrix JSON, schema_name TEXT)` | `GEOMETRY`  | Returns the envelope geometry of a given implicit geometry |
+| **`box2envelope`**<br/> `(box BOX3D, schema_name TEXT)`                                                   | `GEOMETRY`  | Converts a box geometry to to envelope                     |
+| **`update_bounds`**<br/> `(old_bbox GEOMETRY, new_bbox GEOMETRY, schema_name TEXT)`                       | `GEOMETRY`  | Returns the envelope geometry of two bounding boxes        |
 
 The `get_feature_envelope` function computes and returns the envelope of a feature. The feature's primary key `id` must be
 provided as input. The bounding volume is calculated by evaluating all the geometries of the feature and its "contained"
@@ -242,7 +242,7 @@ The `citydb_pkg` package also provides various utility functions as shown below.
 
 | Function                                                                                                                                                                        | Return type     | Description                                                                    |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|--------------------------------------------------------------------------------|
-| **`citydb_version`**<br/>`(OUT version TEXT, OUT major_version INTEGER, OUT minor_version INTEGER, OUT minor_revision INTEGER) `                                                | `RECORD`        | Returns the version of the 3DCityDB instance                                   |
+| **`citydb_version`**<br/>`(OUT version TEXT, OUT major_version INTEGER, OUT minor_version INTEGER, OUT minor_revision INTEGER)`                                                 | `RECORD`        | Returns the version of the 3DCityDB instance                                   |
 | **`db_metadata`**<br/>`(schema_name TEXT, OUT srid INTEGER, OUT srs_name TEXT, OUT coord_ref_sys_name TEXT, OUT coord_ref_sys_kind TEXT, OUT wktext TEXT, OUT versioning TEXT)` | `RECORD`        | Returns meta information about the 3DCityDB instance                           |
 | **`get_seq_values`**<br/>`(seq_name TEXT,seq_count BIGINT)`                                                                                                                     | `SETOF BIGINT`  | Returns `n` sequence values from the given sequence                            |
 | **`get_child_objectclass_ids`**<br/>`(class_id INTEGER,skip_abstract INTEGER, schema_name TEXT)`                                                                                | `SETOF INTEGER` | Returns the `id` values of all transitive subclasses of the given object class |

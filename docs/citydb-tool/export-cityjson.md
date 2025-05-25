@@ -80,7 +80,7 @@ For more details on the tiling options and usage hints, see [here](export.md#til
 
 --8<-- "docs/citydb-tool/includes/db-options.md"
 
-For more details on the database connection options and usage hints, see [here](database.md).
+For more details on the database connection options and usage hints, see [here](database.md#using-command-line-options).
 
 ## Usage
 
@@ -133,7 +133,7 @@ option.
 
 ### Replacing template geometries
 
-CityJSON supports the CityGML concept of [implicit geometries](../3dcitydb/geometry-module.md#implicit-geometries),
+CityJSON supports the CityGML concept of [implicit geometries](../3dcitydb/geometry-module.md#implicit_geometry-table),
 enabling template geometries to be defined and stored once in a CityJSON file and reused by multiple features. These
 template geometries are stored using local coordinates. Features that reference a template must provide both a reference
 point and a transformation matrix to convert the coordinates to real-world values and place the template correctly

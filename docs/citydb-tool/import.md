@@ -101,7 +101,7 @@ The available modes are:
 
 !!! note
     - Duplicates are identified by comparing the `objectid` column in the [`FEATURE`](../3dcitydb/feature-module.md#feature-table)
-      with the feature identifier from the input file (e.g., `gml:id`
+      table with the feature identifier from the input file (e.g., `gml:id`
       for CityGML files). No additional checks are applied for identifying duplicates.
     - Terminated features are excluded from the duplicates check.
 
@@ -238,7 +238,7 @@ to $m_{11}$:
 --transform=m0,m1,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11
 ```
 
-A common use case is swapping the $x$ and $y$ coordinates while keeping $z$ unchanged. You can use `swap_xy` as a
+A common use case is swapping the $x$ and $y$ coordinates while keeping $z$ unchanged. You can use `swap_xy` as
 shorthand for this transformation, as shown below.
 
 === "Linux"
@@ -260,7 +260,7 @@ shorthand for this transformation, as shown below.
 
 ### Defining import metadata
 
-The options `--lineage`, `--updating-person`, and `--reason-for-update` capture metadata about the feature’s origin, the
+The options `--lineage`, `--updating-person`, and `--reason-for-update` capture metadata about the feature's origin, the
 person responsible for the import, and the reason for the import. This metadata is specific to 3DCityDB and is not
 part of the CityGML standard (see also [here](../3dcitydb/feature-module.md#feature-table)). If not provided, the
 username used to establish the 3DCityDB database connection will be used as the default value for `--updating-person`.

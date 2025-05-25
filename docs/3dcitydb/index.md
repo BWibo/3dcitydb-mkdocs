@@ -25,7 +25,7 @@ in just a few seconds.
 ## Key features of 3DCityDB v5
 
 - Full support for CityGML versions 3.0, 2.0 and 1.0
-- Complex thematic modelling including support for Application Domain Extensions (ADE)
+- Complex thematic modeling including support for Application Domain Extensions (ADE)
 - Four (CityGML 3.0) or five (CityGML 2.0 and 1.0) different Levels of Detail (LoDs)
 - Appearance information (textures and materials)
 - Digital terrain models (DTMs) represented as TINs
@@ -37,7 +37,7 @@ in just a few seconds.
   sub-objects and geometries. As an alternative, objects can only be marked as terminated,
   which leaves them in the database but sets their termination date timestamps accordingly.
   This realizes a simple but powerful historization / versioning mechanism.
-- [`citydb-tool`](../citydb-tool/index.md) for for importing and exporting CityGML datasets of any size, supporting both
+- [`citydb-tool`](../citydb-tool/index.md) for importing and exporting CityGML datasets of any size, supporting both
   GML and CityJSON encodings. It works with CityGML versions 3.0, 2.0, and 1.0, as well as CityJSON versions 2.0, 1.1,
   and 1.0. Additionally, it enables seamless on-the-fly upgrading and downgrading between different versions.
 

@@ -84,7 +84,7 @@ citydb-tool from launching.
 citydb-tool is launched with default JVM options, which can be overridden by setting the `CITYDB_OPTS`
 environment variable. You can also use `JAVA_OPTS` or `DEFAULT_JVM_OPTS` to pass JVM options to the `citydb`
 script. For example, to increase the JVM's maximum heap size, the option `-Xmx` can be used. The following command
-shows how to set `JAVA_HOME` to specify the Java installation and use `CITYDB_OPTS` to allocate 2 gigabytes for
+shows how to set `JAVA_HOME` to specify the Java installation and use `CITYDB_OPTS` to allocate two gigabytes for
 the heap space.
 
 === "Linux"

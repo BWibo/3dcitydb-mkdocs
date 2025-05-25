@@ -203,7 +203,7 @@ Here are some examples for full image tags:
 
 ## Usage and configuration
 
-A 3DCityDB container is configured by settings environment variables inside the container. For instance, this can be done using the `-e VARIABLE=VALUE` flag of [`docker run`](https://docs.docker.com/engine/reference/run/#env-environment-variables). The 3DCityDB Docker images introduce the variables `SRID`, `HEIGHT_EPSG` and `SRS_NAME`. Furthermore, some variables inherited from the base images offer important configuration options.
+A 3DCityDB container is configured by settings environment variables inside the container. For instance, this can be done using the `-e VARIABLE=VALUE` flag of [`docker run`](https://docs.docker.com/engine/containers/run/#environment-variables). The 3DCityDB Docker images introduce the variables `SRID`, `HEIGHT_EPSG` and `SRS_NAME`. Furthermore, some variables inherited from the base images offer important configuration options.
 Refer to the documentation of the official [PostgreSQL](https://hub.docker.com/_/postgres){target="blank"} and [PostGIS](https://registry.hub.docker.com/r/postgis/postgis/){target="blank"} Docker images for much more configuration options.
 
 !!! tip
@@ -419,7 +419,7 @@ The configuration of the PostgreSQL database has significant impact on performan
     max_parallel_maintenance_workers = 4
     ```
 
-2. Pass these configuration parameters to `postgres` (see emphasized line) using the the `-c` option when starting your DCityDB container with [`docker run`](https://docs.docker.com/engine/reference/run){target="blank"}.
+2. Pass these configuration parameters to `postgres` (see emphasized line) using the `-c` option when starting your 3DCityDB container with [`docker run`](https://docs.docker.com/engine/reference/run){target="blank"}.
 
     === "Linux"
 

@@ -153,7 +153,7 @@ identical to the EPSG code of the CRS. There are three parameters that need to b
 
 !!! tip
     The coordinate reference system can be changed at any time after setup using the database function
-    `citydb_pkg.change_schema_srid`. Refer to the [database procedures section](../3dcitydb/db-functions.md) for
+    `citydb_pkg.change_schema_srid`. Refer to the [database procedures section](../3dcitydb/db-functions.md#crs-functions) for
     more information.
 
 ### Step 6: Create changelog extension
@@ -182,17 +182,16 @@ The setup process will terminate immediately if any errors occur. Possible reaso
 - The user executing `create-db` is neither a superuser nor the owner of the specified database (or does
   not have the privileges to create objects in that database).
 - The PostGIS extension has not been installed.
-- Parts of the 3DCityDB already exists because of a previous setup attempt. To prevent this, ensure that the schemas
+- Parts of the 3DCityDB already exist because of a previous setup attempt. To prevent this, ensure that the schemas
   `citydb` and `citydb_pkg` do not exist in the database before starting the setup process.
 
-When the message `Done` is displayed, the setup has been successfully completed. The figure below shows a
+If no error message is displayed, the setup has been successfully completed. The figure below shows a
 summary of the required user input for the `create-db` script.
 
 ![create-db script](assets/create-db.png)
 /// figure-caption
 Example user input for the create-db script.
 ///
-
 
 !!! tip
     In addition to the `connection-details` and `create-db` shell scripts for setting up a 3DCityDB instance, the 3DCityDB
@@ -216,6 +215,7 @@ search path in your new 3DCityDB instance:
 ```SQL
 ALTER DATABASE new_citydb_v5 SET search_path TO citydb, citydb_pkg, public;
 ```
+
 !!! info
     If your 3DCityDB template contains more schemas, ensure to add them all to the `search_path`.
     Note that the search path will be updated upon the next login, not within the same session.

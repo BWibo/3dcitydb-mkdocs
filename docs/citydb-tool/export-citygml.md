@@ -73,7 +73,7 @@ For more details on the tiling options and usage hints, see [here](export.md#til
 
 --8<-- "docs/citydb-tool/includes/db-options.md"
 
-For more details on the database connection options and usage hints, see [here](database.md).
+For more details on the database connection options and usage hints, see [here](database.md#using-command-line-options).
 
 ## Usage
 

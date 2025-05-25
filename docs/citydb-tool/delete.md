@@ -6,8 +6,8 @@ tags:
   - delete
 ---
 
-The `delete` command removes or terminates features in the 3DCityDB `v5`. It is built on top the corresponding
-[database functions](../3dcitydb/db-functions.md) to perform these operations.
+The `delete` command removes or terminates features in the 3DCityDB `v5`. It is built on top of the corresponding
+[database functions](../3dcitydb/db-functions.md#delete-functions) to perform these operations.
 
 !!! tip
     Be cautious when using the `delete` command, as it starts the delete process immediately. There is no 'Are you sure?'
@@ -69,7 +69,7 @@ For more details on the global options and usage hints, see [here](cli.md#option
 
 --8<-- "docs/citydb-tool/includes/db-options.md"
 
-For more details on the database connection options and usage hints, see [here](database.md).
+For more details on the database connection options and usage hints, see [here](database.md#using-command-line-options).
 
 ## Usage
 

@@ -78,7 +78,7 @@ After adjusting the `connection-details` script, all other scripts can be execut
 running them from within a shell environment. On UNIX/Linux machines, you may first need to set the appropriate file
 permissions to make the script executable.
 
-The example below demonstrates how to run the `create-db` script to set up a new 3DCityDB v5 instance.
+The example below demonstrates how to run the `create-db` script to set up a new 3DCityDB `v5` instance.
 
 === "Linux"
 

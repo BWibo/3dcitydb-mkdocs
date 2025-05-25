@@ -142,7 +142,7 @@ To apply a bounding box filter to the `envelope` property of features, you can u
 
 #### SQL-based filtering
 
-The `--sql-filter` option allows the use of SQL `SELECT` statements as a filter expressions, providing access to all
+The `--sql-filter` option allows the use of SQL `SELECT` statements as filter expressions, providing access to all
 details of the [relational schema](../3dcitydb/relational-schema.md). Any `SELECT` statement supported by the underlying
 database system is permitted, as long as it returns only a list of `id` values from
 the [FEATURE](../3dcitydb/feature-module.md#feature-table) table. Only features included in the returned list will be
@@ -358,7 +358,7 @@ to $m_{11}$:
 --transform=m0,m1,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11
 ```
 
-A common use case is swapping the $x$ and $y$ coordinates while keeping $z$ unchanged. You can use `swap_xy` as a
+A common use case is swapping the $x$ and $y$ coordinates while keeping $z$ unchanged. You can use `swap_xy` as
 shorthand for this transformation, as shown below.
 
 === "Linux"
@@ -410,7 +410,7 @@ origin `(0,0)` is in the top-left corner, but you can change it to the bottom-le
 option.
 
 !!! note
-    citydb tool ensures that each feature is assigned to only one tile. If a feature cannot be assigned to a tile when
+    citydb-tool ensures that each feature is assigned to only one tile. If a feature cannot be assigned to a tile when
     the tiling extent is manually defined, it will be excluded from the export.
 
 #### Organizing tiled exports
@@ -439,6 +439,7 @@ Will generate files like:
 tiles/0/tile_0.gml
 tiles/0/tile_1.gml
 tiles/1/tile_0.gml
+...
 ```
 
 !!! note

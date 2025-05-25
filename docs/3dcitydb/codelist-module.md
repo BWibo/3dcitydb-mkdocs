@@ -11,8 +11,7 @@ The Codelist module in 3DCityDB `v5` adds support for storing codelists, which a
 descriptions or definitions. Many CityGML properties are designed to take values from codelists, as defined in the
 [CityGML 3.0 Conceptual Model (CM)](https://docs.ogc.org/is/20-010/20-010.html). Codelists may be required, recommended,
 or suggested by an authority within an organization or community, or more informally defined and used within an
-application
-domain.
+application domain.
 
 ![codelist module](assets/codelist-module.png)
 /// figure-caption

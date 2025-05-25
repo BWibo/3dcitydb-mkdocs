@@ -160,7 +160,7 @@ The `"CityGML"` property is a container object for CityGML-specific format optio
 | [`"mapLod0RoofEdge"`](import-citygml.md#upgrading-citygml-20-and-10)      | Map LoD0 roof edges onto roof surfaces.                                                                                                                                                                     | `false`       |
 | [`"mapLod1MultiSurfaces"`](import-citygml.md#upgrading-citygml-20-and-10) | Map LoD1 multi-surfaces onto generic thematic surfaces.                                                                                                                                                     | `false`       |
 | `"createCityObjectRelations"`                                             | Create `CityObjectRelation` objects for [geometry references between top-level features](https://docs.ogc.org/is/21-006r2/21-006r2.html#linking-rules-section).                                             | `true`        |
-| `"resolveCrossLodReferences"`                                             | Resolves geometry references between different LoD represenations of the same feature.                                                                                                                      | `true`        |
+| `"resolveCrossLodReferences"`                                             | Resolves geometry references between different LoD representations of the same feature.                                                                                                                     | `true`        |
 
 ### CityJSON options
 

@@ -59,7 +59,7 @@ For more details on the filter options and usage hints, see [here](import.md#fil
 
 --8<-- "docs/citydb-tool/includes/db-options.md"
 
-For more details on the database connection options and usage hints, see [here](database.md).
+For more details on the database connection options and usage hints, see [here](database.md#using-command-line-options).
 
 ## Usage
 
@@ -76,11 +76,11 @@ objects on individual lines, each delimited by newlines. This format enables eff
 
 The following file types and extensions are recognized by citydb-tool:
 
-| File type            | File extensions    |
-|----------------------|--------------------|
-| CityJSON file        | `.json`, `.jsonl ` |
-| GZIP compressed file | `.gz`, `.gzip`     |
-| ZIP archive          | `.zip`             |
+| File type            | File extensions   |
+|----------------------|-------------------|
+| CityJSON file        | `.json`, `.jsonl` |
+| GZIP compressed file | `.gz`, `.gzip`    |
+| ZIP archive          | `.zip`            |
 
 The file extensions are used when a directory or ZIP archive is provided as `<file>` input instead of a single file.
 In such cases, the directory or archive is recursively scanned for input files, which are identified using the
@@ -91,10 +91,10 @@ extensions listed above and then processed for import.
 The `import cityjson` command inherits [filtering options](import.md#filtering-features) from the parent `import`
 command. In the context of CityJSON input files, the filters operate as follows:
 
-| Filter                                                               | Description                                                                                                                                                                                 |
-|----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Filter                                                           | Description                                                                                                                                                                                 |
+|------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Feature identifier filter](import.md#feature-identifier-filter) | <ul><li>Regular CityJSON files: Applies to the `key` in the `"CityObjects"` collection.</li><li>CityJSONSeq files: Applies to the `"id"` property of `"CityJSONFeature"` objects.</li></ul> |
-| [Bounding box filter](import.md#bounding-box-filter)             | Applies to the `"geographicalExtent"` property of input features.                                                                                                                                  |
+| [Bounding box filter](import.md#bounding-box-filter)             | Applies to the `"geographicalExtent"` property of input features.                                                                                                                           |
 
 !!! note
     Filters are applied to the 1st-level city objects in the input file. Matching city objects are imported, including all

@@ -15,7 +15,7 @@ tags:
 ## 3D City Database
 
 Setting up an instance of the 3D City Database requires an existing installation of
-a [PostgreSQL](https://www.postgresql.org/) database with [PostGIS](https://postgis.net/) extension or use our [Docker images](../3dcitydb/docker.md).
+a [PostgreSQL](https://www.postgresql.org/) database with [PostGIS](https://postgis.net/) extension or using our [Docker images](../3dcitydb/docker.md).
 We recommend checking data and database [compatibility](../compatibility.md) first.
 
 !!! info

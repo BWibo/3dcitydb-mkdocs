@@ -245,7 +245,7 @@ The JSON structure for storing write options is shown below. Format-specific set
 | [`"failFast"`](export.md#controlling-the-export-process)        | Fail fast on errors.                              | `false`       |
 | [`"numberOfThreads"`](export.md#controlling-the-export-process) | Number of threads to use for parallel processing. |               |
 | [`"tempDirectory"`](export.md#controlling-the-export-process)   | Store temporary files in this directory.          |               |
-| [`"encoding"`](export.md#specifying-the-output-file)            | Encoding to use for output file.                  |               |
+| [`"encoding"`](export.md#specifying-the-output-file)            | Encoding to use for the output file.              |               |
 | [`"srsName"`](export.md#reprojecting-geometries)                | Name of the CRS to use in the output file.        |               |
 
 ### CityGML options

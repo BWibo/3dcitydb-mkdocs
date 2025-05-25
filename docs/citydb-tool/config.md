@@ -30,6 +30,8 @@ sections needed for a specific command.
 }
 ```
 
+## Configuration sections
+
 The purpose of each configuration section is outlined below. Their content and usage for different citydb-tool commands are
 explained in more detail in the following chapters.
 

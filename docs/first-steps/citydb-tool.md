@@ -1,5 +1,5 @@
 ---
-title: Using the citydb-tool
+title: Using citydb-tool
 description: How to import and export CityGML data using citydb-tool
 tags:
   - citydb-tool
@@ -9,7 +9,7 @@ tags:
 This guide provides a quick introduction to importing and exporting CityGML or CityJSON data into the 3DCityDB
 using `citydb-tool`. It is intended to help you get started with the basics, while the full documentation
 of citydb-tool is available [here](../citydb-tool/index.md). citydb-tool is the default command-line client for
-3DCityDB v5, designed for importing and exporting city model data and performing various database operations.
+3DCityDB `v5`, designed for importing and exporting city model data and performing various database operations.
 
 ## Prerequisites
 

@@ -575,7 +575,7 @@ with the following meanings:
 !!! tip
     The coordinate reference system can be changed at any time after setup using the database function
     `citydb_pkg.change_schema_srid`. However, **changing the values directly in the `DATABASE_SRS` table will have no impact
-    on the geometries stored in the database**. Refer to the [database procedures section](../3dcitydb/db-functions.md) for more information.
+    on the geometries stored in the database**. Refer to the [database functions section](../3dcitydb/db-functions.md) for more information.
 
 ## `ADE` table
 

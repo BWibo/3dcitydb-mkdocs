@@ -69,7 +69,7 @@ For more details on the filter options and usage hints, see [here](import.md#fil
 
 --8<-- "docs/citydb-tool/includes/db-options.md"
 
-For more details on the database connection options and usage hints, see [here](database.md).
+For more details on the database connection options and usage hints, see [here](database.md#using-command-line-options).
 
 ## Usage
 
@@ -115,7 +115,7 @@ available to resolve compatibility issues when importing CityGML 2.0 or 1.0 file
 ### Filtering CityGML features
 
 The `import citygml` command inherits [filtering options](import.md#filtering-features) from the parent `import`
-command. In the context of CityGML input files, the filter operate as follows:
+command. In the context of CityGML input files, the filters operate as follows:
 
 | Filter                                                               | Description                                                |
 |----------------------------------------------------------------------|------------------------------------------------------------|

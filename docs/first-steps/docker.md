@@ -75,9 +75,9 @@ A much more detailed example on importing and exporting data using 3DCityDB and 
 
 ## What is Docker?
 
-[Docker :fontawesome-brands-docker:](https://docker.com){target="blank"} is a widely used virtualization technology that makes it possible to pack an application with all its required resources into a standardized unit - the _Docker Container_. Software encapsulated in this way can run on Linux, Windows, macOS and most cloud services without any further changes or setup process. Docker containers are lightweight compared to traditional virtualization environments that emulate an entire operating system, because they contain only the application and all the tools, program libraries, and files it requires.
+[Docker :fontawesome-brands-docker:](https://docker.com){target="blank"} is a widely used virtualization technology that makes it possible to pack an application with all its required resources into a standardized unit—the _Docker Container_. Software encapsulated in this way can run on Linux, Windows, macOS, and most cloud services without any further changes or setup process. Docker containers are lightweight compared to traditional virtualization environments that emulate an entire operating system because they contain only the application and all the tools, program libraries, and files it requires.
 
-Docker enables you to get a 3DCityDB instance up and running in a fews seconds, without having to setup a database server or the 3DCityDB database schema, as shown below.
+Docker enables you to get a 3DCityDB instance up and running in a few seconds, without having to set up a database server or the 3DCityDB database schema, as shown below.
 
 ![Docker example](assets/citydb_docker_term.gif)
 /// figure-caption
@@ -86,7 +86,7 @@ Setup a 3DCityDB instance using Docker and establish a connection to the ready-t
 
 ### Get Docker
 
-To run the 3DCityDB images you need to install _Docker Engine_. Installation instructions for Linux are available [here](https://docs.docker.com/desktop/setup/install/linux/){target="blank"}. For Windows it is recommended to download and install [Docker Desktop](https://www.docker.com/products/docker-desktop/){target="blank"}.
+To run the 3DCityDB images, you need to install _Docker Engine_. Installation instructions for Linux are available [here](https://docs.docker.com/desktop/setup/install/linux/){target="blank"}. For Windows, it is recommended to download and install [Docker Desktop](https://www.docker.com/products/docker-desktop/){target="blank"}.
 
 ## Docker images overview
 
@@ -106,7 +106,7 @@ Docker images are available for the following tools of the 3DCityDB software sui
 
 ### Get 3DCityDB Docker images
 
-All images are available from [DockerHub]{target="blank"} or Github container registry ([ghcr.io]{target="blank"}). An overview on available versions and image variants is available [here](../3dcitydb/docker.md#image-variants-and-versions). Pull the `latest` image once to make sure you are using 3DCityDB `v5`, or use a `v5` tag.
+All images are available from [DockerHub]{target="blank"} or Github container registry ([ghcr.io]{target="blank"}). An overview of available versions and image variants is available [here](../3dcitydb/docker.md#image-variants-and-versions). Pull the `latest` image once to make sure you are using 3DCityDB `v5`, or use a `v5` tag.
 
 - [3D City Database](../3dcitydb/docker.md)
 
@@ -162,7 +162,7 @@ All images are available from [DockerHub]{target="blank"} or Github container re
 
 ## Quick start examples
 
-The following sections provide _quick start_ code snippets for all 3DCityDB Docker images to get you running in a few seconds. For a more comprehensive documentation please visit the individual chapters of each image.
+The following sections provide _quick start_ code snippets for all 3DCityDB Docker images to get you running in a few seconds. For more comprehensive documentation, please visit the individual chapters of each image.
 
 - [3DCityDB Docker](../3dcitydb/docker.md)
 - [citydb-tool Docker](../citydb-tool/docker.md)
@@ -236,7 +236,7 @@ The Docker image exposes the commands of the [`citydb-tool`](../citydb-tool/inde
 
     1. The commands of `citydb-tool` are documented [here](../citydb-tool/index.md).
 
-#### Show CLI documentation
+#### Show help and CLI documentation
 
 Use the `help` command to see the CLI documentation and list all available commands:
 
