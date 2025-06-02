@@ -1,10 +1,10 @@
 site_name: 3D City Database v5 documentation
-site_url: https://3dcitydb.github.io/3dcitydb-mkdocs/
+site_url: https://otherdocs.brunowillenborg.de/
 site_description: Notizen und Dokumentation zu Meetings
 site_author: 3DCityDB Steering Group
 copyright: 3DCityDB Steering Group, 2025
 repo_name: 3dcitydb/3dcitydb-mkdocs
-repo_url: https://github.com/3dcitydb/3dcitydb-mkdocs
+repo_url: https://github.com/bwibo/3dcitydb-mkdocs
 edit_uri: edit/main/docs
 
 # Page tree ###################################################################
@@ -84,7 +84,7 @@ plugins:
       # deploy_prefix: /3dcitydb-mkdocs
       version_selector: true
       remote_branch: gh-pages
-      remote_name: origin
+      remote_name: bwibo
 
 # Extra #######################################################################
 extra:
