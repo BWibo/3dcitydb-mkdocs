@@ -92,6 +92,7 @@ extra:
   version:
     provider: mike
     default: latest
+    alias: true
 
 # Markdown extensions #########################################################
 markdown_extensions:
