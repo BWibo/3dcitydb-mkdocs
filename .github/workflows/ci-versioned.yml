@@ -37,8 +37,8 @@ jobs:
         run: |
           if [[ "${GITHUB_REF}" == refs/tags/v* ]]; then
             VERSION=${GITHUB_REF#refs/tags/}
-            mike deploy --push --update-aliases "$VERSION" latest
             mike deploy --push --update-aliases latest
+            mike deploy --push --update-aliases "$VERSION" latest
           elif [[ "${GITHUB_REF}" == refs/heads/main ]]; then
             mike deploy --push --update-aliases edge
           fi
