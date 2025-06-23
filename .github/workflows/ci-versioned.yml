@@ -40,7 +40,7 @@ jobs:
             mike deploy --push --update-aliases "$VERSION"
             mike alias --update-aliases "$VERSION" latest
             mike set-default latest
-            mike deploy --push
+            mike deploy --push "$VERSION" latest
           elif [[ "${GITHUB_REF}" == refs/heads/main ]]; then
             mike deploy --push --update-aliases edge
           fi
