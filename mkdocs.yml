@@ -91,7 +91,7 @@ extra:
     wip: "Work in progress"
   version:
     provider: mike
-    default: latest
+    # default: latest
 
 # Markdown extensions #########################################################
 markdown_extensions:

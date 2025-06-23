@@ -5,7 +5,7 @@ description: 3D City Database v5 documentation welcome page
 
 #### :simple-rocket: Welcome to the brand new 3D City Database `v5` documentation! :simple-rocket:
 
-This is release version `v2.0.2`.
+This is release version `v2.0.3`.
 
 New stuff.
 
