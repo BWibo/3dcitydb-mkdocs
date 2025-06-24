@@ -10,11 +10,12 @@ permissions:
   contents: write  # Required to push to gh-pages
 
 jobs:
+
   deploy:
     runs-on: ubuntu-latest
-    # concurrency:
-    #   group: docs-deploy
-    #   cancel-in-progress: false
+    concurrency:
+      group: docs-deploy
+      cancel-in-progress: true
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
