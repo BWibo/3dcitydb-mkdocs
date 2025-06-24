@@ -9,12 +9,13 @@ on:
 permissions:
   contents: write  # Required to push to gh-pages
 
-concurrency:
-  group: docs-deploy
-  cancel-in-progress: false
+
 
 jobs:
   deploy:
+    concurrency:
+      group: docs-deploy
+      cancel-in-progress: false
     runs-on: ubuntu-latest
 
     steps:
