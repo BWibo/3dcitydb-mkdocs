@@ -12,9 +12,9 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    concurrency:
-      group: docs-deploy
-      cancel-in-progress: false
+    # concurrency:
+    #   group: docs-deploy
+    #   cancel-in-progress: false
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
