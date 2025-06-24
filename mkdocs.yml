@@ -78,7 +78,7 @@ plugins:
       tags: true
   - mike:
       # alias_type: copy
-      # canonical_version: latest
+      canonical_version: latest
       css_dir: assets/stylesheets
       javascript_dir: assets/javascripts
       # # deploy_prefix: /3dcitydb-mkdocs

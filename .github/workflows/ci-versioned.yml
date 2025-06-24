@@ -9,15 +9,12 @@ on:
 permissions:
   contents: write  # Required to push to gh-pages
 
-
-
 jobs:
   deploy:
+    runs-on: ubuntu-latest
     concurrency:
       group: docs-deploy
       cancel-in-progress: false
-    runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -43,6 +40,7 @@ jobs:
           if [[ "${GITHUB_REF}" == refs/tags/v* ]]; then
             VERSION=${GITHUB_REF#refs/tags/}
             mike deploy --push --update-aliases "$VERSION" latest
+            mike set-default --push latest
           elif [[ "${GITHUB_REF}" == refs/heads/main ]]; then
             mike deploy --push --update-aliases edge
           fi
