@@ -135,13 +135,13 @@ jobs:
 
             This release contains the documentation for 3D City Database version ${{ steps.version.outputs.version }}.
 
-            📖 **Documentation**: https://docs.brunowillenborg.de/
+            📖 **Documentation**: https://docs.3dcitydb.org/
             🏷️ **Version**: ${{ steps.version.outputs.version }}
             🌿 **Branch**: ${{ steps.version.outputs.branch_name }}
 
             ### Access the documentation
-            - **Latest stable**: https://docs.brunowillenborg.de/
-            - **This version**: https://docs.brunowillenborg.de/${{ steps.version.outputs.version }}/
+            - **Latest stable**: https://docs.3dcitydb.org/
+            - **This version**: https://docs.3dcitydb.org/${{ steps.version.outputs.version }}/
           draft: false
           prerelease: false
           make_latest: ${{ steps.get_versions.outputs.is_latest == 'true' }}

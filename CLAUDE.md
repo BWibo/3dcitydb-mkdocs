@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Zensical-based documentation for the 3D City Database (3DCityDB) v5. Live site: https://docs.brunowillenborg.de/
+Zensical-based documentation for the 3D City Database (3DCityDB) v5. Live site: https://docs.3dcitydb.org/
 
 ## Commands
 
@@ -35,7 +35,6 @@ mike serve                                     # Serve versioned docs locally
 - `release-X.Y` branches deploy as versioned docs (e.g., `release-1.2` -> version `1.2`)
 - The highest version among all release branches gets the `latest` alias
 - CI workflow: `.github/workflows/ci.yml` (Python 3.13, auto-creates GitHub releases with `vX.Y` tags)
-- Test repo: `bwibo/3dcitydb-mkdocs` (never push to `3dcitydb/3dcitydb-mkdocs`)
 
 ## Architecture
 
