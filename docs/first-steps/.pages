@@ -1,8 +1,0 @@
-nav:
-  - index.md
-  - requirements.md
-  - setup.md
-  - citydb-tool.md
-  - docker.md
-  - migration.md
-  - ...
