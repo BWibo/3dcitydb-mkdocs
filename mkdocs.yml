@@ -1,14 +1,72 @@
 site_name: 3D City Database v5 documentation
-site_url: https://docs.3dcitydb.org/
+site_url: https://docs.brunowillenborg.de/
 site_description: Documentation for the 3D City Database v5.
 site_author: 3DCityDB Steering Group
 copyright: 3DCityDB Steering Group, 2025
-repo_name: 3dcitydb/3dcitydb-mkdocs
-repo_url: https://github.com/3dcitydb/3dcitydb-mkdocs
+repo_name: bwibo/3dcitydb-mkdocs
+repo_url: https://github.com/BWibo/3dcitydb-mkdocs
 edit_uri: edit/main/docs
 
 # Page tree ###################################################################
-# nav:
+nav:
+  - Welcome:
+    - index.md
+    - download.md
+    - compatibility.md
+    - usage-contrib.md
+    - tags.md
+  - First steps:
+    - first-steps/index.md
+    - first-steps/requirements.md
+    - first-steps/setup.md
+    - first-steps/citydb-tool.md
+    - first-steps/docker.md
+    - first-steps/migration.md
+  - 3D City Database:
+    - 3dcitydb/index.md
+    - Relational schema:
+      - Schema overview: 3dcitydb/relational-schema.md
+      - Feature module: 3dcitydb/feature-module.md
+      - Geometry module: 3dcitydb/geometry-module.md
+      - Appearance module: 3dcitydb/appearance-module.md
+      - Metadata module: 3dcitydb/metadata-module.md
+      - Codelist module: 3dcitydb/codelist-module.md
+    - 3dcitydb/db-scripts.md
+    - 3dcitydb/db-functions.md
+    - 3dcitydb/db-upgrade.md
+    - 3dcitydb/docker.md
+  - citydb-tool:
+    - citydb-tool/index.md
+    - citydb-tool/cli.md
+    - citydb-tool/database.md
+    - citydb-tool/connect.md
+    - citydb-tool/info.md
+    - Import command:
+      - Import overview: citydb-tool/import.md
+      - CityGML import: citydb-tool/import-citygml.md
+      - CityJSON import: citydb-tool/import-cityjson.md
+    - Export command:
+      - Export overview: citydb-tool/export.md
+      - CityGML export: citydb-tool/export-citygml.md
+      - CityJSON export: citydb-tool/export-cityjson.md
+    - citydb-tool/delete.md
+    - citydb-tool/index-command.md
+    - JSON configuration:
+      - Configuration overview: citydb-tool/config.md
+      - Import configuration: citydb-tool/import-config.md
+      - Export configuration: citydb-tool/export-config.md
+      - Delete configuration: citydb-tool/delete-config.md
+      - Report configuration: citydb-tool/report-config.md
+    - citydb-tool/cql2.md
+    - citydb-tool/docker.md
+  - Contributors:
+    - contributors/index.md
+    - contributors/tum-gis.md
+    - contributors/hft-stuttgart.md
+    - contributors/list-eco.md
+    - contributors/moss.md
+    - contributors/vcs.md
+    - contributors/acknowledgements.md
 
 # Theme #######################################################################
 theme:
@@ -17,10 +75,6 @@ theme:
   logo: ./assets/img/logos/3dcitydb-logo-transparent.png
   favicon: ./assets/img/logos/3dcitydb-logo-transparent.png
   palette:
-  # font:
-  #   # text: IBM Plex Sans
-  #   text: Inter
-  #   # code: DM Mono
   # Palette toggle for light mode
   - scheme: default
     primary: green
@@ -40,20 +94,16 @@ theme:
       name: Switch to light mode
   features:
     # Navigation
-    # - navigation.expand
     - navigation.footer
     - navigation.indexes
     - navigation.instant
     - navigation.instant.prefetch
     - navigation.instant.progress
     - navigation.path
-    # - navigation.prune
-    # - navigation.sections
     - navigation.tabs
     - navigation.top
     - navigation.tracking
     - toc.follow
-    # - navigation.instant.preview
     # Code
     - content.code.select
     - content.code.copy
@@ -70,19 +120,8 @@ theme:
 
 # Plugins #####################################################################
 plugins:
-  - search:
-      lang: en
-  - glightbox
-  - awesome-pages
   - tags:
       tags: true
-  - mike:
-      alias_type: redirect
-      canonical_version: latest
-      css_dir: assets/stylesheets
-      javascript_dir: assets/javascripts
-      # # deploy_prefix: /3dcitydb-mkdocs
-      # version_selector: true
 
 # Extra #######################################################################
 extra:
@@ -105,7 +144,6 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
-  - pymdownx.snippets
   - toc:
       permalink: true
       title: Table of content
@@ -113,11 +151,8 @@ markdown_extensions:
       permalink_title: Link to this headline for referencing
   - md_in_html
   - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-      options:
-        custom_icons:
-          - overrides/.icons
+      emoji_index: !!python/name:zensical.extensions.emoji.twemoji
+      emoji_generator: !!python/name:zensical.extensions.emoji.to_svg
   - def_list
   - pymdownx.tasklist:
       custom_checkbox: true
@@ -154,6 +189,3 @@ extra_javascript:
 extra_css:
   - https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css
   - assets/stylesheets/extra.css
-
-watch:
-  - includes
