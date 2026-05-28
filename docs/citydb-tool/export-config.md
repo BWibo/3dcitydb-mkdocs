@@ -232,6 +232,7 @@ The JSON structure for storing write options is shown below. Format-specific set
     "tempDirectory": "/path/to/temp",
     "encoding": "UTF-8",
     "srsName": "http://www.opengis.net/def/crs/EPSG/0/25832",
+    "skipEmptyTiles": false,
     "formatOptions": {
       "CityGML": {...},
       "CityJSON": {...}
@@ -249,7 +250,7 @@ The JSON structure for storing write options is shown below. Format-specific set
 | [`"tempDirectory"`](export.md#controlling-the-export-process)   | Store temporary files in this directory.          |               |
 | [`"encoding"`](export.md#specifying-the-output-file)            | Encoding to use for the output file.              |               |
 | [`"srsName"`](export.md#reprojecting-geometries)                | Name of the CRS to use in the output file.        |               |
-| [`"skipEmptyTiles"`](export.md#handling-empty-tiles)            | Skip tile files containing no exported features.  |               |
+| [`"skipEmptyTiles"`](export.md#handling-empty-tiles)            | Skip tile files containing no exported features.  | `false`       |
 
 ### CityGML options
 
