@@ -14,6 +14,7 @@ theme:
 extra:
   pr_number: !ENV [PR_NUMBER, ""]
   pr_url: !ENV [PR_URL, ""]
+  pr_sha: !ENV [PR_SHA, ""]
   # Hide the mike version selector in previews: there is no versions.json
   # under /pr/<num>/, so a selector would be broken. Replacing the dict from
   # mkdocs.yml with `false` makes Material render no version dropdown.
