@@ -9,7 +9,7 @@
 {% block announce %}
   {% if config.extra.pr_number %}
   <a href="{{ config.extra.pr_url }}" style="font-weight: 600;">
-    🔍 Preview of pull request #{{ config.extra.pr_number }} — not the official documentation.
+    🔍 Preview of pull request #{{ config.extra.pr_number }}{% if config.extra.pr_sha %} (commit {{ config.extra.pr_sha }}){% endif %} — not the official documentation.
   </a>
   {% endif %}
 {% endblock %}

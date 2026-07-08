@@ -44,13 +44,15 @@ jobs:
         env:
           PR_NUMBER: ${{ github.event.number }}
           PR_URL: ${{ github.event.pull_request.html_url }}
+          PR_SHA_FULL: ${{ github.event.pull_request.head.sha }}
         run: |
           # Derive the host from docs/CNAME so this works on both the production
           # repo (docs.3dcitydb.org) and the bwibo testing fork
           # (docs.brunowillenborg.de) without any change.
           HOST="$(tr -d '[:space:]' < docs/CNAME 2>/dev/null || echo docs.3dcitydb.org)"
           export SITE_URL="https://${HOST}/pr/${PR_NUMBER}/"
-          echo "Building preview at $SITE_URL"
+          export PR_SHA="${PR_SHA_FULL:0:7}"
+          echo "Building preview at $SITE_URL (commit $PR_SHA)"
           mkdocs build -f mkdocs.pr.yml -d site --strict
 
       - name: Record PR metadata for deploy job
