@@ -18,8 +18,8 @@
         
       
       
-      <link rel="icon" href="/latest/./assets/img/logos/3dcitydb-logo-transparent.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <link rel="icon" href="/edge/assets/img/logos/3dcitydb-logo-transparent.png">
+      <meta name="generator" content="zensical-0.0.47">
     
     
       
@@ -27,10 +27,15 @@
       
     
     
-      <link rel="stylesheet" href="/latest/assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="/latest/assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      <link rel="stylesheet" href="/edge/assets/stylesheets/modern/main.5e19f6ca.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="/edge/assets/stylesheets/modern/palette.dfe2e883.min.css">
       
       
 
@@ -44,16 +49,16 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
     
-      <link rel="stylesheet" href="/latest/assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="/edge/assets/stylesheets/extra.css">
     
-    <script>__md_scope=new URL("/latest",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("/edge",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
 
@@ -74,8 +79,12 @@
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
     <div data-md-component="skip">
+      
+        <a href="#__skip" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -93,12 +102,12 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://github.com/3dcitydb/" title="3D City Database v5 documentation" class="md-header__button md-logo" aria-label="3D City Database v5 documentation" data-md-component="logo">
       
-  <img src="/latest/./assets/img/logos/3dcitydb-logo-transparent.png" alt="logo">
+  <img src="/edge/assets/img/logos/3dcitydb-logo-transparent.png" alt="3D City Database v5 documentation">
 
     </a>
-    <label class="md-header__button md-icon" for="__drawer">
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -150,64 +159,30 @@
     
       
       
-        <label class="md-header__button md-icon" for="__search">
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
         </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
-            
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
-          </a>
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
 </div>
       
     
-    
-      <div class="md-header__source">
-        <a href="https://github.com/3dcitydb/3dcitydb-mkdocs" title="Go to repository" class="md-source" data-md-component="source">
+    <div class="md-header__source">
+      
+        <a href="https://github.com/BWibo/3dcitydb-mkdocs" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
-    3dcitydb/3dcitydb-mkdocs
+    bwibo/3dcitydb-mkdocs
   </div>
 </a>
-      </div>
-    
+      
+    </div>
   </nav>
   
 </header>
@@ -228,13 +203,27 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
-        <a href="/latest/." class="md-tabs__link">
+        <a href="/edge/" class="md-tabs__link">
           
-  
-  
-    
   
   Welcome
 
@@ -250,13 +239,29 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
-        <a href="/latest/first-steps/" class="md-tabs__link">
+        <a href="/edge/first-steps/" class="md-tabs__link">
           
-  
-  
-    
   
   First steps
 
@@ -272,13 +277,29 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
-        <a href="/latest/3dcitydb/" class="md-tabs__link">
+        <a href="/edge/3dcitydb/" class="md-tabs__link">
           
-  
-  
-    
   
   3D City Database
 
@@ -294,13 +315,41 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
-        <a href="/latest/citydb-tool/" class="md-tabs__link">
+        <a href="/edge/citydb-tool/" class="md-tabs__link">
           
-  
-  
-    
   
   citydb-tool
 
@@ -316,13 +365,31 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
-        <a href="/latest/contributors/" class="md-tabs__link">
+        <a href="/edge/contributors/" class="md-tabs__link">
           
-  
-  
-    
   
   Contributors
 
@@ -356,20 +423,20 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://github.com/3dcitydb/" title="3D City Database v5 documentation" class="md-nav__button md-logo" aria-label="3D City Database v5 documentation" data-md-component="logo">
       
-  <img src="/latest/./assets/img/logos/3dcitydb-logo-transparent.png" alt="logo">
+  <img src="/edge/assets/img/logos/3dcitydb-logo-transparent.png" alt="3D City Database v5 documentation">
 
     </a>
     3D City Database v5 documentation
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/3dcitydb/3dcitydb-mkdocs" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/BWibo/3dcitydb-mkdocs" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
-    3dcitydb/3dcitydb-mkdocs
+    bwibo/3dcitydb-mkdocs
   </div>
 </a>
     </div>
@@ -412,15 +479,14 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/latest/." class="md-nav__link ">
+            <a href="/edge/" class="md-nav__link ">
               
   
   
   <span class="md-ellipsis">
     
   
-    Welcome
-  
+  Welcome
 
     
   </span>
@@ -441,8 +507,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Welcome
-  
+  Welcome
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -456,15 +521,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/download/" class="md-nav__link">
+      <a href="/edge/download/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Get the software
-  
+  Get the software
 
     
   </span>
@@ -484,15 +548,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/compatibility/" class="md-nav__link">
+      <a href="/edge/compatibility/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Compatibility and data migration
-  
+  Compatibility and data migration
 
     
   </span>
@@ -512,15 +575,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/usage-contrib/" class="md-nav__link">
+      <a href="/edge/usage-contrib/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Usage and contribution
-  
+  Usage and contribution
 
     
   </span>
@@ -540,15 +602,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/tags/" class="md-nav__link">
+      <a href="/edge/tags/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Index
-  
+  Index
 
     
   </span>
@@ -606,15 +667,14 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/latest/first-steps/" class="md-nav__link ">
+            <a href="/edge/first-steps/" class="md-nav__link ">
               
   
   
   <span class="md-ellipsis">
     
   
-    First steps
-  
+  First steps
 
     
   </span>
@@ -635,8 +695,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    First steps
-  
+  First steps
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -650,15 +709,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/first-steps/requirements/" class="md-nav__link">
+      <a href="/edge/first-steps/requirements/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    System requirements
-  
+  System requirements
 
     
   </span>
@@ -678,15 +736,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/first-steps/setup/" class="md-nav__link">
+      <a href="/edge/first-steps/setup/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Setting up a 3DCityDB
-  
+  Setting up a 3DCityDB
 
     
   </span>
@@ -706,15 +763,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/first-steps/citydb-tool/" class="md-nav__link">
+      <a href="/edge/first-steps/citydb-tool/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Using citydb-tool
-  
+  Using citydb-tool
 
     
   </span>
@@ -734,7 +790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/first-steps/docker/" class="md-nav__link">
+      <a href="/edge/first-steps/docker/" class="md-nav__link">
         
   
   
@@ -743,8 +799,7 @@
   <span class="md-ellipsis">
     
   
-    Using Docker
-  
+  Using Docker
 
     
   </span>
@@ -764,15 +819,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/first-steps/migration/" class="md-nav__link">
+      <a href="/edge/first-steps/migration/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Migration from previous versions
-  
+  Migration from previous versions
 
     
   </span>
@@ -830,15 +884,14 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/latest/3dcitydb/" class="md-nav__link ">
+            <a href="/edge/3dcitydb/" class="md-nav__link ">
               
   
   
   <span class="md-ellipsis">
     
   
-    3D City Database
-  
+  3D City Database
 
     
   </span>
@@ -859,8 +912,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    3D City Database
-  
+  3D City Database
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -909,8 +961,7 @@
   <span class="md-ellipsis">
     
   
-    Relational schema
-  
+  Relational schema
 
     
   </span>
@@ -925,8 +976,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Relational schema
-  
+  Relational schema
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -938,15 +988,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/3dcitydb/relational-schema/" class="md-nav__link">
+      <a href="/edge/3dcitydb/relational-schema/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Schema overview
-  
+  Schema overview
 
     
   </span>
@@ -966,15 +1015,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/3dcitydb/feature-module/" class="md-nav__link">
+      <a href="/edge/3dcitydb/feature-module/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Feature module
-  
+  Feature module
 
     
   </span>
@@ -994,15 +1042,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/3dcitydb/geometry-module/" class="md-nav__link">
+      <a href="/edge/3dcitydb/geometry-module/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Geometry module
-  
+  Geometry module
 
     
   </span>
@@ -1022,15 +1069,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/3dcitydb/appearance-module/" class="md-nav__link">
+      <a href="/edge/3dcitydb/appearance-module/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Appearance module
-  
+  Appearance module
 
     
   </span>
@@ -1050,15 +1096,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/3dcitydb/metadata-module/" class="md-nav__link">
+      <a href="/edge/3dcitydb/metadata-module/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Metadata module
-  
+  Metadata module
 
     
   </span>
@@ -1078,15 +1123,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/3dcitydb/codelist-module/" class="md-nav__link">
+      <a href="/edge/3dcitydb/codelist-module/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Codelist module
-  
+  Codelist module
 
     
   </span>
@@ -1114,15 +1158,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/3dcitydb/db-scripts/" class="md-nav__link">
+      <a href="/edge/3dcitydb/db-scripts/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Database scripts
-  
+  Database scripts
 
     
   </span>
@@ -1142,15 +1185,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/3dcitydb/db-functions/" class="md-nav__link">
+      <a href="/edge/3dcitydb/db-functions/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Database functions
-  
+  Database functions
 
     
   </span>
@@ -1170,15 +1212,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/3dcitydb/db-upgrade/" class="md-nav__link">
+      <a href="/edge/3dcitydb/db-upgrade/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Upgrading a 3DCityDB
-  
+  Upgrading a 3DCityDB
 
     
   </span>
@@ -1198,7 +1239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/3dcitydb/docker/" class="md-nav__link">
+      <a href="/edge/3dcitydb/docker/" class="md-nav__link">
         
   
   
@@ -1207,8 +1248,7 @@
   <span class="md-ellipsis">
     
   
-    3DCityDB Docker
-  
+  3DCityDB Docker
 
     
   </span>
@@ -1278,15 +1318,14 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/latest/citydb-tool/" class="md-nav__link ">
+            <a href="/edge/citydb-tool/" class="md-nav__link ">
               
   
   
   <span class="md-ellipsis">
     
   
-    citydb-tool
-  
+  citydb-tool
 
     
   </span>
@@ -1307,8 +1346,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    citydb-tool
-  
+  citydb-tool
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1322,15 +1360,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/citydb-tool/cli/" class="md-nav__link">
+      <a href="/edge/citydb-tool/cli/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    CLI overview
-  
+  CLI overview
 
     
   </span>
@@ -1350,15 +1387,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/citydb-tool/database/" class="md-nav__link">
+      <a href="/edge/citydb-tool/database/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Connection details
-  
+  Connection details
 
     
   </span>
@@ -1378,15 +1414,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/citydb-tool/connect/" class="md-nav__link">
+      <a href="/edge/citydb-tool/connect/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Connect command
-  
+  Connect command
 
     
   </span>
@@ -1406,15 +1441,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/citydb-tool/info/" class="md-nav__link">
+      <a href="/edge/citydb-tool/info/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Info command
-  
+  Info command
 
     
   </span>
@@ -1463,8 +1497,7 @@
   <span class="md-ellipsis">
     
   
-    Import command
-  
+  Import command
 
     
   </span>
@@ -1479,8 +1512,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Import command
-  
+  Import command
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1492,15 +1524,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/citydb-tool/import/" class="md-nav__link">
+      <a href="/edge/citydb-tool/import/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Import overview
-  
+  Import overview
 
     
   </span>
@@ -1520,15 +1551,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/citydb-tool/import-citygml/" class="md-nav__link">
+      <a href="/edge/citydb-tool/import-citygml/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    CityGML import
-  
+  CityGML import
 
     
   </span>
@@ -1548,15 +1578,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/citydb-tool/import-cityjson/" class="md-nav__link">
+      <a href="/edge/citydb-tool/import-cityjson/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    CityJSON import
-  
+  CityJSON import
 
     
   </span>
@@ -1613,8 +1642,7 @@
   <span class="md-ellipsis">
     
   
-    Export command
-  
+  Export command
 
     
   </span>
@@ -1629,8 +1657,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Export command
-  
+  Export command
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1642,15 +1669,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/citydb-tool/export/" class="md-nav__link">
+      <a href="/edge/citydb-tool/export/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Export overview
-  
+  Export overview
 
     
   </span>
@@ -1670,15 +1696,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/citydb-tool/export-citygml/" class="md-nav__link">
+      <a href="/edge/citydb-tool/export-citygml/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    CityGML export
-  
+  CityGML export
 
     
   </span>
@@ -1698,15 +1723,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/citydb-tool/export-cityjson/" class="md-nav__link">
+      <a href="/edge/citydb-tool/export-cityjson/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    CityJSON export
-  
+  CityJSON export
 
     
   </span>
@@ -1734,15 +1758,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/citydb-tool/delete/" class="md-nav__link">
+      <a href="/edge/citydb-tool/delete/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Delete command
-  
+  Delete command
 
     
   </span>
@@ -1762,15 +1785,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/citydb-tool/index-command/" class="md-nav__link">
+      <a href="/edge/citydb-tool/index-command/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Index command
-  
+  Index command
 
     
   </span>
@@ -1823,8 +1845,7 @@
   <span class="md-ellipsis">
     
   
-    JSON configuration
-  
+  JSON configuration
 
     
   </span>
@@ -1839,8 +1860,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    JSON configuration
-  
+  JSON configuration
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1852,15 +1872,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/citydb-tool/config/" class="md-nav__link">
+      <a href="/edge/citydb-tool/config/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Configuration overview
-  
+  Configuration overview
 
     
   </span>
@@ -1880,15 +1899,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/citydb-tool/import-config/" class="md-nav__link">
+      <a href="/edge/citydb-tool/import-config/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Import configuration
-  
+  Import configuration
 
     
   </span>
@@ -1908,15 +1926,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/citydb-tool/export-config/" class="md-nav__link">
+      <a href="/edge/citydb-tool/export-config/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Export configuration
-  
+  Export configuration
 
     
   </span>
@@ -1936,15 +1953,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/citydb-tool/delete-config/" class="md-nav__link">
+      <a href="/edge/citydb-tool/delete-config/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Delete configuration
-  
+  Delete configuration
 
     
   </span>
@@ -1964,15 +1980,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/citydb-tool/report-config/" class="md-nav__link">
+      <a href="/edge/citydb-tool/report-config/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Report configuration
-  
+  Report configuration
 
     
   </span>
@@ -2000,15 +2015,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/citydb-tool/cql2/" class="md-nav__link">
+      <a href="/edge/citydb-tool/cql2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    CQL2 query language
-  
+  CQL2 query language
 
     
   </span>
@@ -2028,7 +2042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/citydb-tool/docker/" class="md-nav__link">
+      <a href="/edge/citydb-tool/docker/" class="md-nav__link">
         
   
   
@@ -2037,8 +2051,7 @@
   <span class="md-ellipsis">
     
   
-    citydb-tool Docker
-  
+  citydb-tool Docker
 
     
   </span>
@@ -2098,15 +2111,14 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/latest/contributors/" class="md-nav__link ">
+            <a href="/edge/contributors/" class="md-nav__link ">
               
   
   
   <span class="md-ellipsis">
     
   
-    Contributors
-  
+  Contributors
 
     
   </span>
@@ -2127,8 +2139,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Contributors
-  
+  Contributors
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2142,15 +2153,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/contributors/tum-gis/" class="md-nav__link">
+      <a href="/edge/contributors/tum-gis/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Chair of Geoinformatics, TUM
-  
+  Chair of Geoinformatics, TUM
 
     
   </span>
@@ -2170,15 +2180,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/contributors/hft-stuttgart/" class="md-nav__link">
+      <a href="/edge/contributors/hft-stuttgart/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    HFT Stuttgart
-  
+  HFT Stuttgart
 
     
   </span>
@@ -2198,15 +2207,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/contributors/list-eco/" class="md-nav__link">
+      <a href="/edge/contributors/list-eco/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    LIST Eco
-  
+  LIST Eco
 
     
   </span>
@@ -2226,15 +2234,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/contributors/moss/" class="md-nav__link">
+      <a href="/edge/contributors/moss/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    M.O.S.S.
-  
+  M.O.S.S.
 
     
   </span>
@@ -2254,15 +2261,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/contributors/vcs/" class="md-nav__link">
+      <a href="/edge/contributors/vcs/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Virtual City Systems
-  
+  Virtual City Systems
 
     
   </span>
@@ -2282,15 +2288,14 @@
   
   
     <li class="md-nav__item">
-      <a href="/latest/contributors/acknowledgements/" class="md-nav__link">
+      <a href="/edge/contributors/acknowledgements/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Acknowledgements
-  
+  Acknowledgements
 
     
   </span>
@@ -2320,8 +2325,15 @@
               
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                    
+                  
                   <div class="md-sidebar__inner">
                     
+
 
   
 
@@ -2360,7 +2372,7 @@
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
   Back to top
 </button>
         
@@ -2380,8 +2392,8 @@
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
     </a>
   
 </div>
@@ -2401,16 +2413,16 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/latest", "features": ["navigation.footer", "navigation.indexes", "navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.tabs", "navigation.top", "navigation.tracking", "toc.follow", "content.code.select", "content.code.copy", "content.code.annotate", "content.tooltips", "search.suggest", "search.highlight", "search.share", "header.autohide", "content.tabs.link"], "search": "/latest/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": "latest", "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"/edge","features":["navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.instant.progress","navigation.path","navigation.tabs","navigation.top","navigation.tracking","toc.follow","content.code.select","content.code.copy","content.code.annotate","content.tooltips","search.suggest","search.highlight","search.share","header.autohide","content.tabs.link"],"search":"/edge/assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"alias":true,"default":"latest","provider":"mike"}}</script>
     
     
-      <script src="/latest/assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="/edge/assets/javascripts/bundle.0df4f2d0.min.js"></script>
       
-        <script src="/latest/assets/javascripts/tablesort.js"></script>
+        <script src="/edge/assets/javascripts/tablesort.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="/latest/assets/javascripts/katex.js"></script>
+        <script src="/edge/assets/javascripts/katex.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
       
